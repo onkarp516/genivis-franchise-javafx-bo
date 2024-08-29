@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import com.opethic.genivis.controller.commons.SwitchButton?>
+
+<BorderPane fx:id="mainBorderPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.opethic.genivis.controller.Reports.StocksStockReport1Controller">
+    <top>
+        <VBox BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER_LEFT" style="-fx-background-color: #b8e3fa;">
+                    <children>
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER"
+                               style="-fx-font-weight: 700; -fx-font-size: 16;"
+                               text="Stock Reports : Company : Genivis Remedies">
+                            <HBox.margin>
+                                <Insets left="15.0"/>
+                            </HBox.margin>
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" style="-fx-background-color: #d9f0fb;" VBox.vgrow="ALWAYS">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" spacing="15.0">
+                            <children>
+                                <!--                        <ComboBox fx:id="cbFilter" minWidth="140.0" prefWidth="140.0" maxWidth="140.0"  prefHeight="30.0"  promptText="Filter" HBox.hgrow="ALWAYS">-->
+                                <ComboBox fx:id="cbFilter" minWidth="120.0" promptText="Filter Search">
+                                    <HBox.margin>
+                                        <!--                                <Insets left="10.0" top="10.0" />-->
+                                        <Insets right="-15.0"/>
+                                    </HBox.margin>
+                                    <!--                            <padding>-->
+                                    <!--                                <Insets left="10" right="10" ></Insets>-->
+                                    <!--                            </padding>-->
+                                </ComboBox>
+                                <!--                        <TextField fx:id="tfStockReport1ListSearch" prefHeight="30.0" minWidth="150.0" prefWidth="150.0" maxWidth="150" promptText="Search Ledger" HBox.hgrow="ALWAYS">-->
+                                <TextField fx:id="tfStockReport1ListSearch" minWidth="150.0" promptText="Search Ledger">
+                                    <HBox.margin>
+                                        <!--                                <Insets bottom="10.0" left="0.0" right="10.0" top="10.0" />-->
+                                        <Insets/>
+                                    </HBox.margin>
+                                </TextField>
+                                <!--                        <CheckBox minWidth="65.0" prefWidth="65.0" maxWidth="65" fx:id="cbBatch" mnemonicParsing="false" text="Batch" HBox.hgrow="ALWAYS">-->
+                                <CheckBox minWidth="65.0" fx:id="cbBatch" mnemonicParsing="false" text="Batch">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <!--                                <Insets left="10.0" right="10.0" top="15.0" />-->
+                                        <Insets/>
+                                    </HBox.margin>
+                                </CheckBox>
+                                <!--                        <CheckBox  minWidth="95.0" prefWidth="95.0" maxWidth="95" fx:id="cbNonBatch" mnemonicParsing="false" text="Non Batch" HBox.hgrow="ALWAYS">-->
+                                <CheckBox minWidth="95.0" fx:id="cbNonBatch" mnemonicParsing="false" text="Non Batch">
+                                    <HBox.margin>
+                                        <!--                                <Insets left="10.0" right="2.0" top="15.0" />-->
+                                        <Insets/>
+                                    </HBox.margin>
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </CheckBox>
+                                <Label text="Negative Stock" minWidth="90.0">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <!--                                <Insets left="25.0" right="5.0" top="15.0" />-->
+                                        <Insets/>
+                                    </HBox.margin>
+                                </Label>
+                                <VBox fx:id="vboxNevStk" prefHeight="23.0" maxHeight="23.0" minHeight="23.0"
+                                      prefWidth="35.5" minWidth="35.5" maxWidth="35.5"
+                                      style="-fx-background-color: #f8f4fc; -fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #f8f4fc; -fx-border-width: 2;">
+                                    <SwitchButton fx:id="sbNegativeStock" minWidth="32.0"/>
+                                </VBox>
+                                <Label text="Near Expiry" minWidth="60.0">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <!--                                <Insets left="25.0" right="5.0" top="15.0" />-->
+                                        <Insets/>
+                                    </HBox.margin>
+                                </Label>
+                                <VBox fx:id="vboxNrExp" prefHeight="23.0" maxHeight="23.0" minHeight="23.0"
+                                      prefWidth="35.5" minWidth="35.5" maxWidth="35.5"
+                                      style="-fx-background-color: #f8f4fc; -fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #f8f4fc; -fx-border-width: 2;">
+                                    <SwitchButton fx:id="sbNearExpiry" minWidth="32.0"/>
+                                </VBox>
+                                <Label text="Expired" minWidth="50.0">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <!--                                <Insets left="25.0" right="5.0" top="15.0" />-->
+                                        <Insets/>
+                                    </HBox.margin>
+                                </Label>
+                                <VBox fx:id="vboxExp" prefHeight="23.0" maxHeight="23.0" minHeight="23.0"
+                                      prefWidth="35.5" minWidth="35.5" maxWidth="35.5"
+                                      style="-fx-background-color: #f8f4fc; -fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #f8f4fc; -fx-border-width: 2;">
+                                    <SwitchButton fx:id="sbExpired" minWidth="32.0"/>
+                                </VBox>
+                                <CheckBox fx:id="cbScheduleH" mnemonicParsing="false" text="Schedule H" minWidth="95.0">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <!--                                <Insets left="10.0" right="10.0" top="15.0" />-->
+                                        <Insets/>
+                                    </HBox.margin>
+                                </CheckBox>
+                                <CheckBox fx:id="cbScheduleH1" mnemonicParsing="false" text="Schedule H1"
+                                          minWidth="110.0">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <!--                                <Insets left="10.0" right="10.0" top="15.0" />-->
+                                        <Insets/>
+                                    </HBox.margin>
+                                </CheckBox>
+                                <CheckBox fx:id="cbNarcotics" mnemonicParsing="false" text="Narcotics" minWidth="90.0">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <!--                                <Insets left="10.0" right="10.0" top="15.0" />-->
+                                        <Insets/>
+                                    </HBox.margin>
+                                </CheckBox>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" spacing="10.0" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Button fx:id="btExportPdf" mnemonicParsing="false"
+                                        style="-fx-background-color: transparent;">
+                                    <graphic>
+                                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                            <image>
+                                                <Image url="@../assets/pdf.png"/>
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <HBox.margin>
+                                        <Insets/>
+                                    </HBox.margin>
+                                </Button>
+                                <Button fx:id="btExportExcel" mnemonicParsing="false"
+                                        style="-fx-background-color: transparent;">
+                                    <graphic>
+                                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                            <image>
+                                                <Image url="@../assets/excel.png"/>
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <HBox.margin>
+                                        <Insets/>
+                                    </HBox.margin>
+                                </Button>
+                                <Button fx:id="btExportCsv" mnemonicParsing="false"
+                                        style="-fx-background-color: transparent;">
+                                    <graphic>
+                                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                            <image>
+                                                <Image url="@../assets/csv.png"/>
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <HBox.margin>
+                                        <Insets/>
+                                    </HBox.margin>
+                                </Button>
+                                <Button fx:id="btExportPrint" mnemonicParsing="false"
+                                        style="-fx-background-color: transparent;">
+                                    <graphic>
+                                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                            <image>
+                                                <Image url="@../assets/print.png"/>
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <HBox.margin>
+                                        <Insets/>
+                                    </HBox.margin>
+                                </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                    <padding>
+                        <Insets bottom="6.0" left="6.0" right="6.0" top="6.0"/>
+                    </padding>
+                </HBox>
+            </children>
+        </VBox>
+    </top>
+    <center>
+        <VBox>
+            <TableView fx:id="tblvStockReport1List" editable="true" prefHeight="800.0" prefWidth="1900.0">
+                <columns>
+                    <TableColumn fx:id="tblStockReport1Code" text="Code"/>
+                    <TableColumn fx:id="tblStockReport1ProductName" text="Product Name"/>
+                    <TableColumn fx:id="tblStockReport1Packing" text="Packing"/>
+                    <TableColumn fx:id="tblStockReport1Brand" text="Brand"/>
+                    <TableColumn fx:id="tblStockReport1Batch" text="Batch"/>
+                    <TableColumn fx:id="tblStockReport1ExpiryDate" text="Expiry Date"/>
+                    <TableColumn fx:id="tblStockReport1Unit" text="Unit"/>
+                    <TableColumn fx:id="tblStockReport1Quantity" text="Quantity"/>
+                </columns>
+                <BorderPane.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                </BorderPane.margin>
+            </TableView>
+            <TableView fx:id="tblvStockReport1List1" editable="true" prefHeight="800.0" prefWidth="1900.0">
+                <columns>
+                    <TableColumn fx:id="tblStockReport1Code1" text="Code"/>
+                    <TableColumn fx:id="tblStockReport1ProductName1" text="Product Name"/>
+                    <TableColumn fx:id="tblStockReport1Packing1" text="Packing"/>
+                    <TableColumn fx:id="tblStockReport1Brand1" text="Brand"/>
+                    <TableColumn fx:id="tblStockReport1Batch1" text="Batch"/>
+                    <TableColumn fx:id="tblStockReport1ExpiryDate1" text="Expiry Date"/>
+                    <TableColumn fx:id="tblStockReport1Unit1" text="Unit"/>
+                    <TableColumn fx:id="tblStockReport1Quantity1" text="Quantity"/>
+                </columns>
+                <BorderPane.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                </BorderPane.margin>
+            </TableView>
+
+        </VBox>
+    </center>
+</BorderPane>

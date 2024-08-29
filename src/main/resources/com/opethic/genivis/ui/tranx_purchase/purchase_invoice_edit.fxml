@@ -1,0 +1,836 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<ScrollPane fx:id="rootAnchorPaneEdit" fitToHeight="true" fitToWidth="true" style="-fx-background-color: #d9f0fb;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.opethic.genivis.controller.tranx_purchase.PurchaseInvoiceEditController">
+    <content>
+        <BorderPane style="-fx-background-color: #D9F0FB;">
+            <top>
+                <VBox alignment="TOP_CENTER" spacing="20.0" style="-fx-background-color: #D9F0FB;">
+
+                    <VBox>
+                        <padding>
+                            <Insets left="15.0" right="15.0" top="15.0" />
+                        </padding>
+
+
+                        <VBox style="-fx-background-color: #F6F6F9; -fx-background-radius: 5px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0); ">
+                            <padding>
+                                <Insets bottom="10" left="10" right="10" top="5" />
+                            </padding>
+                            <HBox alignment="CENTER_LEFT" maxHeight="50" minHeight="50" prefHeight="50" style="-fx-background-color: #f6f6f9;">
+
+                                <padding>
+                                    <Insets bottom="10" left="5" right="5" top="10" />
+                                </padding>
+
+                                <Label maxWidth="100" minWidth="100" prefWidth="100" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Tranx Date      " />
+                                <DatePicker fx:id="dpPurInvEditTranxDate" minWidth="120" prefWidth="200" promptText="Tranx Date" HBox.hgrow="ALWAYS" />
+                                <Label maxWidth="150" minWidth="150" prefWidth="150" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="      Ledger Name" />
+                                <TextField fx:id="tfPurInvLedgNameEdit" maxWidth="538" minWidth="200" prefWidth="300" promptText="Ledger Name...." HBox.hgrow="ALWAYS" />
+                                <Label maxWidth="200" minWidth="200" prefWidth="200" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="      Supplier GSTIN" />
+
+                                <ComboBox fx:id="cmbPurInvEditSupplierGST" minWidth="150" prefWidth="300" promptText="Select" HBox.hgrow="ALWAYS" />
+
+                                <Label maxWidth="160" minWidth="160" prefWidth="160" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="      Purchase Serial" />
+                                <TextField fx:id="tfPurInvEditPurSerial" maxWidth="210" minWidth="120" prefWidth="200" promptText="Select" HBox.hgrow="ALWAYS" />
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" maxHeight="30" minHeight="30" prefHeight="30" style="-fx-background-color: #f6f6f9;">
+
+                                <padding>
+                                    <Insets bottom="10" left="5" right="5" top="5" />
+                                </padding>
+                                <!--                       for purchase invoice no.-->
+                                <Label maxWidth="100" minWidth="100" prefWidth="100" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Invoice No.     " />
+                                <TextField fx:id="tfPurInvEditInvNo" maxWidth="200" minWidth="65" prefWidth="21" promptText="Invoice No." HBox.hgrow="ALWAYS" />
+                                <!--for invoice date-->
+                                <Label maxWidth="150" minWidth="110" prefWidth="150" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="      Invoice Date" />
+                                <DatePicker fx:id="dpPurInvEditInvDate" maxWidth="200" minWidth="100" prefWidth="120" promptText="DD/MM/YYYY" HBox.hgrow="ALWAYS" />
+                                <Label maxWidth="140" minWidth="140" prefWidth="140" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="      Purchase A/C" />
+
+                                <ComboBox fx:id="cmbPurInvEditPurcAC" maxWidth="180" minWidth="100" prefWidth="140" HBox.hgrow="ALWAYS" />
+                                <!-- Payment mode -->
+                                <Label maxWidth="210" minWidth="120" prefWidth="210" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="       Payment Mode">
+
+                                </Label>
+                                <RadioButton fx:id="rbPaymentModeCashEdit" maxWidth="100.0" minWidth="60.0" prefWidth="80.0" text="Cash">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="paymentMode" />
+                                    </toggleGroup>
+
+                                </RadioButton>
+                                <RadioButton fx:id="rbPaymentModeCreditEdit" maxWidth="260.0" minWidth="40.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="230.0" text="Credit" toggleGroup="$paymentMode">
+
+                                </RadioButton>
+                                <Label fx:id="pendingPurOrderEdit" maxWidth="210.0" minWidth="60.0" prefWidth="180.0" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Purc.Orders:">
+
+                                </Label>
+                                <Label fx:id="pendingChallanEdit" maxWidth="100.0" minWidth="80.0" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Purc.Challan:">
+
+                                </Label>
+                            </HBox>
+                        </VBox>
+                    </VBox>
+                    <VBox>
+                        <padding>
+                            <Insets bottom="0" top="-5" />
+                        </padding>
+                        <TableView fx:id="tvPurInvEditCMPTRow" maxHeight="365" maxWidth="1980.0" minHeight="200" minWidth="1230.0">
+                            <columns>
+                                <TableColumn fx:id="tblcPurInvEditCmptSrNo" text="Sr.No." />
+                                <TableColumn fx:id="tblcPurInvEditCmptParticular" text="Particulars" />
+                                <TableColumn fx:id="tblcPurInvEditCmptPackage" text="Package" />
+                                <TableColumn fx:id="tblcPurInvEditCmptLevelA" text="AAAAAA" visible="false" /> <!-- to be make invisible-->
+                                <TableColumn fx:id="tblcPurInvEditCmptLevelB" text="BBBBBB" visible="false" /> <!--to be make invisible-->
+                                <TableColumn fx:id="tblcPurInvEditCmptLevelC" text="CCCCCC" visible="false" /> <!--to be make invisible-->
+                                <TableColumn fx:id="tblcPurInvEditCmptUnit" text="Unit" />
+                                <TableColumn fx:id="tblcPurInvEditCmptBatch" text="Batch" />
+                                <TableColumn fx:id="tblcPurInvEditCmptQuantity" text="Quantity" />
+                                <TableColumn fx:id="tblcPurInvEditCmptRate" text="Rate" />
+                                <TableColumn fx:id="tblcPurInvEditCmptGrossAmt" text="Gross Amount" />
+                                <TableColumn fx:id="tblcPurInvEditCmptDiscPerc" text="1-Dis.%" />
+                                <TableColumn fx:id="tblcPurInvEditCmptDisPer2" text="2-Disc. %" visible="false" /> <!--to be make invisible-->
+                                <TableColumn fx:id="tblcPurInvEditCmptDiscAmt" text="Dis.₹" />
+                                <TableColumn fx:id="tblcPurInvEditCmptTaxPerc" text="Tax.%" />
+                                <TableColumn fx:id="tblcPurInvEditCmptNetAmt" text="Net Amount" />
+                                <TableColumn fx:id="tblcPurInvEditCmptActions" text="Action" />
+                            </columns>
+                        </TableView>
+                        <HBox fx:id="hbapPurInvBatchWindowEdit" layoutX="264.0" layoutY="100.0" prefHeight="280.0" prefWidth="1643.0" style="-fx-background-color: #d9f0fb;" visible="false" AnchorPane.bottomAnchor="640.0" AnchorPane.leftAnchor="264.0" AnchorPane.rightAnchor="19.0" AnchorPane.topAnchor="174.0">
+                            <children>
+                                <AnchorPane prefHeight="200.0" prefWidth="1630.0">
+                                    <children>
+                                        <Label layoutX="16.0" layoutY="7.0" text="Batch">
+                                            <font>
+                                                <Font name="System Bold" size="20.0" />
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="93.0" layoutY="10.0" text="Current Stock : ">
+                                            <font>
+                                                <Font name="System Bold" size="16.0" />
+                                            </font>
+                                        </Label>
+                                        <HBox layoutX="3.0" layoutY="44.0" prefHeight="42.0" prefWidth="1624.0" style="-fx-background-color: #f8f0d2;">
+                                            <children>
+                                                <AnchorPane prefHeight="200.0" prefWidth="1630.0">
+                                                    <children>
+                                                        <Label layoutX="20.0" layoutY="10.0" style="-fx-text-fill: #b6762b;" text="Product Name:" AnchorPane.bottomAnchor="10.0">
+                                                            <font>
+                                                                <Font size="16.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutX="584.0" layoutY="7.0" prefHeight="20.0" prefWidth="158.0" style="-fx-text-fill: #b6762b;" text="Cost With tax : " AnchorPane.bottomAnchor="10.0">
+                                                            <font>
+                                                                <Font size="16.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutX="977.0" layoutY="7.0" style="-fx-text-fill: #b6762b;" text="Cost Without tax : " AnchorPane.bottomAnchor="10.0">
+                                                            <font>
+                                                                <Font size="16.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutX="1389.0" layoutY="5.0" style="-fx-text-fill: #b6762b;" text="Tax :" AnchorPane.bottomAnchor="10.0">
+                                                            <font>
+                                                                <Font size="16.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label fx:id="lblPurInvBatWinPrdNameEdit" layoutX="140.0" layoutY="10.0" prefHeight="25.0" prefWidth="421.0" style="-fx-text-fill: #b6762b;" text="---------------">
+                                                            <font>
+                                                                <Font size="16.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label fx:id="lblPurInvBatWinCWTEdit" layoutX="702.0" layoutY="7.0" prefHeight="25.0" prefWidth="124.0" style="-fx-text-fill: #b6762b;" text="0.00">
+                                                            <font>
+                                                                <Font size="16.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label fx:id="lblPurInvBatWinCWOTEDit" layoutX="1138.0" layoutY="7.0" prefHeight="25.0" prefWidth="124.0" style="-fx-text-fill: #b6762b;" text="0.00">
+                                                            <font>
+                                                                <Font size="16.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label fx:id="lblPurInvBatWinTaxEdit" layoutX="1438.0" layoutY="7.0" prefHeight="25.0" prefWidth="124.0" style="-fx-text-fill: #b6762b;" text="0.00">
+                                                            <font>
+                                                                <Font size="16.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </AnchorPane>
+                                            </children>
+                                        </HBox>
+                                        <TableView fx:id="tblvPurInvBatWinEditTableview" layoutX="4.0" layoutY="92.0" minWidth="1260" prefHeight="120.0" prefWidth="1620.0">
+                                            <columns>
+                                                <TableColumn fx:id="tblcPurInvBatWinBatchNoEdit" prefWidth="134.0" text="Batch" />
+                                                <TableColumn fx:id="tblcPurInvBatWinPurDateEdit" prefWidth="130.0" text="Pur Date" />
+                                                <TableColumn fx:id="tblcPurInvBatWinMFGDateEdit" prefWidth="130.0" text="MFG Date" />
+                                                <TableColumn fx:id="tblcPurInvBatWinEXPDateEdit" prefWidth="138.0" text="Expiry Date" />
+                                                <TableColumn fx:id="tblcPurInvBatWinMRPEdit" prefWidth="106.0" text="MRP" />
+                                                <TableColumn fx:id="tblcPurInvBatWinPurRateEdit" prefWidth="102.0" text="Purchase Rate" />
+                                                <TableColumn fx:id="tblcPurInvBatWinQtyEdit" prefWidth="90.0" text="Quantity" />
+                                                <TableColumn fx:id="tblcPurInvBatWinFreeQtyEdit" prefWidth="79.0" text="Free Qty." />
+                                                <TableColumn fx:id="tblcPurInvBatWinDisPerEdit" prefWidth="82.0" text="Disc.%" />
+                                                <TableColumn fx:id="tblcPurInvBatWinDisAmtEdit" prefWidth="98.0" text="Disc.(Amt)" />
+                                                <TableColumn fx:id="tblcPurInvBatWinBarcodeEdit" prefWidth="112.0" text="Barcode" />
+                                                <TableColumn fx:id="tblcPurInvBatWinMarginPerEdit" prefWidth="85.0" text="Margin%" />
+                                                <TableColumn fx:id="tblcPurInvBatWinFSREdit" prefWidth="82.0" text="FSR" />
+                                                <TableColumn fx:id="tblcPurInvBatWinCSREdit" prefWidth="88.0" text="CSR" />
+                                                <TableColumn fx:id="tblcPurInvBatWinSaleRateEdit" prefWidth="91.0" text="Sale Rate" />
+                                                <TableColumn fx:id="tblcPurInvBatWinActionEdit" prefWidth="79.0" text="Action" />
+
+                                            </columns>
+                                        </TableView>
+                                        <Label fx:id="lblPurInvCurrSTKEdit" layoutX="223.0" layoutY="10.0" text="0">
+                                            <font>
+                                                <Font name="System Bold" size="16.0" />
+                                            </font>
+                                        </Label>
+                                        <Button fx:id="btnPurInvBatchWinCloseEdit" layoutX="1590.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: #d9f0fb;" text="X" textFill="#dd0f0f">
+                                            <font>
+                                                <Font size="16.0" />
+                                            </font>
+                                        </Button>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </HBox>
+                        <HBox fx:id="hbapPurchaseInvAddnlChrgWindowEdit" layoutX="450" layoutY="2"  prefHeight="100.0" prefWidth="1178.0"
+                              style="-fx-background-color: #B9D9EB; -fx-z-index:1" visible="false">
+                            <children>
+                                <AnchorPane prefHeight="100.0" prefWidth="500.0" style="-fx-background-color: #B9D9EB ;">
+                                    <children>
+                                        <Button fx:id="btnPurchaseInvAddnlChargWindowCloseEdit" layoutX="1146.0" onAction="#closeAddCharges" layoutY="1.0" mnemonicParsing="false" text="X" />
+                                        <Label layoutX="14.0" layoutY="6.0" text="Additional Charges">
+                                            <font>
+                                                <Font name="System Bold" size="17.0" />
+                                            </font>
+                                        </Label>
+                                        <TableView fx:id="tblcPurchaseInvAddtnlChrgCmpTRowViewEdit" editable="true" layoutX="5.0" layoutY="35.0" prefHeight="454.0" prefWidth="1168.0" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                                            <columns>
+                                                <TableColumn prefWidth="62.0" resizable="false" text="sr.no." />
+                                                <TableColumn fx:id="tblcPurchaseInvAddtnlChrgCmpTRowParticularsEdit" prefWidth="579.0" text="Particular" />
+                                                <TableColumn fx:id="tblcPurchaseInvAddtnlChrgCmpTRowAmtEdit" prefWidth="121.0" text="Amt" />
+                                                <TableColumn fx:id="tblcPurchaseInvCmpTRowPercentageEdit" prefWidth="90.0" text="\%" />
+                                                <TableColumn fx:id="tblcPurchaseInvCmpTRowBatchNo1Edit" prefWidth="185.0" text="Actions" />
+                                            </columns>
+                                        </TableView>
+                                        <Button fx:id="btnPurInvAddChgsSubmitEdit" layoutX="977.0" layoutY="491.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="95.0" text="Submit" />
+                                        <Button fx:id="btnPurInvAddChgsCancelEdit" layoutX="1078.0" layoutY="491.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="95.0" text="Cancel" />
+                                    </children>
+                                </AnchorPane>
+
+                            </children>
+                        </HBox>
+                    </VBox>
+
+                </VBox>
+            </top>
+            <center>
+                <HBox spacing="40" style="-fx-background-color: blue;">
+                    <HBox>
+                        <VBox alignment="TOP_LEFT" maxWidth="1350.0" minWidth="750.0" prefWidth="1300.0" spacing="10" style="-fx-background-color: #E9F7FD;">
+                            <padding>
+                                <Insets bottom="10" left="5" right="5" top="5" />
+                            </padding>
+                            <!-- code of purchase order bottom info-->
+                            <TabPane fx:id="myTabPane" style="-fx-background-color: #e9f7fd;" stylesheets="@../css/TranxCommanCss.css">
+                                <Tab fx:id="tabPurInvLedgerInfoEdit" closable="false" text="Ledger">
+                                    <VBox>
+                                        <GridPane hgap="4.0" style="-fx-background-color: #f8f0d2; -fx-background-radius: 6;" vgap="4.0" VBox.vgrow="ALWAYS">
+                                            <padding>
+                                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                            </padding>
+                                            <Text fill="DARKGOLDENROD" style="-fx-font-weight: bold;" text="GST No. :  " GridPane.columnIndex="0" GridPane.fillWidth="true" GridPane.rowIndex="0">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="lbPurInvGstNoEdit" GridPane.columnIndex="1" GridPane.fillWidth="true" GridPane.rowIndex="0" />
+
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="Area :  " GridPane.fillWidth="true" GridPane.rowIndex="1">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="lbPurInvAreaEdit" GridPane.columnIndex="1" GridPane.fillWidth="true" GridPane.rowIndex="1" />
+
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="Bank :  " GridPane.fillWidth="true" GridPane.rowIndex="2">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="lbPurInvBankEdit" GridPane.columnIndex="1" GridPane.fillWidth="true" GridPane.rowIndex="2" />
+
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="Contact Person :  " GridPane.columnIndex="3" GridPane.fillWidth="true">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="lbPurInvContactPersonEdit" GridPane.columnIndex="4" GridPane.fillWidth="true" />
+
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="Transport :  " GridPane.columnIndex="3" GridPane.fillWidth="true" GridPane.rowIndex="1">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="lbPurInvTransportEdit" GridPane.columnIndex="4" GridPane.fillWidth="true" GridPane.rowIndex="1" />
+
+
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="Credit Days :  " GridPane.columnIndex="6" GridPane.fillWidth="true">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="lbPurInvCreditDaysEdit" GridPane.columnIndex="7" GridPane.fillWidth="true" />
+
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="FSSAI :  " GridPane.columnIndex="6" GridPane.fillWidth="true" GridPane.rowIndex="1">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="lbPurInvFssaiEdit" GridPane.columnIndex="7" GridPane.fillWidth="true" GridPane.rowIndex="1" />
+
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="License No :  " GridPane.columnIndex="9" GridPane.fillWidth="true">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="lbPurInvLisenceNoEdit" GridPane.columnIndex="10" GridPane.fillWidth="true" />
+
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="Route :  " GridPane.columnIndex="9" GridPane.fillWidth="true" GridPane.rowIndex="1">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="lbPurInvRouteEdit" GridPane.columnIndex="10" GridPane.fillWidth="true" GridPane.rowIndex="1" />
+                                            <Separator halignment="LEFT" orientation="VERTICAL" GridPane.columnIndex="2" />
+                                            <Separator orientation="VERTICAL" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                            <Separator orientation="VERTICAL" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                            <Separator orientation="VERTICAL" GridPane.columnIndex="5" />
+                                            <Separator orientation="VERTICAL" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                                            <Separator orientation="VERTICAL" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                                            <Separator orientation="VERTICAL" GridPane.columnIndex="8" />
+                                            <Separator orientation="VERTICAL" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+                                            <Separator orientation="VERTICAL" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+
+                                            <columnConstraints>
+                                                <ColumnConstraints />
+                                                <ColumnConstraints hgrow="ALWAYS" />
+                                                <ColumnConstraints hgrow="NEVER" />
+                                                <ColumnConstraints />
+                                                <ColumnConstraints hgrow="ALWAYS" />
+                                                <ColumnConstraints hgrow="NEVER" />
+                                                <ColumnConstraints />
+                                                <ColumnConstraints hgrow="ALWAYS" />
+                                                <ColumnConstraints hgrow="NEVER" />
+                                                <ColumnConstraints />
+                                                <ColumnConstraints hgrow="ALWAYS" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints />
+                                                <RowConstraints />
+                                                <RowConstraints />
+                                            </rowConstraints>
+                                        </GridPane>
+                                        <padding>
+                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                        </padding>
+                                    </VBox>
+                                </Tab>
+                                <Tab fx:id="tabPurInvProductInfoEdit" closable="false" text="Product">
+                                    <VBox>
+                                        <padding>
+                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                        </padding>
+                                        <GridPane hgap="4.0" style="-fx-background-color: #f8f0d2; -fx-background-radius: 6;" vgap="4.0" VBox.vgrow="ALWAYS">
+                                            <padding>
+                                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                            </padding>
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="Brand :  " GridPane.columnIndex="0" GridPane.fillWidth="true" GridPane.rowIndex="0">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="txtPurInvProductBrandEdit" GridPane.columnIndex="1" GridPane.fillWidth="true" GridPane.rowIndex="0" />
+
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="Group :  " GridPane.columnIndex="0" GridPane.fillWidth="true" GridPane.rowIndex="1">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="txtPurInvProductGroupEdit" GridPane.columnIndex="1" GridPane.fillWidth="true" GridPane.rowIndex="1" />
+
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="Sub Group :  " GridPane.fillWidth="true" GridPane.rowIndex="2">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="txtPurInvProductSubGroupEdit" GridPane.columnIndex="1" GridPane.fillWidth="true" GridPane.rowIndex="2" />
+
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="Category :  " GridPane.fillWidth="true" GridPane.rowIndex="3">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="txtPurInvProductCategoryEdit" GridPane.columnIndex="1" GridPane.fillWidth="true" GridPane.rowIndex="3" />
+
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="HSN :  " GridPane.columnIndex="3" GridPane.fillWidth="true">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="txtPurInvProductHsnEdit" GridPane.columnIndex="4" GridPane.fillWidth="true" />
+
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="Tax Type :  " GridPane.columnIndex="3" GridPane.fillWidth="true" GridPane.rowIndex="1">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="txtPurInvProductTaxTypeEdit" GridPane.columnIndex="4" GridPane.fillWidth="true" GridPane.rowIndex="1" />
+
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="Tax % :  " GridPane.columnIndex="3" GridPane.fillWidth="true" GridPane.rowIndex="2">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="txtPurInvProductTaxPerEdit" GridPane.columnIndex="4" GridPane.fillWidth="true" GridPane.rowIndex="2" />
+
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="Margin % :  " GridPane.columnIndex="3" GridPane.fillWidth="true" GridPane.rowIndex="3">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="txtPurInvProductMarginPerEdit" GridPane.columnIndex="4" GridPane.fillWidth="true" GridPane.rowIndex="3" />
+
+
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="Cost :  " GridPane.columnIndex="6" GridPane.fillWidth="true">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="txtPurInvProductCostEdit" GridPane.columnIndex="7" GridPane.fillWidth="true" />
+
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="Shelf ID :  " GridPane.columnIndex="6" GridPane.fillWidth="true" GridPane.rowIndex="1">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="txtPurInvProductShelfIdEdit" GridPane.columnIndex="7" GridPane.fillWidth="true" GridPane.rowIndex="1" />
+
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="Min stock :  " GridPane.columnIndex="6" GridPane.fillWidth="true" GridPane.rowIndex="2">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="txtPurInvProductMinStockEdit" GridPane.columnIndex="7" GridPane.fillWidth="true" GridPane.rowIndex="2" />
+
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="Max Stock :  " GridPane.columnIndex="6" GridPane.fillWidth="true" GridPane.rowIndex="3">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="txtPurInvProductMaxStockEdit" GridPane.columnIndex="7" GridPane.fillWidth="true" GridPane.rowIndex="3" />
+                                            <Separator orientation="VERTICAL" GridPane.columnIndex="2" />
+                                            <Separator orientation="VERTICAL" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                            <Separator orientation="VERTICAL" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                            <Separator orientation="VERTICAL" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                            <Separator orientation="VERTICAL" GridPane.columnIndex="5" />
+                                            <Separator orientation="VERTICAL" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                                            <Separator orientation="VERTICAL" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                                            <Separator orientation="VERTICAL" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+
+                                            <columnConstraints>
+                                                <ColumnConstraints />
+                                                <ColumnConstraints hgrow="ALWAYS" />
+                                                <ColumnConstraints hgrow="NEVER" />
+                                                <ColumnConstraints />
+                                                <ColumnConstraints hgrow="ALWAYS" />
+                                                <ColumnConstraints hgrow="NEVER" />
+                                                <ColumnConstraints />
+                                                <ColumnConstraints hgrow="ALWAYS" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints />
+                                                <RowConstraints />
+                                                <RowConstraints />
+                                                <RowConstraints />
+                                            </rowConstraints>
+                                        </GridPane>
+                                    </VBox>
+                                </Tab>
+                                <Tab fx:id="tabPurInvBatchInfoEdit" closable="false" text="Batch">
+                                    <VBox>
+                                        <GridPane hgap="4.0" style="-fx-background-color: #f8f0d2; -fx-background-radius: 6;" vgap="4.0" VBox.vgrow="ALWAYS">
+                                            <padding>
+                                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                            </padding>
+                                            <Text fill="DARKGOLDENROD" style="-fx-font-weight: bold;" text="Batch :  " GridPane.columnIndex="0" GridPane.fillWidth="true" GridPane.rowIndex="0">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="lbPurInvBatchBatchNoEdit" GridPane.columnIndex="1" GridPane.fillWidth="true" GridPane.rowIndex="0" />
+
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="MRP :  " GridPane.fillWidth="true" GridPane.rowIndex="1">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="lbPurInvBatchMrpEdit" GridPane.columnIndex="1" GridPane.fillWidth="true" GridPane.rowIndex="1" />
+
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="Cess% :  " GridPane.fillWidth="true" GridPane.rowIndex="2">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="lbPurInvBatchCessPerEdit" GridPane.columnIndex="1" GridPane.fillWidth="true" GridPane.rowIndex="2" />
+
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="Total Amt :  " GridPane.fillWidth="true" GridPane.rowIndex="3">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="lbPurInvBatchTotalAmtEdit" GridPane.columnIndex="1" GridPane.fillWidth="true" GridPane.rowIndex="3" />
+                                            <!--End of First column-->
+                                            <!--Start of second column-->
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="MFG Date :  " GridPane.columnIndex="3" GridPane.fillWidth="true">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="lbPurInvBatchMfgDateEdit" GridPane.columnIndex="4" GridPane.fillWidth="true" />
+
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="Pur Rate :  " GridPane.columnIndex="3" GridPane.fillWidth="true" GridPane.rowIndex="1">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="lbPurInvBatchPurRateEdit" GridPane.columnIndex="4" GridPane.fillWidth="true" GridPane.rowIndex="1" />
+
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="Cess Rs :  " GridPane.rowIndex="2" GridPane.columnIndex="3" GridPane.fillWidth="true">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="lbPurInvBatchCessAmtEdit" GridPane.columnIndex="4" GridPane.fillWidth="true" />
+
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="FSR :  " GridPane.columnIndex="3" GridPane.fillWidth="true" GridPane.rowIndex="3">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="lbPurInvBatchFsrEdit" GridPane.columnIndex="4" GridPane.fillWidth="true" GridPane.rowIndex="1" />
+                                            <!--End of second column-->
+                                            <!--Start of third column-->
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="Expiry Date :  " GridPane.columnIndex="5" GridPane.fillWidth="true">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="lbPurInvBatchExpDateEdit" GridPane.columnIndex="6" GridPane.fillWidth="true" />
+
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="Dis% :  " GridPane.columnIndex="5" GridPane.fillWidth="true" GridPane.rowIndex="1">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="lbPurInvBatchDisPerEdit" GridPane.columnIndex="6" GridPane.fillWidth="true" GridPane.rowIndex="1" />
+
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="Barcode :  " GridPane.rowIndex="2" GridPane.columnIndex="5" GridPane.fillWidth="true">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="lbPurInvBatchBarcodeEdit" GridPane.columnIndex="6" GridPane.fillWidth="true" />
+
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="CSR :  " GridPane.columnIndex="5" GridPane.fillWidth="true" GridPane.rowIndex="3">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="lbPurInvBatchCsrEdit" GridPane.columnIndex="6" GridPane.fillWidth="true" GridPane.rowIndex="1" />
+                                            <!--End of third column-->
+                                            <!--Start of fourth column-->
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="Available Stk :  " GridPane.columnIndex="9" GridPane.fillWidth="true">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="lbPurInvBatchAvailStockEdit" GridPane.columnIndex="10" GridPane.fillWidth="true" />
+
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="Disc.Rs :  " GridPane.columnIndex="9" GridPane.fillWidth="true" GridPane.rowIndex="1">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="lbPurInvBatchDisAmtEdit" GridPane.columnIndex="10" GridPane.fillWidth="true" GridPane.rowIndex="1" />
+
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="Margin% :  " GridPane.columnIndex="9" GridPane.fillWidth="true" GridPane.rowIndex="2">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="lbPurInvBatchMarginPerEdit" GridPane.columnIndex="10" GridPane.fillWidth="true" GridPane.rowIndex="2" />
+
+                                            <Text fill="darkgoldenrod" style="-fx-font-weight: bold;" text="Sales Rate :  " GridPane.columnIndex="9" GridPane.fillWidth="true" GridPane.rowIndex="3">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Text>
+                                            <Text fx:id="lbPurInvBatchSaleRateEdit" GridPane.columnIndex="10" GridPane.fillWidth="true" GridPane.rowIndex="3" />
+                                            <!--End of fourth column-->
+                                            <Separator halignment="LEFT" orientation="VERTICAL" GridPane.columnIndex="2" />
+                                            <Separator orientation="VERTICAL" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                            <Separator orientation="VERTICAL" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                            <Separator orientation="VERTICAL" GridPane.columnIndex="5" />
+                                            <Separator orientation="VERTICAL" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                                            <Separator orientation="VERTICAL" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                                            <Separator orientation="VERTICAL" GridPane.columnIndex="8" />
+                                            <Separator orientation="VERTICAL" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+                                            <Separator orientation="VERTICAL" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+
+                                            <columnConstraints>
+                                                <ColumnConstraints />
+                                                <ColumnConstraints hgrow="ALWAYS" />
+                                                <ColumnConstraints hgrow="NEVER" />
+                                                <ColumnConstraints />
+                                                <ColumnConstraints hgrow="ALWAYS" />
+                                                <ColumnConstraints hgrow="NEVER" />
+                                                <ColumnConstraints />
+                                                <ColumnConstraints hgrow="ALWAYS" />
+                                                <ColumnConstraints hgrow="NEVER" />
+                                                <ColumnConstraints />
+                                                <ColumnConstraints hgrow="ALWAYS" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints />
+                                                <RowConstraints />
+                                                <RowConstraints />
+                                            </rowConstraints>
+                                        </GridPane>
+                                        <padding>
+                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                        </padding>
+                                    </VBox>
+                                </Tab>
+                            </TabPane>
+                            <!--                            End of Purchase order copy code-->
+                            <HBox alignment="CENTER_LEFT" style="-fx-background-color: #E9F7FD">
+                                <padding>
+                                    <Insets left="10" />
+                                </padding>
+                                <Label maxWidth="100" minWidth="100" prefWidth="100" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Narrations" />
+                                <TextField fx:id="tfPurInvEditNarrations" maxWidth="1350" minWidth="500" prefWidth="1150" promptText="Narrations" />
+                            </HBox>
+                            <VBox style="-fx-background-color:#E9F7FD">
+
+                                <padding>
+                                    <Insets left="10" top="20" />
+                                </padding>
+                                <TableView fx:id="tvPurInvEditSupplierDetails" maxHeight="183" maxWidth="1500.0" minHeight="130" minWidth="600.0" prefWidth="1300.0">
+                                    <columns>
+                                        <TableColumn fx:id="tcPurInvEditSupplierName" minWidth="120" text="Supplier Name" />
+                                        <TableColumn fx:id="tcPurInvEditSupplierInvNo" minWidth="60.0" text="Inv No" />
+                                        <TableColumn fx:id="tcPurInvEditSupplierInvDate" minWidth="50.0" text="Inv Date" />
+                                        <TableColumn fx:id="tcPurInvEditSupplierBatch" minWidth="66" text="Batch" />
+                                        <TableColumn fx:id="tcPurInvEditSupplierMrp" minWidth="68.0" text="MRP" />
+                                        <TableColumn fx:id="tcPurInvEditSupplierQty" minWidth="36.0" text="Qty" />
+                                        <TableColumn fx:id="tcPurInvEditSupplierRate" minWidth="52.0" text="Rate" />
+                                        <TableColumn fx:id="tcPurInvEditSupplierCost" minWidth="62.0" text="Cost" />
+                                        <TableColumn fx:id="tcPurInvEditSupplierDisper" minWidth="35.0" text="Dis.%" />
+                                        <TableColumn fx:id="tcPurInvEditSupplierDisRs" minWidth="50.0" text="Dis.₹" />
+                                    </columns>
+                                </TableView>
+                            </VBox>
+
+
+                        </VBox>
+                        <!--   VBox for gst and discount     -->
+                        <VBox maxWidth="350.0" minWidth="300.0" prefWidth="350.0" style="-fx-background-color: #E9F7FD">
+                            <HBox maxHeight="50" maxWidth="460" minWidth="250" prefWidth="460" style="-fx-background-color: #E9F7FD;">
+                                <padding>
+                                    <Insets bottom="10" left="10" right="5" top="5" />
+                                </padding>
+                                <HBox spacing="10">
+                                    <Label maxWidth="50.0" minWidth="40.0" prefHeight="30.0" prefWidth="40.0" style="-fx-font-weight: bold; -fx-font-size: 15px;" text="Dis%" />
+                                    <TextField fx:id="tfPurInvAllRowDisPerEdit" maxWidth="80.0" minWidth="50.0" prefHeight="30.0" prefWidth="50.0" promptText="Dis%" style="-fx-font-size: 15px;" />
+                                    <Label maxWidth="60" minWidth="30" prefHeight="30.0" prefWidth="45" style="-fx-font-weight: bold; -fx-font-size: 15px;" text="Dis₹" />
+                                    <TextField fx:id="tfPurInvAllRowDisAmtEdit" maxWidth="100.0" minWidth="70" prefHeight="30.0" prefWidth="80.0" promptText="Dis₹" style="-fx-font-size: 15px;" />
+
+                                </HBox>
+                                <Region HBox.hgrow="ALWAYS" />
+                            </HBox>
+
+                            <HBox maxHeight="300" maxWidth="450" minWidth="300.0" prefHeight="300.0" prefWidth="325.0" style="-fx-background-color: #ced4da;">
+                                <TableView fx:id="tblvPurInvCreateGSTEdit" prefHeight="300.0" prefWidth="320" styleClass="purchase-inv-gst">
+                                    <columns>
+                                        <TableColumn fx:id="tcPurInvBottomGSTEdit" maxWidth="110.0" minWidth="60.0" prefWidth="100.0" text="GST" />
+                                        <TableColumn fx:id="tcPurInvBottomCGSTEdit" maxWidth="110.0" minWidth="60.0" prefWidth="100.0" text="CGST" />
+                                        <TableColumn fx:id="tcPurInvBottomSGSTEdit" maxWidth="110.0" minWidth="60.0" prefWidth="100.0" text="SGST" />
+                                    </columns>
+                                </TableView>
+                            </HBox>
+                            <HBox alignment="BOTTOM_LEFT" spacing="20">
+                                <Label prefWidth="90.0" minWidth="35.0" maxWidth="100.0"  text="Total :">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="lblPurInvTotalCGSTEdit" prefWidth="80.0" minWidth="35.0" maxWidth="90.0"  text="0.00">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="lblPurInvTotalSGSTEdit" prefWidth="60.0" minWidth="35.0" maxWidth="80.0"  text="0.00">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </Label>
+                            </HBox>
+
+                            <HBox alignment="BOTTOM_LEFT" spacing="20">
+                                <Label  maxWidth="100.0" minWidth="50.0" prefWidth="80.0" style="-fx-font-size: 15px;" text="Total Qty:" />
+                                <Label fx:id="lblPurInvTotalQtyEdit" maxWidth="110.0" minWidth="50.0" prefWidth="90.0" style="-fx-font-size: 15px;" text="" />
+                            </HBox>
+                            <HBox alignment="BOTTOM_LEFT" spacing="20">
+                                <Label  maxWidth="100.0" minWidth="50.0" prefWidth="80.0" style="-fx-font-size: 15px;" text="Free Qty:" />
+                                <Label fx:id="lblPurInvFreeQtyEdit" maxWidth="110.0" minWidth="50.0" prefWidth="90.0" style="-fx-font-size: 15px;" text="" />
+                            </HBox>
+                            <HBox alignment="BOTTOM_LEFT" spacing="20">
+                                <CheckBox fx:id="chbRoundOffEdit" maxWidth="110.0" minWidth="60.0"  prefWidth="100.0" style="-fx-font-size: 15px;" text="R.Off(+/-)" />
+                                <Label fx:id="lblPurInvRoundOffEdit" minWidth="50.0" prefWidth="90.0" style="-fx-font-size: 15px;" maxWidth="110.0" />
+                            </HBox>
+                            <HBox alignment="BOTTOM_RIGHT" maxHeight="200" maxWidth="460" minHeight="200" minWidth="260" prefHeight="130" prefWidth="460" style="-fx-background-color: #E9F7FD;">
+                                <padding>
+                                    <Insets bottom="10" left="10" right="5" top="5" />
+                                </padding>
+
+                            </HBox>
+                        </VBox>
+                        <!--    VBox for showing final bill amount      -->
+                        <VBox alignment="TOP_RIGHT" style="-fx-background-color:#E9F7FD">
+
+                            <HBox maxHeight="50" maxWidth="460" minWidth="300.0" prefWidth="450" style="-fx-background-color: #D2F7E9;">
+                                <padding>
+                                    <Insets bottom="10" left="10" right="5" top="5" />
+                                </padding>
+                                <HBox alignment="CENTER_LEFT" spacing="20">
+                                    <Label maxWidth="170" minWidth="90" prefWidth="90" style="-fx-font-weight: bold; -fx-font-size: 15px;" text="Add Charges" />
+                                    <Button mnemonicParsing="false"  text="+" />
+                                    <TextField fx:id="tfPurchaseInvoiceAddChrgTotalAmt" maxWidth="190.0" minWidth="70.0" prefHeight="30.0" prefWidth="175.0" promptText="0.00" />
+                                    <!--  <Label  text="Discount" minWidth="100" prefWidth="150" maxWidth="175" style="-fx-font-weight: bold; -fx-font-size: 14px;" />-->
+                                    <!--  <Label  text="Total" minWidth="100" prefWidth="150" maxWidth="175" style="-fx-font-weight: bold; -fx-font-size: 14px;" />-->
+                                    <!--  <Label  text="Tax" minWidth="100" prefWidth="150" maxWidth="175" style="-fx-font-weight: bold; -fx-font-size: 14px;" />-->
+                                </HBox>
+
+                                <Region HBox.hgrow="ALWAYS" />
+
+                            </HBox>
+
+                            <HBox maxHeight="30" maxWidth="460" minWidth="260" prefWidth="460" style="-fx-background-color: #D2F7E9;">
+                                <padding>
+                                    <Insets bottom="10" left="10" right="5" top="5" />
+                                </padding>
+                                <HBox alignment="CENTER_LEFT" spacing="10">
+                                    <RadioButton maxWidth="40.0" minWidth="50.0" prefWidth="30.0" text="TDS">
+                                        <toggleGroup>
+                                            <ToggleGroup fx:id="tdsTcs" />
+                                        </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton maxWidth="50.0" minWidth="50.0" prefWidth="30.0" text="TCS" toggleGroup="$tdsTcs">
+
+                                    </RadioButton>
+                                </HBox>
+                                <HBox alignment="CENTER_RIGHT" spacing="10">
+                                    <padding>
+                                        <Insets left="50" />
+                                    </padding>
+                                    <TextField maxWidth="100.0" minWidth="50.0" prefHeight="30.0" prefWidth="100.0" promptText="0.00" />
+                                    <TextField maxWidth="100.0" minWidth="70.0" prefHeight="30.0" prefWidth="100.0" promptText="INR" />
+                                </HBox>
+
+                            </HBox>
+                            <HBox style="-fx-background-color: #D2F7E9;">
+                                <padding>
+                                    <Insets bottom="10" left="10" right="5" top="5" />
+                                </padding>
+                                <VBox alignment="CENTER_LEFT" spacing="0">
+                                    <Label maxWidth="170" minWidth="100" prefWidth="130" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Gross Total" />
+                                    <Label maxWidth="175" minWidth="100" prefWidth="130" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Discount" />
+                                    <Label maxWidth="175" minWidth="100" prefWidth="130" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Total" />
+                                    <Label maxWidth="175" minWidth="100" prefWidth="130" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Tax" />
+                                </VBox>
+                                <Region HBox.hgrow="ALWAYS" />
+                                <VBox alignment="CENTER_RIGHT" spacing="10">
+                                    <Label fx:id="lblPurInvGrossTotalEdit" maxWidth="70" minWidth="50" prefWidth="60" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="00.0" />
+                                    <Label fx:id="lblPurInvTotalDiscountEdit" maxWidth="70" minWidth="50" prefWidth="60" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="00.0" />
+                                    <Label fx:id="lblPurInvTotalTaxableAmountEdit" maxWidth="70" minWidth="50" prefWidth="60" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="00.0" />
+                                    <Label fx:id="lblPurInvTotalTaxEdit" maxWidth="70" minWidth="50" prefWidth="60" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="00.0" />
+                                </VBox>
+                            </HBox>
+
+
+                            <HBox maxHeight="30" maxWidth="460" minWidth="260" prefWidth="460" style="-fx-background-color: #A0EFD2;">
+                                <padding>
+                                    <Insets bottom="10" left="10" right="5" top="5" />
+                                </padding>
+                                <VBox alignment="CENTER_LEFT" spacing="10">
+                                    <Label maxWidth="170" minWidth="100" prefWidth="140" style="-fx-font-weight: bold; -fx-font-size: 24px;" text="Bill Amount" />
+                                </VBox>
+                                <Region HBox.hgrow="ALWAYS" />
+                                <VBox alignment="CENTER_RIGHT" spacing="10">
+                                    <Label fx:id="lblPurInvBillAmountEdit" maxWidth="100" minWidth="50" prefWidth="80" style="-fx-font-weight: bold; -fx-font-size: 24px;" text="00.0" />
+                                </VBox>
+                            </HBox>
+
+                            <HBox alignment="BOTTOM_RIGHT" maxHeight="200" maxWidth="460" minHeight="200" minWidth="260" prefHeight="130" prefWidth="460" style="-fx-background-color: #E9F7FD;">
+                                <padding>
+                                    <Insets bottom="10" left="10" right="5" top="5" />
+                                </padding>
+                                <VBox alignment="BOTTOM_RIGHT" spacing="10">
+                                    <Button id="cancel-btn" fx:id="goToList" maxWidth="200" minWidth="70" prefWidth="80.0" text="Modify" />
+                                </VBox>
+                                <VBox alignment="BOTTOM_RIGHT" spacing="10">
+                                    <padding>
+                                        <Insets left="5" right="5" />
+                                    </padding>
+                                    <Button id="cancel-btn" fx:id="btnPurchaseInvoiceCancelEdit" maxWidth="200" minWidth="70" prefWidth="80.0" text="Cancel" />
+                                </VBox>
+                                <VBox alignment="BOTTOM_RIGHT" spacing="10">
+                                    <Button id="submit-btn" fx:id="btnPurchaseInvoiceEdit" onAction="#updatePurchaseInvoice" maxWidth="200" minWidth="70" prefWidth="80.0" text="Update" />
+                                </VBox>
+                            </HBox>
+
+
+                        </VBox>
+                    </HBox>
+                </HBox>
+            </center>
+        </BorderPane>
+
+    </content>
+</ScrollPane>

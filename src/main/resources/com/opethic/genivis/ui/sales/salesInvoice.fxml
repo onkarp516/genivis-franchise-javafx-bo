@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #e9f7fd;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.opethic.genivis.controller.tranx_sales.SalesInvoice">
+    <children>
+        <HBox layoutX="8.0" layoutY="24.0" prefHeight="71.0" prefWidth="1907.0" style="-fx-background-radius: 10;" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="19.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="1920.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="1920.0">
+                     <children>
+                        <Label text="Tranx Date">
+                           <HBox.margin>
+                              <Insets left="12.0" />
+                           </HBox.margin>
+                        </Label>
+                        <DatePicker prefHeight="32.0">
+                           <HBox.margin>
+                              <Insets left="12.0" />
+                           </HBox.margin>
+                        </DatePicker>
+                        <Label text="Ledger Name">
+                           <HBox.margin>
+                              <Insets left="12.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField prefHeight="32.0" prefWidth="400.0">
+                           <HBox.margin>
+                              <Insets left="12.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Label text="Supplier GSTIN">
+                           <HBox.margin>
+                              <Insets left="12.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField prefHeight="32.0" prefWidth="300.0">
+                           <HBox.margin>
+                              <Insets left="12.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Label text="Purchase Serial">
+                           <HBox.margin>
+                              <Insets left="12.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField prefHeight="32.0" prefWidth="300.0">
+                           <HBox.margin>
+                              <Insets left="12.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Invoice No">
+                           <HBox.margin>
+                              <Insets left="12.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField prefHeight="32.0" prefWidth="200.0">
+                           <HBox.margin>
+                              <Insets left="12.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Label text="Invoice Date">
+                           <HBox.margin>
+                              <Insets left="12.0" />
+                           </HBox.margin>
+                        </Label>
+                        <DatePicker prefHeight="32.0">
+                           <HBox.margin>
+                              <Insets left="16.0" />
+                           </HBox.margin>
+                        </DatePicker>
+                        <Label text="Purchase A/C">
+                           <HBox.margin>
+                              <Insets left="12.0" />
+                           </HBox.margin>
+                        </Label>
+                        <ComboBox prefHeight="32.0" prefWidth="250.0">
+                           <HBox.margin>
+                              <Insets left="12.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                        <Label text="Upload Image">
+                           <HBox.margin>
+                              <Insets left="12.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField prefHeight="32.0" prefWidth="250.0">
+                           <HBox.margin>
+                              <Insets left="12.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="12.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+        </HBox>
+        <TableView fx:id="tblvReceiptCreate" editable="true" layoutX="-3.0" layoutY="102.0" prefHeight="358.0" prefWidth="1920.0" style="-fx-text-fill: #b6762b;">
+         <columns>
+            <TableColumn prefWidth="75.0" text="Sr No" />
+            <TableColumn prefWidth="422.0" text="Particulars" />
+            <TableColumn minWidth="0.0" prefWidth="162.0" text="AAAA" />
+            <TableColumn prefWidth="103.0" text="Unit" />
+            <TableColumn prefWidth="155.0" text="Batch No / Serial No" />
+            <TableColumn prefWidth="126.0" text="Quantity" />
+            <TableColumn prefWidth="109.0" text="Free" />
+            <TableColumn prefWidth="143.0" text="Rate" />
+            <TableColumn prefWidth="142.0" text="Gross Amount" />
+            <TableColumn prefWidth="92.0" text="1 -Dis %" />
+            <TableColumn prefWidth="95.0" text="Disc Rs" />
+            <TableColumn prefWidth="98.0" text="Tax %" />
+            <TableColumn prefWidth="126.0" text="Net Amount" />
+            <TableColumn prefWidth="71.0" text="Delete" />
+         </columns>
+        </TableView>
+    </children>
+    <padding>
+        <Insets top="5.0" />
+    </padding>
+</AnchorPane>

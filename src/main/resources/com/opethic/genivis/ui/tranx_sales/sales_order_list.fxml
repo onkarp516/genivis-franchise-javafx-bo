@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="spRootSalesOrdeListPane" style="-fx-background-color: #D9F0FB;"
+            stylesheets="@../css/TranxCommonCssStyles/tranxCommonCssStyle7.css" xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.opethic.genivis.controller.tranx_sales.SalesOrderListController">
+    <top>
+        <VBox id="topMainDiv" fx:id="div1" alignment="CENTER_LEFT">
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <TextField id="tfSearchField" fx:id="tfSalesOrderListSearch" promptText="Search"/>
+                    <Label text="From Date"/>
+                    <TextField fx:id="dpSalesOrderListFromDate" promptText="DD/MM/YYYY"/>
+                    <Label text="To Date"/>
+                    <TextField fx:id="dpSalesOrderListToDate" promptText="DD/MM/YYYY"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <HBox spacing="10">
+                        <Button fx:id="btnSalesOrderToChallan" onAction="#redirectToChallan" styleClass="submit-btn"
+                                text="To Challan" visible="false" HBox.hgrow="ALWAYS">
+                        </Button>
+                        <Button fx:id="btnSalesOrderToInvoice" onAction="#redirectToInvoice" styleClass="submit-btn"
+                                text="To Invoice" visible="false" HBox.hgrow="ALWAYS">
+                        </Button>
+                        <Button fx:id="btnSalesOrderListCreate" styleClass="submit-btn" text="Create"
+                                HBox.hgrow="ALWAYS"/>
+                    </HBox>
+                </HBox>
+            </children>
+        </VBox>
+    </top>
+    <center>
+        <TableView fx:id="tvSalesOrderList" editable="true" id="tranxListTableViewStyle">
+            <columns>
+                <TableColumn fx:id="tcSalesOrderListSelect" text="Select"/>
+                <TableColumn fx:id="tcSalesOrderListSONo" text="SO No."/>
+                <TableColumn fx:id="tcSalesOrderListRefNo" text="Tracking.No."/>
+                <TableColumn fx:id="tcSalesOrderListSODate" text="SO Date"/>
+                <TableColumn fx:id="tcSalesOrderListClientName" text="Client Name"/>
+                <TableColumn fx:id="tcSalesOrderListNarration" text="Narration"/>
+                <TableColumn fx:id="tcSalesOrderListTaxable" text="Taxable"/>
+                <TableColumn fx:id="tcSalesOrderListTax" text="Tax"/>
+                <TableColumn fx:id="tcSalesOrderListBillAmount" text="Bill Amount"/>
+                <TableColumn fx:id="tcSalesOrderListTranxStatus" text="Tranx Status"/>
+                <TableColumn fx:id="tcSalesOrderListPrint" text="Print"/>
+                <!--                <TableColumn fx:id="tcSalesOrderListAction" text="Action"/>-->
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>

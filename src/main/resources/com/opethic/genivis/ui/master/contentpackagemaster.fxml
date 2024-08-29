@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="bpContentPackageMasterRootPane" stylesheets="@../css/TranxCommonCssStyles/tranxCommonCssStyle7.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.opethic.genivis.controller.master.Contentpackagemaster">
+<top>
+      <VBox id="topMainDiv">
+         <children>
+      
+            <HBox alignment="CENTER_LEFT">
+               <TextField id="tfSearchField" fx:id="tfcontentpackagemaster" promptText="Search">
+                  <HBox.margin>
+                     <Insets />
+                  </HBox.margin>
+               </TextField>
+            </HBox>
+         </children>
+      </VBox>
+</top>
+   <center>
+      <TableView id="tranxListTableViewStyle" fx:id="tblvcontentpackage">
+         <columns>
+            <TableColumn fx:id="tblvcol1contentpackage" prefWidth="329.0" text="Content Package Name" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </center>
+
+
+
+</BorderPane>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<ScrollPane fitToHeight="true" fitToWidth="true" style="-fx-background-color: #D9F0FB;"
+            xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:id="spRootPane"
+            stylesheets="@../css/courier_service.css"
+            fx:controller="com.opethic.genivis.controller.master.AreaHeadListController"
+>
+
+
+    <content>
+        <BorderPane style="-fx-background-color: #D9F0FB;">
+
+
+            <top>
+                <VBox alignment="TOP_CENTER" spacing="20.0" style="-fx-background-color: #D9F0FB;">
+                    <VBox>
+                        <padding>
+                            <Insets left="15.0" right="15.0" top="15.0"/>
+                        </padding>
+                        <HBox alignment="CENTER_LEFT" maxHeight="50" minHeight="50" prefHeight="50"
+                              style="-fx-background-color: #D9F0FB;-fx-border-color:#D9F0FB">
+                            <padding>
+                                <Insets bottom="10" left="5" right="5" top="10"/>
+                            </padding>
+                            <TextField fx:id="tffieldSearch" minWidth="300" prefWidth="300" maxWidth="300"
+                                       promptText="Search" HBox.hgrow="ALWAYS"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Button text="Create" fx:id="btnFranchiseListCreate" minWidth="80" prefWidth="80"
+                                    maxWidth="80" id="submit-btn"/>
+                        </HBox>
+                    </VBox>
+
+
+                    <VBox>
+
+                        <padding>
+                            <Insets bottom="0" top="-5"/>
+                        </padding>
+                        <TableView fx:id="tvAreaHeadList" minHeight="800" prefWidth="730" maxHeight="930" editable="true">
+                            <columns>
+                                <TableColumn fx:id="tcAreaHeadListId" text="Sr.No."/>
+                                <TableColumn fx:id="tcAreaHeadListFullName" text="Full Name"/>
+                                <TableColumn fx:id="tcfAreaHeadListAddress" text="Address"/>
+                                <TableColumn fx:id="tcAreaHeadListMobile" text="Mobile No"/>
+                                <TableColumn fx:id="tcAreaHeadListRole" text="Role"/>
+                                <TableColumn visible="false" fx:id="tcAreaHeadListState" minWidth="0.0"
+                                             prefWidth="359.0" text="State"/>
+                                <TableColumn visible="false" fx:id="tcAreaHeadListZone" minWidth="0.0" prefWidth="359.0"
+                                             text="Zone"/>
+                                <TableColumn visible="false" fx:id="tcAreaHeadListRegion" minWidth="0.0"
+                                             prefWidth="359.0" text="Region"/>
+                                <TableColumn visible="false" fx:id="tcAreaHeadListDistrict" minWidth="0.0"
+                                             prefWidth="359.0" text="District"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+
+                </VBox>
+            </top>
+
+        </BorderPane>
+    </content>
+</ScrollPane>
+
+

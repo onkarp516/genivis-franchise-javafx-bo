@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="BankBorderpan" layoutX="-1.0" layoutY="-4.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.opethic.genivis.controller.account_entry.BankAccountController">
+
+
+            <top>
+
+<VBox>
+    <HBox style="-fx-background-color: #D9F0FB;">
+        <Label layoutX="21.0" layoutY="14.0" text="Bank Account">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </Label>
+    </HBox>
+
+    <HBox style="-fx-background-color: #E6F2F8;">
+        <Label layoutX="31.0" layoutY="14.0" text="Payment Mode">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <ChoiceBox fx:id="cbreceiptPaymentMode" layoutX="150.0" layoutY="13.0" />
+        <Label layoutX="334.0" layoutY="15.0" text="RefNumber">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <TextField fx:id="tfReceiptRefNumber" layoutX="418.0" layoutY="13.0" promptText="Reference Number" />
+        <Label layoutX="611.0" layoutY="15.0" text="Payment Date">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <TextField fx:id="tfReceiptPaymentDate" layoutX="708.0" layoutY="13.0" promptText="DD/MM/YYYY" />
+
+    </HBox>
+
+
+    <HBox>
+        <Button layoutX="949.0" layoutY="18.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Submit">
+               <HBox.margin>
+                  <Insets left="500.0" />
+               </HBox.margin></Button>
+    </HBox>
+
+</VBox>
+
+            </top>
+        </BorderPane>

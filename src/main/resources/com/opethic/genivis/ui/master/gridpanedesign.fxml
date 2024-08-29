@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<GridPane xmlns:fx="http://javafx.com/fxml"  alignment="center">
+    <Label fx:id="label" text="Number Format Error !" maxWidth="Infinity" alignment="CENTER" GridPane.columnSpan="3"/>
+    <TextField fx:id="a" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <TextField fx:id="b" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <TextField fx:id="c" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+    <Button fx:id="solveButton" text="Solve" maxWidth="Infinity" maxHeight="Infinity" GridPane.columnSpan="3" GridPane.rowIndex="2"  />
+    <Button fx:id="clearButton" text="Clear" maxWidth="Infinity" maxHeight="Infinity" GridPane.columnSpan="3" GridPane.rowIndex="3" />
+    <columnConstraints>
+        <ColumnConstraints fillWidth="true" hgrow="ALWAYS"/>
+        <ColumnConstraints fillWidth="true" hgrow="ALWAYS"/>
+        <ColumnConstraints fillWidth="true" hgrow="ALWAYS"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints vgrow="ALWAYS"/>
+        <RowConstraints vgrow="NEVER"/>
+        <RowConstraints fillHeight="true" vgrow="ALWAYS"/>
+        <RowConstraints fillHeight="true" vgrow="ALWAYS"/>
+    </rowConstraints>
+</GridPane>

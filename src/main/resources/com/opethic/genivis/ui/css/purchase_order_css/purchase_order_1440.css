@@ -1,0 +1,329 @@
+/* Label Style Start */
+.label {
+	-fx-font-family: 'Arial';
+	-fx-font-size: 13px;
+	-fx-text-fill: #000000;
+}
+
+/* Label Style End */
+
+/* Textfield Start */
+.text-field {
+  -fx-font-family: "Arial";
+  -fx-background-color: #fff;
+  -fx-border-color: #99a3ac;
+  -fx-border-width: 1px;
+  -fx-font-size: 13px;
+  -fx-pref-height: 30px;
+  -fx-pref-width: 160px;
+  -fx-border-radius: 4px;
+  /*-fx-padding: 5px;*/
+}
+.text-field:focused {
+  -fx-border-width: 2px !important;
+  -fx-background-color: #fff9c4 !important;
+  -fx-border-color: #00a0f5 !important;
+}
+/*.text-field:hover {
+  -fx-background-color: #fff9c4;
+  -fx-border-width: 1px;
+  -fx-border-color: #99a3ac;
+}*/
+/* Textfield End */
+
+/* Combobox Start */
+.combo-box {
+  -fx-background-color: #fff;
+  -fx-border-color: #99a3ac;
+  -fx-border-radius: 4px;
+  -fx-font-size: 13px;
+  -fx-pref-height: 30px;
+  -fx-pref-width: 170px;
+  -fx-border-width: 1px;
+}
+
+.combo-box .text-input {
+  -fx-background-color: transparent;
+  -fx-border-radius: 0px;
+  -fx-border-color: transparent;
+}
+
+.combo-box:focused {
+  -fx-background-color: #fff9c4 !important;
+  -fx-border-color: #00a0f5 !important;
+  -fx-border-width: 2px !important;
+}
+
+.combo-box:hover {
+  -fx-background-color: #fff9c4;
+}
+
+.combo-box-popup {
+  -fx-background-color: #fff;
+  -fx-border-color: #ccc;
+  -fx-border-radius: 0px;
+  -fx-pref-height: 100px;
+  -fx-pref-width: 300px;
+}
+
+.combo-box-popup .list-cell {
+  -fx-text-fill: #333333;
+  -fx-font-size: 13px;
+  -fx-padding: 5px;
+}
+
+.combo-box-popup .list-cell:hover {
+  -fx-background-color: #b3e4ff;
+}
+
+.combo-box-popup .list-view .list-cell:selected {
+  -fx-background-color: #00a0f5;
+  -fx-text-fill: white;
+}
+/* Combobox End */
+
+/* Submit Btn Start */
+.submit-btn {
+  -fx-font-family: "Arial";
+  -fx-pref-height: 30px;
+  -fx-pref-width:80px;
+  -fx-background-color: white;
+  -fx-text-fill: #4d4d4d;
+  -fx-border-color: #ccc;
+  -fx-border-width: 1px;
+  -fx-border-radius: 3px;
+  -fx-cursor: hand;
+  -fx-font-weight: bold;
+}
+
+.submit-btn:hover,
+ .submit-btn:focused{
+  -fx-background-color: #fff9c4;
+  -fx-border-color: #00a0f5;
+  -fx-cursor: hand;
+}
+/* Submit Btn End */
+
+/* Cancel Btn Start */
+
+.cancel-btn {
+  -fx-font-family: "Arial";
+  -fx-pref-height: 30px;
+    -fx-pref-width:80px;
+  -fx-background-color: white;
+  -fx-text-fill: #4d4d4d;
+  -fx-font-weight: bold;
+  -fx-border-color: #ccc;
+  -fx-border-width: 1px;
+  -fx-border-radius: 3px;
+  -fx-cursor: hand;
+}
+
+.cancel-btn:hover,
+.cancel-btn:focused {
+    -fx-background-color: #fff9c4;
+    -fx-border-color: #00a0f5;
+    -fx-cursor: hand;
+}
+/* Cancel Btn End */
+
+/* Convert btn */
+.convert_btn_style {
+  -fx-font-family: "Arial";
+  -fx-font-size: 13px;
+  -fx-border-radius: 6px;
+  -fx-pref-height: 30px;
+  -fx-pref-width:80px;
+
+  -fx-text-fill: #21c78a;
+  -fx-background-color: transparent;
+  -fx-border-width: 2px;
+  -fx-border-color: #22c55e;
+  -fx-font-weight: bold;
+}
+.convert_btn_style:hover {
+  -fx-text-fill: white;
+  -fx-background-color: #22c55e;
+  -fx-background-radius: 6px;
+  -fx-cursor: hand;
+}
+.convert_btn_style:focused {
+  -fx-text-fill: white;
+  -fx-background-color: #22c55e;
+  -fx-background-radius: 6px;
+  -fx-cursor: hand;
+}
+
+/* Convert btn */
+
+/* Tableview Start */
+
+
+.table-view .column-header,
+.table-view .column-header-background .filler {
+  -fx-font-family: "Arial";
+  -fx-font-size: 13px;
+  -fx-alignment: CENTER_LE0FT;
+  -fx-pref-height: 35px;
+  -fx-padding: 0px;
+}
+.table-view .table-cell {
+  -fx-font-size: 13px;
+  -fx-alignment: CENTER_LEFT;
+}
+.table-view .cell {
+  -fx-cell-size: 35;
+}
+.table-view .table-cell {
+  -fx-padding: 0 0 0 0;
+}
+.table-row-cell:odd,
+.table-row-cell:even {
+  -fx-background-color: #f6f6f9;
+  -fx-border-color: transparent transparent #e0e0e1 transparent; /* Adjust border color as needed */
+  -fx-border-width: 0 0 1 0; /* Adjust border width as needed */
+}
+.table-column {
+  -fx-border-color: transparent #e0e0e1 transparent transparent; /* Adjust border color as needed */
+  -fx-border-width: 0 1 0 0; /* Adjust border width as needed */
+}
+.table-view:focused {
+  -fx-background-color: -fx-box-border, -fx-control-inner-background;
+  -fx-background-insets: 1, 1;
+}
+.table-view:hover {
+  -fx-cursor: hand;
+}
+
+/*
+#table_textfield {
+    -fx-background-color: yellow;
+    -fx-text-fill: blue;
+} */
+
+/* Tableview End */
+
+/* TabPane style Start */
+.tab-pane {}
+
+.tab-pane .tab-header-background {
+	-fx-background-color: #e9f7fd;
+	/* Change to whatever color you prefer */
+}
+
+.tab-pane .tab {
+	-fx-background-color: #e9f7fd !important;
+	/* Set the background color of non-selected tabs */
+	-fx-text-fill: black;
+	/* Set the text color of non-selected tabs */
+}
+
+.tab-pane .tab:selected {
+	-fx-background-color: #d9f0fb !important;
+	-fx-border-color: #c7dbe4;
+	-fx-border-radius: 4
+}
+
+.tab-pane .tab:hover {
+	-fx-background-color: #d9f0fb !important;
+}
+
+/*.tab-pane .tab:focused {
+    -fx-background-color: red !important;
+    -fx-text-fill: black;
+}*/
+/* TabPane style End*/
+
+/* ID Styles Start  */
+
+
+.tabBackColor {
+	-fx-background-color: #e9f7fd
+}
+
+.mainGridStyle {
+	-fx-background-color: #f8f0d2;
+	-fx-background-radius: 6;
+	-fx-padding: 5px;
+	-fx-border-radius: 6;
+	-fx-border-width: 2;
+	-fx-border-color: #EAD8B1;
+}
+
+.gridCommonTextStyle {
+  -fx-font-weight: bold;
+  -fx-font-size: 13px;
+}
+.supplierTableStyle {
+	-fx-background-color: #e9f7fd;
+}
+
+.bigLabel {
+  -fx-font-family: "Arial";
+  -fx-font-weight: bold;
+  -fx-font-size: 15px;
+  -fx-text-fill: #000000;
+}
+
+.lblOrderNo {
+	-fx-pref-width: 65px;
+}
+
+#lblOrderDate {
+	-fx-pref-width: 85px;
+}
+
+#topMainDiv {
+	-fx-padding: 10px;
+}
+
+#topInnerDiv {
+	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 5, 0, 0, 0);
+
+	-fx-padding: 10px
+}
+
+#topInnerHbOne {
+	-fx-padding: 6px
+}
+
+#topInnerHbTwo {
+	-fx-padding: 6px
+}
+
+#tabMianDiv {
+	-fx-padding: 8px
+}
+
+#tabTitle {
+	-fx-font-size: 13px;
+	-fx-font-weight: 700;
+}
+
+#mediumLabel {
+  -fx-font-family: "Arial";
+  -fx-font-weight: bold;
+  -fx-font-size: 13px;
+  -fx-text-fill: #000000;
+}
+
+#totalMainDiv {
+	-fx-padding: 10px;
+}
+
+#totalBillDiv {
+	-fx-padding: 10px;
+}
+#ledgerTabInnerHb{
+-fx-padding:0px;
+}
+#tabinnerDataDiv{
+-fx-padding:3px
+}
+#solblSalesSerial{
+-fx-pref-width:75px;
+}
+#solblOrderNo{
+-fx-pref-width:78px;
+}
+/* ID Styles End  */

@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<?import com.opethic.genivis.controller.commons.SwitchButton?>
+
+<BorderPane fx:id="stpanesc" style="-fx-background-color:#fff"
+            stylesheets="@../../../css/ledger_css_style/ledger_css_7.css" xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.opethic.genivis.controller.master.ledger.edit.LedgerEditSDController">
+    <top>
+        <VBox id="ledgerTopMainDiv">
+            <BorderPane.margin>
+                <Insets/>
+            </BorderPane.margin>
+            <children>
+                <VBox id="innerDivSd" spacing="8">
+                    <HBox fx:id="topFirstRowEdit" alignment="CENTER_LEFT" spacing="10.0" VBox.vgrow="ALWAYS">
+                        <!--                        <Label text="Registered Name">-->
+                        <!--                            <HBox.margin>-->
+                        <!--                                <Insets left="6.0"/>-->
+                        <!--                            </HBox.margin>-->
+                        <!--                        </Label>-->
+                        <!--                        <Label style="-fx-text-fill: red;" text=" * "/>-->
+
+
+                        <HBox alignment="CENTER_LEFT">
+                            <Label text="Registered Name"/>
+                            <Label style="-fx-text-fill: red;" text="*"/>
+                        </HBox>
+
+                        <TextField fx:id="tfsdLedgerEditRegisterdName" promptText="Registered Name"
+                                   styleClass="isRequired" HBox.hgrow="ALWAYS">
+
+                        </TextField>
+                        <!--                        <Label text="Address" />-->
+                        <!--                        <Label style="-fx-text-fill: red;" text=" * "/>-->
+
+
+                        <HBox alignment="CENTER_LEFT">
+                            <Label text="Address"/>
+                            <Label style="-fx-text-fill: red;" text="*"/>
+                        </HBox>
+
+                        <TextField fx:id="tfsdLedgerEditAdress" promptText="Address" styleClass="isRequired"
+                                   HBox.hgrow="ALWAYS">
+
+                        </TextField>
+                        <!--                        <Label text="State" />-->
+                        <!--                        <Label style="-fx-text-fill: red;" text=" * "/>-->
+
+
+                        <HBox alignment="CENTER_LEFT">
+                            <Label text="State"/>
+                            <Label style="-fx-text-fill: red;" text="*"/>
+                        </HBox>
+
+                        <ComboBox fx:id="cmbsdState" promptText="Select" styleClass="isRequired"/>
+                    </HBox>
+                    <HBox fx:id="topSecondRowEdit" alignment="CENTER_LEFT" spacing="10.0" VBox.vgrow="ALWAYS">
+                        <!--                        <Label text="Pin">-->
+                        <!--                            <HBox.margin>-->
+                        <!--                                <Insets left="6.0"/>-->
+                        <!--                            </HBox.margin>-->
+                        <!--                        </Label>-->
+                        <!--                        <Label style="-fx-text-fill: red;" text=" * "/>-->
+
+
+                        <HBox alignment="CENTER_LEFT">
+                            <Label text="Pin"/>
+                            <Label style="-fx-text-fill: red;" text="*"/>
+                        </HBox>
+
+                        <TextField fx:id="tfsdLedgerEditPin" promptText="Pin" styleClass="isRequired"/>
+
+                        <HBox alignment="CENTER_LEFT">
+                            <ImageView pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../../assets/phone.png"/>
+                                </image>
+                            </ImageView>
+                            <Label style="-fx-text-fill: red;" text="*"/>
+                        </HBox>
+
+
+                        <TextField fx:id="tfsdLedgerEditPhone" promptText="Phone" styleClass="isRequired">
+                        </TextField>
+
+                        <HBox alignment="CENTER_LEFT">
+                            <ImageView pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../../assets/whatsapp.png"/>
+                                </image>
+                            </ImageView>
+                            <Label style="-fx-text-fill: red;" text="*"/>
+                        </HBox>
+
+
+                        <TextField fx:id="tfsdLedgerEditWhatsapp" promptText="Whatsapp" styleClass="isRequired">
+
+                        </TextField>
+                        <Label text="Email">
+                            <HBox.margin>
+                                <Insets/>
+                            </HBox.margin>
+                        </Label>
+                        <TextField fx:id="tfsdLedgerEditEmail" promptText="Email" HBox.hgrow="ALWAYS"/>
+                        <Label text="Reg No">
+
+                        </Label>
+                        <TextField fx:id="tfsdLedgerEditRegNo" promptText="Registration NO">
+
+                        </TextField>
+                        <Label text="Reg Date">
+
+                        </Label>
+                        <!--                        <DatePicker fx:id="tfsdLedgerEditRegDate" promptText="DD/MM/YYYY">-->
+                        <!--                        </DatePicker>-->
+                        <TextField fx:id="tfsdLedgerEditRegDate" promptText="DD/MM/YYYY"/>
+                        <VBox.margin>
+                            <Insets/>
+                        </VBox.margin>
+                    </HBox>
+                    <HBox fx:id="topThirdRowEdit" alignment="CENTER_LEFT" spacing="10.0" VBox.vgrow="ALWAYS">
+
+                        <Label text="Credit">
+                            <HBox.margin>
+                                <Insets/>
+                            </HBox.margin>
+                        </Label>
+                        <VBox id="vboxSwitchMain" fx:id="vboxchksdLedgerEditIsCredit" alignment="CENTER_LEFT">
+                            <SwitchButton fx:id="chksdLedgerEditIsCredit"/>
+                        </VBox>
+                        <Label text="Days">
+
+                        </Label>
+                        <TextField id="tfDays" fx:id="tfsdLedgerEditCreditDays" promptText="Days">
+
+                        </TextField>
+                        <Label text="Applicable From">
+
+                        </Label>
+                        <ComboBox fx:id="cmbsdLedgerEditApplicableFrom"/>
+                        <Label text="Bills">
+
+                        </Label>
+                        <TextField fx:id="tfsdLedgerEditCreditBills" promptText="Bills">
+
+                        </TextField>
+                        <Label text="Values">
+                        </Label>
+                        <TextField fx:id="tfsdLedgerEditCreditValue" promptText="Values">
+
+                        </TextField>
+                        <!--                        <Label fx:id="lblsdLedgerEditTrade" text="Trade" prefWidth="40.0" /> -->
+                        <!--                        <Label style="-fx-text-fill: red;" text=" * "/>-->
+
+
+                        <HBox alignment="CENTER_LEFT">
+                            <Label text="Trade"/>
+<!--                            <Label style="-fx-text-fill: red;" text="*"/>-->
+                        </HBox>
+
+                        <ComboBox fx:id="cbTrade" promptText="Select Type" styleClass="isRequired" HBox.hgrow="ALWAYS">
+                            <HBox.margin>
+                                <!--                                <Insets right="35.0" top="10.0" />-->
+                                <Insets/>
+                            </HBox.margin>
+                        </ComboBox>
+                        <!--                        <RadioButton fx:id="rdsdRetailer" prefWidth="100.0" text="Retailer" styleClass="isRequired"/>-->
+                        <!--                        <RadioButton fx:id="rdsdManufacturer" prefWidth="145.0" text="Manufacturer" styleClass="isRequired">-->
+
+                        <!--                        </RadioButton>-->
+                        <!--                        <RadioButton fx:id="rdsdDistributor" prefWidth="116.0" text="Distributor" styleClass="isRequired">-->
+
+                        <!--                        </RadioButton>-->
+                        <!--                        <Label fx:id="lblsdBusinessNature" text="Business Nature" prefWidth="133.0" /> -->
+                        <!--                        <Label style="-fx-text-fill: red;" text=" * "/>-->
+
+
+                        <HBox alignment="CENTER_LEFT">
+                            <Label text="Business Nature"/>
+                            <Label style="-fx-text-fill: red;" text="*"/>
+                        </HBox>
+
+                        <TextField fx:id="tfsdLedgerEditBusinessNature" promptText="Business Nature"
+                                   styleClass="isRequired">
+
+                        </TextField>
+                        <VBox.margin>
+                            <Insets/>
+                        </VBox.margin>
+
+                    </HBox>
+
+                </VBox>
+            </children>
+        </VBox>
+    </top>
+    <center>
+        <VBox id="ledgerTopMainDiv" alignment="CENTER" spacing="10.0">
+            <children>
+                <HBox fx:id="editSdInfoRowFirst" spacing="20.0" VBox.vgrow="ALWAYS">
+                    <VBox fx:id="leftRowInfoFirst" style="-fx-border-color: #dcdcdc;" styleClass="allLedgerList"
+                          HBox.hgrow="ALWAYS">
+                        <HBox alignment="CENTER_LEFT" spacing="10.0"
+                              style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,rgba(0, 160, 245, 0.04) 0%,rgba(0, 160, 245, 0) 51.04%,rgba(0, 160, 245, 0.2) 100%);"
+                              VBox.vgrow="ALWAYS">
+                            <Label fx:id="lblGST" text="GST"/>
+                            <VBox id="vboxSwitchMain" fx:id="vboxchksdIsGST" alignment="CENTER_LEFT">
+                                <SwitchButton fx:id="chksdIsGST"/>
+                            </VBox>
+                            <!--                                <Label fx:id="lblLedgerEditPANNo" prefWidth="70.0" text="PAN No">-->
+                            <!--                                    <padding>-->
+                            <!--                                        <Insets left="10"/>-->
+                            <!--                                    </padding>-->
+                            <!--                                </Label>-->
+                            <!--                                <Label fx:id="requiredID" style="-fx-text-fill: red;" text=" * "/>-->
+
+
+                            <HBox fx:id="tfLedgerEditPANNo" alignment="CENTER_LEFT">
+                                <Label text="PAN No"/>
+                                <Label style="-fx-text-fill: red;" text="*"/>
+                            </HBox>
+
+                            <TextField fx:id="tfscLedgerEditPANNo" promptText="PAN No" styleClass="isRequired">
+
+                            </TextField>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Button fx:id="btnGstPlus" styleClass="submit-btn" text="Add">
+                            </Button>
+                            <VBox.margin>
+                                <Insets/>
+                            </VBox.margin>
+                            <padding>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                            </padding>
+                        </HBox>
+                        <TableView id="ledgerCommonTblStyle" fx:id="tblsdGstInfo">
+                            <columns>
+                                <TableColumn fx:id="tcsdGstType" styleClass="underTblList" text="Type"/>
+                                <TableColumn fx:id="tcsdGstRegDate" styleClass="underTblList" text="Reg Date"/>
+                                <TableColumn fx:id="tcsdGstIn" styleClass="underTblList" text="GstNo"/>
+                                <TableColumn fx:id="tcsdPan" styleClass="underTblList" text="PAN"/>
+                                <TableColumn fx:id="tcsdGstAction" styleClass="underTblList" text="Action"/>
+                            </columns>
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                            </columnResizePolicy>
+                        </TableView>
+                    </VBox>
+                    <VBox fx:id="rightRowInfoFirst" style="-fx-border-color: #dcdcdc;" styleClass="allLedgerList"
+                          HBox.hgrow="ALWAYS">
+                        <HBox alignment="CENTER_LEFT" spacing="10.0"
+                              style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,rgba(0, 160, 245, 0.04) 0%,rgba(0, 160, 245, 0) 51.04%,rgba(0, 160, 245, 0.2) 100%);">
+                            <Label fx:id="lblBank" text="Bank Details"/>
+                            <VBox id="vboxSwitchMain" fx:id="vboxchksdIsBank" alignment="CENTER_LEFT">
+                                <SwitchButton fx:id="chksdIsBank"/>
+                            </VBox>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Button fx:id="btnBankPlus" styleClass="submit-btn" text="Add">
+                            </Button>
+                            <VBox.margin>
+                                <Insets/>
+                            </VBox.margin>
+                            <padding>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                            </padding>
+
+                        </HBox>
+                        <TableView id="ledgerCommonTblStyle" fx:id="tblsdBankInfo">
+                            <columns>
+                                <TableColumn fx:id="tcsdBankName" styleClass="underTblList" text="Bank Name"/>
+                                <TableColumn fx:id="tcsdBankAccNo" styleClass="underTblList" text="Account Number"/>
+                                <TableColumn fx:id="tcsdBankIFSCCode" styleClass="underTblList" text="IFSC Code"/>
+                                <TableColumn fx:id="tcsdBankBranch" styleClass="underTblList" text="Branch"/>
+                                <TableColumn fx:id="tcsdBankAct" styleClass="underTblList" text="Action"/>
+                            </columns>
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                            </columnResizePolicy>
+                        </TableView>
+
+                    </VBox>
+                </HBox>
+                <HBox fx:id="editSdInfoRowSecond" spacing="20.0" VBox.vgrow="ALWAYS">
+                    <children>
+                        <VBox fx:id="leftRowInfoSecond" style="-fx-border-color: #dcdcdc;" styleClass="allLedgerList"
+                              HBox.hgrow="ALWAYS">
+                            <HBox alignment="CENTER_LEFT" spacing="10.0"
+                                  style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,rgba(0, 160, 245, 0.04) 0%,rgba(0, 160, 245, 0) 51.04%,rgba(0, 160, 245, 0.2) 100%);"
+                                  VBox.vgrow="ALWAYS">
+                                <Label fx:id="lblLicense" text="License ">
+                                </Label>
+                                <VBox id="vboxSwitchMain" fx:id="vboxchksdIsLicense" alignment="CENTER_LEFT">
+                                    <SwitchButton fx:id="chksdIsLicense"/>
+                                </VBox>
+                                <Region HBox.hgrow="ALWAYS"/>
+                                <Button fx:id="btnLicensePlus" styleClass="submit-btn" text="Add">
+                                </Button>
+                                <VBox.margin>
+                                    <Insets/>
+                                </VBox.margin>
+                                <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                </padding>
+                            </HBox>
+                            <TableView id="ledgerCommonTblStyle" fx:id="tblsdLedgerEditLicenses">
+                                <columns>
+                                    <TableColumn fx:id="tcsdLicenseType" styleClass="underTblList" text="Type"/>
+                                    <TableColumn fx:id="tcsdLicenseNo" styleClass="underTblList" text="No"/>
+                                    <TableColumn fx:id="tcsdLicenseExp" styleClass="underTblList" text="Exp"/>
+                                    <TableColumn fx:id="tcsdLicenseAct" styleClass="underTblList" text="Action"/>
+                                </columns>
+                                <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                                </columnResizePolicy>
+                            </TableView>
+                        </VBox>
+                        <VBox fx:id="rightRowInfoSecond" style="-fx-border-color: #dcdcdc;" styleClass="allLedgerList"
+                              HBox.hgrow="ALWAYS">
+
+                            <HBox alignment="CENTER_LEFT" spacing="10.0"
+                                  style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,rgba(0, 160, 245, 0.04) 0%,rgba(0, 160, 245, 0) 51.04%,rgba(0, 160, 245, 0.2) 100%);">
+                                <Label fx:id="lblShipping" text="Shipping Details"/>
+                                <VBox id="vboxSwitchMain" fx:id="vboxchksdIsShippingDetails" alignment="CENTER_LEFT">
+                                    <SwitchButton fx:id="chksdIsShippingDetails"/>
+                                </VBox>
+                                <Region HBox.hgrow="ALWAYS"/>
+                                <Button fx:id="btnShippingPlus" styleClass="submit-btn" text="Add">
+                                </Button>
+                                <VBox.margin>
+                                    <Insets/>
+                                </VBox.margin>
+                                <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                </padding>
+                            </HBox>
+                            <TableView id="ledgerCommonTblStyle" fx:id="tblsdLedgerEditShipping">
+                                <columns>
+                                    <TableColumn fx:id="tcsdShippingAddress" styleClass="underTblList"
+                                                 text="Shipping Address"/>
+                                    <TableColumn fx:id="tcsdShippingState" styleClass="underTblList"
+                                                 text="Shipping State"/>
+                                    <TableColumn fx:id="tcsdShippingAct" styleClass="underTblList" text="Action"/>
+                                </columns>
+                                <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                                </columnResizePolicy>
+                            </TableView>
+
+                        </VBox>
+                    </children>
+                </HBox>
+                <HBox fx:id="editSdInfoRowThird" spacing="20.0" VBox.vgrow="ALWAYS">
+                    <children>
+                        <VBox fx:id="leftRowInfoThird" style="-fx-border-color: #dcdcdc;" styleClass="allLedgerList"
+                              HBox.hgrow="ALWAYS">
+                            <HBox alignment="CENTER_LEFT" spacing="10.0"
+                                  style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,rgba(0, 160, 245, 0.04) 0%,rgba(0, 160, 245, 0) 51.04%,rgba(0, 160, 245, 0.2) 100%);"
+                                  VBox.vgrow="ALWAYS">
+                                <Label fx:id="lblDepartment" text="Department"/>
+                                <VBox id="vboxSwitchMain" fx:id="vboxchksdIsDepartment" alignment="CENTER_LEFT">
+                                    <SwitchButton fx:id="chksdIsDepartment"/>
+                                </VBox>
+                                <Region HBox.hgrow="ALWAYS"/>
+                                <Button fx:id="btnDeptPlus" styleClass="submit-btn" text="Add">
+                                </Button>
+                                <VBox.margin>
+                                    <Insets/>
+                                </VBox.margin>
+                                <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                </padding>
+                            </HBox>
+                            <TableView id="ledgerCommonTblStyle" fx:id="tblsdLedgerEditDept">
+                                <columns>
+                                    <TableColumn fx:id="tcsdDeptName" styleClass="underTblList" text="Dept Name"/>
+                                    <TableColumn fx:id="tcsdDeptPersonName" styleClass="underTblList"
+                                                 text="Person name"/>
+                                    <TableColumn fx:id="tcsdDeptPersonEmail" styleClass="underTblList" text="Email"/>
+                                    <TableColumn fx:id="tcsdDeptPersonPhone" styleClass="underTblList" text="Phone"/>
+                                    <TableColumn fx:id="tcsdDeptPersonAct" styleClass="underTblList" text="Action"/>
+                                </columns>
+                                <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                                </columnResizePolicy>
+                            </TableView>
+                        </VBox>
+                        <VBox fx:id="rightRowInfoThird" style="-fx-border-color: #dcdcdc;" styleClass="allLedgerList"
+                              HBox.hgrow="ALWAYS">
+                            <HBox alignment="CENTER_LEFT" spacing="10.0"
+                                  style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,rgba(0, 160, 245, 0.04) 0%,rgba(0, 160, 245, 0) 51.04%,rgba(0, 160, 245, 0.2) 100%);">
+                                <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                </padding>
+                                <Label fx:id="lblSalesman" text="Salesman">
+                                    <padding>
+                                        <Insets right="10"/>
+                                    </padding>
+                                </Label>
+                                <VBox id="vboxSwitchMain" fx:id="vboxchksdLedgerEditIsSalesMan" alignment="CENTER_LEFT">
+                                    <SwitchButton fx:id="chksdLedgerEditIsSalesMan"/>
+                                </VBox>
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                </padding>
+                                <Label text="Salesman">
+                                </Label>
+                                <ComboBox fx:id="cmbsdLedgerEditSalesman" prefWidth="200.0"/>
+                                <Label text="Area">
+                                </Label>
+                                <ComboBox fx:id="cmbsdLedgerEditArea" prefWidth="200.0"/>
+                                <Label text="Route">
+                                </Label>
+                                <TextField fx:id="tfsdLedgerEditRoute"/>
+                            </HBox>
+                        </VBox>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" spacing="12.0" BorderPane.alignment="CENTER">
+            <Button fx:id="btnSdLedgerEditSubmit" styleClass="submit-btn" text="Update"/>
+            <Button fx:id="btnSdLedgerEditCancel" styleClass="cancel-btn" text="Cancel">
+                <HBox.margin>
+                    <Insets right="6.0"/>
+                </HBox.margin>
+            </Button>
+        </HBox>
+    </bottom>
+</BorderPane>

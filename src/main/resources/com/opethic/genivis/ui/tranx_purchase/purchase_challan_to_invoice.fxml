@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="purChtoInvScrollPane" style="-fx-background-color: #d9f0fb;" stylesheets="@../css/TranxCommonCssStyles/tranxCommonCssStyle7.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.opethic.genivis.controller.tranx_purchase.PurChallToInvoiceCreateController">
+    <top>
+        <VBox id="topMainDiv">
+
+
+            <VBox id="topInnerDiv">
+
+                <HBox id="topInnerHbOne" fx:id="pc2iTopFirstRow" alignment="CENTER_LEFT" spacing="20.0">
+                    <Label id="pc2iTranxDate" text="Tranx Date" />
+                    <TextField fx:id="tfPurChToInvTranxDate" editable="false" focusTraversable="false" promptText="DD/MM/YYYY" />
+                    <HBox id="lblLedgerName" alignment="CENTER_LEFT">
+                        <Label text="Ledger Name" />
+                        <Label style="-fx-text-fill: red;" text="*" />
+                    </HBox><!--
+                             <TextField fx:id="tfPurChToInvLedgerName" prefWidth="600" minWidth="350" maxWidth="600"
+                                           prefHeight="32" minHeight="32" maxHeight="32" promptText="Ledger Name"/>-->
+                    <TextField fx:id="tfPurChToInvLedgerName" promptText="Ledger Name" HBox.hgrow="ALWAYS" />
+                    <Label text="Supplier GSTIN" />
+                    <ComboBox fx:id="cmbPurChToInvSupplierGSTIN" onAction="#setCbSupplierGSTN" promptText="Select" />
+                    <Label text="Purchase Serial" />
+                    <TextField id="pc2itfPurSerial" fx:id="tfPurChToInvPurchaseSerial" editable="false" focusTraversable="false" />
+                </HBox>
+
+                <HBox id="topInnerHbTwo" fx:id="pc2iTopSecondRow" alignment="CENTER_LEFT" spacing="20.0">
+                    <HBox id="pc2iInvoiceNo" alignment="CENTER_LEFT">
+                        <Label text="Invoice No." />
+                        <Label style="-fx-text-fill: red;" text="*" />
+                    </HBox>
+                    <TextField fx:id="tfPurChToInvInvoiceNo" promptText="Invoice No." />
+
+                    <HBox id="pc2iInvoiceDate" alignment="CENTER_LEFT">
+                        <Label text="Invoice Date" />
+                        <Label style="-fx-text-fill: red;" text="*" />
+                    </HBox>
+                    <TextField fx:id="tfPurChToInvInvoiceDate" promptText="DD/MM/YYYY" />
+                    <Label fx:id="label" text="Purchase A/C" />
+                    <ComboBox fx:id="cmbPurChToInvPurchaseAc" onAction="#setcmbPurChToInvPurchaseAc" promptText="Select" />
+                    <Label text="Payment Method" />
+                    <!-- <RadioButton fx:id="rbCredit" onAction="#handlePayAction" minWidth="70" text="Credit"/>
+                     <RadioButton fx:id="rbCash" onAction="#handlePayAction" minWidth="70" text="Cash"/>
+                        -->
+                    <ComboBox fx:id="cmbPurChToInvPaymentMode" onAction="#handlecmbPurChToInvPaymentMode" promptText="Select" />
+                    <Label text="Purc.Orders:" />
+                    <Label fx:id="purc_orders" text=" " />
+                    <Label text="Purc.Challan:" />
+                    <Label fx:id="purc_challan" text=" " />
+
+                </HBox>
+
+            </VBox>
+
+        </VBox>
+    </top>
+    <bottom>
+        <HBox fx:id="pc2iBottomMain" alignment="CENTER_LEFT" BorderPane.alignment="CENTER_LEFT">
+            <VBox fx:id="pc2iBottomFirstV" style="-fx-background-color:  #d9f0fb; -fx-border-color: #c0cfd6; -fx-border-width: 0 0 0 1px;" HBox.hgrow="ALWAYS">
+                <TabPane fx:id="tranxPurChToInvTabPane" tabClosingPolicy="UNAVAILABLE">
+
+                    <Tab fx:id="tabPurChToInvLedger" closable="false" text="Ledger">
+                        <VBox id="tabMianDiv">
+                            <VBox id="mainGridStyle" alignment="CENTER">
+
+                                <HBox alignment="CENTER" spacing="10.0">
+
+                                    <VBox alignment="CENTER_LEFT" spacing="5.0" style="-fx-background-color:  #F8F0D2; -fx-border-color: #EAD8B1;  -fx-border-width: 0 1.2 0 0;" HBox.hgrow="ALWAYS">
+
+                                        <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="GST No : " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvGstNo" text="" />
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="FSSAI : " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvFssai" text="" />
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="License No : " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvLicenseNo" text="" />
+                                        </HBox>
+                              <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                 <children>
+                                    <Label style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;" />
+                                    <Label fx:id="lblPurChToInvLicenseNo1" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;" text="" />
+                                 </children>
+                              </HBox>
+
+                                    </VBox>
+
+                                    <VBox alignment="CENTER_LEFT" spacing="5.0" style="-fx-background-color:  #F8F0D2; -fx-border-color: #EAD8B1;  -fx-border-width: 0 1.2 0 0;" HBox.hgrow="ALWAYS">
+                                        <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Area : " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvArea" text="" />
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Bank : " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvBank" text="" />
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Route : " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvRoute" text="" />
+                                        </HBox>
+
+                                    </VBox>
+
+                                    <VBox alignment="CENTER_LEFT" spacing="5.0" style="-fx-background-color:  #F8F0D2; -fx-border-color: #EAD8B1;  -fx-border-width: 0 0 0 0;" HBox.hgrow="ALWAYS">
+                                        <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Contact Person : " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvContactPerson" text="" />
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Transport : " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvTransportName" text="" />
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Credit Days : " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvCreditDays" text="" />
+                                        </HBox>
+
+                                    </VBox>
+
+                                </HBox>
+
+                            </VBox>
+                        </VBox>
+                    </Tab>
+                    <Tab fx:id="tabPurChToInvProduct" closable="false" text="Product">
+                        <VBox id="tabMianDiv">
+                            <VBox id="mainGridStyle" alignment="CENTER">
+                                <HBox alignment="CENTER" spacing="10.0">
+
+                                    <VBox alignment="CENTER_LEFT" spacing="5.0" style="-fx-background-color:  #F8F0D2; -fx-border-color: #EAD8B1;  -fx-border-width: 0 1.2 0 0;" HBox.hgrow="ALWAYS">
+
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Brand : " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvProductBrand" text="" />
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Group : " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvProductGroup" text="" />
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Sub-Group : " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvProductSubGroup" text="" />
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Category : " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvProductCategory" text="" />
+                                        </HBox>
+
+                                    </VBox>
+
+                                    <VBox alignment="CENTER_LEFT" spacing="5.0" style="-fx-background-color:  #F8F0D2; -fx-border-color: #EAD8B1;  -fx-border-width: 0 1.2 0 0;" HBox.hgrow="ALWAYS">
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="HSN : " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvProductHsn" text="" />
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Tax Type : " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvProductTaxType" text="" />
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Tax% : " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvProductTaxPer" text="" />
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Margin% : " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvProductMarginPer" text="" />
+                                        </HBox>
+
+                                    </VBox>
+
+                                    <VBox alignment="CENTER_LEFT" spacing="5.0" style="-fx-background-color:  #F8F0D2; -fx-border-color: #EAD8B1;  -fx-border-width: 0 0 0 0;" HBox.hgrow="ALWAYS">
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Cost : " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvProductCost" text="" />
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Shelf ID : " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvProductShelfId" text="" />
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Min Stock : " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvProductMinStock" text="" />
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Max Stock : " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvProductMaxStock" text="" />
+                                        </HBox>
+
+                                    </VBox>
+
+                                </HBox>
+                            </VBox>
+                        </VBox>
+                    </Tab>
+                    <Tab fx:id="tabPurInvBatch" closable="false" text="Batch">
+                        <VBox id="tabMianDiv">
+                            <VBox id="mainGridStyle" alignment="CENTER">
+
+                                <HBox alignment="CENTER" spacing="10.0">
+
+                                    <VBox id="rightBorder" spacing="5.0" style="-fx-border-color: #EAD8B1; -fx-border-width: 0 2 0 0;" HBox.hgrow="ALWAYS">
+
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Batch : " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvBatchNo" text="" />
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="MFG Date : " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvMfgDate" text="" />
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Exp. Date :  " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvExpDate" text="" />
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Barcode : " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvBarcode" text="" />
+                                        </HBox>
+
+                                    </VBox>
+
+                                    <VBox id="rightBorder" spacing="5.0" style="-fx-border-color: #EAD8B1; -fx-border-width: 0 2 0 0;" HBox.hgrow="ALWAYS">
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Pur.Rate : " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvPurRate" text="" />
+                                        </HBox>
+
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Cost :  " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvCost" text="" />
+                                        </HBox>
+
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Cost With Tax :  " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvCostWithTax" text="" />
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="MRP : " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvMrp" text="" />
+                                        </HBox>
+                                    </VBox>
+                                    <VBox id="rightBorder" spacing="5.0" style="-fx-border-color: #EAD8B1; -fx-border-width: 0 2 0 0;" HBox.hgrow="ALWAYS">
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="PTR-MH:  " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvFsrmh" text="" />
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="PTR-AI:  " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvFsrai" text="" />
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="CSR MH :" />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lbPurInvBatchCsrmh" text="" />
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="CSR AI :" />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lbPurInvBatchCsrai" text="" />
+                                        </HBox>
+
+                                    </VBox>
+
+                                    <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Free Qty : " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvFreeqty" text="" />
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Margin : " />
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lblPurChToInvMarginPer" text="" />
+                                        </HBox>
+
+                                    </VBox>
+
+                                </HBox>
+                            </VBox>
+                        </VBox>
+                    </Tab>
+                </TabPane>
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <padding>
+                        <Insets left="10.0" right="10.0" />
+                    </padding>
+                    <Label text="Narrations" />
+                    <TextField fx:id="tfPurChToInvNarration" promptText="Enter Narration" HBox.hgrow="ALWAYS" />
+                </HBox>
+                <VBox id="supplierTableMainDiv">
+                    <TableView fx:id="tblvPurChToInvPrdHist" stylesheets="@../css/invoice_product_history_table.css">
+                        <columns>
+                            <TableColumn fx:id="tblcPrdHistSupplierName" maxWidth="200" minWidth="120" prefWidth="200" text="Supplier Name" />
+                            <TableColumn fx:id="tblcPrdHistInvNo" maxWidth="120" minWidth="80" prefWidth="120" text="Inv No" />
+                            <TableColumn fx:id="tblcPrdHistInvDate" maxWidth="100" minWidth="80" prefWidth="100" text="Inv Date" />
+                            <TableColumn fx:id="tblcPrdHistBatch" maxWidth="150" minWidth="90" prefWidth="150" text="Batch" />
+                            <TableColumn fx:id="tblcPrdHistMRP" maxWidth="100" minWidth="60" prefWidth="100" text="MRP" />
+                            <TableColumn fx:id="tblcPrdHistQty" maxWidth="80" minWidth="50" prefWidth="80" text="Qty" />
+                            <TableColumn fx:id="tblcPrdHistRate" maxWidth="100" minWidth="60" prefWidth="100" text="Rate" />
+                            <TableColumn fx:id="tblcPrdHistCost" maxWidth="100" minWidth="60" prefWidth="100" text="Cost" />
+                            <TableColumn fx:id="tblcPrdHistDisPer" maxWidth="60" minWidth="50" prefWidth="60" text="Dis. %" />
+                            <TableColumn fx:id="tblcPrdHistDisAmt" maxWidth="80" minWidth="50" prefWidth="100" text="Dis. ₹" />
+                        </columns>
+                  <columnResizePolicy>
+                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                  </columnResizePolicy>
+                    </TableView>
+                </VBox>
+            </VBox>
+            <VBox id="middleMainDiv" fx:id="pc2iBottomSecondV" spacing="5.0" style="-fx-background-color: #d9f0fb; -fx-border-color: #d1dce1; -fx-border-width: 0 0 0 1px;">
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label style="-fx-font-weight: bold;" text="Dis.%" />
+                    <TextField id="tfDisPer" fx:id="tfPurChToInvDisPropPer" onKeyTyped="#purc_disc_per" promptText="0" style="-fx-alignment: center-right;" />
+                    <Label style="-fx-font-weight: bold;" text="Dis.₹" />
+                    <TextField id="tfDisAmt" fx:id="tfPurChToInvDisPropAmt" onKeyTyped="#purc_disc_amt" promptText="0.00" style="-fx-alignment: center-right;" />
+                </HBox>
+
+                <TableView fx:id="tblvGST_Table" stylesheets="@../css/gst_table.css">
+                    <columns>
+                        <TableColumn fx:id="tblc_gst" minWidth="50" prefWidth="50" text="GST" />
+                        <TableColumn fx:id="tblc_cgst" minWidth="50" prefWidth="50" text="CGST" />
+                        <TableColumn fx:id="tblc_sgst" minWidth="50" prefWidth="50" text="SGST" />
+                    </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+                </TableView>
+            <HBox alignment="CENTER_LEFT">
+               <children>
+                  <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label style="-fx-font-weight: bold;" text="Total" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label style="-fx-font-weight: bold;" text="0.00" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label style="-fx-font-weight: bold;" text="0.00" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <Region VBox.vgrow="ALWAYS" />
+                <VBox spacing="5">
+                    <HBox spacing="10.0">
+                        <Label style="-fx-text-fill: #B67868; -fx-font-weight: bold;" text="Total Qty : " />
+                        <Label fx:id="lblPurChallTotalQty" style="-fx-text-fill: #4d4d4d; -fx-font-weight: bold;" text="100" />
+                    </HBox>
+                    <HBox spacing="10.0">
+                        <Label style="-fx-text-fill: #B67868; -fx-font-weight: bold;" text="Free Qty : " />
+                        <Label fx:id="lblPurChallFreeQty" style="-fx-text-fill: #4d4d4d; -fx-font-weight: bold;" text="10" />
+                    </HBox>
+                    <HBox spacing="10.0">
+                        <CheckBox fx:id="chbPurChToInvRoundOff" />
+                        <Label style="-fx-text-fill: #B67868; -fx-font-weight: bold;" text="R.Off(+/-) : " />
+                        <Label fx:id="lblPurChToInvRoundOff" style="-fx-text-fill: #4d4d4d; -fx-font-weight: bold;" text="00.0" />
+                    </HBox>
+                </VBox>
+            </VBox>
+            <VBox fx:id="pc2iBottomThirdV" style="-fx-background-color: #d2f7e9; -fx-border-color: #c0cfd6; -fx-border-width: 0 0 0 1;">
+            <VBox fx:id="pc2iTotalMainDiv" spacing="20.0" style="-fx-background-color: #d2f7e9;">
+               <children>
+                      <VBox id="sqtotalFirst" fx:id="pc2iTotalMainInnerDiv" spacing="10.0">
+                          <HBox alignment="CENTER_LEFT">
+                              <Button id="add_charges" fx:id="add_charges" onAction="#onClickAdditionalCharges" text="Add Charges" />
+                              <Region HBox.hgrow="ALWAYS" />
+                              <TextField id="tfCommonWidth" fx:id="tfPurChToInvAddCharges" promptText="0.00" style="-fx-alignment: center-right;" />
+                          </HBox>
+      
+                          <HBox alignment="CENTER_LEFT">
+                              <Label style="-fx-font-weight: bold;" text="Gross Total" />
+                              <Region HBox.hgrow="ALWAYS" />
+                              <Label fx:id="lblPurChToInvGrossTotal" style="-fx-font-weight: bold;" text="0.00" />
+                          </HBox>
+      
+                          <HBox alignment="CENTER_LEFT">
+                              <Label style="-fx-font-weight: bold;" text="Discount" />
+                              <Region HBox.hgrow="ALWAYS" />
+                              <Label fx:id="lblPurChToInvDiscount" style="-fx-font-weight: bold;" text="0.00" />
+                          </HBox>
+      
+                          <HBox alignment="CENTER_LEFT">
+                              <Label style="-fx-font-weight: bold;" text="Total" />
+                              <Region HBox.hgrow="ALWAYS" />
+                              <Label fx:id="lblPurChToInvTotal" style="-fx-font-weight: bold;" text="0.00" />
+                          </HBox>
+      
+                          <HBox alignment="CENTER_LEFT">
+                              <Label style="-fx-font-weight: bold;" text="Tax" />
+                              <Region HBox.hgrow="ALWAYS" />
+                              <Label fx:id="lblPurChToInvTax" style="-fx-font-weight: bold;" text="0.00" />
+                          </HBox>
+                      </VBox>
+                       <HBox id="sqtotalsecond" alignment="CENTER_LEFT" style="-fx-background-color: #a0efd2;">
+                           <Label id="bigLabel" style="-fx-font-weight: bold;" text="Bill Amount" />
+                           <Region HBox.hgrow="ALWAYS" />
+                           <Label id="bigLabel" fx:id="lblPurChToInvBillAmount" style="-fx-font-weight: bold;" text="0.00" />
+                       </HBox>
+               </children>
+            </VBox>
+            <Region VBox.vgrow="ALWAYS" />
+                <HBox id="sqbuttonsMainDiv" alignment="CENTER_RIGHT" spacing="10.0">
+
+<!--                    <Button fx:id="btnPurChToInvModify" styleClass="submit-btn" text="Modify" />-->
+                    <Button fx:id="btnPurChToInvsubmit" onAction="#onClickSubmit" styleClass="submit-btn" text="Submit" />
+                    <Button fx:id="btnPurChToInvCancel" styleClass="cancel-btn" text="Cancel" />
+
+                </HBox>
+            </VBox>
+        </HBox>
+    </bottom>
+    <center>
+
+        <TableView fx:id="tblvPurChToInvTable" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="tcPurChToInvSrNo" maxWidth="60" minWidth="35" prefWidth="60" />
+                <TableColumn fx:id="tcPurChToInvParticulars" maxWidth="480" minWidth="150" prefWidth="480" text="Particulars" />
+                <TableColumn fx:id="tcPurChToInvPackage" maxWidth="80" minWidth="80" prefWidth="80" text="Package" />
+                <TableColumn fx:id="tcPurChToInvLevelA" maxWidth="140" minWidth="85" prefWidth="140" text="Level A" />
+                <TableColumn fx:id="tcPurChToInvLevelB" maxWidth="140" minWidth="85" prefWidth="140" text="Level B" />
+                <TableColumn fx:id="tcPurChToInvLevelC" maxWidth="140" minWidth="85" prefWidth="140" text="Level C" />
+                <TableColumn fx:id="tcPurChToInvUnit" maxWidth="180" minWidth="100" prefWidth="180" text="Unit" />
+
+                <TableColumn fx:id="tcPurChToInvBatch" maxWidth="100" minWidth="50" prefWidth="100" text="Batch" />
+                <TableColumn fx:id="tcPurChToInvQuantity" maxWidth="50" minWidth="50" prefWidth="50" text="Qty" />
+                <TableColumn fx:id="tcPurChToInvRate" maxWidth="90" minWidth="80" prefWidth="90" text="Rate" />
+                <TableColumn fx:id="tcPurChToInvGrossAmount" maxWidth="120" minWidth="80" prefWidth="100" text="Amount" />
+                <TableColumn fx:id="tcPurChToInvDisPer" maxWidth="50" minWidth="50" prefWidth="50" text="Dis.%" />
+                <TableColumn fx:id="tcPurChToInvDisAmt" maxWidth="60" minWidth="60" prefWidth="60" text="Disc.₹" />
+                <TableColumn fx:id="tcPurChToInvTax" maxWidth="60" minWidth="60" prefWidth="60" text="Tax%" />
+                <TableColumn fx:id="tcPurChToInvNetAmount" maxWidth="120" minWidth="80" prefWidth="100" text="Net Amt" />
+                <TableColumn fx:id="tcPurChToInvAction" maxWidth="36" minWidth="36" prefWidth="36" text="" />
+            </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+        </TableView>
+    </center>
+</BorderPane>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane stylesheets="@../../../css/ledger_css_style/ledger_css_7.css" fx:id="stpaneother" style="-fx-background-color: #fff;"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.opethic.genivis.controller.master.ledger.edit.LedgerEditOtherController">
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" spacing="10.0" id="sqbuttonsMainDiv">
+            <Button mnemonicParsing="false" styleClass="submit-btn" text="Update" fx:id="btnLedgerEditOtherSubmit"/>
+            <Button mnemonicParsing="false" styleClass="cancel-btn"
+                    text="Cancel" fx:id="btnLedgerEditOtherCancel">
+
+            </Button>
+        </HBox>
+    </bottom>
+</BorderPane>

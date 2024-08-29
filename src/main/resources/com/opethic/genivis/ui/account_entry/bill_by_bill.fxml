@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.opethic.genivis.controller.account_entry.BillbybillController">
+    <top>
+
+        <VBox>
+
+            <HBox>
+                <Label text="Bill by bill">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+
+                </Label>
+            </HBox>
+           <HBox>
+               <Label text="Invoice List :">
+
+                   <font>
+                       <Font name="System Bold" size="14.0" />
+                   </font>
+               </Label>
+           </HBox>
+
+<HBox style="-fx-background-color: #D9F0FB;">
+    <Label text="Payable Amt">
+        <font>
+            <Font />
+        </font>
+    </Label>
+    <TextField fx:id="tfReceiptPayableAmt">
+
+    </TextField>
+    <Label text="Selected Amt" />
+    <TextField fx:id="tfReceiptSelectedAmt" />
+    <Label text="Remaining Amt" />
+    <TextField fx:id="tfReceiptRemainingAmt" />
+    <CheckBox fx:id="cbReceiptAdvanceAmt" mnemonicParsing="false" text="Advance Amt" />
+
+</HBox>
+
+        </VBox>
+
+    </top>
+    <center>
+
+<VBox>
+    <HBox>
+        <TableView fx:id="tbvReceiptInvoiceList" prefHeight="200.0">
+            <columns>
+                <TableColumn text="C1" />
+                <TableColumn text="Invoice No" />
+                <TableColumn text="Invoice Amt" />
+                <TableColumn text="Bill Date" />
+                <TableColumn text="Balance" />
+                <TableColumn text="Type" />
+                <TableColumn text="Due Date" />
+                <TableColumn text="Day" />
+                <TableColumn text="Paid Amt" />
+                <TableColumn text="Balance" />
+            </columns>
+        </TableView>
+    </HBox>
+
+    <HBox style="-fx-background-color: #D2F6E9;">
+        <Label text="Total">
+            <font>
+                <Font size="14.0" />
+            </font>
+
+        </Label>
+
+    </HBox>
+
+    <HBox>
+        <Label text="Credit Note :">
+
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </Label>
+
+    </HBox>
+</VBox>
+
+    </center>
+
+
+<bottom>
+    <VBox>
+        <HBox>
+            <TableView fx:id="tbvReceiptCreditNode" prefHeight="200.0">
+                <columns>
+                    <TableColumn text="C1" />
+                    <TableColumn text="Invoice No" />
+                    <TableColumn text="Invoice Amt" />
+                    <TableColumn text="Bill Date" />
+                    <TableColumn text="Balance" />
+                    <TableColumn text="Type" />
+                    <TableColumn text="Due Date" />
+                    <TableColumn text="Day" />
+                    <TableColumn text="Paid Amt" />
+                    <TableColumn text="Balance" />
+                </columns>
+            </TableView>
+        </HBox>
+
+        <HBox style="-fx-background-color: #D2F6E9;">
+
+            <Label text="Total">
+                <font>
+                    <Font size="14.0" />
+                </font>
+
+            </Label>
+
+        </HBox>
+
+        <HBox style="-fx-background-color: #A0EFD2;">
+
+            <Label text="Grand Total">
+                <font>
+                    <Font name="System Bold" size="14.0" />
+                </font>
+                <padding>
+                    <Insets left="10.0" />
+                </padding>
+
+            </Label>
+            <Label text="Go To Receipt">
+                <font>
+                    <Font name="System Bold" size="14.0" />
+                </font>
+
+            </Label>
+
+        </HBox>
+
+        <HBox>
+            <Button mnemonicParsing="false" text="Submit" />
+
+        </HBox>
+    </VBox>
+</bottom>
+</BorderPane>

@@ -1,0 +1,397 @@
+/* Label Style Start */
+.label {
+  -fx-font-family: "Arial";
+  -fx-font-size: 13px;
+  -fx-text-fill: #000000;
+}
+/* Label Style End */
+
+/* Textfield Start */
+.text-field {
+  -fx-font-family: "Arial";
+  -fx-background-color: #fff;
+  -fx-border-color: #99a3ac;
+  -fx-border-width: 1px;
+  -fx-font-size: 13px;
+  -fx-pref-height: 32px;
+  -fx-pref-width: 150px;
+  -fx-border-radius: 4px;
+  /*-fx-padding: 5px;*/
+}
+.text-field:focused {
+  -fx-border-width: 2px !important;
+  -fx-background-color: #fff9c4 !important;
+  -fx-border-color: #00a0f5 !important;
+}
+.text-field:hover {
+  -fx-background-color: #fff9c4;
+  -fx-border-width: 1px;
+  -fx-border-color: #99a3ac;
+}
+/* Textfield End */
+
+/* Combobox Start */
+.combo-box {
+  -fx-background-color: #fff;
+  -fx-border-color: #99a3ac;
+  -fx-border-radius: 4px;
+  -fx-font-size: 13px;
+  -fx-pref-height: 32px;
+  -fx-pref-width: 160px;
+  -fx-border-width: 1px;
+}
+
+.combo-box .text-input {
+  -fx-background-color: transparent;
+  -fx-border-radius: 0px;
+  -fx-border-color: transparent;
+}
+
+.combo-box:focused {
+  -fx-background-color: #fff9c4 !important;
+  -fx-border-color: #00a0f5 !important;
+  -fx-border-width: 2px !important;
+}
+
+.combo-box:hover {
+  -fx-background-color: #fff9c4;
+}
+
+.combo-box-popup {
+  -fx-background-color: #fff;
+  -fx-border-color: #ccc;
+  -fx-border-radius: 0px;
+  -fx-pref-height: 100px;
+  -fx-pref-width: 300px;
+}
+
+.combo-box-popup .list-cell {
+  -fx-text-fill: #333333;
+  -fx-font-size: 13px;
+  -fx-padding: 5px;
+}
+
+.combo-box-popup .list-cell:hover {
+  -fx-background-color: #b3e4ff;
+}
+
+.combo-box-popup .list-view .list-cell:selected {
+  -fx-background-color: #00a0f5;
+  -fx-text-fill: white;
+}
+/* Combobox End */
+
+/* Submit Btn Start */
+.submit-btn {
+  -fx-padding: 4px 10px;
+  -fx-font-family: "Arial";
+  -fx-pref-height: 32px;
+  -fx-border-radius: 6px;
+  -fx-font-size: 13px;
+  -fx-text-fill: #21c78a;
+  -fx-background-color: transparent;
+  -fx-border-width: 2px;
+  -fx-border-color: #22c55e;
+  -fx-font-weight: bold;
+}
+
+.submit-btn:hover {
+  -fx-text-fill: white;
+  -fx-background-color: #22c55e;
+  -fx-background-radius: 6px;
+  -fx-cursor: hand;
+}
+.submit-btn:focused {
+  -fx-text-fill: white;
+  -fx-background-color: #22c55e;
+  -fx-background-radius: 6px;
+  -fx-cursor: hand;
+}
+/* Submit Btn End */
+
+/* Cancel Btn Start */
+.cancel-btn {
+  -fx-padding: 4px 10px;
+  -fx-font-family: "Arial";
+  -fx-pref-height: 32px;
+  -fx-border-radius: 6px;
+  -fx-font-size: 13px;
+  -fx-text-fill: #a0aab4;
+  -fx-background-color: transparent;
+  -fx-border-width: 2px;
+  -fx-border-color: #a0aab4;
+  -fx-font-weight: bold;
+}
+
+.cancel-btn:hover {
+  -fx-text-fill: white;
+  -fx-background-color: #a0aab4;
+  -fx-background-radius: 6px;
+  -fx-cursor: hand;
+}
+.cancel-btn:focused {
+  -fx-text-fill: white;
+  -fx-background-color: #a0aab4;
+  -fx-background-radius: 6px;
+  -fx-cursor: hand;
+}
+/* Cancel Btn End */
+
+/* Convert btn */
+.convert_btn_style {
+  -fx-font-family: "Arial";
+  -fx-font-size: 13px;
+  -fx-border-radius: 6px;
+  -fx-pref-height: 32px;
+  -fx-text-fill: #21c78a;
+  -fx-background-color: transparent;
+  -fx-border-width: 2px;
+  -fx-border-color: #22c55e;
+  -fx-font-weight: bold;
+}
+.convert_btn_style:hover {
+  -fx-text-fill: white;
+  -fx-background-color: #22c55e;
+  -fx-background-radius: 6px;
+  -fx-cursor: hand;
+}
+.convert_btn_style:focused {
+  -fx-text-fill: white;
+  -fx-background-color: #22c55e;
+  -fx-background-radius: 6px;
+  -fx-cursor: hand;
+}
+
+/* Convert btn */
+
+#add_charges {
+  -fx-padding: 5px 14px;
+  -fx-font-family: "Arial", sans-serif;
+  -fx-pref-height: 32px;
+  -fx-font-size: 13px;
+  -fx-text-fill: #20a574;
+  -fx-border-color: #20a574;
+  -fx-background-color: transparent;
+  -fx-font-weight: bold;
+  -fx-background-radius: 4px;
+  -fx-border-radius: 4px;
+}
+
+#add_charges:hover,
+#add_charges:focused {
+  -fx-padding: 5px 14px;
+  -fx-font-family: "Arial", sans-serif;
+  -fx-pref-height: 32px;
+  -fx-text-fill: #20a574;
+  -fx-font-size: 13px;
+  -fx-border-color: #20a574;
+  -fx-background-color: transparent;
+  -fx-font-weight: bold;
+  -fx-cursor: hand;
+  -fx-background-radius: 4px;
+  -fx-border-radius: 4px;
+}
+
+/* Tableview Start */
+.table-view .column-header,
+.table-view .column-header-background .filler {
+  -fx-font-family: "Arial";
+  -fx-font-size: 13px;
+  -fx-alignment: CENTER_LE0FT;
+  -fx-pref-height: 35px;
+  -fx-padding: 0px;
+}
+.table-view .table-cell {
+  -fx-font-size: 13px;
+  -fx-alignment: CENTER_LEFT;
+}
+.table-view .cell {
+  -fx-cell-size: 35;
+}
+.table-view .table-cell {
+  -fx-padding: 0 0 0 0;
+}
+.table-row-cell:odd,
+.table-row-cell:even {
+  -fx-background-color: #f6f6f9;
+  -fx-border-color: transparent transparent #e0e0e1 transparent; /* Adjust border color as needed */
+  -fx-border-width: 0 0 1 0; /* Adjust border width as needed */
+}
+.table-column {
+  -fx-border-color: transparent #e0e0e1 transparent transparent; /* Adjust border color as needed */
+  -fx-border-width: 0 1 0 0; /* Adjust border width as needed */
+}
+.table-view:focused {
+  -fx-background-color: -fx-box-border, -fx-control-inner-background;
+  -fx-background-insets: 1, 1;
+}
+.table-view:hover {
+  -fx-cursor: hand;
+}
+
+/*
+#table_textfield {
+    -fx-background-color: yellow;
+    -fx-text-fill: blue;
+} */
+
+/* Tableview End */
+
+.tabTitle {
+  -fx-font-size: 13px;
+  -fx-font-weight: bold;
+}
+
+.bigLabel {
+  -fx-font-family: "Arial";
+  -fx-font-weight: bold;
+  -fx-font-size: 15px;
+  -fx-text-fill: #000000;
+}
+.mediumLabel {
+  -fx-font-family: "Arial";
+  -fx-font-weight: bold;
+  -fx-font-size: 13px;
+  -fx-text-fill: #000000;
+}
+
+.gridCommonTextStyle {
+  -fx-font-weight: bold;
+  -fx-font-size: 13px;
+}
+
+.mainGridStyle {
+  -fx-background-color: #f8f0d2;
+  -fx-background-radius: 6;
+  -fx-padding: 5px;
+}
+
+// css for textfields
+
+/*Tranx Date lbl and textfield*/
+.tranxDateLbl {
+}
+
+.tranxDateTextField {
+}
+/* */
+
+/*Ledger Name lbl and textfield*/
+.lblLedgerName {
+}
+.tfLedgerName {
+  -fx-pref-width: 390;
+}
+/**/
+
+/* Supplier gstin lbl and combobox */
+
+.lblSupplierGstin {
+}
+.cmbSupplierGst {
+  -fx-pref-width: 170px;
+}
+.cmbSupplierGst:focused {
+  -fx-pref-width: 170px;
+}
+/**/
+
+/* Purchase Serial lbl and textfield */
+.lblPurSerial {
+}
+.tfPurSerial {
+}
+/**/
+
+/* Challan No lbl and textfield */
+.lblChallanNo {
+  -fx-pref-width: 80px;
+}
+.tfChallanNo {
+}
+/**/
+
+/* Challan No lbl and textfield */
+.lblChallanDate {
+  -fx-pref-width: 100px;
+}
+.tfChallanDate {
+  -fx-pref-width: 110px;
+}
+/**/
+
+/* Pur Ac lbl and combo */
+.lblPurAc {
+}
+.cmbPurAc {
+}
+/**/
+
+/* Orders lbls */
+.lblOrders {
+}
+.lblOrderValue {
+}
+
+/*Dis per tf */
+.tfDisPer {
+  -fx-pref-width: 60px;
+}
+
+/* Dis Amt tf*/
+.tfDisAmt {
+  -fx-pref-width: 80px;
+}
+/* Add Charger tf*/
+.tfAddCharges {
+  -fx-pref-width: 70px;
+}
+
+/* TOP MAIN DIV */
+.topMainDiv {
+  -fx-background-color: #fff;
+  -fx-background-radius: 6;
+}
+
+/* padding tabs  */
+
+.ledgertabMainDiv {
+  -fx-padding: 5px;
+}
+.ledgerTabInnerHb {
+  -fx-padding: 0px;
+}
+.ledgerSingleInfo {
+  -fx-padding: 5px;
+}
+.topDiv {
+  -fx-padding: 10px;
+}
+
+.topFirstHbox {
+  -fx-padding: 8px;
+}
+
+#gstTotalMainDiv {
+  -fx-padding: 5px;
+}
+#lblTotal {
+  -fx-padding: 0 0 0 25px;
+  -fx-pref-width: 100px;
+}
+#lblTotalFirst {
+  -fx-padding: 0 0 0 28px;
+  -fx-pref-width: 100px;
+}
+#lblTotalSecond {
+  -fx-padding: 0 0 0 5px;
+  -fx-pref-width: 100px;
+}
+// Sales order to challan
+
+#s2clblChallanDate{
+-fx-pref-width:92px;
+}
+#s2clblChallanNo{
+-fx-pref-width:80px;
+}

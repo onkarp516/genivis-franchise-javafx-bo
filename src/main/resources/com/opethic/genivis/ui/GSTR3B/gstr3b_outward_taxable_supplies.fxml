@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="borderpane" stylesheets="@../css/reportsCommonStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.opethic.genivis.controller.GSTR3B.GSTR3BOutwardTaxableSuppliesController">
+    <top>
+        <VBox BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER" style="-fx-background-color: #b8e3fa;" VBox.vgrow="ALWAYS">
+                    <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" styleClass="mainTitleStyle" text="GSTR-3B : Outward Taxable Supplies" HBox.hgrow="ALWAYS" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" style="-fx-background-color: #d9f0fb;" VBox.vgrow="ALWAYS">
+                    <children>
+                  <HBox alignment="CENTER_LEFT" spacing="15.0">
+                     <children>
+                        <TextField fx:id="tfGSTR3BGSTR3BOutwardTaxableSuppliesSearch" minWidth="250.0" promptText="Search">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </TextField>
+                              <Label text="From Date">
+                                  <font>
+                                      <Font size="14.0" />
+                                  </font>
+                                  <HBox.margin>
+                                      <Insets />
+                                  </HBox.margin>
+                        </Label>
+                              <TextField fx:id="tfStartDt" promptText="DD/MM/YYYY">
+                                  <HBox.margin>
+                                      <Insets />
+                                  </HBox.margin>
+                        </TextField>
+                              <Label text="To Date">
+                                  <font>
+                                      <Font size="14.0" />
+                                  </font>
+                                  <HBox.margin>
+                                      <Insets />
+                                  </HBox.margin>
+                              </Label>
+                              <TextField fx:id="tfEndDt" promptText="DD/MM/YYYY">
+                                  <HBox.margin>
+                                      <Insets />
+                                  </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                        <HBox alignment="CENTER_RIGHT" spacing="10.0" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Button fx:id="btExportPdf" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                    <graphic>
+                                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../assets/pdf.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                </Button>
+                                <Button fx:id="btExportExcel" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                    <graphic>
+                                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../assets/excel.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                </Button>
+                                <Button fx:id="btExportCsv" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                    <graphic>
+                                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../assets/csv.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                </Button>
+                                <Button fx:id="btExportPrint" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                    <graphic>
+                                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../assets/print.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                </Button>
+                            </children>
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                        </HBox>
+                    </children>
+               <padding>
+                  <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+               </padding>
+                </HBox>
+            </children>
+        </VBox>
+    </top>
+   <bottom>
+      <HBox spacing="60.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox HBox.hgrow="ALWAYS">
+               <children>
+                  <Label style="-fx-font-weight: 700;" text="Total">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label fx:id="lblTotalTaxable_amt" style="-fx-font-weight: 700;" text="00.00">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label fx:id="lblTotalIgst_amt" style="-fx-font-weight: 700;" text="00.00">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label fx:id="lblTotalCgst_amt" style="-fx-font-weight: 700;" text="00.00">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label fx:id="lblTotalSgst_amt" style="-fx-font-weight: 700;" text="00.00">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label fx:id="lblTotalTax_amt" style="-fx-font-weight: 700;" text="00.00">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label fx:id="lblTotalInvoice_amt" style="-fx-font-weight: 700;" text="00.00">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+         </padding>
+      </HBox>
+   </bottom>
+   <center>
+      <TableView fx:id="tblvGSTR3BOutwardTaxableSuppliesList" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="tblGSTR3BOutwardTaxableSuppliesDates" text="Dates" />
+          <TableColumn fx:id="tblGSTR3BOutwardTaxableSuppliesInvoiceNo" text="Invoice No." />
+            <TableColumn fx:id="tblGSTR3BOutwardTaxableSuppliesParticulars" text="Particulars" />
+            <TableColumn fx:id="tblGSTR3BOutwardTaxableSuppliesGSTIN" text="GSTIN/UIN" />
+            <TableColumn fx:id="tblGSTR3BOutwardTaxableSuppliesVoucherType" text="Voucher Type" />
+            <TableColumn fx:id="tblGSTR3BOutwardTaxableSuppliesTaxableAmt" text="Taxable Amt." />
+            <TableColumn fx:id="tblGSTR3BOutwardTaxableSuppliesIGSTAmt" text="IGST Amt." />
+            <TableColumn fx:id="tblGSTR3BOutwardTaxableSuppliesCGSTAmt" text="CGST Amt." />
+            <TableColumn fx:id="tblGSTR3BOutwardTaxableSuppliesSGSTAmt" text="SGST Amt." />
+            <TableColumn fx:id="tblGSTR3BOutwardTaxableSuppliesCessAmt" text="Cess Amt." />
+            <TableColumn fx:id="tblGSTR3BOutwardTaxableSuppliesTaxAmt" text="Tax Amt." />
+            <TableColumn fx:id="tblGSTR3BOutwardTaxableSuppliesInvoiceAmt" text="Invoice Amt." />
+        </columns>
+      </TableView>
+   </center>
+</BorderPane>

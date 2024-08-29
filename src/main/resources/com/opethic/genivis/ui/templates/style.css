@@ -1,0 +1,141 @@
+.bill_format_style{
+.mainDiv{
+border:1px solid;
+.customerNameStyle{
+margin:0
+}
+.textCenter{
+text-align:center;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+  .item {
+  flex: 0.4;
+  padding:5px;
+  text-align: center;
+  }
+  .item1 {
+   flex: 0.6;
+   padding:5px;
+   }
+   .item2 {
+    flex: 1;
+    padding:5px;
+    }
+    .item3 {
+    flex: 0.4;
+    padding:5px;
+    }
+.containerNew {
+  display: flex;
+  justify-content: space-between;
+}
+  .ite {
+  flex: 1;
+  padding:5px;
+  }
+.containerBottom {
+  display: flex;
+  justify-content: space-between;
+  border-top:1px solid;
+  border-bottom:2px solid;
+}
+  .bottomItem {
+  flex: 1;
+  }
+    .bottomItem1 {
+    flex: 0.2;
+    padding:5px;
+    }
+.containerBottomInside {
+  display: flex;
+  justify-content: space-between;
+}
+  .bottomItemInside {
+  flex: 1;
+  }
+    .bottomItemInside1 {
+    flex: 0.4;
+    }
+.lastContainer {
+  display: flex;
+  justify-content: space-between;
+}
+  .lastItem1 {
+  flex: 1;
+  padding:5px;
+
+  border-right:1px solid;
+  }
+    .lastItem2 {
+    flex: 0.5;
+  padding:5px;
+
+      border-right:1px solid;
+    }
+        .lastItem3 {
+        flex: 0.6;
+        padding:5px;
+
+          border-right:1px solid;
+          text-align:center;
+        }
+            .lastItem4 {
+            flex: 0.8;
+            padding:5px;
+            text-align:center;
+            }
+.logoStyle{
+height:124px
+}
+.linesStyle{
+border-top:1px solid;
+border-bottom:1px solid;
+}
+.tableStyle{
+table{
+width:100%;
+border: 1px solid trasparent;
+  border-collapse: collapse;
+}
+table th{
+background-color:#c2fafa;
+}
+table td{
+text-align:center;
+}
+.th_style{
+border-top:1px solid #333;
+border-right:1px solid #333;
+border-bottom:1px solid #333;
+}
+.th_style_end{
+border-top:1px solid #333;
+border-bottom:1px solid #333;
+}
+}
+.bottom_table_style{
+table{
+width:100%;
+border: 1px solid trasparent;
+  border-collapse: collapse;
+}
+table td{
+text-align:center;
+}
+.th_style{
+border-right:1px solid #333;
+border-bottom:1px solid #333;
+}
+}
+.displayFlexStyle{
+display:flex;
+}
+.marginLeftStyle{
+margin-left:auto;
+}
+}
+}
+}

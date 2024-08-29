@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<BorderPane fx:id="bpSadminRoot" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.opethic.genivis.controller.users.SadminController" stylesheets="@../css/style.css">
+   <top>
+       <HBox alignment="CENTER_LEFT" spacing="0" style="-fx-background-color: #0D3657; -fx-border-color: #46586F; -fx-border-width: 2px 0px; -fx-min-height: 40px; -fx-pref-height: 40px;">
+           <children>
+               <ImageView fitHeight="55.0" fitWidth="55.0" onMouseClicked="#dashboardPageLoad" pickOnBounds="true" preserveRatio="true">
+                   <Image url="@../assets/newethicslogo.png" />
+               </ImageView>
+               <!-- Rectangle -->
+               <Rectangle fill="#46586F" height="50" width="2" />
+               <MenuBar fx:id="mbSadmin"  style="-fx-background-color: #0D3657; -fx-padding: 0 -10px 0 0;" stylesheets="@../css/style.css"/>
+               <Region HBox.hgrow="ALWAYS" />
+
+               <ImageView fitHeight="18.0" fitWidth="16.0">
+                   <!-- Make sure the path is correct -->
+                   <Image url="@../assets/calendar.png" />
+               </ImageView>
+               <Label text=" " textFill="WHITE">
+                   <font>
+                       <Font name="System Bold" size="14.0" />
+                   </font>
+               </Label>
+               <Label text=" " textFill="WHITE">
+                   <font>
+                       <Font name="System Bold" size="14.0" />
+                   </font>
+               </Label>
+               <Label text=" " textFill="WHITE">
+                   <font>
+                       <Font name="System Bold" size="14.0" />
+                   </font>
+               </Label>
+
+               <Label fx:id="headerDateandTime"  textFill="WHITE">
+                   <font>
+                       <Font name="System Bold" size="14.0" />
+                   </font>
+               </Label>
+               <Label text=" " textFill="WHITE">
+                   <font>
+                       <Font name="System Bold" size="14.0" />
+                   </font>
+               </Label>
+               <Label text=" " textFill="WHITE">
+                   <font>
+                       <Font name="System Bold" size="14.0" />
+                   </font>
+               </Label>
+               <Label text=" " textFill="WHITE">
+                   <font>
+                       <Font name="System Bold" size="14.0" />
+                   </font>
+               </Label>
+               <Rectangle fill="#00A0F5" height="15" width="2" />
+               <Label text=" " textFill="WHITE">
+                   <font>
+                       <Font name="System Bold" size="14.0" />
+                   </font>
+               </Label>
+               <Label text=" " textFill="WHITE">
+                   <font>
+                       <Font name="System Bold" size="14.0" />
+                   </font>
+               </Label>
+               <Label text=" " textFill="WHITE">
+                   <font>
+                       <Font name="System Bold" size="14.0" />
+                   </font>
+               </Label>
+               <Label text="Sandip Nayar" textFill="WHITE" fx:id="lblUserName">
+                   <font>
+                       <Font name="System Bold" size="14.0" />
+                   </font>
+               </Label>
+               <MenuButton fx:id="userMenu" mnemonicParsing="false" styleClass="custom-menu-button" style="-fx-background-color: #0D3657;  -fx-min-width: 60px; -fx-pref-width: 60px;" >
+                   <graphic>
+                       <!-- Use an HBox to hold both images -->
+                       <HBox spacing="8">
+                           <!-- User profile image -->
+                           <ImageView fitHeight="24.0" fitWidth="24.0">
+                               <Image url="@../assets/user_profile.png" />
+                           </ImageView>
+
+                           <VBox style="-fx-padding: 8 0 0 0;" >
+                               <ImageView fitHeight="8.0" fitWidth="10.0">
+                                   <Image url="@../assets/downarrow.png" />
+                               </ImageView>
+                           </VBox>
+                       </HBox>
+                   </graphic>
+                   <items>
+                       <MenuItem fx:id="changePassword" mnemonicParsing="false" text="Change Password" />
+                       <MenuItem fx:id="logout" onAction="#handleLogout" mnemonicParsing="false" text="Sign Out" />
+                   </items>
+                   <font>
+                       <Font name="System Bold" size="14.0" />
+                   </font>
+               </MenuButton>
+           </children>
+       </HBox>
+   </top>
+   <center>
+      <!--<TabPane fx:id="sadminMenuTabPen" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="ALL_TABS" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab fx:id="sadminMenuDashboardTab" text="Dashboard">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="TOP_RIGHT" layoutX="676.0" layoutY="160.0" style="-fx-label-padding: 200; -fx-font-weight: 600;" text="Welcome Sadmin!" textAlignment="JUSTIFY">
+                           <font>
+                              <Font size="60.0" />
+                           </font></Label>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+
+
+        </tabs>
+      </TabPane>-->
+   </center>
+    <bottom>
+        <HBox alignment="CENTER_LEFT" prefHeight="30" spacing="5" style="-fx-background-color: #0D3657; -fx-border-color: #185ABD; -fx-border-width: 2px 0px;">
+            <children>
+                <Label text="" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="12.0" fitWidth="18.0">
+                    <!-- Make sure the path is correct -->
+                    <Image url="@../assets/keyboard.png" />
+                </ImageView>
+                <Rectangle fill="#185ABD" height="30" width="2" />
+
+                <Label text="New Entry" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label> <Label text="ctrl+N" textFill="#FAC90E">
+                <font>
+                    <Font name="System Bold" size="14.0" />
+                </font>
+            </Label>
+                <Label text="" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label text="" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Rectangle fill="#185ABD" height="20" width="2" />
+                <Label text="" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label text="" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <!-- Other labels -->
+                <Label text="Duplicate" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label text="ctrl+D" textFill="#FAC90E">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label text="" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label text="" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Rectangle fill="#185ABD" height="20" width="2" />
+                <Label text="" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label text="" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label text="Close" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label text="esc" textFill="#FAC90E">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label text="" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label text="" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Rectangle fill="#185ABD" height="20" width="2" />
+                <Label text="" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label text="" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label text="Save" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label text="f12" textFill="#FAC90E">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+
+                <!-- Spacer region -->
+                <Region HBox.hgrow="ALWAYS" />
+                <Rectangle fill="#185ABD" height="30" width="2" />
+                <!-- Icon label on the right -->
+                <ImageView fitHeight="14.0" fitWidth="14.0">
+                    <Image url="@../assets/questionmark.png" />
+                </ImageView>
+                <Label text="" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>

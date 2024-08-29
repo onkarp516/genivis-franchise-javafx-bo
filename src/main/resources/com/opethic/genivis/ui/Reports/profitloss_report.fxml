@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.layout.VBox?>
+<?import com.opethic.genivis.controller.commons.SwitchButton?>
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.opethic.genivis.controller.Reports.StockReportController">
+    <children>
+        <TextField fx:id="tftranxSalesChallanLstSearchField" layoutX="14.0" layoutY="161.0" prefHeight="35.0" prefWidth="500.0" promptText="Search..." />
+        <DatePicker fx:id="dptranxSalesChallanToDate" layoutX="949.0" layoutY="152.0" prefHeight="35.0" prefWidth="220.0" />
+        <DatePicker fx:id="dptranxSalesChallanFromDate" layoutX="599.0" layoutY="161.0" prefHeight="35.0" prefWidth="220.0" />
+        <Label layoutX="525.0" layoutY="177.0" prefHeight="17.0" prefWidth="74.0" text="From Date">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="885.0" layoutY="160.0" prefHeight="17.0" prefWidth="74.0" text="To Date">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <TableView fx:id="tblvSalesChallan" editable="true" layoutX="4.0" layoutY="232.0" prefHeight="839.0" prefWidth="1934.0" stylesheets="@../css/hsnStyle.css">
+            <columns>
+                <TableColumn fx:id="tblcSalesChallanSelect" prefWidth="60.0" text="Select" />
+                <TableColumn fx:id="tblcSalesChallanSCNo" prefWidth="211.0" text="SC No." />
+                <TableColumn fx:id="tblcSalesChallanRefNo" prefWidth="182.0" style="-fx-alignment: CENTER;" text="Ref. No." />
+                <TableColumn fx:id="tblcSalesChallanDate" minWidth="2.0" prefWidth="131.0" text="SC Date" />
+                <TableColumn fx:id="tblcSalesChallanSupplierName" prefWidth="283.0" text="Client Name" />
+                <TableColumn fx:id="tblcSalesChallanNarration" prefWidth="380.0" text="Narration" />
+                <TableColumn fx:id="tblcSalesChallanTaxable" prefWidth="140.0" text="Taxable" />
+                <TableColumn fx:id="tblcSalesChallanTax" prefWidth="92.0" text="Tax" />
+                <TableColumn fx:id="tblcSalesChallanBillAmount" prefWidth="151.0" text="Bill Amount" />
+                <TableColumn fx:id="tblcSalesChallanTranxStatus" prefWidth="126.0" text="Tranx Status" />
+                <TableColumn fx:id="tblcSalesChallanPrint" prefWidth="74.0" text="Print" />
+                <TableColumn fx:id="tblcSalesChallanAction" prefWidth="94.0" text="Action" />
+            </columns>
+        </TableView>
+      <HBox layoutX="-1.0" layoutY="-2.0" prefHeight="48.0" prefWidth="1938.0" style="-fx-background-color: #cff5fc;">
+         <children>
+            <Label prefHeight="39.0" prefWidth="375.0" text="Stock Reports  : Company  : Genivis" textAlignment="CENTER">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets left="800.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox layoutY="46.0" prefHeight="61.0" prefWidth="1938.0">
+         <children>
+            <ComboBox prefHeight="35.0" prefWidth="150.0">
+               <HBox.margin>
+                  <Insets left="25.0" top="15.0" />
+               </HBox.margin>
+            </ComboBox>
+            <TextField prefHeight="35.0" prefWidth="270.0" promptText="Search">
+               <HBox.margin>
+                  <Insets top="15.0" />
+               </HBox.margin>
+            </TextField>
+            <CheckBox mnemonicParsing="false" text="Batch">
+               <HBox.margin>
+                  <Insets left="20.0" top="22.0" />
+               </HBox.margin>
+            </CheckBox>
+            <CheckBox layoutX="475.0" layoutY="32.0" mnemonicParsing="false" text="Non-Batch">
+               <HBox.margin>
+                  <Insets left="20.0" top="22.0" />
+               </HBox.margin>
+            </CheckBox>
+<!--             <VBox fx:id="vboxMis" prefHeight="23.0" maxHeight="23.0" minHeight="23.0" prefWidth="35.5" minWidth="35.5" maxWidth="35.5" style="-fx-background-color: #f8f4fc; -fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #f8f4fc; -fx-border-width: 2;">-->
+<!--                 <SwitchButton fx:id="swbStockReport1NegativeStock" minWidth="32.0" maxWidth="32.0" prefWidth="32.0"/>-->
+<!--             <SwitchButton fx:id="switchMis" minWidth="32.0" maxWidth="32.0" prefWidth="32.0"/>-->
+<!--             </VBox>-->
+         </children>
+      </HBox>
+    </children>
+</AnchorPane>

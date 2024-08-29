@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.text.Text?>
+<BorderPane stylesheets="@../css/contentPackageMaster.css" xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.opethic.genivis.controller.master.CommisionMaster"
+            fx:id="bpCommissionMasterRootPane">
+    <top>
+        <VBox>
+
+            <HBox alignment="CENTER_LEFT" maxHeight="50" minHeight="50" prefHeight="50"
+                  style="-fx-background-color:  #d9f0fb;">
+
+                <padding>
+                    <Insets bottom="20" left="5" right="5" top="15"/>
+                </padding>
+                <HBox maxWidth="160" minWidth="130" prefWidth="130" style=" -fx-font-size: 14px;-fx-text-fill: black; ">
+
+                    <padding>
+                        <Insets left="15" right="0"/>
+                    </padding>
+                    <TextFlow>
+                        <Text text="Role Type "/>
+                        <Text fill="RED" text="*"/>
+                    </TextFlow>
+                </HBox>
+                <ComboBox fx:id="comboboxCreateCommissionMaster" maxWidth="500" minWidth="120" prefWidth="200" promptText="Select Role"
+                           style="-fx-font-size: 14px;-fx-text-fill: black; " HBox.hgrow="ALWAYS"/>
+
+                <HBox maxWidth="170" minWidth="120" prefWidth="120" style="-fx-font-size: 14px;-fx-text-fill: black; ">
+                    <padding>
+                        <Insets left="15" right="15"/>
+                    </padding>
+                    <TextFlow>
+                        <Text text="Incentive % "/>
+                        <Text text="*" fill="RED"/>
+                    </TextFlow>
+                </HBox>
+
+                <TextField fx:id="tdCreatecommissionMaterIncentive" maxWidth="500" minWidth="120" prefWidth="200" promptText="Incentive %"
+                           style="-fx-font-size: 14px;-fx-text-fill: black; " HBox.hgrow="ALWAYS"/>
+                <HBox maxWidth="160" minWidth="130" prefWidth="130" style="-fx-font-size: 14px;-fx-text-fill: black; ">
+                    <padding>
+                        <Insets left="15" right="5"/>
+                    </padding>
+                    <TextFlow>
+                        <Text text="TDS % "/>
+                        <Text text="*" fill="RED"/>
+                    </TextFlow>
+                </HBox>
+
+                <TextField fx:id="tdCreatecommissionMaterTDS" maxWidth="500" minWidth="120" prefWidth="200" promptText="TDS %"
+                           style="-fx-font-size: 14px;-fx-text-fill: black; " HBox.hgrow="ALWAYS"/>
+                <HBox spacing="10">
+                    <padding>
+                        <Insets left="10" right="5"/>
+                    </padding>
+                    <Button fx:id="btncommissionmastersubmit" maxWidth="95" minWidth="50" prefWidth="75" id="submit-btn"
+                            text="Submit" textFill="#21c78a"/>
+                    <Button fx:id="btncommissionmasterclear" maxWidth="95" minWidth="50" prefWidth="75" id="cancel-btn"
+                            text="Clear" textFill="#a0aab4"/>
+                </HBox>
+
+
+            </HBox>
+
+
+        </VBox>
+    </top>
+    <center>
+        <HBox prefWidth="1920.0">
+            <TableView fx:id="tdvCreatecommissionMatertableview" prefHeight="0.0" prefWidth="1920.0">
+                <columns>
+                    <TableColumn fx:id="col1CreatecommissionMatertbl" text="Role Type"/>
+                    <TableColumn fx:id="col2CreatecommissionMatertbl" text="Incentive %"/>
+                    <TableColumn fx:id="col3CreatecommissionMatertbl" text="TDS %"/>
+                </columns>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
+            </TableView>
+        </HBox>
+    </center>
+</BorderPane>

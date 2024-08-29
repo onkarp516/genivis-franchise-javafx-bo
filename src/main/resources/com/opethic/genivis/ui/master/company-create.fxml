@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<?import com.opethic.genivis.controller.commons.SwitchButton?>
+
+<ScrollPane fx:id="spCompanyCreateRootPane" fitToHeight="true" fitToWidth="true"
+            stylesheets="@../css/TranxCommonCssStyles/tranxCommonCssStyle7.css" xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.opethic.genivis.controller.master.CompanyCreateController">
+    <content>
+        <BorderPane id="topMainDiv" style="-fx-background-color: #d9f0fb;">
+            <center>
+                <VBox id="topMainDiv" spacing="15.0"
+                      style="-fx-background-color: #ffffff; -fx-background-radius: 6; -fx-border-color: #dcdcdc; -fx-border-radius: 6;">
+                    <HBox alignment="CENTER_LEFT" spacing="5.0">
+                        <Label styleClass="commanTitleStyle" text="Company Information" underline="true"/>
+                        <TextField disable="true" editable="false" maxHeight="1.0" minHeight="1.0" prefHeight="1.0"
+                                   style="-fx-border-color: #020202;" HBox.hgrow="ALWAYS"/>
+                    </HBox>
+                    <HBox alignment="CENTER_LEFT">
+                        <children>
+                            <FlowPane hgap="10.0" vgap="10.0" HBox.hgrow="ALWAYS">
+                                <children>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                        <children>
+                                            <!--                                            <Label text="Company Code"/>-->
+
+                                            <HBox alignment="CENTER_LEFT">
+                                                <Label text="Company Code"/>
+                                                <Label style="-fx-text-fill: red;" text="*"/>
+                                            </HBox>
+                                            <TextField fx:id="tfCmpCreateCompanyCode" promptText="Company Code"/>
+                                        </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                        <children>
+                                            <!--                                            <Label text="Name"/>-->
+                                            <HBox alignment="CENTER_LEFT">
+                                                <Label text="Name"/>
+                                                <Label style="-fx-text-fill: red;" text="*"/>
+                                            </HBox>
+                                            <TextField fx:id="tfCmpCreateName" minWidth="500.0"
+                                                       onAction="#functionCompanyDuplicate" promptText="Name"
+                                                       HBox.hgrow="ALWAYS"/>
+                                        </children>
+                                    </HBox>
+                                    <!--                                    <HBox alignment="CENTER_LEFT" spacing="10.0">-->
+                                    <!--                                        <children>-->
+                                    <!--                                            <Label text="Trade"/>-->
+                                    <!--                                            <RadioButton fx:id="rbCmpCreateManufacturer" mnemonicParsing="false"-->
+                                    <!--                                                         text="Manufacturer"/>-->
+                                    <!--                                            <RadioButton fx:id="rbCmpCreateDistributor" mnemonicParsing="false"-->
+                                    <!--                                                         text="Distributor"/>-->
+                                    <!--                                            <RadioButton fx:id="rbCmpCreateRetailer" mnemonicParsing="false"-->
+                                    <!--                                                         text="Retailer"/>-->
+                                    <!--                                        </children>-->
+                                    <!--                                    </HBox>-->
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                        <children>
+                                            <Label text="Business Type"/>
+                                            <ComboBox fx:id="cmbCmpCreateBusinessType"
+                                                      onAction="#handleComboBoxActionBusinessType"
+                                                      promptText="Business Type"/>
+                                        </children>
+                                    </HBox>
+
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                        <children>
+                                            <Label text="Trade"/>
+                                            <ComboBox fx:id="cmbCmpTrade" promptText="Select Trade"/>
+                                        </children>
+                                    </HBox>
+
+
+                                </children>
+                            </FlowPane>
+                        </children>
+                    </HBox>
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label text="Upload Image"/>
+                        <Label fx:id="lbCmpCreateSelectedFileName" text="No file selected..."/>
+                        <Button fx:id="btnCmpCreateSelectFile" mnemonicParsing="false" text="Choose file"/>
+                        <ImageView fx:id="ivCmpCreateSelectedImage" fitHeight="50.0" fitWidth="100.0"
+                                   pickOnBounds="true" preserveRatio="true"/>
+                    </HBox>
+                    <HBox spacing="10">
+                        <VBox spacing="12.0" HBox.hgrow="ALWAYS">
+                            <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                <children>
+                                    <Label styleClass="commanTitleStyle" text="Registered Address" underline="true"/>
+                                    <TextField disable="true" editable="false" maxHeight="1.0" minHeight="1.0"
+                                               prefHeight="1.0" style="-fx-border-color: #020202;" HBox.hgrow="ALWAYS"/>
+                                </children>
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <Label text="Address  "/>
+                                <TextField fx:id="tfCmpCreateRegAddress" promptText="Address" HBox.hgrow="ALWAYS"/>
+                            </HBox>
+                            <FlowPane hgap="10.0" vgap="10.0">
+                                <children>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                        <children>
+                                            <!--                                            <Label text="Pincode"/>-->
+                                            <HBox alignment="CENTER_LEFT">
+                                                <Label text="Pincode"/>
+                                                <Label style="-fx-text-fill: red;" text="*"/>
+                                            </HBox>
+                                            <TextField fx:id="tfCmpCreateRegPincode" promptText="Pincode"/>
+                                        </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                        <children>
+                                            <Label text="Area"/>
+                                            <ComboBox fx:id="cmbCmpCreateRegArea" onAction="#handleComboBoxActionArea"
+                                                      promptText="Area" HBox.hgrow="NEVER"/>
+                                        </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                        <children>
+                                            <Label text="City"/>
+                                            <Label fx:id="lblCmpCreateRegCityName" text=""/>
+                                        </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                        <children>
+                                            <Label text="State"/>
+                                            <Label fx:id="lblCmpCreateRegStateName" text=""/>
+                                        </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                        <children>
+                                            <Label text="Country   "/>
+                                            <ComboBox fx:id="cmbCmpCreateRegCountry"
+                                                      onAction="#handleComboBoxActionCountry" promptText="Country"/>
+                                        </children>
+                                    </HBox>
+                                </children>
+                            </FlowPane>
+                        </VBox>
+                        <VBox spacing="12.0" HBox.hgrow="ALWAYS">
+                            <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                <Label styleClass="commanTitleStyle" text="Corporate Address" underline="true"/>
+                                <CheckBox fx:id="cbCmpCreateSameAsAddress" mnemonicParsing="false"
+                                          onAction="#setSameAsAddress" text="Same as address"/>
+                                <TextField disable="true" editable="false" maxHeight="1.0" minHeight="1.0"
+                                           prefHeight="1.0" style="-fx-border-color: #020202;" HBox.hgrow="ALWAYS"/>
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <Label text="Address  "/>
+                                <TextField fx:id="tfCmpCreateCorpAddress" promptText="Address" HBox.hgrow="ALWAYS"/>
+                            </HBox>
+                            <FlowPane hgap="10.0" vgap="10.0">
+                                <children>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                        <children>
+                                            <!--                                            <Label text="Pincode"/>-->
+                                            <HBox alignment="CENTER_LEFT">
+                                                <Label text="Pincode"/>
+                                                <Label style="-fx-text-fill: red;" text="*"/>
+                                            </HBox>
+                                            <TextField fx:id="tfCmpCreateCorpPincode" promptText="Pincode"/>
+                                        </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                        <children>
+                                            <Label text="Area"/>
+                                            <ComboBox fx:id="cmbCmpCreateCorpArea"
+                                                      onAction="#handleComboBoxCorpActionArea" promptText="Area"
+                                                      HBox.hgrow="NEVER"/>
+                                        </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                        <children>
+                                            <Label text="City"/>
+                                            <Label fx:id="lblCmpCreateCorpCityName" text=""/>
+                                        </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                        <children>
+                                            <Label text="State"/>
+                                            <Label fx:id="lblCmpCreateCorpStateName" text=""/>
+                                        </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                        <children>
+                                            <Label text="Country   "/>
+                                            <ComboBox fx:id="cmbCmpCreateCorpCountry" promptText="Country"/>
+                                        </children>
+                                    </HBox>
+                                </children>
+                            </FlowPane>
+                        </VBox>
+                    </HBox>
+                    <HBox alignment="CENTER_LEFT" spacing="5.0">
+                        <Label styleClass="commanTitleStyle" text="License Information" underline="true"/>
+                        <TextField disable="true" editable="false" maxHeight="1.0" minHeight="1.0" prefHeight="1.0"
+                                   style="-fx-border-color: #020202;" HBox.hgrow="ALWAYS"/>
+                    </HBox>
+                    <FlowPane hgap="10" vgap="10">
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <children>
+                                <Label text="Drug License No."/>
+                                <TextField fx:id="tfCmpCreateLicenseNo" promptText="Drug License No"/>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <children>
+                                <Label text="Expiry Date"/>
+                                <TextField fx:id="tfCmpCreateLicenseExpDate" promptText="DD/MM/YYYY"/>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <children>
+                                <Label text="FSSAI No."/>
+                                <TextField fx:id="tfCmpCreateFSSAINo" promptText="FSSAI No"/>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <children>
+                                <Label text="Expiry Date"/>
+                                <TextField fx:id="tfCmpCreateFSSAINoExpDate" promptText="DD/MM/YYYY"/>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <children>
+                                <Label text="MFG License No."/>
+                                <TextField fx:id="tfCmpCreateMfgLicenseNo" promptText="MFG License No"/>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <children>
+                                <Label text="Expiry Date"/>
+                                <TextField fx:id="tfCmpCreateMfgLicenseNoExpDate" promptText="DD/MM/YYYY"/>
+                            </children>
+                        </HBox>
+                    </FlowPane>
+
+                    <HBox alignment="CENTER_LEFT" spacing="5.0">
+                        <Label styleClass="commanTitleStyle" text="Other" underline="true"/>
+                        <TextField disable="true" editable="false" maxHeight="1.0" minHeight="1.0" prefHeight="1.0"
+                                   style="-fx-border-color: #020202;" HBox.hgrow="ALWAYS"/>
+                    </HBox>
+                    <FlowPane hgap="10.0" vgap="10.0">
+                        <children>
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <children>
+                                    <Label text="Website"/>
+                                    <TextField fx:id="tfCmpCreateWebsite" promptText="Website"/>
+                                </children>
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <children>
+                                    <Label text="E-mail"/>
+                                    <TextField fx:id="tfCmpCreateEmail" promptText="E-mail"/>
+                                </children>
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <children>
+                                    <!--                                    <Label text="Mobile No."/>-->
+                                    <HBox alignment="CENTER_LEFT">
+                                        <Label text="Mobile No."/>
+                                        <Label style="-fx-text-fill: red;" text="*"/>
+                                    </HBox>
+                                    <TextField fx:id="tfCmpCreateMobileNo" promptText="Mobile No"/>
+                                </children>
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <children>
+                                    <Label text="Whatsapp No."/>
+                                    <TextField fx:id="tfCmpCreateWhatsappNo" promptText="Whatsapp No"/>
+                                </children>
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <children>
+                                    <Label text="Currency"/>
+                                    <ComboBox fx:id="cmbCmpCreateCurrency"/>
+                                </children>
+                            </HBox>
+                        </children>
+                    </FlowPane>
+                    <FlowPane alignment="CENTER_LEFT" hgap="10.0" vgap="10.0">
+                        <children>
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <children>
+                                    <Label text="GST Applicable"/>
+                                </children>
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <children>
+
+                                    <VBox fx:id="gstAppMain" maxHeight="21" minHeight="21" prefHeight="21"
+                                          style="-fx-background-color: #f8f4fc; -fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #f8f4fc; -fx-border-width: 2;">
+                                        <SwitchButton fx:id="sbCmpCreateGSTApplicable"/>
+                                    </VBox>
+
+                                    <!--                                    <Label fx:id="lblCmpCreateGSTINLabel" text="GSTIN" visible="false"/>-->
+
+
+                                    <HBox alignment="CENTER_LEFT" fx:id="hbCmpCreateGSTINLabel" visible="false">
+                                        <Label text="GSTIN"/>
+                                        <Label style="-fx-text-fill: red;" text="*"/>
+                                    </HBox>
+
+
+                                    <TextField fx:id="tfCmpCreateGSTIN" promptText="GSTIN" visible="false"/>
+                                </children>
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <children>
+                                    <!--                                    <Label fx:id="lblCmpCreateGSTType" text="GST Type" visible="false"/>-->
+
+                                    <HBox alignment="CENTER_LEFT" fx:id="hbCmpCreateGSTType" visible="false">
+                                        <Label text="GST Type"/>
+                                        <Label style="-fx-text-fill: red;" text="*"/>
+                                    </HBox>
+                                    <ComboBox fx:id="cmbCmpCreateGSTType" onAction="#handleComboBoxActionGetGSTType"
+                                              promptText="GST Type" visible="false"/>
+                                </children>
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <children>
+                                    <Label fx:id="lblCmpCreateApplicableDate" text="Applicable Date" visible="false"/>
+                                    <TextField fx:id="tfCmpCreateApplicableDate" promptText="DD/MM/YYYY"
+                                               visible="false"/>
+                                </children>
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <children>
+                                    <Label text="Multi Branch"/>
+                                    <!--                                    <CheckBox fx:id="cbCmpCreateMultiBranch" mnemonicParsing="false"/>-->
+                                    <!--                                    <VBox fx:id="multiMainSwitch" prefHeight="21" maxHeight="21" minHeight="21"-->
+                                    <!--                                          style="-fx-background-color: #f8f4fc; -fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #f8f4fc; -fx-border-width: 2;">-->
+                                    <!--                                        <SwitchButton fx:id="sbCmpMultiBranch"/>-->
+                                    <!--                                    </VBox>-->
+                                    <VBox fx:id="multiMainSwitch" maxHeight="21" minHeight="21" prefHeight="21"
+                                          style="-fx-background-color: #f8f4fc; -fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #f8f4fc; -fx-border-width: 2;">
+                                        <SwitchButton fx:id="sbCmpMultiBranch"/>
+                                    </VBox>
+                                </children>
+                            </HBox>
+                        </children>
+                    </FlowPane>
+                    <HBox alignment="CENTER_LEFT" spacing="5.0">
+                        <Label fx:id="lblCmpCreateMainAdminDetails" styleClass="commanTitleStyle" text="Admin Details"
+                               underline="true"/>
+                        <TextField fx:id="tfCmpCreateAdminDetailsLine" disable="true" editable="false" maxHeight="1.0"
+                                   minHeight="1.0" prefHeight="1.0" style="-fx-border-color: #020202;"
+                                   HBox.hgrow="ALWAYS"/>
+                    </HBox>
+                    <FlowPane hgap="10.0" vgap="10.0">
+                        <children>
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <children>
+                                    <Label fx:id="lblCmpCreateFullName" text="Full Name   "/>
+                                    <TextField fx:id="tfCmpCreateFullName" promptText="Full Name"/>
+                                </children>
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <children>
+                                    <Label fx:id="lblCmpCreateAdminEmail" text="E-mail"/>
+                                    <TextField fx:id="tfCmpCreateAdminEmail" promptText="E-mail"/>
+                                </children>
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <children>
+                                    <!--                                    <Label fx:id="lblCmpCreateAdminMobileNo" text="Mobile No."/>-->
+
+                                    <HBox alignment="CENTER_LEFT" fx:id="hbCmpCreateAdminMobileNo">
+                                        <Label text="Mobile No."/>
+                                        <Label style="-fx-text-fill: red;" text="*"/>
+                                    </HBox>
+
+                                    <TextField fx:id="tfCmpCreateAdminMobileNo" promptText="Mobile No"/>
+                                </children>
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <children>
+                                    <Label fx:id="lblCmpCreateAdminBirthDate" text="Birth Date"/>
+                                    <TextField fx:id="tfCmpCreateAdminBirthDate" promptText="DD/MM/YYYY"/>
+                                </children>
+                            </HBox>
+                            <!--<HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <children>
+                                    <RadioButton fx:id="rbCmpCreateAdminGenderMale" mnemonicParsing="false"
+                                                 text="Male"/>
+                                    <RadioButton fx:id="rbCmpCreateAdminGenderFemale" mnemonicParsing="false"
+                                                 text="Female"/>
+                                </children>
+                            </HBox>-->
+
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <children>
+                                    <Label fx:id="lblCmpCreateAdminGenderMale" text="Gender"/>
+                                    <ComboBox fx:id="cmbCmpGender" promptText="Select Gender"/>
+                                </children>
+                            </HBox>
+
+                        </children>
+                    </FlowPane>
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <!--                        <Label fx:id="lblCmpCreateAdminUsername" text="Username"/>-->
+
+                        <HBox alignment="CENTER_LEFT" fx:id="hbCmpCreateAdminUsername">
+                            <Label text="Username"/>
+                            <Label style="-fx-text-fill: red;" text="*"/>
+                        </HBox>
+                        <TextField fx:id="tfCmpCreateAdminUsername" promptText="Username"/>
+                        <!--                        <Label fx:id="lblCmpCreateAdminPassword" text="Password"/>-->
+
+                        <HBox alignment="CENTER_LEFT" fx:id="hbCmpCreateAdminPassword">
+                            <Label text="Password"/>
+                            <Label style="-fx-text-fill: red;" text="*"/>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT">
+                            <children>
+                                <PasswordField fx:id="tfCmpCreateAdminPassword" promptText="Password"/>
+                                <!--                                <Button fx:id="hideShow" mnemonicParsing="false" text=""/>-->
+                                <TextField fx:id="tfAreaHeadCreatePasswordInText" promptText="Password"
+                                           visible="false"/>
+                                <Button fx:id="hideShow" onAction="#passwordBtn">
+                                </Button>
+                            </children>
+                        </HBox>
+
+
+                    </HBox>
+                    <HBox alignment="CENTER_LEFT" spacing="5.0">
+                        <children>
+                            <Label fx:id="lblCmpCreateMainUserControl" styleClass="commanTitleStyle" text="User Control"
+                                   underline="true"/>
+                            <TextField fx:id="tfCmpCreateUserControlLine" disable="true" editable="false"
+                                       maxHeight="1.0" minHeight="1.0" prefHeight="1.0"
+                                       style="-fx-border-color: #020202;" HBox.hgrow="ALWAYS"/>
+                        </children>
+                    </HBox>
+                    <FlowPane fx:id="hbCmpCreateUserControl" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"/>
+                    <BorderPane.margin>
+                        <Insets/>
+                    </BorderPane.margin>
+                </VBox>
+            </center>
+
+            <bottom>
+                <HBox id="sqbuttonsMainDiv" alignment="BOTTOM_RIGHT" spacing="10">
+                    <Button fx:id="btnCmpCreateSubmit" mnemonicParsing="false" onAction="#submitTheForm"
+                            styleClass="submit-btn" text="Submit"/>
+                    <Button fx:id="btnCmpCreateCancel" mnemonicParsing="false" onAction="#backToList"
+                            styleClass="cancel-btn" text="Cancel"/>
+                </HBox>
+            </bottom>
+        </BorderPane>
+    </content>
+</ScrollPane>

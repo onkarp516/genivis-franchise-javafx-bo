@@ -1,0 +1,267 @@
+/*SUBMIT========================================================================================================================================*/
+#submit-btn {
+   -fx-background-color: white;
+      -fx-text-fill: #4d4d4d;
+      -fx-pref-height: 31px;
+      -fx-border-color: #ccc;
+      -fx-border-width: 1px;
+      -fx-border-radius: 3px;
+      -fx-cursor: hand;
+          -fx-font-weight: bold;
+}
+
+#submit-btn:hover, #submit-btn:focused {
+    -fx-background-color: #fff9c4;
+       -fx-border-color: #00a0f5;
+}
+/*==========================================================================================================================================*/
+
+/*CANCEL====================================================================================================================================*/
+#cancel-btn {
+    -fx-background-color: white;
+        -fx-text-fill: #4d4d4d;
+            -fx-font-weight: bold;
+        -fx-pref-height: 31px;
+        -fx-border-color: #ccc;
+        -fx-border-width: 1px;
+        -fx-border-radius: 3px;
+        -fx-cursor: hand;
+}
+
+#cancel-btn:hover, #cancel-btn:focused {
+    - -fx-background-color: #fff9c4;
+         -fx-border-color: #00a0f5;
+}
+/*==========================================================================================================================================*/
+
+/*COMBOBOX ==================================================================================================================================*/
+.combo-box {
+    -fx-background-color: #fff;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 2px;
+    -fx-pref-height: 30px;
+    -fx-border-width: 1px;
+}
+
+.combo-box .text-input {
+    -fx-background-color: transparent;
+    -fx-border-radius: 0px;
+    -fx-border-color: transparent;
+}
+
+.combo-box:focused {
+    -fx-background-color: #fff9c4;
+    -fx-border-color: #00a0f5;
+    -fx-border-width: 2px;
+}
+
+.combo-box-popup {
+    -fx-background-color: #fff;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 0px;
+    -fx-pref-height: 100px;
+    -fx-pref-width: 300px;
+}
+
+
+.combo-box-popup .list-cell {
+    -fx-text-fill: #333333;
+    -fx-font-size: 14px;
+    -fx-padding: 5px;
+}
+
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: #b3e4ff;
+}
+
+.combo-box-popup .list-view .list-cell:selected {
+    -fx-background-color: #00a0f5;
+    -fx-text-fill: white;
+}
+
+.combo-box .arrow-button {
+    -fx-background-color: transparent;
+    -fx-min-width: 20px;
+    -fx-min-height: 20px;
+}
+/*==========================================================================================================================================*/
+
+/*TEXTFIELD===========================================================================================================================*/
+
+.text-field {
+ -fx-font-family: "Inter", sans-serif;
+    -fx-background-color: #fff;
+    -fx-border-color: #ccc;
+    -fx-border-width: 1px;
+    /*-fx-pref-height: 30px;*/
+    -fx-border-radius: 3px;
+    -fx-padding: 5px;
+}
+
+.text-field:focused,
+.button:focused {
+-fx-border-width: 2px;
+    -fx-background-color: #fff9c4;
+    -fx-border-color: #00a0f5;
+}
+
+.text-field:hover,
+.button:hover {
+    -fx-background-color: #fff9c4;
+    }
+.text-input, .text-input:focused {
+    -fx-prompt-text-fill: derive(-fx-control-inner-background, -50%);
+    -fx-font-size: 14px;
+}
+/*==========================================================================================================================================*/
+
+/*LABEL*/
+.label {
+	-fx-font-family: 'Inter';
+	-fx-font-weight: 500;
+	-fx-font-size: 14px;
+	-fx-text-fill: #000000;
+}
+/*END*/
+
+/* Colored Text */
+
+.orangeColoredText {
+	-fx-font-family: 'Inter';
+	-fx-font-weight: bold;
+	-fx-font-size: 14px;
+	-fx-text-fill: #b6762b;
+}
+
+/*END*/
+
+/* orangedTitleStyle */
+.infoColoredText {
+	-fx-font-family: 'Inter';
+	-fx-font-weight: bold;
+	-fx-font-size: 14px;
+	-fx-text-fill: #b6762b;
+	-fx-background-color: #ead8b1;
+	-fx-padding: 6px 10px;
+	-fx-border-radius: 15px;
+	-fx-background-radius: 15px;
+}
+
+/*END*/
+
+/*table view css-----------------------------------------------------------------------------------------------------------------------------------*/
+.table-view {
+    -fx-padding: 0px; /* Adjust the padding as needed */
+}
+.table-view .column-header .label{
+    -fx-font-family: "Inter", sans-serif;
+    -fx-text-fill: black;
+    -fx-alignment:CENTER-LEFT;
+}
+
+.table-view .column-header,
+.table-view .column-header .filler,
+.table-view .column-header-background .filler {
+    -fx-background-color: #ffedcc;
+     -fx-font-size: 12pt;
+    -fx-alignment: CENTER_LEFT;
+    -fx-font-weight: 500;
+}
+.table-view .table-cell {
+    -fx-font-size: 14px;
+     -fx-alignment: CENTER_LEFT;
+}
+
+.table-view .cell{
+	 -fx-cell-size: 40;
+
+}
+.table-view .column-header {
+    -fx-alignment: CENTER_LEFT;
+}
+
+
+.table-view .table-cell{
+    -fx-border-color: transparent;
+    -fx-padding: 2 0 2 10px;
+}
+
+/*
+.table-row-cell: hover {
+    -fx-background-color: #bfe5f2;
+}
+*/
+.table-row-cell: odd{
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+.table-row-cell: even{
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+
+.table-row-cell:odd,
+.table-row-cell:even {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #e6e5e5 transparent; /* Adjust border color as needed */
+    -fx-border-width: 0 0 1 0; /* Adjust border width as needed */
+}
+
+/*
+.table-row-cell:filled:selected:hover {
+    -fx-background-color: #153051;
+}
+*/
+.table-row-cell:selected {
+    -fx-background-color: #E1E0E0;
+     -fx-text-background-color: black;
+}
+
+.table-view:focused {
+    -fx-background-color: -fx-box-border, -fx-control-inner-background;
+    -fx-background-insets: 0, 1;
+}
+
+.table-view:hover {
+    -fx-cursor: hand;
+}
+
+/*======================================================New SUBMIT Button AND CANCEL Button START==================================================================*/
+.sub {
+    -fx-background-color: white;
+    -fx-text-fill: #4d4d4d;
+    -fx-pref-height: 31px;
+    -fx-border-color: #ccc;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3px;
+    -fx-cursor: hand;
+        -fx-font-weight: bold;
+
+}
+
+.sub:hover,
+.sub:focused {
+    -fx-background-color: #fff9c4;
+    -fx-border-color: #00a0f5;
+}
+
+
+.can{
+    -fx-background-color: white;
+    -fx-text-fill: #4d4d4d;
+        -fx-font-weight: bold;
+    -fx-pref-height: 31px;
+    -fx-border-color: #ccc;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3px;
+    -fx-cursor: hand;
+}
+
+.can:hover,
+.can:focused {
+    -fx-background-color: #fff9c4;
+    -fx-border-color: #00a0f5;
+}
+
+/*======================================================New SUBMIT Button AND CANCEL Button END==================================================================*/

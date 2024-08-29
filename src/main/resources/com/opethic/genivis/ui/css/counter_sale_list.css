@@ -1,0 +1,59 @@
+.table-view .column-header,
+.table-view .column-header-background .filler {
+    -fx-font-family: "Arial";
+    -fx-font-size: 10pt;
+    -fx-pref-height: 25px;
+    -fx-background-color: #D9D9D9;
+}
+
+.table-view .table-cell {
+    -fx-font-size: 14px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 0 4 0 0;
+}
+
+.table-view .cell {
+    -fx-cell-size: 25;
+}
+
+.table-row-cell:odd,
+.table-row-cell:even {
+    -fx-background-color: #d9f0fb;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+.table-column {
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+.table-view:focused {
+    -fx-background-color: -fx-box-border, -fx-control-inner-background, #d9f0fb;
+    -fx-background-insets: 1, 1, 1;
+}
+
+.table-view {
+    -fx-background-color: -fx-box-border, -fx-control-inner-background, #d9f0fb;
+    -fx-background-insets: 1, 1, 1;
+}
+
+.table-view:hover {
+    -fx-cursor: mouse;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #b3e5fc; /* Change the color as needed */
+}
+
+/* Style for selected row */
+.table-row-cell:selected {
+    -fx-background-color: #82b1ff; /* Change the color as needed */
+    -fx-border-color: #2a73cc; /* Change the color as needed */
+}
+
+/* Style for focused row when navigating with keyboard */
+.table-row-cell:focused {
+    -fx-background-color: #ffeb3b; /* Change the color as needed */
+    -fx-border-color: #ffca28; /* Change the color as needed */
+}

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox layoutY="6.0" prefHeight="37.0" prefWidth="1920.0">
+         <children>
+            <Label prefHeight="35.0" prefWidth="152.0" text="User Details:" textFill="#00a0f5">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox layoutY="43.0" prefHeight="49.0" prefWidth="1920.0" style="-fx-background-color: white;">
+         <children>
+            <Label prefHeight="21.0" prefWidth="115.0" text="Company Name">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <ComboBox prefHeight="30.0" prefWidth="270.0">
+               <HBox.margin>
+                  <Insets left="40.0" top="10.0" />
+               </HBox.margin>
+            </ComboBox>
+            <Label prefHeight="21.0" prefWidth="79.0" text="User Name">
+               <HBox.margin>
+                  <Insets left="40.0" right="10.0" top="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <ComboBox prefHeight="30.0" prefWidth="280.0">
+               <HBox.margin>
+                  <Insets left="50.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </ComboBox>
+            <Label prefHeight="21.0" prefWidth="70.0" text="Full Name">
+               <HBox.margin>
+                  <Insets left="30.0" top="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField prefHeight="30.0" prefWidth="280.0" promptText="Enter Full Name">
+               <HBox.margin>
+                  <Insets left="50.0" top="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <Label prefHeight="21.0" prefWidth="76.0" text="Mobile No.">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="40.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField prefHeight="25.0" prefWidth="280.0" promptText="Enter Mobile No.">
+               <HBox.margin>
+                  <Insets left="50.0" top="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox layoutY="92.0" prefHeight="45.0" prefWidth="1920.0" style="-fx-background-color: white;">
+         <children>
+            <Label prefHeight="21.0" prefWidth="49.0" text="E-mail">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField prefHeight="30.0" prefWidth="270.0" promptText="Enter Email">
+               <HBox.margin>
+                  <Insets left="105.0" top="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <Label prefHeight="21.0" prefWidth="59.0" text="Gender">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="40.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <RadioButton mnemonicParsing="false" text="Male">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="80.0" top="10.0" />
+               </HBox.margin>
+            </RadioButton>
+            <RadioButton layoutX="633.0" layoutY="20.0" mnemonicParsing="false" text="Female">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="30.0" top="10.0" />
+               </HBox.margin>
+            </RadioButton>
+            <Label prefHeight="25.0" prefWidth="77.0" text="Username">
+               <HBox.margin>
+                  <Insets left="155.0" top="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField prefHeight="30.0" prefWidth="280.0" promptText="Enter username">
+               <HBox.margin>
+                  <Insets left="45.0" top="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <Label prefHeight="25.0" prefWidth="73.0" text="Password">
+               <HBox.margin>
+                  <Insets left="40.0" top="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField prefHeight="30.0" prefWidth="280.0" promptText="Enter password">
+               <HBox.margin>
+                  <Insets left="50.0" top="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+         </children></HBox>
+   </children>
+</AnchorPane>

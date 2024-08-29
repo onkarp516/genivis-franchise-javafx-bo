@@ -1,0 +1,1064 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootAnchorPane" prefHeight="950.0" prefWidth="1920.0" style="-fx-background-color: #B9D9EB;"
+            stylesheets="@../css/product_create_style.css" xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.opethic.genivis.controller.tranx_purchase.PurchaseReturnCreateController">
+    <children>
+        <HBox layoutX="14.0" layoutY="23.0" prefHeight="106.0" prefWidth="1890.0" style="-fx-background-radius: 10;"
+              AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="25.0">
+            <children>
+                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="117.0" prefWidth="1895.0"
+                            style="-fx-background-color: #F6F6F9; -fx-background-radius: 10;">
+                    <children>
+                        <Label layoutX="8.0" layoutY="14.0" prefHeight="20.0" prefWidth="70.0" text="Tranx Date">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                        </Label>
+                        <!--<DatePicker fx:id="dpPurInvCreateTranxDate" editable="false" focusTraversable="true"
+                                    layoutX="107.0" layoutY="11.0" prefHeight="30.0" prefWidth="155.0" />-->
+                        <TextField layoutX="107.0" layoutY="11.0" prefHeight="30.0" prefWidth="155.0"
+                                   promptText="DD/MM/YYYY" HBox.hgrow="ALWAYS"
+                                   fx:id="tfPurInvCreateTranxDate" editable="false"/>
+                        <Label layoutX="313.0" layoutY="16.0" prefHeight="17.0" prefWidth="93.0" text="Ledger Name">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                        </Label>
+                        <TextField fx:id="tfPurInvLedgName" layoutX="429.0" layoutY="11.0" prefHeight="30.0"
+                                   prefWidth="588.0" promptText="Ledger Name">
+                            <font>
+                                <Font size="13.0"/>
+                            </font>
+                        </TextField>
+                        <Label layoutX="1058.0" layoutY="18.0" prefHeight="17.0" prefWidth="115.0"
+                               text="Supplier GSTIN">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                        </Label>
+                        <ComboBox id="cmbPurInvCreateSupplierGST" fx:id="cmbPurRtnLedgerGst" layoutX="1214.0"
+                                  layoutY="12.0" prefHeight="30.0" prefWidth="260.0"/>
+                        <Label layoutX="1556.0" layoutY="18.0" prefHeight="20.0" prefWidth="101.0"
+                               text="Purchase Serial">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                        </Label>
+                        <TextField id="tfPurRtnSerial" fx:id="tfPurRtnsr" layoutX="1688.0" layoutY="14.0"
+                                   prefHeight="30.0" prefWidth="194.0">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                        </TextField>
+                        <Label layoutX="8.0" layoutY="63.0" prefHeight="20.0" prefWidth="81.0" text="Return No. ">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                        </Label>
+                        <TextField id="tfPurRtnInvNo" fx:id="tfPurRtnInvNum" layoutX="107.0" layoutY="61.0"
+                                   prefHeight="30.0" prefWidth="155.0" promptText="Return No. ">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                        </TextField>
+                        <Label layoutX="313.0" layoutY="68.0" prefHeight="20.0" prefWidth="90.0" text="Invoice Date">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                        </Label>
+                        <TextField layoutX="429.0"
+                                   layoutY="62.0" prefHeight="30.0" prefWidth="155.0"
+                                   promptText="DD/MM/YYYY" HBox.hgrow="ALWAYS" fx:id="tfPurRtnInvDate"/>
+                        <Label layoutX="606.0" layoutY="66.0" prefHeight="20.0" prefWidth="101.0" text="Purchase A/C">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                        </Label>
+                        <ComboBox id="cmbPurInvRtnPurAC" fx:id="cmbPurRtnPurAC" layoutX="723.0"
+                                  layoutY="62.0" prefHeight="30.0" prefWidth="291.0" AnchorPane.bottomAnchor="24.0"/>
+                        <Label layoutX="1058.0" layoutY="69.0" prefHeight="20.0" prefWidth="101.0" text="Payment Mode">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                        </Label>
+                        <RadioButton fx:id="rbPaymentModeAdjust" layoutX="1214.0" layoutY="69.0" mnemonicParsing="false"
+                                     prefHeight="20.0" prefWidth="65.0" text="Adjust">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                        </RadioButton>
+                        <RadioButton fx:id="rbPaymentModeCredit" layoutX="1312.0" layoutY="69.0"
+                                     mnemonicParsing="false" prefHeight="20.0" prefWidth="65.0" text="Credit"
+                                     selected="true">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                        </RadioButton>
+
+                    </children>
+                    <HBox.margin>
+                        <Insets top="-10.0"/>
+                    </HBox.margin>
+                </AnchorPane>
+            </children>
+        </HBox>
+        <TableView fx:id="tvPurInvCreateCMPTRow" editable="true" layoutX="-3.0" layoutY="146.0" minHeight="-Infinity"
+                   prefHeight="441.0" prefWidth="1910.0">
+            <columns>
+                <TableColumn fx:id="tblcPurInvCreateCmptSrNo" prefWidth="71.0" resizable="false" text="Sr. No."/>
+                <TableColumn fx:id="tblcPurInvCreateCmptParticular" prefWidth="629.0" text="Particulars"/>
+                <TableColumn fx:id="tblcPurInvCreateCmptPackage" prefWidth="98.0" text="Package"/>
+                <TableColumn fx:id="tblcPurInvCreateCmptUnit" prefWidth="185.0" text="Unit"/>
+                <TableColumn fx:id="tblcPurInvCreateCmptBatch" prefWidth="185.0" text="Batch"/>
+                <TableColumn fx:id="tblcPurInvCreateCmptQuantity" prefWidth="119.0" text="Quantity"/>
+                <TableColumn fx:id="tblcPurInvCreateCmptRate" prefWidth="142.0" text="Rate"/>
+                <TableColumn fx:id="tblcPurInvCreateCmptGrossAmt" prefWidth="150.0" text="Gross Amount"/>
+                <TableColumn fx:id="tblcPurInvCreateCmptDiscPerc" prefWidth="99.0" text="Disc. %"/>
+                <TableColumn fx:id="tblcPurInvCreateCmptDiscAmt" minWidth="0.0" prefWidth="114.0" text="Disc. Amt."/>
+                <TableColumn fx:id="tblcPurInvCreateCmptTaxPerc" prefWidth="90.0" text="Tax %"/>
+                <TableColumn fx:id="tblcPurInvCreateCmptNetAmt" prefWidth="145.0" text="Net Amount"/>
+                <TableColumn prefWidth="40.0" resizable="false"/>
+            </columns>
+        </TableView>
+        <HBox layoutX="1538.0" layoutY="596.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+              minWidth="-Infinity" prefHeight="200.0" prefWidth="368.0">
+            <children>
+                <AnchorPane maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0"
+                            prefWidth="368.0" style="-fx-background-color: #d2f7e9;">
+                    <children>
+                        <Label layoutX="15.0" layoutY="83.0" text="Gross Total" AnchorPane.topAnchor="83.0">
+                            <font>
+                                <Font size="15.0"/>
+                            </font>
+                            <padding>
+                                <Insets left="-5.0"/>
+                            </padding>
+                        </Label>
+                        <Label layoutX="13.0" layoutY="116.0" text="Discount">
+                            <font>
+                                <Font size="15.0"/>
+                            </font>
+                        </Label>
+                        <Label layoutX="13.0" layoutY="143.0" text="Total">
+                            <font>
+                                <Font size="15.0"/>
+                            </font>
+                        </Label>
+                        <Label layoutX="14.0" layoutY="152.0" text="Tax" AnchorPane.bottomAnchor="7.0">
+                            <font>
+                                <Font size="15.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="lblPurRtnTotalTax" layoutX="319.0" layoutY="169.0" text="0.0">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="lblPurRtnTaxableAmt" layoutX="319.0" layoutY="140.0" text="0.0">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="lblPurRtnTotalDisc" layoutX="319.0" layoutY="113.0" text="0.0">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="lblPurRtnTotalRowGross" layoutX="319.0" layoutY="80.0" text="0.0">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </Label>
+                        <Label layoutX="12.0" layoutY="6.0" prefHeight="21.0" prefWidth="101.0" text="Add.Charges">
+                            <font>
+                                <Font size="15.0"/>
+                            </font>
+                        </Label>
+                        <TextField fx:id="tfPurInvoiceAddTotalAmt" layoutX="186.0" layoutY="4.0" prefHeight="25.0"
+                                   prefWidth="174.0" promptText="0.0">
+                            <font>
+                                <Font size="15.0"/>
+                            </font>
+                        </TextField>
+                        <RadioButton layoutX="15.0" layoutY="44.0" mnemonicParsing="false" prefHeight="17.0"
+                                     prefWidth="62.0" text="TDS">
+                            <font>
+                                <Font size="15.0"/>
+                            </font>
+                        </RadioButton>
+                        <RadioButton layoutX="82.0" layoutY="44.0" mnemonicParsing="false" prefHeight="17.0"
+                                     prefWidth="62.0" text="TCS">
+                            <font>
+                                <Font size="15.0"/>
+                            </font>
+                        </RadioButton>
+                        <TextField layoutX="186.0" layoutY="42.0" prefHeight="31.0" prefWidth="64.0" promptText="\%">
+                            <font>
+                                <Font size="15.0"/>
+                            </font>
+                        </TextField>
+                        <TextField layoutX="268.0" layoutY="42.0" prefHeight="31.0" prefWidth="90.0" promptText="INR">
+                            <font>
+                                <Font size="15.0"/>
+                            </font>
+                        </TextField>
+                    </children>
+                    <HBox.margin>
+                        <Insets/>
+                    </HBox.margin>
+                </AnchorPane>
+            </children>
+        </HBox>
+        <AnchorPane layoutX="1538.0" layoutY="797.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0"
+                    prefWidth="368.0" style="-fx-background-color: #a0efd2;">
+            <children>
+                <Label layoutX="14.0" layoutY="11.0" text="Bill Amount" style="-fx-font-weight: bold;
+                -fx-font-family: Inter; -fx-font-weight: 500">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="lblPurRtnTotalBillAmt" layoutX="320.0" layoutY="11.0" text="0.0">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+            </children>
+            <opaqueInsets>
+                <Insets/>
+            </opaqueInsets>
+        </AnchorPane>
+        <HBox fillHeight="false" layoutX="11.0" layoutY="596.0" minWidth="-Infinity" prefHeight="221.0"
+              prefWidth="1275.0" style="-fx-background-color: #e9f7fd;">
+            <children>
+                <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="211.0" prefWidth="1287.0">
+                    <children>
+                        <ToggleButton fx:id="btnPurInvCrEdLedgerInfo" layoutX="14.0" layoutY="-2.0"
+                                      mnemonicParsing="false" prefHeight="33.0" prefWidth="78.0" text="Ledger"/>
+                        <ToggleButton fx:id="btnPurInvCrEdProductInfo" layoutX="98.0" layoutY="-2.0"
+                                      mnemonicParsing="false" prefHeight="33.0" prefWidth="78.0" text="Product"/>
+
+                        <Label layoutX="13.0" layoutY="169.0" text="Narrations : ">
+                            <font>
+                                <Font size="15.0"/>
+                            </font>
+                        </Label>
+                        <TextField layoutX="122.0" layoutY="163.0" prefHeight="33.0" prefWidth="1141.0"
+                                   promptText="Enter Narration">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                        </TextField>
+                        <StackPane fx:id="stkpnPurInvLedgerInfo" alignment="TOP_LEFT" layoutX="13.0" layoutY="39.0"
+                                   minWidth="-Infinity" prefHeight="110.0" prefWidth="1250.0"
+                                   style="-fx-background-color: #f8f0d2;">
+                            <children>
+                                <AnchorPane layoutX="10.0" maxHeight="-Infinity" maxWidth="-Infinity"
+                                            minHeight="-Infinity" minWidth="-Infinity" prefHeight="117.0"
+                                            prefWidth="1265.0">
+                                    <children>
+                                        <Label layoutX="14.0" layoutY="14.0" text="GST NO. :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="14.0" layoutY="40.0" text="Area :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="14.0" layoutY="70.0" text="Bank :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="356.0" layoutY="14.0" text="Contact Person :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="356.0" layoutY="40.0" text="Transport :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="134.0" layoutY="14.0" text="......">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="134.0" layoutY="40.0" text="......">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="134.0" layoutY="70.0" text="......">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="479.0" layoutY="14.0" text="......">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="479.0" layoutY="40.0" text="......">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="956.0" layoutY="14.0" text="License No. :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="956.0" layoutY="40.0" text="Route :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="670.0" layoutY="14.0" text="Credit Days :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="670.0" layoutY="40.0" text="FSSAI :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="1052.0" layoutY="14.0" text="......">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="1052.0" layoutY="40.0" text="......">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="769.0" layoutY="14.0" text="......">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="769.0" layoutY="40.0" text="......">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Line endX="58.0" endY="-50.0" layoutX="287.0" layoutY="61.0" startX="58.0"
+                                              startY="37.0"/>
+                                        <Line endX="58.0" endY="-50.0" layoutX="890.0" layoutY="62.0" startX="58.0"
+                                              startY="34.0"/>
+                                        <Line endX="58.0" endY="-50.0" layoutX="603.0" layoutY="60.0" startX="58.0"
+                                              startY="39.0"/>
+                                    </children>
+                                    <StackPane.margin>
+                                        <Insets left="-10.0"/>
+                                    </StackPane.margin>
+                                    <padding>
+                                        <Insets left="10.0"/>
+                                    </padding>
+                                </AnchorPane>
+                            </children>
+                        </StackPane>
+                        <StackPane fx:id="stkpnPurInvBatchInfo" alignment="TOP_LEFT" layoutX="13.0" layoutY="39.0"
+                                   minWidth="-Infinity" prefHeight="110.0" prefWidth="1250.0"
+                                   style="-fx-background-color: #f8f0d2;" visible="false">
+                            <children>
+                                <AnchorPane layoutX="10.0" maxHeight="-Infinity" maxWidth="-Infinity"
+                                            minHeight="-Infinity" minWidth="-Infinity" prefHeight="110.0"
+                                            prefWidth="1265.0">
+                                    <children>
+                                        <!-- first column start-->
+                                        <Label layoutX="14.0" layoutY="5.0" text="Batch :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="14.0" layoutY="32.0" text="MRP :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="14.0" layoutY="62.0" text="Cess% :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="14.0" layoutY="88.0" text="Total Amount :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label> <!-- first column end-->
+                                        <!-- second column start-->
+                                        <Label layoutX="356.0" layoutY="5.0" text="MFG Date :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="356.0" layoutY="32.0" text="Purchase Rate :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="356.0" layoutY="60.0" text="Cess₹ :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="356.0" layoutY="88.0" text="FSR :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label><!-- second column end-->
+                                        <!-- third column start-->
+                                        <Label layoutX="670.0" layoutY="5.0" text="Expiry Date :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="670.0" layoutY="32.0" text="Dis% :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="670.0" layoutY="62.0" text="Barcode :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="670.0" layoutY="88.0" text="CSR :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <!-- third column end-->
+                                        <!-- fourth column start-->
+                                        <Label layoutX="956.0" layoutY="5.0" text="Available Stock :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="956.0" layoutY="32.0" text="Disc.₹ :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="956.0" layoutY="62.0" text="Sales Rate :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="956.0" layoutY="88.0" text="Margin% :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+
+                                        <!-- fourth column end-->
+                                        <Label layoutX="134.0" layoutY="5.0" text="....1">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="134.0" layoutY="32.0" text=".....2">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="134.0" layoutY="62.0" text=".....3">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="134.0" layoutY="88.0" text=".....4">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <!-- end of first colm-->
+                                        <Label layoutX="479.0" layoutY="5.0" text=".....5">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="479.0" layoutY="32.0" text=".....6">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="479.0" layoutY="62.0" text=".....7">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="479.0" layoutY="88.0" text=".....8">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <!--End of second colm  -->
+                                        <Label layoutX="769.0" layoutY="5.0" text=".....9">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="769.0" layoutY="32.0" text=".....10">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="769.0" layoutY="62.0" text=".....11">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="769.0" layoutY="88.0" text=".....12">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <!--                                        End of third colm-->
+                                        <Label layoutX="1055.0" layoutY="5.0" text=".....13">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="1055.0" layoutY="32.0" text=".....14">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="1055.0" layoutY="62.0" text=".....15">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="1055.0" layoutY="88.0" text=".....16">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+
+                                        <Line endX="58.0" endY="-50.0" layoutX="287.0" layoutY="61.0" startX="58.0"
+                                              startY="37.0"/>
+                                        <Line endX="58.0" endY="-50.0" layoutX="890.0" layoutY="62.0" startX="58.0"
+                                              startY="34.0"/>
+                                        <Line endX="58.0" endY="-50.0" layoutX="603.0" layoutY="60.0" startX="58.0"
+                                              startY="39.0"/>
+                                    </children>
+                                    <StackPane.margin>
+                                        <Insets left="-10.0"/>
+                                    </StackPane.margin>
+                                    <padding>
+                                        <Insets left="10.0"/>
+                                    </padding>
+                                </AnchorPane>
+                            </children>
+                        </StackPane>
+                        <StackPane fx:id="stkpnPurInvProductInfo" alignment="TOP_LEFT" layoutX="14.0" layoutY="39.0"
+                                   prefHeight="110.0" prefWidth="1250.0" style="-fx-background-color: #f8f0d2;"
+                                   visible="false">
+                            <children>
+                                <AnchorPane prefHeight="130.0" prefWidth="1343.0">
+                                    <children>
+                                        <Label layoutX="14.0" layoutY="14.0" text="Brand :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="14.0" layoutY="40.0" text="Group :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="14.0" layoutY="70.0" text="Sub-Droup :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="14.0" layoutY="96.0" text="Category :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="574.0" layoutY="14.0" text="HSN :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="574.0" layoutY="40.0" text="Tax Type :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="574.0" layoutY="70.0" text="Tax % :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="574.0" layoutY="96.0" text="Margin % :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="134.0" layoutY="14.0" text="......">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="134.0" layoutY="40.0" text="......">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="134.0" layoutY="70.0" text="......">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="134.0" layoutY="96.0" text="......">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="674.0" layoutY="14.0" text="......">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="674.0" layoutY="40.0" text="......">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="674.0" layoutY="70.0" text="......">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="674.0" layoutY="96.0" text="......">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="1004.0" layoutY="14.0" text="Cost :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="1004.0" layoutY="40.0" text="Shelf ID :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="1004.0" layoutY="70.0" text="Min. Stock :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="1004.0" layoutY="96.0" text="Max. Stock :">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="1114.0" layoutY="14.0" text="......">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="1114.0" layoutY="40.0" text="......">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="1114.0" layoutY="70.0" text="......">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="1114.0" layoutY="96.0" text="......">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Line endX="58.0" endY="-50.0" layoutX="497.0" layoutY="60.0" startX="58.0"
+                                              startY="64.0"/>
+                                        <Line endX="58.0" endY="-50.0" layoutX="928.0" layoutY="60.0" startX="58.0"
+                                              startY="64.0"/>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </StackPane>
+
+                        <ToggleButton fx:id="btnPurInvCrEdBatchInfo" layoutX="184.0" layoutY="-2.0"
+                                      mnemonicParsing="false" prefHeight="33.0" prefWidth="78.0" text="Batch"/>
+                    </children>
+                    <HBox.margin>
+                        <Insets top="10.0"/>
+                    </HBox.margin>
+                </AnchorPane>
+            </children>
+        </HBox>
+        <TableView layoutX="15.0" layoutY="826.0" prefHeight="130.0" prefWidth="1275.0">
+            <columns>
+                <TableColumn prefWidth="269.0" text="Supplier Name"/>
+                <TableColumn minWidth="0.0" prefWidth="156.0" text="Invoice No."/>
+                <TableColumn prefWidth="106.0" text="Invoice Date"/>
+                <TableColumn prefWidth="184.0" text="Batch"/>
+                <TableColumn prefWidth="101.0" text="MRP"/>
+                <TableColumn prefWidth="69.0" sortable="false" text="Qty"/>
+                <TableColumn prefWidth="114.0" sortable="false" text="Rate"/>
+                <TableColumn prefWidth="102.0" sortable="false" text="Cost"/>
+                <TableColumn prefWidth="65.0" sortable="false" text="Disc. %"/>
+                <TableColumn prefWidth="108.0" sortable="false" text="Disc. Amt."/>
+            </columns>
+        </TableView>
+        <Button id="cancel-btn" layoutX="1813.0" layoutY="871.0" mnemonicParsing="false" prefHeight="33.0"
+                prefWidth="93.0" text="Cancel"
+                fx:id="btnCancel"/>
+        <Button id="submit-btn" layoutX="1707.0" layoutY="871.0" mnemonicParsing="false" prefHeight="33.0"
+                prefWidth="93.0" text="Submit"
+                fx:id="btnSubmit" onAction="#onSubmit"/>
+
+        <HBox fx:id="hbapPurInvProductWindow" layoutX="479.0" layoutY="118.0" prefHeight="447.0" prefWidth="1423.0"
+              style="-fx-background-color: #B9D9EB;" visible="false">
+            <children>
+                <AnchorPane prefHeight="328.0" prefWidth="910.0">
+                    <children>
+                        <Button fx:id="btnPurInvPrdWinAddProduct" layoutX="426.0" layoutY="34.0" mnemonicParsing="false"
+                                prefHeight="30.0" prefWidth="135.0" text="+ Add Product"/>
+                        <TableView fx:id="tblvPurInvPrdWindtableview" layoutY="70.0" prefHeight="377.0"
+                                   prefWidth="1423.0">
+                            <columns>
+                                <TableColumn fx:id="tblcPurInvPrdWindCode" prefWidth="75.0" text="Code"/>
+                                <TableColumn fx:id="tblcPurInvPrdWindPrdName" prefWidth="457.0" text="Product Name"/>
+                                <TableColumn fx:id="tblcPurInvPrdWindPacking" prefWidth="79.0" text="Packing"/>
+                                <TableColumn fx:id="tblcPurInvPrdWindBarcode" prefWidth="148.0" text="Barcode"/>
+                                <TableColumn fx:id="tblcPurInvPrdWindBrand" prefWidth="143.0" text="Brand"/>
+                                <TableColumn fx:id="tblcPurInvPrdWindMrp" minWidth="0.0" prefWidth="95.0" text="MRP"/>
+                                <TableColumn fx:id="tblcPurInvPrdWindCurrStk" minWidth="0.0" prefWidth="116.0"
+                                             text="Current Stock"/>
+                                <TableColumn fx:id="tblcPurInvPrdWindUnit" minWidth="0.0" prefWidth="97.0" text="Unit"/>
+                                <TableColumn fx:id="tblcPurInvPrdWindSaleRate" minWidth="0.0" prefWidth="115.0"
+                                             text="Sale Rate"/>
+                                <TableColumn fx:id="tblcPurInvPrdWindAction" minWidth="0.0" prefWidth="95.0"
+                                             text="Action"/>
+                            </columns>
+                        </TableView>
+                        <Button fx:id="btnPurInvPrdWindowClose" layoutX="1390.0" layoutY="2.0" mnemonicParsing="false"
+                                text="X"/>
+                        <TextField fx:id="tfPurInvContentPrdWinSearchField" layoutX="5.0" layoutY="35.0"
+                                   prefHeight="30.0" prefWidth="399.0"/>
+                        <Label layoutX="14.0" layoutY="6.0" text="Product">
+                            <font>
+                                <Font name="System Bold" size="17.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+            </children>
+        </HBox>
+        <HBox fx:id="hbapPurInvBatchWindow" layoutX="264.0" layoutY="174.0" prefHeight="220.0" prefWidth="1643.0"
+              style="-fx-background-color: #d9f0fb;" visible="false" AnchorPane.bottomAnchor="640.0"
+              AnchorPane.leftAnchor="264.0" AnchorPane.rightAnchor="19.0" AnchorPane.topAnchor="174.0">
+            <children>
+                <AnchorPane prefHeight="200.0" prefWidth="1630.0">
+                    <children>
+                        <Label layoutX="16.0" layoutY="7.0" text="Batch">
+                            <font>
+                                <Font name="System Bold" size="20.0"/>
+                            </font>
+                        </Label>
+                        <Label layoutX="93.0" layoutY="10.0" text="Current Stock : ">
+                            <font>
+                                <Font name="System Bold" size="16.0"/>
+                            </font>
+                        </Label>
+                        <HBox layoutX="3.0" layoutY="44.0" prefHeight="42.0" prefWidth="1624.0"
+                              style="-fx-background-color: #f8f0d2;">
+                            <children>
+                                <AnchorPane prefHeight="200.0" prefWidth="1630.0">
+                                    <children>
+                                        <Label layoutX="20.0" layoutY="10.0" style="-fx-text-fill: #b6762b;"
+                                               text="Product Name:" AnchorPane.bottomAnchor="10.0">
+                                            <font>
+                                                <Font size="16.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="584.0" layoutY="7.0" prefHeight="20.0" prefWidth="158.0"
+                                               style="-fx-text-fill: #b6762b;" text="Cost With tax : "
+                                               AnchorPane.bottomAnchor="10.0">
+                                            <font>
+                                                <Font size="16.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="977.0" layoutY="7.0" style="-fx-text-fill: #b6762b;"
+                                               text="Cost Without tax : " AnchorPane.bottomAnchor="10.0">
+                                            <font>
+                                                <Font size="16.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="1389.0" layoutY="5.0" style="-fx-text-fill: #b6762b;"
+                                               text="Tax :" AnchorPane.bottomAnchor="10.0">
+                                            <font>
+                                                <Font size="16.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label fx:id="lblPurInvBatWinPrdName" layoutX="140.0" layoutY="10.0"
+                                               prefHeight="25.0" prefWidth="421.0" style="-fx-text-fill: #b6762b;"
+                                               text="---------------">
+                                            <font>
+                                                <Font size="16.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label fx:id="lblPurInvBatWinCWT" layoutX="702.0" layoutY="7.0"
+                                               prefHeight="25.0" prefWidth="124.0" style="-fx-text-fill: #b6762b;"
+                                               text="0.00">
+                                            <font>
+                                                <Font size="16.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label fx:id="lblPurInvBatWinCWOT" layoutX="1138.0" layoutY="7.0"
+                                               prefHeight="25.0" prefWidth="124.0" style="-fx-text-fill: #b6762b;"
+                                               text="0.00">
+                                            <font>
+                                                <Font size="16.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label fx:id="lblPurInvBatWinTax" layoutX="1438.0" layoutY="7.0"
+                                               prefHeight="25.0" prefWidth="124.0" style="-fx-text-fill: #b6762b;"
+                                               text="0.00">
+                                            <font>
+                                                <Font size="16.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </HBox>
+                        <TableView fx:id="tblvPurInvBatWinCreTableview" layoutX="4.0" layoutY="92.0" prefHeight="84.0"
+                                   prefWidth="1624.0">
+                            <columns>
+                                <TableColumn fx:id="tblcPurInvBatWinBatchNo" prefWidth="134.0" text="Batch"/>
+                                <TableColumn fx:id="tblcPurInvBatWinPurDate" prefWidth="130.0" text="Pur Date"/>
+                                <TableColumn fx:id="tblcPurInvBatWinMFGDate" prefWidth="130.0" text="MFG Date"/>
+                                <TableColumn fx:id="tblcPurInvBatWinEXPDate" prefWidth="138.0" text="Expiry Date"/>
+                                <TableColumn fx:id="tblcPurInvBatWinMRP" prefWidth="106.0" text="MRP"/>
+                                <TableColumn fx:id="tblcPurInvBatWinPurRate" prefWidth="102.0" text="Purchase Rate"/>
+                                <TableColumn fx:id="tblcPurInvBatWinQty" prefWidth="90.0" text="Quantity"/>
+                                <TableColumn fx:id="tblcPurInvBatWinFreeQty" prefWidth="79.0" text="Free Qty."/>
+                                <TableColumn fx:id="tblcPurInvBatWinDisPer" prefWidth="82.0" text="Disc.%"/>
+                                <TableColumn fx:id="tblcPurInvBatWinDisAmt" prefWidth="98.0" text="Disc.(Amt)"/>
+                                <TableColumn fx:id="tblcPurInvBatWinBarcode" prefWidth="112.0" text="Barcode"/>
+                                <TableColumn fx:id="tblcPurInvBatWinMarginPer" prefWidth="85.0" text="Margin%"/>
+                                <TableColumn fx:id="tblcPurInvBatWinFSR" prefWidth="82.0" text="FSR"/>
+                                <TableColumn fx:id="tblcPurInvBatWinCSR" prefWidth="88.0" text="CSR"/>
+                                <TableColumn fx:id="tblcPurInvBatWinSaleRate" prefWidth="91.0" text="Sale Rate"/>
+                                <TableColumn fx:id="tblcPurInvBatWinAction" prefWidth="79.0" text="Action"/>
+
+                            </columns>
+                        </TableView>
+                        <Label fx:id="lblPurInvCurrSTK" layoutX="223.0" layoutY="10.0" text="0">
+                            <font>
+                                <Font name="System Bold" size="16.0"/>
+                            </font>
+                        </Label>
+                        <Button fx:id="btnPurInvBatchWinClose" layoutX="1590.0" layoutY="4.0" mnemonicParsing="false"
+                                style="-fx-background-color: #d9f0fb;" text="X" textFill="#dd0f0f">
+                            <font>
+                                <Font size="16.0"/>
+                            </font>
+                        </Button>
+                    </children>
+                </AnchorPane>
+            </children>
+        </HBox>
+        <Button id="cancel-btn" fx:id="btnModify" layoutX="1597.0" layoutY="871.0" mnemonicParsing="false"
+                prefHeight="33.0" prefWidth="93.0" text="Modify"/>
+        <HBox layoutX="1295.0" layoutY="596.0" prefHeight="40.0" prefWidth="242.0">
+            <children>
+                <Label text="Disc.%">
+                    <HBox.margin>
+                        <Insets left="5.0" top="10.0"/>
+                    </HBox.margin>
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </Label>
+                <TextField fx:id="tfPurRtnDisPer" prefHeight="25.0" prefWidth="51.0">
+                    <HBox.margin>
+                        <Insets left="10.0" top="10.0"/>
+                    </HBox.margin>
+                </TextField>
+                <Label prefHeight="20.0" prefWidth="33.0" text="Disc.₹">
+                    <HBox.margin>
+                        <Insets left="20.0" top="10.0"/>
+                    </HBox.margin>
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </Label>
+                <TextField fx:id="tfPurRtnDisAmt" prefHeight="25.0" prefWidth="76.0">
+                    <HBox.margin>
+                        <Insets top="10.0"/>
+                    </HBox.margin>
+                </TextField>
+            </children>
+        </HBox>
+        <TableView fx:id="tblvPurInvoiceGST" layoutX="1291.0" layoutY="646.0" prefHeight="175.0" prefWidth="242.0"
+                   styleClass="purchase-inv-gst">
+            <columns>
+                <TableColumn fx:id="tblcPurInvoiceGST" prefWidth="75.0" text="GST"/>
+                <TableColumn fx:id="tblcPurInvoiceCGST" prefWidth="85.0" text="CGST"/>
+                <TableColumn fx:id="tblcPurInvoiceSGST" prefWidth="81.0" text="SGST"/>
+            </columns>
+        </TableView>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1299.0" layoutY="829.0" prefHeight="19.0"
+               prefWidth="70.0" style="-fx-background-color: #d2f7e9;" text="Total" textAlignment="CENTER">
+            <font>
+                <Font size="13.0"/>
+            </font>
+        </Label>
+        <Label fx:id="lblPurInvtotalCGST" alignment="CENTER" layoutX="1386.0" layoutY="829.0" prefHeight="19.0"
+               prefWidth="70.0" style="-fx-background-color: #d2f7e9;" text="CGST">
+            <font>
+                <Font size="13.0"/>
+            </font>
+        </Label>
+        <Label fx:id="lblPurInvtotalSGST" alignment="CENTER" layoutX="1461.0" layoutY="829.0" prefHeight="19.0"
+               prefWidth="72.0" style="-fx-background-color: #d2f7e9;" text="SGST">
+            <font>
+                <Font size="13.0"/>
+            </font>
+        </Label>
+        <HBox fx:id="hbapPurchaseInvAddnlChrgWindow" layoutX="378.0" layoutY="169.0" prefHeight="531.0"
+              prefWidth="1178.0" style="-fx-background-color: #B9D9EB;" visible="false">
+            <children>
+                <AnchorPane prefHeight="531.0" prefWidth="1188.0">
+                    <children>
+                        <Button fx:id="btnPurchaseInvAddnlChargWindowClose" layoutX="1153.0" layoutY="7.0"
+                                mnemonicParsing="false" text="X"/>
+                        <Label layoutX="14.0" layoutY="6.0" text="Additional Charges">
+                            <font>
+                                <Font name="System Bold" size="17.0"/>
+                            </font>
+                        </Label>
+                        <TableView fx:id="tblcPurchaseInvAddtnlChrgCmpTRowView" editable="true" layoutY="41.0"
+                                   prefHeight="498.0" prefWidth="1190.0">
+                            <columns>
+                                <TableColumn prefWidth="62.0" resizable="false" text="#"/>
+                                <TableColumn fx:id="tblcPurchaseInvAddtnlChrgCmpTRowParticulars" prefWidth="579.0"
+                                             text="Particular"/>
+                                <TableColumn fx:id="tblcPurchaseInvAddtnlChrgCmpTRowAmt" prefWidth="121.0" text="Amt"/>
+                                <TableColumn fx:id="tblcPurchaseInvCmpTRowPercentage" prefWidth="90.0" text="\%"/>
+                                <TableColumn fx:id="tblcPurchaseInvCmpTRowBatchNo1" prefWidth="185.0" text="Actions"/>
+                            </columns>
+                        </TableView>
+                        <Button fx:id="btnPurInvAddChgsSubmit" layoutX="977.0" layoutY="491.0" mnemonicParsing="false"
+                                prefHeight="35.0" prefWidth="95.0" text="Submit"/>
+                        <Button fx:id="btnPurInvAddChgsCancel" layoutX="1078.0" layoutY="491.0" mnemonicParsing="false"
+                                prefHeight="35.0" prefWidth="95.0" text="Cancel"/>
+                    </children>
+                </AnchorPane>
+            </children>
+        </HBox>
+        <HBox fx:id="hbapPurchaseInvAddnlChrgLedgerWindow" layoutX="896.0" layoutY="281.0" prefHeight="416.0"
+              prefWidth="967.0" style="-fx-background-color: #B9D9EB;" visible="false">
+            <children>
+                <AnchorPane prefHeight="365.0" prefWidth="712.0">
+                    <children>
+                        <Label layoutX="14.0" layoutY="13.0" text="Filter">
+                            <font>
+                                <Font size="15.0"/>
+                            </font>
+                        </Label>
+                        <CheckBox fx:id="creditorCheckBox1" layoutX="59.0" layoutY="15.0" mnemonicParsing="false"
+                                  text="Creditor"/>
+                        <Button layoutX="138.0" layoutY="9.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0"
+                                text="+ Add Ledger"/>
+                        <TableView fx:id="tblvPurchaseInvAdditionalChargesLedWindtableview" layoutY="37.0"
+                                   prefHeight="377.0" prefWidth="965.0">
+                            <columns>
+                                <TableColumn fx:id="tblcPurchaseInvAdditionalChargesLedWindCode" prefWidth="75.0"
+                                             text="Code"/>
+                                <TableColumn fx:id="tblcPurchaseInvAdditionalChargesLedWindLedName" prefWidth="292.0"
+                                             text="Ledger Name"/>
+                                <TableColumn fx:id="tblcPurchaseInvAdditionalChargesLedWindGrp" prefWidth="113.0"
+                                             text="Ledger Group"/>
+                                <TableColumn fx:id="tblcPurchaseInvAdditionalChargesLedWindContNo" prefWidth="139.0"
+                                             text="Contact No."/>
+                                <TableColumn fx:id="tblcPurchaseInvAdditionalChargesLedWindCurrBal" prefWidth="131.0"
+                                             text="Current Balance"/>
+                                <TableColumn fx:id="tblcPurchaseInvAdditionalChargesLedWindType" minWidth="0.0"
+                                             prefWidth="71.0" text="Type"/>
+                                <TableColumn fx:id="tblcPurchaseInvLedWindAction1" minWidth="0.0" prefWidth="88.0"
+                                             text="Action"/>
+                            </columns>
+                        </TableView>
+                        <Button fx:id="btnPurchaseInvLedgerWindowClose1" layoutX="919.0" layoutY="3.0"
+                                mnemonicParsing="false" text="X"/>
+                    </children>
+                </AnchorPane>
+            </children>
+        </HBox>
+        <Label layoutX="1306.0" layoutY="863.0" prefHeight="20.0" prefWidth="80.0" style="-fx-font-weight: bold;"
+               text="Total Qty :">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Label>
+        <Label fx:id="lblPurRtnTotalQty" layoutX="1416.0" layoutY="863.0" prefHeight="17.0" prefWidth="75.0"
+               style="-fx-font-weight: bold;" text="7.0000">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Label>
+        <Label layoutX="1306.0" layoutY="887.0" prefHeight="17.0" prefWidth="80.0" style="-fx-font-weight: bold;"
+               text="Free Qty :">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Label>
+        <Label fx:id="lblPurRtnFreeQty" layoutX="1418.0" layoutY="887.0" prefHeight="17.0" prefWidth="75.0"
+               style="-fx-font-weight: bold;" text="0.000">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Label>
+        <CheckBox fx:id="chbPurInvROff" layoutX="1305.0" layoutY="914.0" mnemonicParsing="false" prefHeight="20.0"
+                  prefWidth="106.0" style="-fx-font-weight: bold;" text="R.Off(+/-) :" onAction="#roundoffSelected">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </CheckBox>
+        <Label fx:id="lblPurROff" layoutX="1417.0" layoutY="916.0" prefHeight="17.0" prefWidth="75.0"
+               style="-fx-font-weight: bold;" text="0.48">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

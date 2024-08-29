@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="bpRootNilRatedPane" style="-fx-background-color: #d9f0fb;" stylesheets="@../css/gstr1_nil_rated.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.opethic.genivis.controller.GSTR1.GSTR1NilRatedController">
+        <top>
+            <VBox alignment="TOP_CENTER" spacing="20.0" style="-fx-background-color: white;">
+                <VBox>
+                    <HBox alignment="CENTER_LEFT" maxHeight="50" minHeight="50" prefHeight="50" style="-fx-background-color:  #d9f0fb;">
+
+                        <padding>
+                            <Insets bottom="5" left="20" right="5" top="5" />
+                        </padding>
+                        <Label style="-fx-font-weight: bold; -fx-font-size: 17px;-fx-text-fill: #040404; " text="Vouchers of : " HBox.hgrow="ALWAYS" />
+                        <Label style="-fx-font-weight: bold; -fx-font-size: 17px;-fx-text-fill: #979EA2; " text="NIL rated &amp; Exempted invoices- 8A,8B,8C,8C" />
+                    </HBox>
+                    <HBox alignment="CENTER_LEFT" maxHeight="50" minHeight="50" prefHeight="50" style="-fx-background-color: #d9f0fb;">
+
+                        <padding>
+                            <Insets bottom="20" left="5" right="5" top="5  " />
+                        </padding>
+                        <Label maxWidth="100" minWidth="100" prefWidth="100" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="From Date">
+                            <padding>
+                                <Insets left="15" right="15" />
+                            </padding>
+                        </Label>
+                        <TextField fx:id="dpGSTR1NilRatedFromDate" maxWidth="150" minWidth="150" prefWidth="150" promptText="DD/MM/YYYY" HBox.hgrow="ALWAYS" />
+                        <Label maxWidth="100" minWidth="100" prefWidth="100" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="To Date">
+                            <padding>
+                                <Insets left="15" right="15" />
+                            </padding>
+                        </Label>
+                        <TextField fx:id="dpGSTR1NilRatedToDate" maxWidth="150" minWidth="150" prefWidth="150" promptText="DD/MM/YYYY" HBox.hgrow="ALWAYS" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <HBox spacing="10">
+                            <padding>
+                                <Insets left="5" />
+                            </padding>
+                            <TextField fx:id="tfGSTR1NilRatedSearch" maxWidth="200" minWidth="200" prefWidth="200" promptText="Search" HBox.hgrow="ALWAYS" />
+                            <Button fx:id="tfGSTR1NilRatedUpload" maxWidth="35" minWidth="35" prefWidth="35" style="-fx-background-color:#FFFFFF">
+                                <graphic>
+                                    <ImageView fitHeight="15" fitWidth="15">
+                                        <Image url="@../assets/gstr1_nil_rated.png" />
+                                    </ImageView>
+                                </graphic>
+                            </Button>
+                        </HBox>
+                    </HBox>
+                </VBox>
+
+            </VBox>
+
+        </top>
+        <center>
+            <VBox BorderPane.alignment="CENTER">
+            <children>
+                <TableView fx:id="tvGSTR1NilRated" editable="true" prefHeight="800.0" prefWidth="1900.0">
+                    <columns>
+                        <TableColumn fx:id="tcGSTR1NilRatedSrNo" text="Sr.No." />
+                        <TableColumn fx:id="tcGSTR1NilRatedVoucherType" text="Voucher Type" />
+                        <TableColumn fx:id="tcGSTR1NilRatedParticulars" text="Particulars" />
+                        <TableColumn fx:id="tcGSTR1NilRatedNilRated" text="Nil Rated" />
+                        <TableColumn fx:id="tcGSTR1NilRatedExempted" text="Exempted" />
+                    </columns>
+                </TableView>
+            <HBox style="-fx-background-color: #F8F0D2;">
+            <padding>
+                <Insets bottom="0.0" left="6.0" right="6.0" top="0.0" />
+            </padding>
+            <children>
+            <HBox alignment="CENTER_LEFT" spacing="5" HBox.hgrow="ALWAYS">
+                <children>
+                    <Label style="-fx-font-weight: 600; -fx-font-size: 14px;" stylesheets="@../css/accountEntryStyles.css" text="Total" />
+<!--                    <Rectangle fill="#C7CFE0" height="30" width="1" />-->
+                </children>
+            </HBox>
+
+            <HBox alignment="CENTER" minWidth="140.0" spacing="5">
+                <children>
+<!--                    <Rectangle fill="#C7CFE0" height="30" width="1" />-->
+                    <Label fx:id="labelGSTR1NilRatedNilRated" style="-fx-font-weight: 600; -fx-font-size: 14px;" stylesheets="@../css/accountEntryStyles.css" text="0.00" />
+                </children>
+            </HBox>
+            <HBox alignment="CENTER" minWidth="150.0" spacing="5">
+                <children>
+<!--                    <Rectangle fill="#C7CFE0" height="30" width="1" />-->
+                    <Label fx:id="labelGSTR1NilRatedExempted" style="-fx-font-weight: 600; -fx-font-size: 14px;" stylesheets="@../css/accountEntryStyles.css" text="0.00" />
+                </children>
+            </HBox>
+            </children>
+            </HBox>
+            </children>
+            </VBox>
+        </center>
+    </BorderPane>

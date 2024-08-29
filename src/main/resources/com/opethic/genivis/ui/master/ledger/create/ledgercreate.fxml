@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="anpledgercreate" stylesheets="@../../../css/ledger_css_style/ledger_css_7.css"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.opethic.genivis.controller.master.ledger.create.LedgerCreateController">
+    <top>
+        <VBox id="topMainDiv" alignment="CENTER_LEFT">
+            <HBox id="topInnerDivAccountEntry" fx:id="ledgerMainTopRow" alignment="CENTER_LEFT" spacing="20.0">
+                <HBox alignment="CENTER_LEFT">
+                    <Label text="Ledger Type"/>
+                    <Label style="-fx-text-fill: red;" text="*"/>
+                </HBox>
+                <ComboBox fx:id="cmbLedgerType" styleClass="isRequired "/>
+                <Label fx:id="lblLedgerCreateLedgerCode" text="Code">
+                </Label>
+                <TextField fx:id="tfLedgerCreateLedgerCode" promptText="Ledger code">
+                </TextField>
+                <HBox alignment="CENTER_LEFT" fx:id="lblLedgerCreateLedgerName">
+                    <Label text="Name"/>
+                    <Label style="-fx-text-fill: red;" text="*"/>
+                </HBox>
+                <TextField fx:id="tfLedgerCreateLedgerName" onKeyTyped="#ledgerTyped" promptText="Name"
+                           styleClass="isRequired" HBox.hgrow="ALWAYS">
+                </TextField>
+                <Label fx:id="lblLedgerCreateBalancingMethods" text="Balancing Method">
+                </Label>
+                <ComboBox fx:id="cmbLedgerCreateBalancingMethods" promptText="Select Balancing method"
+                          styleClass="isRequired">
+                </ComboBox>
+                <Label text="Opening Bal">
+                </Label>
+                <TextField fx:id="tfLedgerCreateOpeningBal" promptText="Opening Bal" styleClass="isRequired" text="0">
+                </TextField>
+                <ComboBox id="crdrcombo" fx:id="cmbLedgerCreateOpeningBalanceType" styleClass="isRequired"/>
+            </HBox>
+        </VBox>
+    </top>
+    <center>
+
+        <StackPane fx:id="loadLedgerPage" BorderPane.alignment="CENTER">
+
+        </StackPane>
+    </center>
+</BorderPane>

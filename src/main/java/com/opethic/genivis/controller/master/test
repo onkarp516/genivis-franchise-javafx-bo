@@ -1,0 +1,2169 @@
+package com.opethic.genivis.controller.master;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.opethic.genivis.controller.dialogs.SingleInputDialogs;
+import com.opethic.genivis.controller.tranx_purchase.PurchaseChallanController;
+import com.opethic.genivis.dto.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.event.Event;
+import javafx.scene.text.TextFlow;
+import javafx.scene.text.Text;
+import javafx.scene.Parent;
+
+//import com.opethic.genivis.dto.AreaHeadIndianStateDTO;
+//import com.opethic.genivis.dto.AreaHeadRoleTypeDTO;
+import com.opethic.genivis.dto.reqres.product.Communicator;
+import com.opethic.genivis.network.APIClient;
+import com.opethic.genivis.network.EndPoints;
+import com.opethic.genivis.utils.*;
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import javafx.util.StringConverter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.File;
+import java.net.URL;
+import java.net.http.HttpResponse;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
+
+import static com.opethic.genivis.utils.FxmFileConstants.AREA_HEAD_LIST_SLUG;
+
+
+public class areaHeadCreateController implements Initializable {
+
+
+    private Map<String, String> AreaMapList = new HashMap<>();
+
+    private static ObservableList<CommonDTO> contentNamesList = FXCollections.observableArrayList();
+    private static ObservableList<CommonDTO> contentNamesList1 = FXCollections.observableArrayList();
+    private static ObservableList<CommonDTO> contentNamesList2 = FXCollections.observableArrayList();
+    private static ObservableList<CommonDTO> contentNamesList3 = FXCollections.observableArrayList();
+
+    private String responseBody;
+    private Map<String, String> districtMapList = new HashMap<>();
+    private Long dHId = 0L;
+    private Long RoleId = 0L;
+
+    private String RoleName = "";
+    private String AreaName = "";
+    private Long areaId = 0L;
+    private Long areaIdR = 0L;
+
+    private Long countryId = 0L;
+    private Long countryIdR0L;
+
+    private String regionalId = "";
+    private String zoneId = "";
+    private String stateId1 = "";
+    private String stateCode = "";
+    private String stateCodeR = "";
+    private Long educationId = 0L;
+    private String districtName = "";
+
+    String message = "";
+
+    File selectedFile;
+    File selectedFileForBank;
+    File selectedFileForAdhaar;
+    File selectedFileForPan;
+    File selectedFileForPartnership;
+
+
+    private String selStateName = "";
+    private int selStateId = 0;
+
+    private String selZoneName = "";
+    private int selZoneId = 0;
+
+    private String selRegionName = "";
+    private int selRegionId = 0;
+
+    private String selDistrictName = "";
+    private int selDistrictId = 0;
+
+
+    //    For Zone
+    private String zoneStateHead = "";
+    private String zoneStateHeadId = "";
+    private String zoneStateMainId = "";
+
+
+    //    For region
+    private String regionZoneHead = "";
+    private String regionZoneHeadId = "";
+    private String regionStateHeadId = "";
+    private String regionStateMainId = "";
+    private String regionZoneHeadMainId = "";
+    private String regionId = "";
+
+
+//    For district
+
+    private String districtId = "";
+    private String districtRegionHead = "";
+    private String districtRegionHeadId = "";
+    private String districtZoneHeadId = "";
+    private String districtStateHead = "";
+    private String districtStateHeadId = "";
+    private String districtStateHeadMainId = "";
+    private String districtZoneHeadMainId = "";
+    private String districtRegionHeadMainId = "";
+
+//    regionId: [object Object]
+//    regionZoneHead: Zonal Maharashtra
+//    regionZoneHeadId: 2
+//    regionStateMainId: 4008
+//    regionZoneHeadMainId: 3
+
+    @FXML
+    private ComboBox<FranchiseAreaDTO> cmbAreaHeadCreateRArea;
+
+    @FXML
+    private Button chooseButton;
+
+    //    @FXML
+//    private Label selectedImageLabel;
+    @FXML
+    private Button btnAreaHeadCreateImgBank;
+    @FXML
+    private Button btnAreaHeadCreateImgAdhaar;
+    @FXML
+    private Button btnAreaHeadCreateImgPan;
+    @FXML
+    private Button btnAreaHeadCreateImgPartnership;
+    @FXML
+    private TextField tfAreaHeadCreateBank;
+    @FXML
+    private TextField tfAreaHeadCreateAdhaar;
+    @FXML
+    private TextField tfAreaHeadCreatePan;
+    @FXML
+    private TextField tfAreaHeadCreatePanText;
+    @FXML
+    private TextField tfAreaHeadCreatePartnership;
+    @FXML
+    private VBox boxV;
+
+    @FXML
+    private Label lbAreaHeadCreateState;
+    @FXML
+    private Label lbAreaHeadCreateRState;
+
+    @FXML
+    private Label lbAreaHeadCreateCity,lbAreaHeadCreateRole;
+    @FXML
+    private Label lbAreaHeadCreateRCity;
+
+    private Label lbFranchiseCreateState;
+    private Node[] focusableNodes;
+
+//    @FXML
+//    private Label lbAreaHeadCreateRCity;
+//    @FXML
+//    private Label lbAreaHeadCreateRState;
+
+    private static final String[] OPTIONS = {"Option 1", "Option 2", "Option 3"};
+
+
+    @FXML
+    private ComboBox<AreaHeadRoleTypeDTO> cmbAreaHeadCreateRole;
+
+    //    @FXML
+//    private ComboBox<AreaHeadZoneDTO> cmbAreaHeadCreateZone;
+    @FXML
+    private ComboBox cmbAreaHeadCreateRegion;
+
+    @FXML
+    private ComboBox cmbAreaHeadCreateDistrict;
+
+    @FXML
+    private ComboBox<FranchiseAreaDTO> cmbAreaHeadCreateArea;
+
+    @FXML
+    private ComboBox cmbAreaHeadCreateCountry;
+    @FXML
+    private ComboBox cmbAreaHeadCreateRCountry;
+    @FXML
+    private ComboBox cmbAreaHeadCreateState;
+
+    @FXML
+    private ComboBox cmbAreaHeadCreateZone;
+
+
+    @FXML
+    private TextField tfAreaHeadCreatePincode;
+    @FXML
+    private TextField tfAreaHeadCreateRPincode;
+
+    @FXML
+    private CheckBox cbAreaHeadCreateSameasAddress;
+
+    @FXML
+    private TextField tfAreaHeadCreateTemporaryAddress;
+
+    @FXML
+    private TextField tfAreaHeadCreatePermanentAddress;
+    @FXML
+    private TextField tfAreaHeadCreateUsername;
+    @FXML
+    private TextField tfAreaHeadCreatePassword;
+    @FXML
+    private TextField tfAreaHeadCreateFirstName;
+    @FXML
+    private TextField tfAreaHeadCreateMiddleName;
+    @FXML
+    private TextField tfAreaHeadCreateLastName;
+    @FXML
+    private TextField tfAreaHeadCreateEmail;
+    @FXML
+    private TextField tfAreaHeadCreateMobile;
+    @FXML
+    private TextField tfAreaHeadCreateWhatsApp;
+    @FXML
+    private TextField tfAreaHeadCreateBankName;
+    @FXML
+    private TextField tfAreaHeadCreateBankAccountNo;
+    @FXML
+    private TextField tfAreaHeadCreateIFSC;
+    @FXML
+    private TextField tfAreaHeadCreateAdhaarText;
+
+
+    @FXML
+    private TextField tfZHStateHead, tfRGStateHead, tfDSStateHead;
+
+    @FXML
+    private TextField tfRGZoneHead, tfDSZoneHead, tfDSRegionHead;
+
+    //    @FXML
+//    private TextField tfAreaHeadCreateAdhaar;
+//    @FXML
+//    private TextField tfAreaHeadCreateBank;
+//    @FXML
+//    private TextField tfAreaHeadCreatePan;
+    @FXML
+    private DatePicker dpAreaHeadCreateDOB;
+    @FXML
+    private RadioButton rbAreaHeadCreateMale;
+    @FXML
+    private RadioButton rbAreaHeadCreateFemale;
+
+//    @FXML
+//    private TextField tfAreaHeadCreatePermanentAddress;
+
+
+    @FXML
+    private Button btnAreaHeadCreateSubmit, btnAreaHeadCreateCancel;
+
+    @FXML
+    private HBox toggleValidation, stateSeleHbox, zoneSeleHbox, regionSeleHbox, districtSeleHbox;
+
+    @FXML
+    private ScrollPane spRootPane;
+
+
+    ToggleGroup toggleGroup = new ToggleGroup();
+    String selectedRadioValue;
+    public String response;
+
+    private static final Logger areaHeadLogger = LoggerFactory.getLogger(PurchaseChallanController.class);
+
+
+
+    public class LabelTextExtractor {
+        public static List<String> getAllLabelTexts(Parent root) {
+            List<String> labelTexts = new ArrayList<>();
+            extractLabelTexts(root, labelTexts);
+            return labelTexts;
+        }
+
+        private static void extractLabelTexts(Parent parent, List<String> labelTexts) {
+            ObservableList<Node> children = parent.getChildrenUnmodifiable();
+
+            for (Node node : children) {
+                if (node instanceof Label) {
+                    Label label = (Label) node;
+                    labelTexts.add(label.getText());
+                } else if (node instanceof Parent) {
+                    extractLabelTexts((Parent) node, labelTexts);
+                }
+            }
+        }
+    }
+
+
+    // Method to find all labels in a parent node
+    public List<Label> findAllLabels(Parent root) {
+        List<Label> labelList = new ArrayList<>();
+        findLabelsRecursively(root, labelList);
+        return labelList;
+    }
+
+    // Helper method to recursively find labels
+    private void findLabelsRecursively(Parent parent, List<Label> labelList) {
+        for (var node : parent.getChildrenUnmodifiable()) {
+            if (node instanceof Label) {
+                labelList.add((Label) node);
+            } else if (node instanceof Parent) {
+                findLabelsRecursively((Parent) node, labelList);
+            }
+        }
+    }
+
+    // Method to style the asterisk in a label's text
+    private TextFlow styleAsteriskInText(String text) {
+        TextFlow textFlow = new TextFlow();
+
+        if (text.contains("*")) {
+            String[] parts = text.split("\\*", -1); // Split the text by asterisk
+            for (int i = 0; i < parts.length; i++) {
+                textFlow.getChildren().add(new Text(parts[i])); // Add the regular text
+                if (i < parts.length - 1) {
+                    Text redAsterisk = new Text("*");
+                    redAsterisk.setStyle("-fx-fill: red;"); // Style the asterisk in red
+                    textFlow.getChildren().add(redAsterisk);
+                }
+            }
+        } else {
+            textFlow.getChildren().add(new Text(text)); // If no asterisk, add the text as is
+        }
+
+        return textFlow;
+    }
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+//        cmbAreaHeadCreateRole.show(); // This opens the ComboBox
+
+        // Example: Get all label texts from the VBox
+//        List<String> allLabelTexts = LabelTextExtractor.getAllLabelTexts(boxV);
+//
+//        // Print all label texts
+//        allLabelTexts.forEach(System.out::println);
+
+//        boxV.getChildren();
+
+        List<Label> labels = findAllLabels(boxV);
+
+        for (Label label : labels) {
+            if (label.getText().contains("*")) {
+                TextFlow styledTextFlow = styleAsteriskInText(label.getText());
+                label.setGraphic(styledTextFlow);
+                label.setText(""); // Clear the plain text to avoid duplication
+            }
+        }
+
+        // Retrieve the text from the label
+        String text = lbAreaHeadCreateRole.getText();
+
+        // Create a TextFlow to add styled text components
+        TextFlow textFlow = new TextFlow();
+
+        if (text.contains("*")) {
+            // Split the text to isolate the asterisk
+            String[] parts = text.split("\\*");
+
+            // Normal text before the asterisk
+            Text beforeAsterisk = new Text(parts[0]);
+
+            // Asterisk with custom color
+            Text redAsterisk = new Text("*");
+            redAsterisk.setStyle("-fx-fill: red;");
+
+            // Add to TextFlow
+            textFlow.getChildren().add(beforeAsterisk);
+            textFlow.getChildren().add(redAsterisk);
+
+            // If there is text after the asterisk, add it
+            if (parts.length > 1) {
+                Text afterAsterisk = new Text(parts[1]);
+                textFlow.getChildren().add(afterAsterisk);
+            }
+
+            // Set the TextFlow to the Label's graphic property
+            lbAreaHeadCreateRole.setGraphic(textFlow);
+
+            // Clear the label text to avoid duplication
+            lbAreaHeadCreateRole.setText("");
+        }
+
+
+        spRootPane.addEventFilter(KeyEvent.KEY_PRESSED, (KeyEvent event) -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                if (event.getTarget() instanceof Button targetButton && targetButton.getText().equalsIgnoreCase("submit")) {
+                    System.out.println(targetButton.getText());
+                } else if (event.getTarget() instanceof Button targetButton && targetButton.getText().equalsIgnoreCase("cancel")) {
+                    System.out.println(targetButton.getText());
+                }else if (event.getTarget() instanceof Button targetButton && targetButton.getText().equalsIgnoreCase("update")) {
+                    System.out.println(targetButton.getText());
+                }
+                else {
+                    KeyEvent newEvent = new KeyEvent(
+                            null,
+                            null,
+                            KeyEvent.KEY_PRESSED,
+                            "",
+                            "\t",
+                            KeyCode.TAB,
+                            event.isShiftDown(),
+                            event.isControlDown(),
+                            event.isAltDown(),
+                            event.isMetaDown()
+                    );
+
+                    Event.fireEvent(event.getTarget(), newEvent);
+                    event.consume();
+                }
+            }
+            if (event.getCode() == KeyCode.S && event.isControlDown()) {
+                btnAreaHeadCreateSubmit.fire();
+            }
+            if (event.getCode() == KeyCode.X && event.isControlDown()) {
+                btnAreaHeadCreateCancel.fire();
+            }
+        });
+
+
+        Platform.runLater(() -> {
+//common function to display the data from combo box
+            CommonValidationsUtils.comboBoxDataShow(cmbAreaHeadCreateRole);
+            CommonValidationsUtils.comboBoxDataShow(cmbAreaHeadCreateDistrict);
+            CommonValidationsUtils.comboBoxDataShow(cmbAreaHeadCreateRegion);
+            CommonValidationsUtils.comboBoxDataShow(cmbAreaHeadCreateZone);
+            CommonValidationsUtils.comboBoxDataShow(cmbAreaHeadCreateCountry);
+            CommonValidationsUtils.comboBoxDataShow(cmbAreaHeadCreateRCountry);
+            CommonValidationsUtils.comboBoxDataShow(cmbAreaHeadCreateState);
+            CommonValidationsUtils.comboBoxDataShow(cmbAreaHeadCreateRegion);
+
+            CommonValidationsUtils.comboBoxDataShow(cmbAreaHeadCreateArea);
+            CommonValidationsUtils.comboBoxDataShow(cmbAreaHeadCreateRArea);
+
+
+        });
+
+        sceneInitilization();
+        stateSeleHbox.setVisible(false);
+        zoneSeleHbox.setVisible(false);
+        regionSeleHbox.setVisible(false);
+        districtSeleHbox.setVisible(false);
+
+        stateSeleHbox.managedProperty().bind(stateSeleHbox.visibleProperty());
+        zoneSeleHbox.managedProperty().bind(zoneSeleHbox.visibleProperty());
+        regionSeleHbox.managedProperty().bind(regionSeleHbox.visibleProperty());
+        districtSeleHbox.managedProperty().bind(districtSeleHbox.visibleProperty());
+
+        spRootPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        spRootPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+
+        nextElement();
+        AreaRoleStaticData();
+
+
+//        focusableNodes = new Node[]{cmbAreaHeadCreateRole, tfAreaHeadCreateUsername, tfAreaHeadCreatePassword, tfAreaHeadCreateFirstName, tfAreaHeadCreateMiddleName,
+//                tfAreaHeadCreateLastName, tfAreaHeadCreateEmail, tfAreaHeadCreateMobile, tfAreaHeadCreateWhatsApp, dpAreaHeadCreateDOB, rbAreaHeadCreateMale, rbAreaHeadCreateFemale,
+//                tfAreaHeadCreatePermanentAddress, tfAreaHeadCreatePincode, cmbAreaHeadCreateArea, lbAreaHeadCreateCity, lbAreaHeadCreateState, cmbAreaHeadCreateCountry, tfAreaHeadCreateTemporaryAddress,
+//                tfAreaHeadCreateRPincode, cmbAreaHeadCreateRArea, lbAreaHeadCreateRCity, lbAreaHeadCreateRState, cmbAreaHeadCreateRCountry,
+//                tfAreaHeadCreateBankName,
+//                tfAreaHeadCreateBankAccountNo, tfAreaHeadCreateIFSC, btnAreaHeadCreateImgBank, tfAreaHeadCreateAdhaarText, btnAreaHeadCreateImgAdhaar, tfAreaHeadCreatePanText, btnAreaHeadCreateImgPan, btnAreaHeadCreateImgPartnership, btnAreaHeadCreateSubmit, btnAreaHeadCreateCancel};
+//        CommonValidationsUtils.setupFocusNavigation(focusableNodes);
+
+
+        tfAreaHeadCreateUsername.textProperty().addListener((observable, oldValue, newValue) -> {
+            CommonValidationsUtils.checkFieldAndHighlight(tfAreaHeadCreateUsername);
+        });
+        tfAreaHeadCreatePassword.textProperty().addListener((observable, oldValue, newValue) -> {
+            CommonValidationsUtils.checkFieldAndHighlight(tfAreaHeadCreatePassword);
+        });
+        tfAreaHeadCreateFirstName.textProperty().addListener((observable, oldValue, newValue) -> {
+            CommonValidationsUtils.checkFieldAndHighlight(tfAreaHeadCreateFirstName);
+        });
+        tfAreaHeadCreateMiddleName.textProperty().addListener((observable, oldValue, newValue) -> {
+            CommonValidationsUtils.checkFieldAndHighlight(tfAreaHeadCreateMiddleName);
+        });
+        tfAreaHeadCreateLastName.textProperty().addListener((observable, oldValue, newValue) -> {
+            CommonValidationsUtils.checkFieldAndHighlight(tfAreaHeadCreateLastName);
+        });
+        tfAreaHeadCreateEmail.textProperty().addListener((observable, oldValue, newValue) -> {
+            CommonValidationsUtils.checkFieldAndHighlight(tfAreaHeadCreateEmail);
+        });
+        tfAreaHeadCreateMobile.textProperty().addListener((observable, oldValue, newValue) -> {
+            CommonValidationsUtils.checkFieldAndHighlight(tfAreaHeadCreateMobile);
+        });
+        tfAreaHeadCreateWhatsApp.textProperty().addListener((observable, oldValue, newValue) -> {
+            CommonValidationsUtils.checkFieldAndHighlight(tfAreaHeadCreateWhatsApp);
+        });
+        tfAreaHeadCreatePermanentAddress.textProperty().addListener((observable, oldValue, newValue) -> {
+            CommonValidationsUtils.checkFieldAndHighlight(tfAreaHeadCreatePermanentAddress);
+        });
+        tfAreaHeadCreateTemporaryAddress.textProperty().addListener((observable, oldValue, newValue) -> {
+            CommonValidationsUtils.checkFieldAndHighlight(tfAreaHeadCreateTemporaryAddress);
+        });
+        tfAreaHeadCreatePincode.textProperty().addListener((observable, oldValue, newValue) -> {
+            CommonValidationsUtils.checkFieldAndHighlight(tfAreaHeadCreatePincode);
+        });
+        tfAreaHeadCreateRPincode.textProperty().addListener((observable, oldValue, newValue) -> {
+            CommonValidationsUtils.checkFieldAndHighlight(tfAreaHeadCreateRPincode);
+        });
+        tfAreaHeadCreateBankName.textProperty().addListener((observable, oldValue, newValue) -> {
+            CommonValidationsUtils.checkFieldAndHighlight(tfAreaHeadCreateBankName);
+        });
+        tfAreaHeadCreateBankAccountNo.textProperty().addListener((observable, oldValue, newValue) -> {
+            CommonValidationsUtils.checkFieldAndHighlight(tfAreaHeadCreateBankAccountNo);
+        });
+        tfAreaHeadCreateIFSC.textProperty().addListener((observable, oldValue, newValue) -> {
+            CommonValidationsUtils.checkFieldAndHighlight(tfAreaHeadCreateIFSC);
+        });
+        tfAreaHeadCreateBank.textProperty().addListener((observable, oldValue, newValue) -> {
+            CommonValidationsUtils.checkFieldAndHighlight(tfAreaHeadCreateBank);
+        });
+        tfAreaHeadCreateAdhaarText.textProperty().addListener((observable, oldValue, newValue) -> {
+            CommonValidationsUtils.checkFieldAndHighlight(tfAreaHeadCreateAdhaarText);
+        });
+        tfAreaHeadCreateAdhaar.textProperty().addListener((observable, oldValue, newValue) -> {
+            CommonValidationsUtils.checkFieldAndHighlight(tfAreaHeadCreateAdhaar);
+        });
+        tfAreaHeadCreatePanText.textProperty().addListener((observable, oldValue, newValue) -> {
+            CommonValidationsUtils.checkFieldAndHighlight(tfAreaHeadCreatePanText);
+        });
+        tfAreaHeadCreatePan.textProperty().addListener((observable, oldValue, newValue) -> {
+            CommonValidationsUtils.checkFieldAndHighlight(tfAreaHeadCreatePan);
+        });
+        tfAreaHeadCreatePartnership.textProperty().addListener((observable, oldValue, newValue) -> {
+            CommonValidationsUtils.checkFieldAndHighlight(tfAreaHeadCreatePartnership);
+        });
+
+//        lbAreaHeadCreateCity.textProperty().addListener((observable, oldValue, newValue) -> {
+//            CommonValidationsUtils.checkFieldAndHighlight(lbAreaHeadCreateCity);
+//        });
+//        lbAreaHeadCreateRCity.textProperty().addListener((observable, oldValue, newValue) -> {
+//            CommonValidationsUtils.checkFieldAndHighlight(lbAreaHeadCreateRCity);
+//        });
+//        lbAreaHeadCreateState.textProperty().addListener((observable, oldValue, newValue) -> {
+//            CommonValidationsUtils.checkFieldAndHighlight(lbAreaHeadCreateState);
+//        });
+//        lbAreaHeadCreateRState.textProperty().addListener((observable, oldValue, newValue) -> {
+//            CommonValidationsUtils.checkFieldAndHighlight(lbAreaHeadCreateRState);
+//        });
+
+        // Add listener for focus change to restrict Mobile Number and Email when cursor moves away
+        CommonValidationsUtils.restrictMobileNumber(tfAreaHeadCreateMobile);
+        CommonValidationsUtils.restrictMobileNumber(tfAreaHeadCreateWhatsApp);
+        CommonValidationsUtils.restrictEmail(tfAreaHeadCreateEmail);
+
+
+        if (Globals.areaHeadListDTO != null) {
+            System.out.println("FranchiseListDTOId" + Globals.areaHeadListDTO.getId());
+            getAllIndianState();
+            getEditDataById();
+//            handleCheckBoxAction();
+        } else {
+            Globals.areaHeadListDTO = null;
+            System.out.println("FranchiseListDTOId is NULL");
+            // Delayed initialization to ensure tgFranchiseIsFunding's width is properly calculated
+
+        }
+
+
+        btnAreaHeadCreateImgBank.setOnAction(event -> {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Choose Image");
+            // Add supported image file extensions if necessary
+            fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif", "*.bmp"));
+            // Show open file dialog
+//            File selectedFile = fileChooser.showOpenDialog(new Stage());
+            selectedFileForBank = fileChooser.showOpenDialog(new Stage());
+            if (selectedFileForBank != null) {
+                // Update the label with the selected image's name
+                tfAreaHeadCreateBank.setText(selectedFileForBank.getName());
+            }
+        });
+
+        btnAreaHeadCreateImgAdhaar.setOnAction(event -> {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Choose Image");
+            // Add supported image file extensions if necessary
+            fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif", "*.bmp"));
+            // Show open file dialog
+            selectedFileForAdhaar = fileChooser.showOpenDialog(new Stage());
+            if (selectedFileForAdhaar != null) {
+                // Update the label with the selected image's name
+                tfAreaHeadCreateAdhaar.setText(selectedFileForAdhaar.getName());
+            }
+        });
+
+        btnAreaHeadCreateImgPan.setOnAction(event -> {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Choose Image");
+            // Add supported image file extensions if necessary
+            fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif", "*.bmp"));
+            // Show open file dialog
+            selectedFileForPan = fileChooser.showOpenDialog(new Stage());
+            if (selectedFileForPan != null) {
+                // Update the label with the selected image's name
+                tfAreaHeadCreatePan.setText(selectedFileForPan.getName());
+            }
+        });
+
+        btnAreaHeadCreateImgPartnership.setOnAction(event -> {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Choose Image");
+            // Add supported image file extensions if necessary
+            fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif", "*.bmp"));
+            // Show open file dialog
+            selectedFileForPartnership = fileChooser.showOpenDialog(new Stage());
+            if (selectedFileForPartnership != null) {
+                // Update the label with the selected image's name
+                tfAreaHeadCreatePartnership.setText(selectedFileForPartnership.getName());
+            }
+        });
+
+
+        Platform.runLater(() -> cmbAreaHeadCreateRole.requestFocus());
+
+    }
+
+    @FXML
+    private void handleComboBoxActionCountry() {
+
+        FranchiseCountryDTO countryDTO = (FranchiseCountryDTO) cmbAreaHeadCreateCountry.getSelectionModel().getSelectedItem();
+        if (countryDTO != null) {
+            countryId = Long.valueOf(countryDTO.getId());
+            System.out.println("Selected item: nusta ajj j1 " + countryDTO.getId());
+        } else {
+            System.out.println("No item selected.");
+        }
+    }
+
+    public void sceneInitilization() {
+        spRootPane.sceneProperty().addListener((observable, oldScene, newScene) -> {
+            if (newScene != null && newScene.getWindow() instanceof Stage) {
+                Communicator.stage = (Stage) newScene.getWindow();
+            }
+        });
+    }
+
+    @FXML
+    private void openAreaHeadPopupForZone() {
+        SingleInputDialogs.openAreaHeadPopUp(Communicator.stage, "Zone", input -> {
+//            getTableRow().getItem().setBatch_or_serial((String) input[0]);
+//            int selectedIndex = getIndex();
+            System.out.println("popup Callback");
+            System.out.println(input);
+            getAllZones();
+//            Platform.runLater(() -> {
+//                getTableView().refresh();
+//            });
+        });
+    }
+
+    @FXML
+    private void openAreaHeadPopupForRegion() {
+        SingleInputDialogs.openAreaHeadPopUp(Communicator.stage, "Region", input -> {
+//            getTableRow().getItem().setBatch_or_serial((String) input[0]);
+//            int selectedIndex = getIndex();
+            System.out.println("popup Callback");
+            System.out.println(input);
+            getAllRegions();
+//            Platform.runLater(() -> {
+//                getTableView().refresh();
+//            });
+        });
+    }
+
+    @FXML
+    private void openAreaHeadPopupForDistrict() {
+        SingleInputDialogs.openAreaHeadPopUp(Communicator.stage, "District", input -> {
+//            getTableRow().getItem().setBatch_or_serial((String) input[0]);
+//            int selectedIndex = getIndex();
+            System.out.println("popup Callback");
+            System.out.println(input);
+            getAllDistricts();
+//            Platform.runLater(() -> {
+//                getTableView().refresh();
+//            });
+        });
+    }
+
+    @FXML
+    private void handleRadioButtonAction() {
+//        RadioButton selectedRadioButton = (RadioButton) toggleGroup.getSelectedToggle();
+//        rbAreaHeadCreateMale.setToggleGroup(toggleGroup);
+//        rbAreaHeadCreateFemale.setToggleGroup(toggleGroup);
+//
+//        if (selectedRadioButton != null) {
+//            selectedRadioValue = selectedRadioButton.getText();
+//            System.out.println("Selected option: " + selectedRadioValue);
+//            // Append selectedValue to your desired location
+//        }
+
+        Boolean val = rbAreaHeadCreateMale.isSelected();
+        Boolean valF = rbAreaHeadCreateFemale.isSelected();
+        if (val) {
+            selectedRadioValue = "true";
+        }
+        if (valF) {
+            selectedRadioValue = "false";
+        }
+        CommonValidationsUtils.radioToggleValidation(selectedRadioValue, toggleValidation);
+
+    }
+
+
+    public void createAreaHead() {
+        System.out.println("gender-->" + selectedRadioValue);
+        String id = Globals.areaHeadListDTO != null ? Globals.areaHeadListDTO.getId() : null;
+
+
+        CommonValidationsUtils.checkComboFieldAndHighlight(cmbAreaHeadCreateArea);
+        CommonValidationsUtils.checkComboFieldAndHighlight(cmbAreaHeadCreateRArea);
+        CommonValidationsUtils.checkComboFieldAndHighlight(cmbAreaHeadCreateRole);
+        CommonValidationsUtils.dateCheckVal(dpAreaHeadCreateDOB);
+        CommonValidationsUtils.radioToggleValidation(selectedRadioValue, toggleValidation);
+
+
+        String AreaHeadCreateUsername = tfAreaHeadCreateUsername.getText();
+        String AreaHeadCreatePassword = tfAreaHeadCreatePassword.getText();
+        String AreaHeadCreateFirstName = tfAreaHeadCreateFirstName.getText();
+        String AreaHeadCreateMiddleName = tfAreaHeadCreateMiddleName.getText();
+        String AreaHeadCreateLastName = tfAreaHeadCreateLastName.getText();
+        String AreaHeadCreateEmail = tfAreaHeadCreateEmail.getText();
+        String AreaHeadCreateMobile = tfAreaHeadCreateMobile.getText();
+        String AreaHeadCreateWhatsApp = tfAreaHeadCreateWhatsApp.getText();
+        String AreaHeadCreatePermanentAddress = tfAreaHeadCreatePermanentAddress.getText();
+        String AreaHeadCreateTemporaryAddress = tfAreaHeadCreateTemporaryAddress.getText();
+        String AreaHeadCreatePincode = tfAreaHeadCreatePincode.getText();
+        String AreaHeadCreateRPincode = tfAreaHeadCreateRPincode.getText();
+        String AreaHeadCreateBankName = tfAreaHeadCreateBankName.getText();
+        String AreaHeadCreateBankAccountNo = tfAreaHeadCreateBankAccountNo.getText();
+        String AreaHeadCreateIFSC = tfAreaHeadCreateIFSC.getText();
+        String AreaHeadCreateBank = tfAreaHeadCreateBank.getText();
+        String AreaHeadCreateAdhaarText = tfAreaHeadCreateAdhaarText.getText();
+        String AreaHeadCreateAdhaar = tfAreaHeadCreateAdhaar.getText();
+        String AreaHeadCreatePanText = tfAreaHeadCreatePanText.getText();
+        String AreaHeadCreatePan = tfAreaHeadCreatePan.getText();
+        String AreaHeadCreatePartnership = tfAreaHeadCreatePartnership.getText();
+
+
+        if (AreaHeadCreateUsername.isBlank()) {
+            CommonValidationsUtils.highlightTextField(tfAreaHeadCreateUsername);
+        }
+        if (AreaHeadCreatePassword.isBlank()) {
+            CommonValidationsUtils.highlightTextField(tfAreaHeadCreatePassword);
+        }
+        if (AreaHeadCreateFirstName.isBlank()) {
+            CommonValidationsUtils.highlightTextField(tfAreaHeadCreateFirstName);
+        }
+        if (AreaHeadCreateMiddleName.isBlank()) {
+            CommonValidationsUtils.highlightTextField(tfAreaHeadCreateMiddleName);
+        }
+        if (AreaHeadCreateLastName.isBlank()) {
+            CommonValidationsUtils.highlightTextField(tfAreaHeadCreateLastName);
+        }
+        if (AreaHeadCreateEmail.isBlank()) {
+            CommonValidationsUtils.highlightTextField(tfAreaHeadCreateEmail);
+        }
+        if (AreaHeadCreateMobile.isBlank()) {
+            CommonValidationsUtils.highlightTextField(tfAreaHeadCreateMobile);
+        }
+        if (AreaHeadCreateWhatsApp.isBlank()) {
+            CommonValidationsUtils.highlightTextField(tfAreaHeadCreateWhatsApp);
+        }
+        if (AreaHeadCreatePermanentAddress.isBlank()) {
+            CommonValidationsUtils.highlightTextField(tfAreaHeadCreatePermanentAddress);
+        }
+        if (AreaHeadCreateTemporaryAddress.isBlank()) {
+            CommonValidationsUtils.highlightTextField(tfAreaHeadCreateTemporaryAddress);
+        }
+        if (AreaHeadCreatePincode.isBlank()) {
+            CommonValidationsUtils.highlightTextField(tfAreaHeadCreatePincode);
+        }
+        if (AreaHeadCreateRPincode.isBlank()) {
+            CommonValidationsUtils.highlightTextField(tfAreaHeadCreateRPincode);
+        }
+        if (AreaHeadCreateBankName.isBlank()) {
+            CommonValidationsUtils.highlightTextField(tfAreaHeadCreateBankName);
+        }
+        if (AreaHeadCreateBankAccountNo.isBlank()) {
+            CommonValidationsUtils.highlightTextField(tfAreaHeadCreateBankAccountNo);
+        }
+        if (AreaHeadCreateIFSC.isBlank()) {
+            CommonValidationsUtils.highlightTextField(tfAreaHeadCreateIFSC);
+        }
+//        if (AreaHeadCreateBank.isBlank()) {
+//            CommonValidationsUtils.highlightTextField(tfAreaHeadCreateBank);
+//        }
+        if (AreaHeadCreateAdhaarText.isBlank()) {
+            CommonValidationsUtils.highlightTextField(tfAreaHeadCreateAdhaarText);
+        }
+//        if (AreaHeadCreateAdhaar.isBlank()) {
+//            CommonValidationsUtils.highlightTextField(tfAreaHeadCreateAdhaar);
+//        }
+        if (AreaHeadCreatePanText.isBlank()) {
+            CommonValidationsUtils.highlightTextField(tfAreaHeadCreatePanText);
+        }
+//        if (AreaHeadCreatePan.isBlank()) {
+//            CommonValidationsUtils.highlightTextField(tfAreaHeadCreatePan);
+//        }
+//        if (AreaHeadCreatePartnership.isBlank()) {
+//            CommonValidationsUtils.highlightTextField(tfAreaHeadCreatePartnership);
+//        }
+
+
+//        btnAreaHeadCreateSubmit.setOnAction(actionEvent -> {
+//        String id=Globals.areaHeadListDTO!=null?Globals.areaHeadListDTO.getId():null;
+
+        String roleId = RoleId.toString();
+        String username = tfAreaHeadCreateUsername.getText();
+        String password = tfAreaHeadCreatePassword.getText();
+        String firstName = tfAreaHeadCreateFirstName.getText();
+        String middleName = tfAreaHeadCreateMiddleName.getText();
+        String lastName = tfAreaHeadCreateLastName.getText();
+        String emailId = tfAreaHeadCreateEmail.getText();
+        String mobileNumber = tfAreaHeadCreateMobile.getText();
+        String whatsApp = tfAreaHeadCreateWhatsApp.getText();
+        String birthDate = String.valueOf(dpAreaHeadCreateDOB.getValue());
+//            String gender = String.valueOf(toggleGroup.getSelectedToggle().isSelected());
+        String gender = selectedRadioValue.toString();
+        String address = tfAreaHeadCreatePermanentAddress.getText();
+        String addressR = tfAreaHeadCreateTemporaryAddress.getText();
+
+        String pincode = tfAreaHeadCreatePincode.getText();
+        String pincodeR = tfAreaHeadCreateRPincode.getText();
+
+
+        String area = areaId.toString();
+        String areaR = areaIdR.toString();
+
+        String city = lbAreaHeadCreateCity.getText();
+        String cityR = lbAreaHeadCreateRCity.getText();
+
+        String state = lbAreaHeadCreateState.getText();
+        String stateR = lbAreaHeadCreateRState.getText();
+
+        String country = countryId.toString();
+
+        String bankName = tfAreaHeadCreateBankName.getText();
+        String bankAccNo = tfAreaHeadCreateBankAccountNo.getText();
+        String ifsc = tfAreaHeadCreateIFSC.getText();
+        String bankImg = tfAreaHeadCreateBank.getText();
+        String adhaar = tfAreaHeadCreateAdhaarText.getText();
+        String adhaarImg = tfAreaHeadCreateAdhaar.getText();
+        String pan = tfAreaHeadCreatePanText.getText();
+        String panImg = tfAreaHeadCreatePan.getText();
+        String partnershipImg = tfAreaHeadCreatePartnership.getText();
+
+//            String birthDate = dpAreaHeadCreateDOB.getText();
+//            System.exit(0);
+
+//            String birthDate = dpAreaHeadCreateDOB.getText();
+//            String id=Globals.areaHeadListDTO.getId()!=null?Globals.areaHeadListDTO.getId():"";
+
+        if (username.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Username is required.");
+            alert.showAndWait();
+            return;
+        }
+
+
+        Map<String, String> map = new HashMap<>();
+
+        if (id != null) {
+            map.put("id", id);
+        }
+        map.put("username", username);
+        map.put("password", password);
+
+        map.put("areaRole", RoleName);
+
+//        map.put("sameAsAddress", cbAreaHeadCreateSameasAddress.getText());
+
+
+        if (RoleId == 1) {
+            map.put("stateCode", String.valueOf(selStateId));
+            map.put("stateName", String.valueOf(selStateName));
+        }
+
+//        map.put("areaRole", roleId);
+        if (RoleId == 2) {
+            map.put("zoneId", String.valueOf(selZoneId));
+            map.put("zoneId", String.valueOf(selZoneId));
+            map.put("zoneCode", String.valueOf(selZoneId));
+            map.put("zoneStateHeadId", zoneStateHeadId);
+            map.put("zoneStateMainId", String.valueOf(selStateId));
+            map.put("zoneStateHead", zoneStateHead);
+        }
+
+        if (RoleId == 3) {
+            map.put("region", String.valueOf(selRegionId));
+
+//            map.put("regionZoneHeadId", regionalId);
+//            map.put("regionStateHeadId", state);
+
+            map.put("regionZoneHead", regionZoneHead);
+            map.put("regionZoneHeadId", regionZoneHeadId);
+            map.put("regionStateHeadId", regionStateHeadId);
+            map.put("regionStateMainId", regionStateMainId);
+            map.put("regionZoneHeadMainId", regionZoneHeadMainId);
+            map.put("regionId", regionId);
+
+        }
+
+        if (RoleId == 4) {
+            map.put("district", String.valueOf(selDistrictId));
+//            map.put("districtRegionHeadId", "1");
+//            map.put("districtZoneHeadId", "1");
+
+            map.put("districtId", districtId);
+            map.put("districtRegionHead", districtRegionHead);
+            map.put("districtRegionHeadId", districtRegionHeadId);
+            map.put("districtZoneHeadId", districtZoneHeadId);
+            map.put("districtStateHead", districtStateHead);
+            map.put("districtStateHeadId", districtStateHeadId);
+            map.put("districtStateHeadMainId", districtStateHeadMainId);
+            map.put("districtZoneHeadMainId", districtZoneHeadMainId);
+            map.put("districtRegionHeadMainId", districtRegionHeadMainId);
+
+//            region data
+            map.put("regionId", regionId);
+            map.put("regionZoneHead", regionZoneHead);
+            map.put("regionZoneHeadId", regionZoneHeadId);
+            map.put("regionStateMainId", regionStateMainId);
+            map.put("regionZoneHeadMainId", regionZoneHeadMainId);
+
+        }
+
+        map.put("firstName", firstName);
+        map.put("middleName", middleName);
+        map.put("lastName", lastName);
+        map.put("email", emailId);
+        map.put("mobileNumber", mobileNumber);
+        map.put("whatsappNumber", whatsApp);
+        map.put("birthDate", birthDate);
+        map.put("birth", birthDate);
+        map.put("gender", gender);
+        map.put("permenantAddress", addressR);
+        map.put("address2", addressR);
+        map.put("pincode", pincode);
+        map.put("corporatePincode", pincodeR);
+        map.put("city", city);
+        map.put("corporatecity", cityR);
+        map.put("area", area);
+        map.put("corporatearea", areaR);
+
+        map.put("temporaryAddress", address);
+        map.put("address1", address);
+        map.put("isSameAddress", cbAreaHeadCreateSameasAddress.getText());
+        map.put("aadharCardNo", adhaar);
+        map.put("panCardNo", pan);
+        map.put("bankAccName", bankName);
+        map.put("bankAccNo", bankAccNo);
+        map.put("bankAccIFSC", ifsc);
+
+
+        map.put("pinStateCode", stateCode.toString());
+//        corporatestateCode: 33
+//        corporatestateName: TAMIL NADU
+        map.put("corporatestateCode", stateCodeR.toString());
+//        map.put("corporatestateName", stateCodeR.toString());
+
+
+        map.put("countryId", "1");  // this is for both Registered and Residential Address
+
+        Map<String, String> headers = new HashMap<>();
+        headers.put("branch", "gvhm001");
+
+
+        Map<String, File> fileMap = null;
+        fileMap = new HashMap<>();
+
+        if (selectedFileForAdhaar != null) {
+            fileMap.put("aadharCardFile", selectedFileForAdhaar);
+        }
+
+        if (selectedFileForPan != null) {
+            fileMap.put("panCardFile", selectedFileForPan);
+
+        }
+        if (selectedFileForBank != null) {
+            fileMap.put("bankAccFile", selectedFileForBank);
+        }
+        if (selectedFileForPartnership != null) {
+            fileMap.put("partnerDeedFile", selectedFileForPartnership);
+        }
+
+//        Map<String, File> finalFileMap1 = fileMap;
+//        System.out.println("finalFileMap1");
+//        System.out.println(finalFileMap1);
+        Gson gson = new Gson();
+
+        // Convert HashMap to JSON and print it
+        String json = gson.toJson(map);
+        System.out.println(json);
+
+        if (id == null) {
+
+            Map<String, File> finalFileMap = fileMap;
+            AlertUtility.CustomCallback callback = number -> {
+                if (number == 1) {
+                    response = APIClient.postMultipartRequest(map, finalFileMap, EndPoints.createAreaHead, headers);
+                    GlobalController.getInstance().addTabStatic(AREA_HEAD_LIST_SLUG, false);
+                } else {
+                    System.out.println("working!");
+                }
+            };
+            AlertUtility.AlertConfirmation(AlertUtility.alertTypeConfirmation, "Are sure to submit", callback);
+
+
+        } else {
+            Map<String, File> finalFileMap1 = fileMap;
+            AlertUtility.CustomCallback callback = number -> {
+                if (number == 1) {
+
+                    response = APIClient.postMultipartRequest(map, finalFileMap1, EndPoints.updateAreaHead, headers);
+                    GlobalController.getInstance().addTabStatic(AREA_HEAD_LIST_SLUG, false);
+                } else {
+                    System.out.println("working!");
+                }
+            };
+            AlertUtility.AlertConfirmation(AlertUtility.alertTypeConfirmation, "Are sure to submit", callback);
+
+        }
+
+        // Parse the response JSON string into a JsonObject using Gson
+        JsonObject responseBody = new Gson().fromJson(response, JsonObject.class);
+        System.out.println("Response => " + responseBody);
+
+
+//
+        if (responseBody.get("responseStatus").getAsInt() == 200) {
+            Map<String, File> finalFileMap2 = fileMap;
+
+            AlertUtility.CustomCallback callback = number -> {
+                if (number == 1) {
+                    response = APIClient.postMultipartRequest(map, finalFileMap2, EndPoints.updateAreaHead, headers);
+                    GlobalController.getInstance().addTabStatic(AREA_HEAD_LIST_SLUG, false);
+                } else {
+                    System.out.println("working!");
+                }
+            };
+            AlertUtility.AlertSuccess(AlertUtility.alertTypeConfirmation, responseBody.get("message").getAsString(), callback);
+
+//            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//            alert.setTitle("Success");
+//            alert.setHeaderText(responseBody.get("message").getAsString());
+//            alert.show();
+//            // Close the alert after 1 second
+//            PauseTransition delay = new PauseTransition(Duration.seconds(1));
+//            delay.setOnFinished(event -> alert.close());
+//            delay.play();
+//
+//            Globals.areaHeadListDTO=null;
+//            GlobalController.getInstance().addTabStatic(AREA_HEAD_LIST_SLUG,false);
+
+
+//                tfAreaHeadCreateUsername.setText("");
+//                tfAreaHeadCreatePassword.setText("");
+//                tfAreaHeadCreateFirstName.setText("");
+//                tfAreaHeadCreateMiddleName.setText("");
+//                tfAreaHeadCreateLastName.setText("");
+//                tfAreaHeadCreateEmail.setText("");
+//                tfAreaHeadCreateMobile.setText("");
+//                tfAreaHeadCreateWhatsApp.setText("");
+//                tfAreaHeadCreatePermanentAddress.setText("");
+//                tfAreaHeadCreateTemporaryAddress.setText("");
+//                tfAreaHeadCreatePincode.setText("");
+//                tfAreaHeadCreateRPincode.setText("");
+//                lbAreaHeadCreateCity.setText("");
+//                lbAreaHeadCreateRCity.setText("");
+//                lbAreaHeadCreateState.setText("");
+//                lbAreaHeadCreateRState.setText("");
+//                tfAreaHeadCreateBankName.setText("");
+//                tfAreaHeadCreateBankAccountNo.setText("");
+//                tfAreaHeadCreateIFSC.setText("");
+//                tfAreaHeadCreateBank.setText("");
+//                tfAreaHeadCreateAdhaarText.setText("");
+//                tfAreaHeadCreateAdhaar.setText("");
+//                tfAreaHeadCreatePanText.setText("");
+//                tfAreaHeadCreatePan.setText("");
+//                tfAreaHeadCreatePartnership.setText("");
+
+        } else {
+//            Alert alert = new Alert(Alert.AlertType.ERROR);
+//            alert.setTitle("Error");
+//            alert.setHeaderText(responseBody.get("message").getAsString());
+//            alert.showAndWait();
+
+            AlertUtility.CustomCallback callback = number -> {
+                if (number == 1) {
+//                    response = APIClient.postMultipartRequest(map, finalFileMap2, EndPoints.updateAreaHead, headers);
+                    GlobalController.getInstance().addTabStatic(AREA_HEAD_LIST_SLUG, false);
+                } else {
+                    System.out.println("working!");
+                }
+            };
+            AlertUtility.AlertSuccess(AlertUtility.alertTypeError, responseBody.get("message").getAsString(), callback);
+
+
+        }
+
+
+    }
+
+    private void nodetraversal(Node current_node, Node next_node) {
+        current_node.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                next_node.requestFocus();
+                event.consume();
+            }
+
+            if (event.getCode() == KeyCode.ENTER) {
+                if (current_node instanceof Button button) {
+                    button.fire();
+                }
+            } else if (event.getCode() == KeyCode.LEFT || event.getCode() == KeyCode.RIGHT) {
+                if (current_node instanceof RadioButton radioButton) {
+                    radioButton.setSelected(!radioButton.isSelected());
+                    radioButton.fire();
+                }
+            }
+        });
+    }
+
+
+    public void nextElement() {
+        nodetraversal(cmbAreaHeadCreateRole, tfAreaHeadCreateUsername);
+        nodetraversal(tfAreaHeadCreateUsername, tfAreaHeadCreatePassword);
+        nodetraversal(tfAreaHeadCreatePassword, tfAreaHeadCreateFirstName);
+        nodetraversal(tfAreaHeadCreateFirstName, tfAreaHeadCreateMiddleName);
+        nodetraversal(tfAreaHeadCreateMiddleName, tfAreaHeadCreateLastName);
+        nodetraversal(tfAreaHeadCreateLastName, tfAreaHeadCreateEmail);
+        nodetraversal(tfAreaHeadCreateEmail, tfAreaHeadCreateMobile);
+
+        nodetraversal(tfAreaHeadCreateMobile, tfAreaHeadCreateWhatsApp);
+        nodetraversal(tfAreaHeadCreateWhatsApp, dpAreaHeadCreateDOB);
+//        nodetraversal(dpAreaHeadCreateDOB, tfAreaHeadCreateEmail);
+        nodetraversal(dpAreaHeadCreateDOB, rbAreaHeadCreateMale);
+        nodetraversal(rbAreaHeadCreateMale, rbAreaHeadCreateFemale);
+        nodetraversal(rbAreaHeadCreateFemale, tfAreaHeadCreatePermanentAddress);
+        nodetraversal(tfAreaHeadCreatePermanentAddress, tfAreaHeadCreatePincode);
+        nodetraversal(tfAreaHeadCreatePincode, cmbAreaHeadCreateArea);
+        nodetraversal(cmbAreaHeadCreateArea, cmbAreaHeadCreateCountry);
+        nodetraversal(cmbAreaHeadCreateCountry, tfAreaHeadCreateTemporaryAddress);
+        nodetraversal(tfAreaHeadCreateTemporaryAddress, tfAreaHeadCreateRPincode);
+        nodetraversal(tfAreaHeadCreateRPincode, cmbAreaHeadCreateRArea);
+        nodetraversal(cmbAreaHeadCreateRArea, cmbAreaHeadCreateRCountry);
+
+
+        nodetraversal(cmbAreaHeadCreateRCountry, tfAreaHeadCreateBankName);
+        nodetraversal(tfAreaHeadCreateBankName, tfAreaHeadCreateBankAccountNo);
+        nodetraversal(tfAreaHeadCreateBankAccountNo, tfAreaHeadCreateIFSC);
+        nodetraversal(tfAreaHeadCreateIFSC, btnAreaHeadCreateImgBank);
+        nodetraversal(btnAreaHeadCreateImgBank, tfAreaHeadCreateAdhaarText);
+        nodetraversal(tfAreaHeadCreateAdhaarText, btnAreaHeadCreateImgAdhaar);
+        nodetraversal(btnAreaHeadCreateImgAdhaar, tfAreaHeadCreatePanText);
+        nodetraversal(tfAreaHeadCreatePanText, btnAreaHeadCreateImgPan);
+        nodetraversal(btnAreaHeadCreateImgPan, btnAreaHeadCreateImgPartnership);
+        nodetraversal(btnAreaHeadCreateImgPartnership, btnAreaHeadCreateSubmit);
+        nodetraversal(btnAreaHeadCreateSubmit, btnAreaHeadCreateCancel);
+    }
+
+
+    @FXML
+    private void handleDatePickerAction() {
+        CommonValidationsUtils.dateCheckVal(dpAreaHeadCreateDOB);
+
+        // Get the selected date from the DatePicker
+//        LocalDate selectedDate = (LocalDate) cmbAreaHeadCreateRole.getValue();
+//
+//        if (selectedDate != null) {
+//            // Calculate the age based on the selected date
+//            LocalDate currentDate = LocalDate.now();
+//            Period period = Period.between(selectedDate, currentDate);
+//
+//            // Display the calculated age in the TextField
+//            int age = period.getYears();
+////            tfFranchiseCreateAge.setText(String.valueOf(age));
+//        } else {
+//            // If no date is selected, clear the TextField
+////            tfFranchiseCreateAge.clear();
+//        }
+    }
+
+    static class HeadOption {
+        private final String label;
+        private final String value;
+
+        public HeadOption(String label, String value) {
+            this.label = label;
+            this.value = value;
+        }
+
+        public String getLabel() {
+            return label;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return label;
+        }
+    }
+
+
+//    Fn on check set Same as address
+    public void setSameAsAddress() {
+        if (cbAreaHeadCreateSameasAddress.isSelected()) {
+//              cmbAreaHeadCreateRArea.setText(cmbFranchiseCreateArea.getText());
+            tfAreaHeadCreateTemporaryAddress.setDisable(true);
+            tfAreaHeadCreateRPincode.setDisable(true);
+            cmbAreaHeadCreateRArea.setDisable(true);
+            lbAreaHeadCreateRCity.setDisable(true);
+            lbAreaHeadCreateRState.setDisable(true);
+//            cmbFranchiseCreateRCountry.setDisable(true);
+            tfAreaHeadCreateTemporaryAddress.setText(tfAreaHeadCreatePermanentAddress.getText());
+            tfAreaHeadCreateRPincode.setText(tfAreaHeadCreatePincode.getText());
+            cbAreaHeadCreateSameasAddress.setText("true");
+
+
+            ObservableList<FranchiseAreaDTO> itemsToCopy = cmbAreaHeadCreateArea.getItems();
+            System.out.println(itemsToCopy);
+//            for (JsonElement mElement : jsonArray) {
+//                JsonObject mObject = mElement.getAsJsonObject();
+//                String area = mObject.get("area").getAsString();
+//                String district = mObject.get("district").getAsString();
+//                String state = mObject.get("state").getAsString();
+//                String stateCode = mObject.get("stateCode").getAsString();
+//                String pin = mObject.get("pincode").getAsString();
+//                String id = mObject.get("id").getAsString();
+//
+//                list.add(new FranchiseAreaDTO(area, id, pin, district, state, stateCode));
+//                AreaMapList.put(id, area);
+//            }
+
+            cmbAreaHeadCreateRArea.setItems(itemsToCopy);
+
+
+            FranchiseAreaDTO areaDTO = (FranchiseAreaDTO) cmbAreaHeadCreateArea.getSelectionModel().getSelectedItem();
+//            long testId= Long.valueOf(areaDTO.getId());
+            String testId = String.valueOf(areaDTO.getId()); // Converting long back to String
+
+            System.out.println(testId);
+
+            for (FranchiseAreaDTO item : cmbAreaHeadCreateArea.getItems()) {
+                System.out.println(item);
+                if (item.getId().equals(testId)) {
+                    // If found, select this item in the ComboBox
+                    cmbAreaHeadCreateRArea.getSelectionModel().select(item);
+                    break;
+                }
+            }
+
+//            FranchiseAreaDTO areaDTO = (FranchiseAreaDTO) cmbAreaHeadCreateArea.getSelectionModel().getSelectedItem();
+//            if(areaDTO!=null)
+//            {
+//                String areaId=areaDTO.getId();
+//                FranchiseAreaDTO selectedArea= null;
+//                System.out.println("++++++++++ " + cmbAreaHeadCreateRArea.getItems());
+//                for (Object obj : cmbAreaHeadCreateRArea.getItems()) {
+//                    FranchiseAreaDTO districtHeadDTO = (FranchiseAreaDTO) obj;
+//                    System.out.println("district Id"+districtHeadDTO.getId()+"same"+areaId);
+//                    System.out.println("districtHeadDTO Id"+districtHeadDTO);
+//
+//                    if (districtHeadDTO.getId().equals(areaId)) {
+//                        System.out.println("districtHeadDTO  same");
+//
+//                        selectedArea = districtHeadDTO;
+//                        break;
+//                    }
+//                }
+//                System.out.println("selectedDistrictHead Id"+selectedArea);
+//
+//                if (selectedArea != null) {
+//                    cmbAreaHeadCreateRArea.getSelectionModel().select(selectedArea);
+//                }
+//            }
+            lbAreaHeadCreateRCity.setText(lbAreaHeadCreateCity.getText());
+            lbAreaHeadCreateRState.setText(lbAreaHeadCreateState.getText());
+            System.out.println("Address" + tfAreaHeadCreatePermanentAddress.getText());
+        } else {
+            cbAreaHeadCreateSameasAddress.setText("false");
+            tfAreaHeadCreateTemporaryAddress.setText("");
+//            cmbAreaHeadCreateRArea.getSelectionModel().select("");
+            lbAreaHeadCreateRCity.setText("");
+            lbAreaHeadCreateRState.setText("");
+//            cmbFranchiseCreateRCountry.getSelectionModel().select("");
+            tfAreaHeadCreateRPincode.setText("");
+            tfAreaHeadCreateTemporaryAddress.setDisable(false);
+            tfAreaHeadCreateRPincode.setDisable(false);
+            cmbAreaHeadCreateRArea.setDisable(false);
+            lbAreaHeadCreateRCity.setDisable(false);
+            lbAreaHeadCreateRState.setDisable(false);
+//            cmbFranchiseCreateRCountry.setDisable(false);
+        }
+//        });
+    }
+
+
+    public void getAddressDataByRPincode() {
+        String pincodeR = tfAreaHeadCreateRPincode.getText().trim();
+
+        Map<String, String> map = new HashMap<>();
+        map.put("pincode", pincodeR);
+
+        String formData = Globals.mapToStringforFormData(map);
+        System.out.println("FormData: " + formData);
+        HttpResponse<String> response = APIClient.postFormDataRequest(formData, "get_pincode");
+        String responseBody = response.body();
+
+        JsonObject jsonObject = new Gson().fromJson(responseBody, JsonObject.class);
+        System.out.println("jsonObject" + jsonObject);
+
+        if (jsonObject.get("responseStatus").getAsInt() == 200) {
+            JsonArray jsonArray = jsonObject.get("responseObject").getAsJsonArray();
+            ObservableList<FranchiseAreaDTO> list = FXCollections.observableArrayList();
+
+            for (JsonElement mElement : jsonArray) {
+                JsonObject mObject = mElement.getAsJsonObject();
+                String area = mObject.get("area").getAsString();
+                String district = mObject.get("district").getAsString();
+                String state = mObject.get("state").getAsString();
+                String stateCode = mObject.get("stateCode").getAsString();
+                String pin = mObject.get("pincode").getAsString();
+                String id = mObject.get("id").getAsString();
+
+                list.add(new FranchiseAreaDTO(area, id, pin, district, state, stateCode));
+                AreaMapList.put(id, area);
+            }
+
+//                    cmbFranchiseCreateArea.setItems(list);
+            cmbAreaHeadCreateRArea.setItems(list);
+
+            StringConverter<FranchiseAreaDTO> converter = new StringConverter<>() {
+                @Override
+                public String toString(FranchiseAreaDTO o) {
+                    return o != null ? o.getArea() : "";
+                }
+
+                @Override
+                public FranchiseAreaDTO fromString(String s) {
+                    return null;
+                }
+            };
+
+//                    cmbFranchiseCreateArea.setConverter(converter);
+            cmbAreaHeadCreateRArea.setConverter(converter);
+        }
+    }
+
+
+    public void getAddressDataByPincode() {
+        try {
+            String pincode = tfAreaHeadCreatePincode.getText().trim();
+            if (pincode.equals("413006")) {
+                System.out.println(pincode);
+            }
+
+
+            if (!pincode.isEmpty()) {
+                Map<String, String> map = new HashMap<>();
+                map.put("pincode", pincode);
+
+                String formData = Globals.mapToStringforFormData(map);
+                System.out.println("FormData: " + formData);
+                HttpResponse<String> response = APIClient.postFormDataRequest(formData, "get_pincode");
+                String responseBody = response.body();
+
+                JsonObject jsonObject = new Gson().fromJson(responseBody, JsonObject.class);
+                System.out.println("jsonObject" + jsonObject);
+
+                if (jsonObject.get("responseStatus").getAsInt() == 200) {
+                    JsonArray jsonArray = jsonObject.get("responseObject").getAsJsonArray();
+                    ObservableList<FranchiseAreaDTO> list = FXCollections.observableArrayList();
+
+                    for (JsonElement mElement : jsonArray) {
+                        JsonObject mObject = mElement.getAsJsonObject();
+                        String area = mObject.get("area").getAsString();
+                        String district = mObject.get("district").getAsString();
+                        String state = mObject.get("state").getAsString();
+                        String stateCode = mObject.get("stateCode").getAsString();
+                        String pin = mObject.get("pincode").getAsString();
+                        String id = mObject.get("id").getAsString();
+
+                        list.add(new FranchiseAreaDTO(area, id, pin, district, state, stateCode));
+                        AreaMapList.put(id, area);
+                    }
+
+                    cmbAreaHeadCreateArea.setItems(list);
+//                    cmbAreaHeadCreateRArea.setItems(list);
+
+                    StringConverter<FranchiseAreaDTO> converter = new StringConverter<>() {
+                        @Override
+                        public String toString(FranchiseAreaDTO o) {
+                            return o != null ? o.getArea() : "";
+                        }
+
+                        @Override
+                        public FranchiseAreaDTO fromString(String s) {
+                            return null;
+                        }
+                    };
+
+                    cmbAreaHeadCreateArea.setConverter(converter);
+                    cmbAreaHeadCreateRArea.setConverter(converter);
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @FXML
+    private void handleComboBoxActionAreaOfResidential() {
+
+        FranchiseAreaDTO franchiseAreaDTO = (FranchiseAreaDTO) cmbAreaHeadCreateRArea.getSelectionModel().getSelectedItem();
+        //String selectedItem = String.valueOf(cmbFranchiseCreateDistrictHead.getSelectionModel().getSelectedItem());
+        areaIdR = Long.valueOf(franchiseAreaDTO.getId());
+        stateCodeR = franchiseAreaDTO.getStateCode();
+
+
+        if (franchiseAreaDTO != null) {
+//            districtNameR=String.valueOf(franchiseAreaDTO.getArea());
+            CommonValidationsUtils.checkComboFieldAndHighlight(cmbAreaHeadCreateRArea);
+
+            lbAreaHeadCreateRCity.setText(franchiseAreaDTO.getDistrict());
+            lbAreaHeadCreateRState.setText(franchiseAreaDTO.getState());
+
+            System.out.println("Selected item: " + franchiseAreaDTO.getId());
+        } else {
+            System.out.println("No item selected.");
+        }
+    }
+
+    @FXML
+    private void handleComboBoxActionArea() {
+        FranchiseAreaDTO franchiseAreaDTO = (FranchiseAreaDTO) cmbAreaHeadCreateArea.getSelectionModel().getSelectedItem();
+        //String selectedItem = String.valueOf(cmbFranchiseCreateDistrictHead.getSelectionModel().getSelectedItem());
+        areaId = Long.valueOf(franchiseAreaDTO.getId());
+        stateCode = franchiseAreaDTO.getStateCode();
+
+
+        if (franchiseAreaDTO != null) {
+            CommonValidationsUtils.checkComboFieldAndHighlight(cmbAreaHeadCreateArea);
+
+            districtName = String.valueOf(franchiseAreaDTO.getArea());
+
+            lbAreaHeadCreateCity.setText(franchiseAreaDTO.getDistrict());
+            lbAreaHeadCreateState.setText(franchiseAreaDTO.getState());
+//            lbAreaHeadCreateRCity.setText(franchiseAreaDTO.getDistrict());
+//            lbAreaHeadCreateRState.setText(franchiseAreaDTO.getState());
+
+//            getDistrictHeadsData();
+            System.out.println("Selected item: " + franchiseAreaDTO.getId());
+        } else {
+            System.out.println("No item selected.");
+        }
+    }
+
+    @FXML
+    private void handleComboBoxActionRArea() {
+        FranchiseAreaDTO franchiseAreaDTO = (FranchiseAreaDTO) cmbAreaHeadCreateRArea.getSelectionModel().getSelectedItem();
+        //String selectedItem = String.valueOf(cmbFranchiseCreateDistrictHead.getSelectionModel().getSelectedItem());
+        areaIdR = Long.valueOf(franchiseAreaDTO.getId());
+        stateCodeR = franchiseAreaDTO.getStateCode();
+
+        System.out.println(areaIdR);
+
+        if (franchiseAreaDTO != null) {
+            districtName = String.valueOf(franchiseAreaDTO.getArea());
+
+//            lbFranchiseCreateCity.setText(franchiseAreaDTO.getDistrict());
+//            lbFranchiseCreateState.setText(franchiseAreaDTO.getState());
+            lbAreaHeadCreateRCity.setText(franchiseAreaDTO.getDistrict());
+            lbAreaHeadCreateRState.setText(franchiseAreaDTO.getState());
+
+//            getDistrictHeadsData();
+            System.out.println("Selected item: " + franchiseAreaDTO.getId());
+        } else {
+            System.out.println("No item selected.");
+        }
+    }
+
+
+//    public void AreaRoleDynamicData() {
+////        soToscLogger.info("starting of salesman master list API");
+//        try {
+//            HttpResponse<String> response = APIClient.getRequest("get_all_area_head");
+//            JsonObject jsonObject = new Gson().fromJson(response.body(), JsonObject.class);
+////            System.out.println("i am list" + jsonObject);
+//
+//            if (jsonObject.get("responseStatus").getAsInt() == 200) {
+//                JsonArray responseArray = jsonObject.get("responseObject").getAsJsonArray();
+//                // Create an ObservableList to store items for the combo box
+//                ObservableList<AreaHeadRoleTypeDTO> salesmanList = FXCollections.observableArrayList();
+//
+//                // Assuming the JSON array contains the required information to create a AreaHeadRoleTypeDTO instance
+//                for (JsonElement element : responseArray) {
+//                    // Extract information from the JSON element
+//                    JsonObject salesmanJson = element.getAsJsonObject();
+//                    int id = salesmanJson.get("id").getAsInt();
+//                    String firstName = salesmanJson.get("firstName").getAsString();
+//                    // Repeat for other fields
+//
+//                    // Create a new AreaHeadRoleTypeDTO instance with the extracted information
+//                    AreaHeadRoleTypeDTO areaHeadRoleTypeDTO = new AreaHeadRoleTypeDTO(id,firstName);
+//                    salesmanList.add(areaHeadRoleTypeDTO);
+//                }
+//                // Set the items of the combo box
+//                cmbAreaHeadCreateRole.setItems(salesmanList);
+//                cmbAreaHeadCreateRole.setConverter(new StringConverter<AreaHeadRoleTypeDTO>() {
+//                    @Override
+//                    public String toString(AreaHeadRoleTypeDTO areaHeadRoleTypeDTO) {
+//                        return areaHeadRoleTypeDTO != null ? areaHeadRoleTypeDTO.getFirstName() : "";
+//                    }
+//
+//                    @Override
+//                    public AreaHeadRoleTypeDTO fromString(String s) {
+//                        return null;
+//                    }
+//                });
+//            }
+//        } catch (Exception e) {
+////            e.printStackTrace();
+////            soToscLogger.error("error in getting saleman " + e.getMessage());
+//        }
+//    }
+
+
+    public void AreaRoleStaticData() {
+        // Create key-value pairs and add them to the ComboBox
+
+
+        ObservableList<AreaHeadRoleTypeDTO> items = FXCollections.observableArrayList(new AreaHeadRoleTypeDTO(1, "State Head", "state"), new AreaHeadRoleTypeDTO(2, "Zonal Head", "zonal"), new AreaHeadRoleTypeDTO(3, "Regional Head", "region"), new AreaHeadRoleTypeDTO(4, "District Head", "district"), new AreaHeadRoleTypeDTO(5, "Business Dev. Executive", "bde"), new AreaHeadRoleTypeDTO(6, "Business Dev. Manager", "bdm"));
+
+        System.out.println("list: " + items);
+
+        cmbAreaHeadCreateRole.getItems().addAll(items);
+
+        //        cmbAreaHeadCreateRole.setItems(items);
+
+//        cmbAreaHeadCreateRole.setConverter(new StringConverter<AreaHeadRoleTypeDTO>() {
+//            @Override
+//            public String toString(AreaHeadRoleTypeDTO o) {
+//                return o.getFirstName();
+//            }
+//
+//            @Override
+//            public AreaHeadRoleTypeDTO fromString(String s) {
+//                return null;
+//            }
+//        });
+
+//            AutoCompleteBox<AreaHeadRoleTypeDTO> s = new AutoCompleteBox<>(cmbAreaHeadCreateRole, -1);
+
+    }
+
+
+    public void getAllIndianState() {
+        try {
+            contentNamesList.clear();
+            HttpResponse<String> response = APIClient.getRequest("getIndianState");
+            System.out.println("getContentNames =>" + response);
+            AreaHeadIndianStateResDTO areaHeadIndianStateResDTO = new Gson().fromJson(response.body(), AreaHeadIndianStateResDTO.class);
+
+            if (areaHeadIndianStateResDTO.getResponseStatus() == 200) {
+                List<AreaHeadIndianStateDTO> list1 = areaHeadIndianStateResDTO.getResponseObject();
+                for (AreaHeadIndianStateDTO contentList : list1) {
+                    contentNamesList.add(new CommonDTO(contentList.getStateName(), contentList.getId().toString()));
+                }
+            } else {
+                areaHeadLogger.info("ResponseObject is null--->getContentNames()");
+            }
+
+
+            // Set the items of the combo box
+            cmbAreaHeadCreateState.setItems(contentNamesList);
+
+//            AutoCompleteBox<CommonDTO> s = new AutoCompleteBox<>(cmbAreaHeadCreateState, -1);
+
+        } catch (Exception e) {
+//            e.printStackTrace();
+//            soToscLogger.error("error in getting saleman " + e.getMessage());
+        }
+    }
+
+    public void getAllZones() {
+        try {
+            contentNamesList1.clear();
+            HttpResponse<String> response = APIClient.getRequest(EndPoints.GET_ALL_ZONES);
+            System.out.println("getContentNames =>" + response);
+            AreaHeadZoneResDTO areaHeadZoneResDTO = new Gson().fromJson(response.body(), AreaHeadZoneResDTO.class);
+
+            if (areaHeadZoneResDTO.getResponseStatus() == 200) {
+                List<AreaHeadZoneDTO> list1 = areaHeadZoneResDTO.getResponseObject();
+                for (AreaHeadZoneDTO contentList : list1) {
+                    contentNamesList1.add(new CommonDTO(contentList.getZoneName(), contentList.getId().toString()));
+                }
+            } else {
+                areaHeadLogger.info("ResponseObject is null--->getContentNames()");
+            }
+
+
+            // Set the items of the combo box
+            cmbAreaHeadCreateZone.setItems(contentNamesList1);
+//            AutoCompleteBox<CommonDTO> s = new AutoCompleteBox<>(cmbAreaHeadCreateZone, -1);
+        } catch (Exception e) {
+//            e.printStackTrace();
+            areaHeadLogger.error("error in getting saleman " + e.getMessage());
+        }
+    }
+
+    public void getAllRegions() {
+        try {
+            contentNamesList2.clear();
+            HttpResponse<String> response = APIClient.getRequest(EndPoints.GET_ALL_REGIONS);
+            System.out.println("getContentNames =>" + response);
+            AreaHeadRegionsResDTO areaHeadRegionsResDTO = new Gson().fromJson(response.body(), AreaHeadRegionsResDTO.class);
+
+            if (areaHeadRegionsResDTO.getResponseStatus() == 200) {
+                List<AreaHeadRegionDTO> list1 = areaHeadRegionsResDTO.getResponseObject();
+                for (AreaHeadRegionDTO contentList : list1) {
+                    contentNamesList2.add(new CommonDTO(contentList.getRegionName(), contentList.getId().toString()));
+                }
+            } else {
+                areaHeadLogger.info("ResponseObject is null--->getContentNames()");
+            }
+
+
+            // Set the items of the combo box
+            cmbAreaHeadCreateRegion.setItems(contentNamesList2);
+//            AutoCompleteBox<CommonDTO> s = new AutoCompleteBox<>(cmbAreaHeadCreateRegion, -1);
+
+        } catch (Exception e) {
+//            e.printStackTrace();
+            areaHeadLogger.error("error in getting saleman " + e.getMessage());
+        }
+    }
+
+    public void getAllDistricts() {
+        try {
+            contentNamesList3.clear();
+            HttpResponse<String> response = APIClient.getRequest(EndPoints.GET_ALL_DISTRICTS);
+            System.out.println("getContentNames =>" + response);
+            AreaHeadDistrictsResDTO areaHeadDistrictsResDTO = new Gson().fromJson(response.body(), AreaHeadDistrictsResDTO.class);
+
+            if (areaHeadDistrictsResDTO.getResponseStatus() == 200) {
+                List<AreaHeadDistrictDTO> list1 = areaHeadDistrictsResDTO.getResponseObject();
+                for (AreaHeadDistrictDTO contentList : list1) {
+                    contentNamesList3.add(new CommonDTO(contentList.getDistrictName(), contentList.getId().toString()));
+                }
+            } else {
+                areaHeadLogger.info("ResponseObject is null--->getContentNames()");
+            }
+
+            // Set the items of the combo box
+            cmbAreaHeadCreateDistrict.setItems(contentNamesList3);
+//            AutoCompleteBox autoCompleteBox = new AutoCompleteBox(cmbFranchiseCreateBusinessType, -1);
+//                AutoCompleteBox<CommonDTO> s = new AutoCompleteBox<>(cmbAreaHeadCreateDistrict, -1);
+
+
+        } catch (Exception e) {
+//            e.printStackTrace();
+            areaHeadLogger.error("error in getting saleman " + e.getMessage());
+        }
+    }
+
+
+    //    FNHandleComboBox
+    @FXML
+    private void handleComboBoxActionRoleHead() {
+
+        AreaHeadRoleTypeDTO AreaRole = (AreaHeadRoleTypeDTO) cmbAreaHeadCreateRole.getSelectionModel().getSelectedItem();
+        System.out.println("roleId----->" + AreaRole.getId());
+        RoleId = Long.valueOf(AreaRole.getId());
+        RoleName = AreaRole.getValue();
+
+        if (AreaRole != null) {
+            AreaName = String.valueOf(AreaRole.getFirstName());
+            int roleId = AreaRole.getId();
+
+            cmbAreaHeadCreateRole.getSelectionModel().select(AreaRole);
+            stateSeleHbox.setVisible(false);
+            zoneSeleHbox.setVisible(false);
+            regionSeleHbox.setVisible(false);
+            districtSeleHbox.setVisible(false);
+
+            stateSeleHbox.managedProperty().bind(stateSeleHbox.visibleProperty());
+            zoneSeleHbox.managedProperty().bind(zoneSeleHbox.visibleProperty());
+            regionSeleHbox.managedProperty().bind(regionSeleHbox.visibleProperty());
+            districtSeleHbox.managedProperty().bind(districtSeleHbox.visibleProperty());
+
+            if (roleId == 1) {
+                getAllIndianState();
+                stateSeleHbox.setVisible(true);
+            } else if (roleId == 2) {
+                getAllZones();
+                zoneSeleHbox.setVisible(true);
+            } else if (roleId == 3) {
+                getAllRegions();
+                regionSeleHbox.setVisible(true);
+            } else if (roleId == 4) {
+                getAllDistricts();
+                districtSeleHbox.setVisible(true);
+            }
+
+            System.out.println("Selected item: " + AreaRole.getId());
+        } else {
+            System.out.println("No item selected.");
+        }
+
+        CommonValidationsUtils.checkComboFieldAndHighlight(cmbAreaHeadCreateRole);
+
+
+    }
+
+    @FXML
+    private void handleComboBoxActionStateHead() {
+        CommonDTO dtoData = (CommonDTO) cmbAreaHeadCreateState.getSelectionModel().getSelectedItem();
+        System.out.println("roleId----->" + dtoData.getId());
+
+        if (dtoData != null) {
+            cmbAreaHeadCreateState.getSelectionModel().select(dtoData);
+            selStateName = dtoData.getText();
+            selStateId = Integer.parseInt(dtoData.getId());
+            System.out.println("Selected item: " + dtoData.getId());
+        } else {
+            System.out.println("No item selected.");
+        }
+        CommonValidationsUtils.checkComboFieldAndHighlight(cmbAreaHeadCreateState);
+    }
+
+    @FXML
+    private void handleComboBoxActionZoneHead() {
+
+        CommonDTO dtoData = (CommonDTO) cmbAreaHeadCreateZone.getSelectionModel().getSelectedItem();
+        System.out.println(dtoData);
+        System.out.println("roleId----->" + dtoData.getId());
+        System.out.println("zone name----->" + dtoData.getText());
+
+        if (dtoData != null) {
+            cmbAreaHeadCreateZone.getSelectionModel().select(dtoData);
+            selZoneName = dtoData.getId();
+            selZoneId = Integer.parseInt(dtoData.getId());
+            getStateByZone();
+        } else {
+            System.out.println("No item selected.");
+        }
+        CommonValidationsUtils.checkComboFieldAndHighlight(cmbAreaHeadCreateZone);
+
+    }
+
+    @FXML
+    private void handleComboBoxActionRegionHead() {
+
+        CommonDTO dtoData = (CommonDTO) cmbAreaHeadCreateRegion.getSelectionModel().getSelectedItem();
+        System.out.println("roleId----->" + dtoData.getId());
+
+        if (dtoData != null) {
+            cmbAreaHeadCreateRegion.getSelectionModel().select(dtoData);
+            selRegionName = dtoData.getText();
+            selRegionId = Integer.parseInt(dtoData.getId());
+
+            regionZoneHead = selRegionName;
+            regionZoneHeadId = String.valueOf(selRegionId);
+            regionId = String.valueOf(selRegionId);
+
+            getDataByZone();
+        } else {
+            System.out.println("No item selected.");
+        }
+        CommonValidationsUtils.checkComboFieldAndHighlight(cmbAreaHeadCreateRegion);
+
+    }
+
+    @FXML
+    private void handleComboBoxActionDistrictHead() {
+
+        CommonDTO dtoData = (CommonDTO) cmbAreaHeadCreateDistrict.getSelectionModel().getSelectedItem();
+        System.out.println("roleId----->" + dtoData.getId());
+
+        if (dtoData != null) {
+            cmbAreaHeadCreateDistrict.getSelectionModel().select(dtoData);
+            selDistrictName = dtoData.getText();
+            selDistrictId = Integer.parseInt(dtoData.getId());
+
+
+            districtId = String.valueOf(selDistrictId);
+
+            getDataByDistrict();
+        } else {
+            System.out.println("No item selected.");
+        }
+        CommonValidationsUtils.checkComboFieldAndHighlight(cmbAreaHeadCreateDistrict);
+
+    }
+
+    public void getStateByZone() {
+//        System.exit(0);
+        tfZHStateHead.setText("");
+
+        Map<String, String> map = new HashMap<>();
+        map.put("areaId", String.valueOf(selZoneId));
+        map.put("role", "zonal");
+        String formData = Globals.mapToStringforFormData(map);
+        HttpResponse<String> response = APIClient.postFormDataRequest(formData, "get_parent_head_by_role");
+        JsonObject responseBody = new Gson().fromJson(response.body(), JsonObject.class);
+        System.out.println("Response=> i am in" + responseBody);
+        tfZHStateHead.setText("");
+
+        if (responseBody.get("responseStatus").getAsInt() == 200) {
+            JsonArray jsonArray = responseBody.get("result").getAsJsonArray();
+            int arrayLength = jsonArray.size();
+            if (arrayLength > 0) {
+                System.out.println(jsonArray);
+                JsonElement element = jsonArray.get(0); // Retrieves the first element
+                if (element.isJsonObject()) { // Check if it's a JsonObject
+                    JsonObject firstObject = element.getAsJsonObject();
+                    System.out.println(firstObject.get("name")); // Outputs the entire object
+                    String name = String.valueOf(firstObject.get("name"));
+                    zoneStateHead = String.valueOf(firstObject.get("id"));
+                    zoneStateHeadId = String.valueOf(firstObject.get("id"));
+                    zoneStateMainId = String.valueOf(firstObject.get("stateId"));
+                    tfZHStateHead.setText(name);
+                }
+            }
+
+        }
+
+    }
+
+    public void getDataByZone() {
+//        System.exit(0);
+        tfRGStateHead.setText("");
+        tfRGZoneHead.setText("");
+        Map<String, String> map = new HashMap<>();
+        map.put("areaId", String.valueOf(selRegionId));
+        map.put("role", "region");
+        String formData = Globals.mapToStringforFormData(map);
+        HttpResponse<String> response = APIClient.postFormDataRequest(formData, "get_parent_head_by_role");
+        JsonObject responseBody = new Gson().fromJson(response.body(), JsonObject.class);
+        System.out.println("Response=> i am in" + responseBody);
+        tfZHStateHead.setText("");
+
+        if (responseBody.get("responseStatus").getAsInt() == 200) {
+            JsonArray jsonArray = responseBody.get("result").getAsJsonArray();
+            int arrayLength = jsonArray.size();
+            if (arrayLength > 0) {
+                System.out.println(jsonArray);
+                JsonElement element = jsonArray.get(0); // Retrieves the first element
+                JsonElement element1 = jsonArray.get(1); // Retrieves the first element
+                if (element.isJsonObject()) { // Check if it's a JsonObject
+                    JsonObject firstObject = element.getAsJsonObject();
+                    JsonObject secondObject = element1.getAsJsonObject();
+                    System.out.println(firstObject.get("name")); // Outputs the entire object
+                    String name = String.valueOf(firstObject.get("name"));
+                    String name1 = String.valueOf(secondObject.get("name"));
+                    tfRGStateHead.setText(name);
+                    tfRGZoneHead.setText(name1);
+
+                    regionStateHeadId = String.valueOf(firstObject.get("id"));
+                    regionStateMainId = String.valueOf(firstObject.get("stateId"));
+                    regionZoneHeadMainId = String.valueOf(secondObject.get("zoneId"));
+
+
+                }
+            }
+
+        }
+
+    }
+
+    public void getDataByDistrict() {
+//        System.exit(0);
+        tfDSStateHead.setText("");
+        tfDSZoneHead.setText("");
+        tfDSRegionHead.setText("");
+
+        Map<String, String> map = new HashMap<>();
+        map.put("areaId", String.valueOf(selDistrictId));
+        map.put("role", "district");
+        String formData = Globals.mapToStringforFormData(map);
+        HttpResponse<String> response = APIClient.postFormDataRequest(formData, "get_parent_head_by_role");
+        JsonObject responseBody = new Gson().fromJson(response.body(), JsonObject.class);
+        System.out.println("Response=> i am in" + responseBody);
+        tfZHStateHead.setText("");
+
+        if (responseBody.get("responseStatus").getAsInt() == 200) {
+            JsonArray jsonArray = responseBody.get("result").getAsJsonArray();
+            int arrayLength = jsonArray.size();
+            if (arrayLength > 0) {
+                System.out.println(jsonArray);
+                JsonElement element = jsonArray.get(0); // Retrieves the first element
+                JsonElement element1 = jsonArray.get(1); // Retrieves the first element
+                JsonElement element2 = jsonArray.get(2); // Retrieves the first element
+                if (element.isJsonObject()) { // Check if it's a JsonObject
+                    JsonObject firstObject = element.getAsJsonObject();
+                    JsonObject secondObject = element1.getAsJsonObject();
+                    JsonObject thirdObject = element2.getAsJsonObject();
+                    System.out.println(firstObject.get("name")); // Outputs the entire object
+                    String name = String.valueOf(firstObject.get("name"));
+                    String name1 = String.valueOf(secondObject.get("name"));
+                    String name2 = String.valueOf(thirdObject.get("name"));
+                    tfDSStateHead.setText(name);
+                    tfDSZoneHead.setText(name1);
+                    tfDSRegionHead.setText(name2);
+
+
+                    districtRegionHead = String.valueOf(thirdObject.get("name"));
+                    districtRegionHeadId = String.valueOf(thirdObject.get("id"));
+                    districtZoneHeadId = String.valueOf(thirdObject.get("zoneId"));
+
+                    districtStateHead = String.valueOf(firstObject.get("name"));
+                    districtStateHeadId = String.valueOf(firstObject.get("id"));
+                    districtStateHeadMainId = String.valueOf(firstObject.get("stateId"));
+
+                    districtZoneHeadMainId = String.valueOf(secondObject.get("zoneId"));
+                    districtRegionHeadMainId = String.valueOf(thirdObject.get("regionId"));
+
+                    regionId = String.valueOf(thirdObject.get("id"));
+
+                    regionZoneHead = String.valueOf(secondObject.get("name"));
+                    regionZoneHeadId = String.valueOf(secondObject.get("id"));
+
+                    regionStateMainId = String.valueOf(thirdObject.get("stateId"));
+                    regionZoneHeadMainId = String.valueOf(secondObject.get("stateId"));
+
+
+                }
+            }
+
+        }
+
+    }
+
+    public void selectItemById(JsonElement targetId, ComboBox comboBoxParticular, Runnable action) {
+        if (cmbAreaHeadCreateState == null) {
+            System.out.println("ComboBox is not initialized.");
+            return;
+        }
+
+        ObservableList<CommonDTO> items = comboBoxParticular.getItems();
+
+        if (items != null && !items.isEmpty()) {
+            boolean itemFound = false;
+
+            // Find the item with the specified ID
+            for (CommonDTO item : items) {
+                if (item.getId().matches(String.valueOf(targetId))) {
+                    comboBoxParticular.getSelectionModel().select(item);
+                    itemFound = true;
+                    break;
+                }
+            }
+
+            action.run();
+
+            if (!itemFound) {
+                System.out.println("Item with ID " + targetId + " not found.");
+            }
+        } else {
+            System.out.println("ComboBox items list is null or empty.");
+        }
+    }
+
+
+    public void getEditDataById() {
+//        System.exit(0);
+        Map<String, String> map = new HashMap<>();
+        map.put("id", Globals.areaHeadListDTO.getId());
+        String formData = Globals.mapToStringforFormData(map);
+        HttpResponse<String> response = APIClient.postFormDataRequest(formData, "get_area_head_by_id");
+        JsonObject responseBody = new Gson().fromJson(response.body(), JsonObject.class);
+        System.out.println("Response=> i am in" + responseBody);
+        JsonObject jsonObject = responseBody.get("responseObject").getAsJsonObject();
+        if (responseBody.get("responseStatus").getAsInt() == 200) {
+            tfAreaHeadCreateUsername.setText(jsonObject.get("userName").getAsString());
+            tfAreaHeadCreatePassword.setText(jsonObject.get("userPassword").getAsString());
+            tfAreaHeadCreateFirstName.setText(jsonObject.get("firstName").getAsString());
+            tfAreaHeadCreateMiddleName.setText(jsonObject.get("middleName").getAsString());
+            tfAreaHeadCreateLastName.setText(jsonObject.get("lastName").getAsString());
+            tfAreaHeadCreateEmail.setText(jsonObject.get("email").getAsString());
+            tfAreaHeadCreateMobile.setText(jsonObject.get("mobileNumber").getAsString());
+            tfAreaHeadCreateWhatsApp.setText(jsonObject.get("whatsAppNumber").getAsString());
+
+            String areaRoleName = (jsonObject.get("areaRole").getAsString());
+            int areaOfId = 0;
+            System.out.println(areaRoleName);
+
+
+            if (areaRoleName.equals("district")) {
+                areaOfId = 4;
+            } else if (areaRoleName.equals("region")) {
+                areaOfId = 3;
+            } else if (areaRoleName.equals("zonal")) {
+                areaOfId = 2;
+            } else if (areaRoleName.equals("state")) {
+                areaOfId = 1;
+            }
+
+            ObservableList<AreaHeadRoleTypeDTO> items = cmbAreaHeadCreateRole.getItems();
+            if (items != null) {
+                // Find the item with the specified ID
+                for (AreaHeadRoleTypeDTO item : items) {
+                    if (item.getId() == areaOfId) { // Assuming getId() returns the ID
+                        cmbAreaHeadCreateRole.getSelectionModel().select(item);
+                        handleComboBoxActionRoleHead();
+                        break; // Exit the loop once the correct item is found
+                    }
+                }
+            }
+
+            JsonObject dataObj = new Gson().fromJson(jsonObject.get(areaRoleName.equals("zonal")?"zone":areaRoleName), JsonObject.class);
+
+
+            if (areaRoleName.equals("district")) {
+                selectItemById(dataObj.get("value"), cmbAreaHeadCreateDistrict, this::handleComboBoxActionDistrictHead);
+            } else if (areaRoleName.equals("region")) {
+                selectItemById(dataObj.get("value"), cmbAreaHeadCreateRegion, this::handleComboBoxActionRegionHead);
+            } else if (areaRoleName.equals("zonal")) {
+                selectItemById(dataObj.get("value"), cmbAreaHeadCreateZone, this::handleComboBoxActionZoneHead);
+            } else if (areaRoleName.equals("state")) {
+                selectItemById(dataObj.get("value"), cmbAreaHeadCreateState, this::handleComboBoxActionStateHead);
+            }
+
+
+            String gender = jsonObject.get("gender").getAsString();
+            if (gender.equals("Male")) {
+                rbAreaHeadCreateMale.setSelected(true);
+            } else {
+                rbAreaHeadCreateFemale.setSelected(true);
+            }
+            selectedRadioValue = jsonObject.get("gender").getAsString();
+
+
+            tfAreaHeadCreatePermanentAddress.setText(jsonObject.get("permenantAddress").getAsString());
+            tfAreaHeadCreateTemporaryAddress.setText(jsonObject.get("temporaryAddress").getAsString());
+
+            tfAreaHeadCreatePincode.setText(jsonObject.get("pincode").getAsString());
+            tfAreaHeadCreateRPincode.setText(jsonObject.get("corpPincode").getAsString());
+
+            lbAreaHeadCreateCity.setText(jsonObject.get("city").getAsString());
+            lbAreaHeadCreateRCity.setText(jsonObject.get("corpCity").getAsString());
+
+            lbAreaHeadCreateState.setText(jsonObject.get("stateName").getAsString());
+            lbAreaHeadCreateRState.setText(jsonObject.get("corpStateName").getAsString());
+
+            tfAreaHeadCreateBankName.setText(jsonObject.get("bankAccName").getAsString());
+            tfAreaHeadCreateIFSC.setText(jsonObject.get("bankIfsc").getAsString());
+            tfAreaHeadCreateBankAccountNo.setText(jsonObject.get("bankAccNo").getAsString());
+            tfAreaHeadCreateAdhaarText.setText(jsonObject.get("aadharCard").getAsString());
+            tfAreaHeadCreatePanText.setText(jsonObject.get("panCard").getAsString());
+
+            tfAreaHeadCreateBank.setText(jsonObject.get("bankAccFile").getAsString());
+            tfAreaHeadCreateAdhaar.setText(jsonObject.get("aadharCardFile").getAsString());
+            tfAreaHeadCreatePan.setText(jsonObject.get("panCardFile").getAsString());
+            tfAreaHeadCreatePartnership.setText(jsonObject.get("partnerDeedFile").getAsString());
+
+            // Assuming jsonObject.get("DOB").getAsString() returns a valid string representation of the date of birth
+            String dobString = jsonObject.get("DOB").getAsString();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd"); // Specify the format of your date string
+            LocalDate dob = LocalDate.parse(dobString, formatter);
+            dpAreaHeadCreateDOB.setValue(dob);
+
+            tfAreaHeadCreateEmail.setText(jsonObject.get("email").getAsString());
+
+            getAddressDataByPincode();
+            getAddressDataByRPincode();
+
+            areaId = Long.valueOf(jsonObject.get("areaId").toString());
+            areaIdR = Long.valueOf(jsonObject.get("corpAreaId").toString());
+            stateCode = jsonObject.get("stateCode").getAsString();
+
+
+            if (areaId != null) {
+                for (FranchiseAreaDTO item : cmbAreaHeadCreateArea.getItems()) {
+                    System.out.println(item);
+                    if (item.getId().equals(areaId.toString())) {
+                        // If found, select this item in the ComboBox
+                        cmbAreaHeadCreateArea.getSelectionModel().select(item);
+                        break;
+                    }
+                }
+            }
+//
+            if (areaIdR != null) {
+                for (FranchiseAreaDTO item : cmbAreaHeadCreateRArea.getItems()) {
+                    System.out.println(item);
+                    if (item.getId().equals(areaIdR.toString())) {
+                        // If found, select this item in the ComboBox
+                        cmbAreaHeadCreateRArea.getSelectionModel().select(item);
+                        break;
+                    }
+                }
+            }
+
+
+        }
+    }
+
+//    private void selectItemById(JsonElement value) {
+//    }
+
+    //    FNCancel
+    public void cancelButton() {
+//            Globals.areaHeadListDTO=null;
+//            GlobalController.getInstance().addTabStatic(AREA_HEAD_LIST_SLUG,false);
+
+        AlertUtility.CustomCallback callback = number -> {
+            if (number == 1) {
+                GlobalController.getInstance().addTabStatic(AREA_HEAD_LIST_SLUG, false);
+            } else {
+                System.out.println("working!");
+            }
+        };
+        AlertUtility.AlertConfirmation(AlertUtility.alertTypeConfirmation, "Are sure to cancel", callback);
+
+//        try {
+//            Parent parent = FXMLLoader.load(getClass().getResource("/com/opethic/genivis/ui/master/areaHeadList.fxml"));
+//            Stage stage = new Stage();
+//            stage.setTitle("Create Page");
+//            stage.setMaximized(true);
+//            stage.setScene(new Scene(parent, 1920, 1080));
+//            stage.show();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+    }
+
+}
+//    FNEditBYId
+
+
+
+
+

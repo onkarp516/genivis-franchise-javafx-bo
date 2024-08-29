@@ -1,0 +1,54 @@
+
+.table-view .column-header,
+.table-view .column-header-background .filler {
+    -fx-font-family: "Arial";
+    -fx-font-size: 12px;
+    -fx-pref-height: 25px;
+     -fx-background-color: #D9D9D9;
+}
+.table-view .table-cell {
+    -fx-font-size: 12px;
+     -fx-alignment: CENTER_LEFT;
+}
+.table-view .cell{
+	 -fx-cell-size: 38;
+}
+.table-view .table-cell{
+    -fx-padding: 0 0 0 0;
+}
+/*
+.table-row-cell: hover {
+    -fx-background-color: #bfe5f2;
+}
+*/
+.table-row-cell:odd,
+.table-row-cell:even {
+    -fx-background-color: #d9f0fb;
+    -fx-border-color: transparent transparent transparent transparent; /* Adjust border color as needed */
+    -fx-border-width: 0 0 0 0; /* Adjust border width as needed */
+    /*-fx-padding: 4px 0;*/
+}
+.table-column {
+    -fx-border-color: transparent transparent transparent transparent; /* Adjust border color as needed */
+    -fx-border-width: 0 0 0 0; /* Adjust border width as needed */
+}
+.table-view .table-cell {
+    -fx-padding: 0 4 0 0; /* Adjust right padding to create space between columns */
+}
+
+.table-view:focused {
+    -fx-background-color: -fx-box-border, -fx-control-inner-background;
+        -fx-background-color: #d9f0fb;
+    -fx-background-insets: 1, 1;
+}
+.table-view {
+    -fx-background-color: -fx-box-border, -fx-control-inner-background;
+    -fx-background-color: #d9f0fb;
+    -fx-background-insets: 1, 1;
+    -fx-pref-height:115px;
+}
+.table-view:hover {
+    -fx-cursor: mouse;
+}
+
+

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="bpLoginRootPane" style="-fx-background-color: #e3f1f6;" stylesheets="@../css/TranxCommonCssStyles/tranxCommonCssStyle7.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.opethic.genivis.controller.LoginController">
+    <top>
+        <VBox id="topPadding" BorderPane.alignment="CENTER_LEFT">
+            <children>
+                <ImageView fitHeight="150.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../assets/genivis-remedies-logo.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </VBox>
+    </top>
+    <bottom>
+        <VBox id="loginBottomPadding" alignment="CENTER_RIGHT" BorderPane.alignment="CENTER">
+            <children>
+
+
+                <Label fx:id="lbDesign" style="-fx-font-weight: bold; -fx-opacity: 0.5;" text="Designed &amp; Developed by Opethic Software Services LLP" />
+                <Label fx:id="lbCopyright" style="-fx-font-weight: bold; -fx-opacity: 0.5;" text="copyright @ 2024 Opethic Software Services LLP" />
+            </children>
+        </VBox>
+    </bottom>
+    <center>
+        <VBox BorderPane.alignment="CENTER">
+            <children>
+                <HBox fx:id="loginMainDivider" alignment="CENTER_LEFT">
+                    <children>
+                        <VBox fx:id="loginMainDividerFirst">
+                            <children>
+                                <VBox>
+                                    <children>
+                                        <VBox fx:id="firstinnerDiv" spacing="20.0">
+                                            <children>
+                                                <VBox spacing="5.0">
+                                                    <children>
+                                                        <Label id="loginMediumLabels" style="-fx-font-weight: bold;" text="#1 solution of accurate financial" />
+                                                        <HBox fx:id="hbAnalysis">
+                                                            <Label id="loginMediumLabels" style="-fx-font-weight: bold;" text="analysis for " />
+                                                            <Label id="loginMediumLabelsColored" style="-fx-font-weight: bold;" text="All Business Sectors">
+
+                                                            </Label>
+                                                        </HBox>
+                                                    </children>
+                                                </VBox>
+                                                <VBox id="backImageMainDiv">
+                                                    <children>
+
+                                                        <ImageView fx:id="ivLoginBg" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@../assets/login_scroll_image.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </VBox>
+                        <VBox fx:id="loginMainDividerSecond">
+                            <children>
+                                <HBox>
+                                    <children>
+                                        <VBox id="loginBox">
+                                            <children>
+                                                <!--      <HBox layoutX="1.0" prefHeight="38.0" prefWidth="1920.0" style="-fx-background-color: #ebebeb;" />-->
+
+
+                                                <VBox fx:id="innerLoginBox" alignment="CENTER" spacing="20.0" style="-fx-background-color: #0a223f; -fx-background-radius: 30;" VBox.vgrow="ALWAYS">
+
+                                                    <ImageView id="lockImg" pickOnBounds="true" preserveRatio="true">
+                                                        <image>
+                                                            <Image url="@../assets/lock.png" />
+                                                        </image>
+                                                    </ImageView>
+                                                    <Label id="loginText" text="Login to account" textFill="#f1faff" />
+
+                                                    <HBox>
+                                                        <children>
+                                                            <HBox alignment="CENTER" HBox.hgrow="ALWAYS" />
+                                                            <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                                                                <children>
+                                                                    <VBox fx:id="lgnBoxInnerTextFieldGap" spacing="20.0" HBox.hgrow="ALWAYS">
+                                                                        <children>
+
+
+                                                                            <!-- Franchise code HBox -->
+                                                                            <HBox alignment="CENTER_LEFT" style="-fx-background-color: white; -fx-border-radius: 4; -fx-background-radius: 4;">
+                                                                                <HBox id="smallIconsMain" alignment="CENTER">
+                                                                                    <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                                                                        <image>
+                                                                                            <Image url="@../assets/shop.png" />
+                                                                                        </image>
+                                                                                    </ImageView>
+                                                                                    <padding>
+                                                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                                                    </padding>
+                                                                                </HBox>
+                                                                                <TextField id="customeTextFields" fx:id="tffranchiseCode" onKeyPressed="#franchisecodenter" promptText="Franchise Code" style="-fx-border-width: 0;" text="gvmh002" HBox.hgrow="ALWAYS" />
+                                                                            </HBox>
+
+                                                                            <!-- Username HBox -->
+                                                                            <HBox alignment="CENTER_LEFT" style="-fx-background-color: white; -fx-background-radius: 4; -fx-border-radius: 4;">
+                                                                                <HBox id="smallIconsMain" alignment="CENTER">
+                                                                                    <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                                                                        <image>
+                                                                                            <Image url="@../assets/user_icon.png" />
+                                                                                        </image>
+                                                                                    </ImageView>
+                                                                                    <padding>
+                                                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                                                    </padding>
+                                                                                </HBox>
+                                                                                <TextField id="customeTextFields" fx:id="tfUserName" onKeyPressed="#usernameEnter" promptText="Email or Username" style="-fx-border-width: 0;" text="frcadmin" HBox.hgrow="ALWAYS" />
+                                                                            </HBox>
+
+                                                                            <!-- Password HBox -->
+                                                                            <HBox alignment="CENTER_LEFT" style="-fx-background-radius: 4; -fx-border-radius: 4; -fx-background-color: #fff;">
+                                                                                <HBox id="smallIconsMain" alignment="CENTER">
+                                                                                    <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                                                                        <image>
+                                                                                            <Image url="@../assets/password_icon.png" />
+                                                                                        </image>
+                                                                                    </ImageView>
+                                                                                    <padding>
+                                                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                                                    </padding>
+                                                                                </HBox>
+                                                                                <PasswordField id="customeTextFields" fx:id="tfPassword" onKeyPressed="#passwordEnter" promptText="Password" style="-fx-border-width: 0;" text="1234" HBox.hgrow="ALWAYS" />
+                                                                                <TextField id="customeTextFields" fx:id="tfAreaHeadCreatePasswordInText" promptText="Password" style="-fx-border-width: 0;" visible="false" HBox.hgrow="ALWAYS" />
+                                                                                <Button fx:id="hideShow" onAction="#passwordBtn" style="-fx-background-color: transparent;">
+                                                                                </Button>
+                                                                            </HBox>
+                                                                        </children>
+                                                                    </VBox>
+                                                                </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" HBox.hgrow="ALWAYS" />
+                                                        </children>
+                                                    </HBox>
+
+                                                    <Button id="login_button" fx:id="btnLogin" mnemonicParsing="false" text="" />
+
+
+                                                    <!--               <TextField fx:id="tffranchiseCode" text="frcadmin" maxWidth="300" minWidth="300" onKeyPressed="#franchisecodenter" prefWidth="300" promptText="Franchise Code" />-->
+                                                    <!--               <TextField fx:id="tfUserName" text="frcadmin" maxWidth="300" minWidth="300" onKeyPressed="#usernameEnter" prefWidth="300" promptText="Username" />-->
+                                                    <!--               <PasswordField fx:id="tfPassword" text="1234" maxWidth="300" minWidth="300" onKeyPressed="#passwordEnter" prefWidth="300" promptText="Password" />-->
+                                                    <!--               <Button fx:id="btnLogin" minWidth="100" mnemonicParsing="false" opacity="0.95" prefWidth="100" style="-fx-background-color: #21c78a; -fx-background-radius: 20;" text="" textFill="#f3fff3" />-->
+
+                                                </VBox>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+               <padding>
+                  <Insets top="50.0" />
+               </padding>
+                </HBox>
+                <VBox />
+            </children>
+        </VBox>
+    </center>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+</BorderPane>

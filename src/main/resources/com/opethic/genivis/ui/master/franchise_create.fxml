@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import com.opethic.genivis.controller.commons.SwitchButton?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<ScrollPane xmlns:fx="http://javafx.com/fxml/1" fitToHeight="true" fitToWidth="true"
+            style="-fx-background-color: #d9f0fb;" stylesheets="@../css/franchiseStyles.css"
+            xmlns="http://javafx.com/javafx/17.0.2-ea" fx:id="spRootFranchiseCreatePane"
+            fx:controller="com.opethic.genivis.controller.master.FranchiseCreateController">
+
+    <content>
+        <BorderPane style="-fx-background-color: #d9f0fb;">
+            <top>
+                <!-- ++++++++++++++++++++++++++++++++++++++++++++++++1st Main VBox++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+                <VBox fx:id="vboxFranchiseCreateRoot" alignment="TOP_CENTER" spacing="20.0"
+                      style="-fx-background-color: #d9f0fb;">
+                    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++2nd Main VBox++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+                    <VBox>
+                        <padding>
+                            <Insets left="15.0" right="15.0" top="15.0"/>
+                        </padding>
+
+                        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++3rd Main VBox for Inside Card Like to Place Fields++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+                        <VBox style="-fx-background-color: #f6f6f9; -fx-background-radius: 5px;
+                        -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0); ">
+                            <padding>
+                                <Insets bottom="10" left="10" right="10" top="10"/>
+                            </padding>
+                            <!-- ++++++++++++++++++++++++++++++++++++++++++++++++1st Row++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+                            <HBox alignment="CENTER_LEFT" maxHeight="40" minHeight="40" prefHeight="40"
+                                  style="-fx-background-color: #f6f6f9;">
+
+                                <padding>
+                                    <Insets bottom="10" left="5" right="5" top="10"/>
+                                </padding>
+
+                                <Label minWidth="100" prefWidth="110" maxWidth="150" styleClass="commanTitleStyle"
+                                       stylesheets="@../css/companyStyles.css"
+                                       text="Information" underline="true"/>
+                                <TextField disable="true" editable="false" minHeight="1" maxHeight="1" prefHeight="1"
+                                           style="-fx-background-color: #36454F;" HBox.hgrow="ALWAYS"/>
+                                <!--                        <TextField disable="true" editable="false" minHeight="1" maxHeight="1" prefHeight="1" style="-fx-background-color: #D9D9D9;" HBox.hgrow="ALWAYS" />-->
+
+                            </HBox>
+                            <!-- ++++++++++++++++++++++++++++++++++++++++++++++++2nd Row++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+                            <HBox alignment="CENTER_LEFT" maxHeight="50" minHeight="50" prefHeight="50"
+                                  style="-fx-background-color: #f6f6f9;">
+
+                                <padding>
+                                    <Insets bottom="10" left="5" right="5" top="10"/>
+                                </padding>
+
+                                <Label minWidth="100" prefWidth="130" maxWidth="150" text="Franchise Code*">
+
+                                </Label>
+
+                                <TextField fx:id="tfFranchiseCreateFranchiseCode" onAction="#duplicateFranchise"
+                                           minWidth="100" prefWidth="130" maxWidth="200" promptText="Franchise Code"
+                                           HBox.hgrow="ALWAYS"
+                                />
+
+                                <Label minWidth="100" prefWidth="150" maxWidth="150"
+                                       text="     Franchise Name*"/>
+
+                                <TextField fx:id="tfFranchiseCreateFranchiseName" minWidth="100" prefWidth="200"
+                                           maxWidth="500" promptText="Franchise Name" HBox.hgrow="ALWAYS"
+                                />
+
+                                <Label minWidth="100" prefWidth="150" maxWidth="150"
+                                       text="     Applicant Name*"/>
+
+                                <TextField fx:id="tfFranchiseCreateApplicantName" minWidth="100" prefWidth="200"
+                                           maxWidth="300" promptText="Applicant Name" HBox.hgrow="ALWAYS"
+                                />
+                                <Label minWidth="100" prefWidth="130" maxWidth="150"
+                                       text="     Partner Name"/>
+                                <TextField fx:id="tfFranchiseCreatePartnerName" minWidth="100" prefWidth="200"
+                                           maxWidth="300" promptText="Partner Name" HBox.hgrow="ALWAYS"
+                                />
+                            </HBox>
+                            <!-- ++++++++++++++++++++++++++++++++++++++++++++++++3rd Row++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+                            <HBox alignment="CENTER_LEFT" maxHeight="50" minHeight="50" prefHeight="50"
+                                  style="-fx-background-color: #f6f6f9;">
+                                <padding>
+                                    <Insets left="5" right="5" top="-20"/>
+                                </padding>
+
+                                <Label minWidth="100" prefWidth="130" maxWidth="150"
+                                       text="District Head*"/>
+
+                                <ComboBox fx:id="cmbFranchiseCreateDistrictHead"
+                                          onAction="#handleComboBoxActionDistrictHead" minWidth="100" prefWidth="130"
+                                          maxWidth="200" promptText="Select District Head" HBox.hgrow="ALWAYS"
+                                />
+                                <Label minWidth="100" prefWidth="150" maxWidth="150"
+                                       text="     Regional Head"/>
+                                <TextField fx:id="tfFranchiseCreateRegionalHead" minWidth="100" prefWidth="200"
+                                           maxWidth="500" promptText="Regional Head" HBox.hgrow="ALWAYS"
+                                />
+                                <Label minWidth="100" prefWidth="150" maxWidth="150"
+                                       text="     Zone Head"/>
+                                <TextField fx:id="tfFranchiseCreateZoneHead" minWidth="100" prefWidth="200"
+                                           maxWidth="300" promptText="Zone Head" HBox.hgrow="ALWAYS"
+                                />
+                                <Label minWidth="100" prefWidth="130" maxWidth="150"
+                                       text="     State Head"/>
+                                <TextField fx:id="tfFranchiseCreateStateName" minWidth="100" prefWidth="200"
+                                           maxWidth="300" promptText="State Head" HBox.hgrow="ALWAYS"
+                                />
+                            </HBox>
+                            <!-- ++++++++++++++++++++++++++++++++++++++++++++++++4th Row++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+                            <HBox alignment="CENTER_LEFT" maxHeight="50" minHeight="50" prefHeight="50"
+                                  style="-fx-background-color: #f6f6f9;">
+
+                                <padding>
+                                    <Insets left="5" right="5" top="-40"/>
+                                </padding>
+
+
+                                <Label minWidth="110" prefWidth="130" maxWidth="150"
+                                       text="Business Type*"/>
+
+                                <ComboBox fx:id="cmbFranchiseCreateBusinessType"
+                                          onAction="#handleComboBoxActionBusinessType" minWidth="100" prefWidth="150"
+                                          maxWidth="331" promptText="Select Business Type" HBox.hgrow="ALWAYS"
+                                />
+                                <Label minWidth="100" prefWidth="230" maxWidth="240"
+                                       text="     Ready to Invest 8-10 Lakh"/>
+                                <CheckBox fx:id="cbFranchiseCreateReadytoinvest" onAction="#setReadyToInvest"
+                                          minWidth="10" prefWidth="60" maxWidth="95" HBox.hgrow="ALWAYS" text=""
+                                />
+                                <VBox fx:id="vboxIsFunding" prefHeight="26.0" maxHeight="26.0" minHeight="26.0"
+                                      prefWidth="35.5" minWidth="35.5" maxWidth="35.5"
+                                      style="-fx-background-color: #f8f4fc; -fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #f8f4fc; -fx-border-width: 2;">
+                                    <SwitchButton fx:id="tgFranchiseIsFunding" prefHeight="22.0" maxHeight="22.0" minHeight="22.0"  minWidth="32.0" maxWidth="32.0"
+                                                  prefWidth="32.0"/>
+                                </VBox>
+                                <Label minWidth="100.0" text=" Funded"/>
+                                <TextField fx:id="tfFranchiseCreateFundingAmount" minWidth="100" prefWidth="100"
+                                           maxWidth="285" promptText="Funding Amount" HBox.hgrow="ALWAYS"
+                                />
+                            </HBox>
+                            <!-- ++++++++++++++++++++++++++++++++++++++++++++++++5th Row++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+                            <HBox alignment="CENTER_LEFT" maxHeight="40" minHeight="40" prefHeight="40"
+                                  style="-fx-background-color: #f6f6f9;">
+                                <padding>
+                                    <Insets left="5" right="5" top="-20"/>
+                                </padding>
+                                <Label minWidth="100" prefWidth="110" maxWidth="150" styleClass="commanTitleStyle"
+                                       stylesheets="@../css/companyStyles.css"
+                                       text="Information" underline="true"/>
+                                <TextField disable="true" editable="false" minHeight="1" maxHeight="1" prefHeight="1"
+                                           style="-fx-background-color: #36454F;" HBox.hgrow="ALWAYS"/>
+                                <!--                        <TextField disable="true" editable="false" minHeight="1" maxHeight="1" prefHeight="1" style="-fx-background-color: #D9D9D9;" HBox.hgrow="ALWAYS" />-->
+
+                            </HBox>
+
+                            <!-- ++++++++++++++++++++++++++++++++++++++++++++++++6th Row For Information++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+                            <HBox alignment="CENTER_LEFT" maxHeight="50" minHeight="50" prefHeight="50"
+                                  style="-fx-background-color: #f6f6f9;">
+
+                                <padding>
+                                    <Insets bottom="10" left="5" right="5" top="10"/>
+                                </padding>
+
+
+                                <Label minWidth="120" prefWidth="130" maxWidth="175"
+                                       text="Mobile No.*"/>
+
+                                <TextField fx:id="tfFranchiseCreateMobileNo" minWidth="90" prefWidth="90" maxWidth="200"
+                                           promptText="Mobile No." HBox.hgrow="ALWAYS"
+                                />
+                                <Label minWidth="130" prefWidth="150" maxWidth="160"
+                                       text="     Whatsapp No."/>
+                                <TextField fx:id="tfFranchiseCreateWhatsappNo" minWidth="90" prefWidth="90"
+                                           maxWidth="200" promptText="Whatsapp No." HBox.hgrow="ALWAYS"
+                                />
+
+                                <Label minWidth="80" prefWidth="80" maxWidth="80"
+                                       text="    Gender*  "/>
+                                <ComboBox fx:id="cmbFranchiseCreateGender" minWidth="100" prefWidth="120"
+                                          maxWidth="120" promptText="Select" HBox.hgrow="ALWAYS" onAction="#handleComboBoxActionGender"
+                                />
+
+<!--                                <HBox fx:id="toggleValidation">-->
+<!--                                    <children>-->
+<!--                                        <RadioButton fx:id="rbFranchiseCreateMale" onAction="#handleRadioButtonAction"-->
+<!--                                                     minWidth="70" prefWidth="90" maxWidth="100" text=" Male">-->
+<!--                                            <toggleGroup>-->
+<!--                                                <ToggleGroup fx:id="gender"/>-->
+<!--                                            </toggleGroup>-->
+<!--                                        </RadioButton>-->
+<!--                                        <RadioButton fx:id="rbFranchiseCreateFemale" onAction="#handleRadioButtonAction"-->
+<!--                                                     minWidth="75" prefWidth="100" maxWidth="100" text=" Female"-->
+<!--                                                     toggleGroup="$gender"/>-->
+<!--                                    </children>-->
+<!--                                </HBox>-->
+
+                                <Label minWidth="100" prefWidth="120" maxWidth="130"
+                                       text="     Birth Date*"/>
+
+                                <!--                                <Label minWidth="15.0" style="-fx-text-fill: red;" text=" * "/>-->
+
+                                <TextField fx:id="dpFranchiseCreateDOB" minWidth="113" prefWidth="130" maxWidth="200"
+                                           promptText="DD/MM/YYYY" HBox.hgrow="ALWAYS"
+                                />
+                                <!--                        <StackPane>-->
+                                <!--                           <children>-->
+                                <Label minWidth="50" prefWidth="60" maxWidth="60"
+                                       text="     Age"/>
+                                <!--                        <Label minWidth="15" style="-fx-text-fill: red; " text=" * ">-->
+                                <!--                           <padding>-->
+                                <!--                              <Insets left="38"/>-->
+                                <!--                           </padding>-->
+                                <!--                        </Label>-->
+                                <!--                     </children>-->
+                                <!--                  </StackPane>-->
+                                <!--                                <Label minWidth="15.0" style="-fx-text-fill: red;" text=" * "/>-->
+
+                                <TextField fx:id="tfFranchiseCreateAge" minWidth="40" prefWidth="55" maxWidth="55"
+                                           promptText="Age" HBox.hgrow="ALWAYS"
+                                />
+                                <Label minWidth="90" prefWidth="130" maxWidth="150"
+                                       text="      Email ID"/>
+                                <!--                                <Label minWidth="15.0" style="-fx-text-fill: red;" text=" * "/>-->
+
+                                <TextField fx:id="tfFranchiseCreateEmailId" minWidth="100" prefWidth="200"
+                                           maxWidth="350" promptText="Email ID" HBox.hgrow="ALWAYS"
+                                />
+                            </HBox>
+                            <!-- ++++++++++++++++++++++++++++++++++++++++++++++++7th Row++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+                            <HBox alignment="CENTER_LEFT" maxHeight="50" minHeight="50" prefHeight="50"
+                                  style="-fx-background-color: #f6f6f9;">
+                                <padding>
+                                    <Insets left="5" right="5" top="-20"/>
+                                </padding>
+
+                                <Label minWidth="120" prefWidth="130" maxWidth="175"
+                                       text="Education*"/>
+
+                                <ComboBox fx:id="cmbFranchiseCreateEducation" onAction="#handleComboBoxActionEducation"
+                                          minWidth="100" prefWidth="100" maxWidth="200" promptText="Select Education"
+                                          HBox.hgrow="ALWAYS"
+                                />
+                                <Label minWidth="100" prefWidth="200" maxWidth="200"
+                                       text="     Present Occupation"/>
+                                <TextField fx:id="tfFranchiseCreatePresentOccupation" minWidth="50" prefWidth="70"
+                                           maxWidth="300" promptText="Present Occupation" HBox.hgrow="ALWAYS"
+                                />
+                            </HBox>
+                            <!--++++++++++++++++++++++++++++++++++++++++++++++++++8th Top of Address and Residential Address Titles++++++++++++++++++++++++++++++++++++++++++++++-->
+                            <!--                     <HBox spacing="15" maxHeight="40" minHeight="40" prefHeight="40">-->
+                            <!--                        <VBox spacing="15" HBox.hgrow="ALWAYS">-->
+                            <!--                           <HBox alignment="CENTER_LEFT" spacing="10.0">-->
+                            <!--                              <children>-->
+                            <!--                                 <Label styleClass="commanTitleStyle" stylesheets="@../css/companyStyles.css" text="Franchise Address" underline="true" >-->
+                            <!--                                 <padding>-->
+                            <!--                                    <Insets right="200"></Insets>-->
+                            <!--                                 </padding>-->
+                            <!--                                 </Label>-->
+                            <!--&lt;!&ndash;                                 <TextField disable="true" editable="false" minHeight="1" maxHeight="1" prefHeight="1" style="-fx-background-color: #D9D9D9;" HBox.hgrow="ALWAYS" />&ndash;&gt;-->
+                            <!--                              </children>-->
+                            <!--                           </HBox>-->
+
+                            <!--                        </VBox>-->
+                            <!--                        <VBox spacing="15" HBox.hgrow="ALWAYS">-->
+                            <!--                           <HBox alignment="CENTER_LEFT" spacing="10.0">-->
+                            <!--                              <Label styleClass="commanTitleStyle" stylesheets="@../css/companyStyles.css" text="Residential Address" underline="true" />-->
+                            <!--                              <CheckBox fx:id="cbFranchiseCreateSameasAddress" mnemonicParsing="false" onAction="#setSameAsAddress" stylesheets="@../css/companyStyles.css" text="Same as address" />-->
+                            <!--&lt;!&ndash;                              <TextField disable="true" editable="false" minHeight="1" maxHeight="1" prefHeight="1" style="-fx-background-color: #D9D9D9;" HBox.hgrow="ALWAYS" />&ndash;&gt;-->
+                            <!--                           </HBox>-->
+                            <!--                        </VBox>-->
+                            <!--                     </HBox>-->
+
+                            <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++9th Address Left Side++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+                            <!--                     <HBox>-->
+                            <!--                        <VBox alignment="TOP_LEFT" minWidth="130" maxWidth="130" prefWidth="130" spacing="20"-->
+                            <!--                              style="-fx-background-color: #f6f6f9;">-->
+
+                            <!--                           <padding>-->
+                            <!--                              <Insets bottom="10"  left="5" right="5" top="10"/>-->
+                            <!--                           </padding>-->
+                            <!--                        <StackPane>-->
+                            <!--                              <children>-->
+                            <!--                           <Label text="Address" minWidth="60" prefWidth="120" maxWidth="120"  />-->
+                            <!--                           <Label minWidth="15" style="-fx-text-fill: red; " text=" * ">-->
+                            <!--                              <padding>-->
+                            <!--                                 <Insets left="-2"/>-->
+                            <!--                              </padding>-->
+                            <!--                           </Label>-->
+                            <!--                        </children>-->
+                            <!--                     </StackPane>-->
+                            <!--                           <StackPane>-->
+                            <!--                              <children>-->
+                            <!--                           <Label text="Pincode" minWidth="60" prefWidth="120" maxWidth="120"  />-->
+                            <!--                           <Label minWidth="15" style="-fx-text-fill: red; " text=" * ">-->
+                            <!--                              <padding>-->
+                            <!--                                 <Insets left="-2"/>-->
+                            <!--                              </padding>-->
+                            <!--                           </Label>-->
+                            <!--                        </children>-->
+                            <!--                     </StackPane>-->
+                            <!--                           <Label text="State" minWidth="60" prefWidth="120" maxWidth="120"  />-->
+                            <!--                        </VBox>-->
+                            <!--                        <VBox alignment="TOP_LEFT" spacing="10"-->
+                            <!--                              style="-fx-background-color: #f6f6f9;" minWidth="460" maxWidth="960" prefWidth="960">-->
+                            <!--                           <padding>-->
+                            <!--                              <Insets bottom="10" left="5" right="5" top="5"/>-->
+                            <!--                           </padding>-->
+
+                            <!--                           <TextField fx:id="tfFranchiseCreateAddress" minWidth="400" maxWidth="1000" promptText="Address" HBox.hgrow="ALWAYS"/>-->
+
+                            <!--                           <HBox alignment="CENTER_LEFT">-->
+                            <!--                              <TextField fx:id="tfFranchiseCreatePincode" onKeyReleased="#getAddressDataByPincode" onAction="#validatePincode" minWidth="90" prefWidth="90" maxWidth="168" promptText="Pincode" HBox.hgrow="ALWAYS" />-->
+                            <!--                              <Label  text="     Area" minWidth="100" prefWidth="100" maxWidth="150"  />-->
+                            <!--                              <ComboBox fx:id="cmbFranchiseCreateArea" onAction="#handleComboBoxActionArea" minWidth="90" prefWidth="90" maxWidth="250" promptText="Area" HBox.hgrow="ALWAYS" />-->
+                            <!--                              <Label text="    City" minWidth="80" prefWidth="90" maxWidth="100"  />-->
+                            <!--                              <TextField fx:id="tfFranchiseCreateCity" minWidth="80" prefWidth="88" maxWidth="130"  text="" style="-fx-font-weight: bold; -fx-font-size: 14px;-fx-background-color: transparent;-fx-border-color: transparent;"/>-->
+                            <!--                           </HBox>-->
+
+                            <!--                           <HBox alignment="CENTER_LEFT">-->
+                            <!--                              <TextField fx:id="tfFranchiseCreateState" minWidth="90" prefWidth="90" maxWidth="167" promptText="" HBox.hgrow="ALWAYS" style="-fx-font-weight: bold; -fx-font-size: 14px;-fx-background-color: transparent;-fx-border-color: transparent;"/>-->
+                            <!--                              <Label  text="     Country" minWidth="100" prefWidth="100" maxWidth="150"  />-->
+                            <!--                              <ComboBox fx:id="cmbFranchiseCreateCountry" onAction="#handleComboBoxActionCountry" minWidth="90" prefWidth="90" maxWidth="160" promptText="Country" HBox.hgrow="ALWAYS" />-->
+                            <!--                           </HBox>-->
+
+                            <!--                        </VBox>-->
+                            <!--                        &lt;!&ndash;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++10th Residential Address Right Side++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&ndash;&gt;-->
+                            <!--                        <VBox alignment="TOP_LEFT"   minWidth="130" maxWidth="130" prefWidth="130" spacing="20"-->
+                            <!--                              style="-fx-background-color: #f6f6f9;">-->
+                            <!--                           <padding>-->
+                            <!--                              <Insets bottom="10" left="5" right="5" top="10"/>-->
+                            <!--                           </padding>-->
+                            <!--                        <StackPane>-->
+                            <!--                           <children>-->
+                            <!--                           <Label  text="       Address" minWidth="100" prefWidth="150" maxWidth="170" />-->
+                            <!--                           <Label minWidth="15" style="-fx-text-fill: red; " text=" * ">-->
+                            <!--                              <padding>-->
+                            <!--                                 <Insets left="48"/>-->
+                            <!--                              </padding>-->
+                            <!--                           </Label>-->
+                            <!--                        </children>-->
+                            <!--                     </StackPane>-->
+                            <!--                           <StackPane>-->
+                            <!--                              <children>-->
+                            <!--                           <Label  text="       Pincode" minWidth="100" prefWidth="150" maxWidth="175"  />-->
+                            <!--                           <Label minWidth="15" style="-fx-text-fill: red; " text=" * ">-->
+                            <!--                              <padding>-->
+                            <!--                                 <Insets left="48"/>-->
+                            <!--                              </padding>-->
+                            <!--                           </Label>-->
+                            <!--                        </children>-->
+                            <!--                     </StackPane>-->
+                            <!--                           <Label  text="       State" minWidth="100" prefWidth="150" maxWidth="175"  />-->
+                            <!--                        </VBox>-->
+                            <!--                        <VBox alignment="TOP_LEFT" spacing="10" minWidth="460" maxWidth="960" prefWidth="960"-->
+                            <!--                              style="-fx-background-color: #f6f6f9;">-->
+                            <!--                           <padding>-->
+                            <!--                              <Insets bottom="10" left="5" right="5" top="5"/>-->
+                            <!--                           </padding>-->
+                            <!--                           <TextField fx:id="tfFranchiseCreateRAddress" minWidth="400" prefWidth="600" maxWidth="1000" promptText="Address" HBox.hgrow="ALWAYS" />-->
+                            <!--                           <HBox alignment="CENTER_LEFT">-->
+                            <!--                              <TextField fx:id="tfFranchiseCreateRPincode" onKeyReleased="#getAddressDataByPincodeOfResidential" onAction="#validatePincodeR" minWidth="90" prefWidth="90" maxWidth="168" promptText="Pincode" HBox.hgrow="ALWAYS" />-->
+                            <!--                              <Label  text="     Area" minWidth="100" prefWidth="100" maxWidth="150"  />-->
+                            <!--                              <ComboBox fx:id="cmbFranchiseCreateRArea" onAction="#handleComboBoxActionAreaOfResidential" minWidth="90" prefWidth="90" maxWidth="250" promptText="Area" HBox.hgrow="ALWAYS" />-->
+                            <!--                              <Label text="    City  " minWidth="80" prefWidth="90" maxWidth="100"  />-->
+                            <!--                              <TextField text="" fx:id="tfFranchiseCreateRCity" minWidth="80" prefWidth="88" maxWidth="130" style="-fx-font-weight: bold; -fx-font-size: 14px;-fx-background-color: transparent;-fx-border-color: transparent;" />-->
+                            <!--                           </HBox>-->
+
+                            <!--                           <HBox alignment="CENTER_LEFT">-->
+                            <!--                              <TextField fx:id="tfFranchiseCreateRState" minWidth="90" prefWidth="90" maxWidth="167" promptText="" HBox.hgrow="ALWAYS" style="-fx-font-weight: bold; -fx-font-size: 14px;-fx-background-color: transparent;-fx-border-color: transparent;"/>-->
+                            <!--                              <Label text="     Country" minWidth="100" prefWidth="100" maxWidth="150"  />-->
+                            <!--                              <ComboBox fx:id="cmbFranchiseCreateRCountry" minWidth="90" prefWidth="90" maxWidth="160" promptText="Country" HBox.hgrow="ALWAYS" />-->
+                            <!--                           </HBox>-->
+
+                            <!--                        </VBox>-->
+                            <!--                     </HBox>-->
+
+
+                            <!--                      *********************************************************************hi-->
+                            <HBox spacing="10">
+                                <VBox spacing="10" HBox.hgrow="ALWAYS">
+                                    <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                        <children>
+                                            <Label styleClass="commanTitleStyle" stylesheets="@../css/companyStyles.css"
+                                                   text="Franchise Address" underline="true"/>
+                                            <TextField disable="true" editable="false" minHeight="1" maxHeight="1"
+                                                       prefHeight="1" style="-fx-background-color: #36454F;"
+                                                       HBox.hgrow="ALWAYS"/>
+                                        </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" spacing="10">
+                                        <HBox>
+                                            <padding>
+                                                <Insets top="6" left="5" right="64"/>
+                                            </padding>
+                                            <TextFlow>
+                                                <Text text="Address"/>
+                                                <Text styleClass="red" text="*"/>
+                                            </TextFlow>
+                                        </HBox>
+                                        <TextField fx:id="tfFranchiseCreateAddress" promptText="Address"
+                                                   HBox.hgrow="ALWAYS"/>
+                                    </HBox>
+                                    <FlowPane hgap="10" vgap="10">
+                                        <HBox alignment="CENTER_LEFT" spacing="10">
+                                            <children>
+                                                <HBox>
+                                                    <padding>
+                                                        <Insets top="6" left="5" right="64"/>
+                                                    </padding>
+                                                    <TextFlow>
+                                                        <Text text="Pincode"/>
+                                                        <Text styleClass="red" text="*"/>
+                                                    </TextFlow>
+                                                </HBox>
+                                                <TextField fx:id="tfFranchiseCreatePincode"
+                                                           promptText="Pincode"
+                                                           HBox.hgrow="ALWAYS"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="10">
+                                            <children>
+                                                <Label text="Area"/>
+                                                <ComboBox fx:id="cmbFranchiseCreateArea"
+                                                          onAction="#handleComboBoxActionArea" promptText="Area"
+                                                          HBox.hgrow="ALWAYS"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="10">
+                                            <children>
+                                                <Label text="City"/>
+                                                <Label fx:id="tfFranchiseCreateCity"
+                                                       HBox.hgrow="ALWAYS"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="10">
+                                            <children>
+                                                <Label text="State"
+                                                />
+                                                <Label fx:id="tfFranchiseCreateState"
+                                                       HBox.hgrow="ALWAYS"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="10">
+                                            <children>
+                                                <HBox>
+                                                    <padding>
+                                                        <Insets top="6" left="5" right="64"/>
+                                                    </padding>
+                                                    <TextFlow>
+                                                        <Text text="Country"/>
+                                                        <Text styleClass="red" text="  "/>
+                                                    </TextFlow>
+                                                </HBox>
+                                                <ComboBox fx:id="cmbFranchiseCreateCountry"
+                                                          onAction="#handleComboBoxActionCountry" promptText="Country"
+                                                          HBox.hgrow="ALWAYS"/>
+                                            </children>
+                                        </HBox>
+                                    </FlowPane>
+
+
+                                    <!--                                    <GridPane hgap="10.0" vgap="10.0">-->
+                                    <!--                                        <children>-->
+                                    <!--                                            <StackPane>-->
+                                    <!--                                                <children>-->
+                                    <!--                                                    <Label text="  Pincode" minWidth="60" prefWidth="120"-->
+                                    <!--                                                           maxWidth="120"/>-->
+                                    <!--                                                    <Label minWidth="15" style="-fx-text-fill: red; " text=" * ">-->
+                                    <!--                                                        <padding>-->
+                                    <!--                                                            <Insets left="8"/>-->
+                                    <!--                                                        </padding>-->
+                                    <!--                                                    </Label>-->
+                                    <!--                                                </children>-->
+                                    <!--                                            </StackPane>-->
+                                    <!--                                            <Label text="     Area" GridPane.columnIndex="2"/>-->
+
+                                    <!--                                        </children>-->
+                                    <!--                                        <columnConstraints>-->
+                                    <!--                                            <ColumnConstraints/>-->
+                                    <!--                                            <ColumnConstraints/>-->
+                                    <!--                                            <ColumnConstraints/>-->
+                                    <!--                                            <ColumnConstraints/>-->
+                                    <!--                                            <ColumnConstraints/>-->
+                                    <!--                                            <ColumnConstraints/>-->
+                                    <!--                                        </columnConstraints>-->
+                                    <!--                                        <rowConstraints>-->
+                                    <!--                                            <RowConstraints/>-->
+                                    <!--                                            <RowConstraints/>-->
+                                    <!--                                        </rowConstraints>-->
+                                    <!--                                    </GridPane>-->
+                                </VBox>
+                                <VBox spacing="10" HBox.hgrow="ALWAYS">
+
+                                    <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                        <Label styleClass="commanTitleStyle" stylesheets="@../css/companyStyles.css"
+                                               text="Residential Address" underline="true"/>
+                                        <CheckBox fx:id="cbFranchiseCreateSameasAddress" mnemonicParsing="false"
+                                                  onAction="#setSameAsAddress" stylesheets="@../css/companyStyles.css"
+                                                  text="Same as address"/>
+                                        <TextField disable="true" editable="false" minHeight="1" maxHeight="1"
+                                                   prefHeight="1" style="-fx-background-color: #36454F;"
+                                                   HBox.hgrow="ALWAYS"/>
+                                    </HBox>
+
+                                    <HBox alignment="CENTER_LEFT" spacing="10">
+                                        <HBox>
+                                            <padding>
+                                                <Insets top="6"/>
+                                            </padding>
+                                            <TextFlow>
+                                                <Text text="Address"/>
+                                                <Text styleClass="red" text="*"/>
+                                            </TextFlow>
+                                        </HBox>
+                                        <TextField fx:id="tfFranchiseCreateRAddress" promptText="Address"
+                                                   HBox.hgrow="ALWAYS"/>
+                                    </HBox>
+
+                                    <FlowPane vgap="10" hgap="10">
+
+                                        <HBox alignment="CENTER_LEFT" spacing="10">
+                                            <children>
+                                                <HBox>
+                                                    <padding>
+                                                        <Insets top="6"/>
+                                                    </padding>
+                                                    <TextFlow>
+                                                        <Text text="Pincode"/>
+                                                        <Text styleClass="red" text="*"/>
+                                                    </TextFlow>
+                                                </HBox>
+                                                <TextField fx:id="tfFranchiseCreateRPincode"
+                                                           promptText="Pincode" HBox.hgrow="ALWAYS"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="10">
+                                            <children>
+                                                <Label text="Area"/>
+                                                <ComboBox fx:id="cmbFranchiseCreateRArea"
+                                                          onAction="#handleComboBoxActionAreaOfResidential"
+                                                          promptText="Area" HBox.hgrow="ALWAYS"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="10">
+                                            <children>
+                                                <Label text="City"/>
+                                                <Label fx:id="tfFranchiseCreateRCity"
+                                                       HBox.hgrow="ALWAYS"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="10">
+                                            <children>
+                                                <Label text="State" />
+                                                <Label fx:id="tfFranchiseCreateRState"
+                                                       HBox.hgrow="ALWAYS"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="10">
+                                            <children>
+
+                                                <HBox>
+                                                    <padding>
+                                                        <Insets top="6"/>
+                                                    </padding>
+                                                    <TextFlow>
+                                                        <Text text="Country"/>
+                                                        <Text styleClass="red" text="  "/>
+                                                    </TextFlow>
+                                                </HBox>
+                                                <ComboBox fx:id="cmbFranchiseCreateRCountry" promptText="Country"
+
+                                                          HBox.hgrow="ALWAYS"/>
+                                            </children>
+                                        </HBox>
+                                    </FlowPane>
+
+                                    <!--                                    <GridPane hgap="10.0" vgap="10.0">-->
+                                    <!--                                        <columnConstraints>-->
+                                    <!--                                            <ColumnConstraints/>-->
+                                    <!--                                            <ColumnConstraints/>-->
+                                    <!--                                            <ColumnConstraints/>-->
+                                    <!--                                            <ColumnConstraints/>-->
+                                    <!--                                            <ColumnConstraints/>-->
+                                    <!--                                            <ColumnConstraints hgrow="ALWAYS"/>-->
+                                    <!--                                        </columnConstraints>-->
+                                    <!--                                        <rowConstraints>-->
+                                    <!--                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>-->
+                                    <!--                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>-->
+                                    <!--                                        </rowConstraints>-->
+                                    <!--                                        <children>-->
+                                    <!--                                            <StackPane>-->
+                                    <!--                                                <children>-->
+                                    <!--                                                    <Label text="       Pincode" minWidth="100" prefWidth="150"-->
+                                    <!--                                                           maxWidth="175"/>-->
+                                    <!--                                                    <Label minWidth="15" style="-fx-text-fill: red; " text=" * ">-->
+                                    <!--                                                        <padding>-->
+                                    <!--                                                            <Insets left="20"/>-->
+                                    <!--                                                        </padding>-->
+                                    <!--                                                    </Label>-->
+                                    <!--                                                </children>-->
+                                    <!--                                            </StackPane>-->
+                                    <!--                                            <Label text="     Area" GridPane.columnIndex="2"/>-->
+
+
+                                    <!--                                        </children>-->
+                                    <!--                                    </GridPane>-->
+                                </VBox>
+                            </HBox>
+                            <!--                      *********************************************************************hi-->
+
+                            <!-- ++++++++++++++++++++++++++++++++++++++++++++++++11th Last Row of Latitiude and Longitude Only++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+                            <HBox alignment="CENTER_LEFT" maxHeight="50" minHeight="50" prefHeight="50"
+                                  style="-fx-background-color: #f6f6f9;">
+
+                                <padding>
+                                    <Insets bottom="10" left="5" right="5" top="10"/>
+                                </padding>
+                                <Label minWidth="50" prefWidth="130" maxWidth="175"
+                                       text="Latitude"/>
+                                <TextField fx:id="tfFranchiseCreateLatitude" minWidth="90" prefWidth="90" maxWidth="220"
+                                           promptText="Latitude" HBox.hgrow="ALWAYS"
+                                />
+                                <Label minWidth="50" prefWidth="100" maxWidth="150"
+                                       text="     Longitude"/>
+                                <TextField fx:id="tfFranchiseCreateLongitude" minWidth="90" prefWidth="90"
+                                           maxWidth="220" promptText="Longitude" HBox.hgrow="ALWAYS"
+                                />
+                            </HBox>
+                            <HBox alignment="CENTER" spacing="10" maxHeight="60" minHeight="60" prefHeight="60"
+                                  style="-fx-background-color: #f6f6f9;">
+                            </HBox>
+                            <HBox alignment="CENTER" spacing="10" maxHeight="60" minHeight="60" prefHeight="60"
+                                  style="-fx-background-color: #f6f6f9;">
+                            </HBox>
+
+                        </VBox>
+                        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++12th Submit and Cancel Buttons++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+                        <HBox alignment="BOTTOM_RIGHT" spacing="10" maxHeight="60" minHeight="60" prefHeight="60"
+                              style="-fx-background-color: #D9F0FB;">
+                            <padding>
+                                <Insets right="20"/>
+                            </padding>
+                            <Button styleClass="sub" fx:id="btnFranchiseCreateSubmit" onAction="#createFranchise"
+                                    text="Submit"/>
+                            <Button styleClass="can" fx:id="btnFranchiseCreateCancel" onAction="#backToList"
+                                    text="Cancel"/>
+                        </HBox>
+                    </VBox>
+
+                </VBox>
+
+            </top>
+        </BorderPane>
+
+    </content>
+</ScrollPane>

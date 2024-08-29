@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="lager_list_border_pane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.opethic.genivis.controller.account_entry.LegerListController">
+            <top>
+<HBox>
+    <ToggleButton mnemonicParsing="false" text="ToggleButton" />
+    <Label text="Debtors">
+        <font>
+            <Font />
+        </font>
+    </Label>
+</HBox>
+            </top>
+
+            <center>
+                <HBox>
+                    <TableView fx:id="tbvReceiptDebtors" prefHeight="200.0">
+                        <columns>
+                            <TableColumn text="Code" />
+                            <TableColumn text="Leger Name" />
+                            <TableColumn text="Leger Group" />
+                            <TableColumn text="City" />
+                            <TableColumn text="Contact No" />
+                            <TableColumn text="Current Balance" />
+                            <TableColumn text="Type" />
+                            <TableColumn text="Actions" />
+                        </columns>
+                    </TableView>
+                </HBox>
+
+            </center>
+        </BorderPane>

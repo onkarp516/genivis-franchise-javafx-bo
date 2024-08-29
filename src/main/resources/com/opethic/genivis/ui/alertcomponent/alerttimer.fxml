@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="400.0" stylesheets="@assets/alertstyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <HBox alignment="CENTER_LEFT" prefHeight="46.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+            <children>
+                <BorderPane prefHeight="67.0" prefWidth="400.0" style="-fx-background-color: #D9F0FB;;">
+                    <left>
+                        <Label fx:id="lblTitle" text="Success" BorderPane.alignment="CENTER">
+                            <BorderPane.margin>
+                                <Insets left="15.0" />
+                            </BorderPane.margin>
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                    </left>
+                    <right>
+                        <ImageView fx:id="imgClose" accessibleRole="BUTTON" fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <BorderPane.margin>
+                                <Insets right="10.0" top="15.0" />
+                            </BorderPane.margin>
+                            <image>
+                                <Image url="@assets/close.png" />
+                            </image>
+                        </ImageView>
+                    </right>
+                    <bottom>
+                        <Label fx:id="lblMessage" alignment="CENTER_RIGHT" text="Your Product is added Successfully">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                            <BorderPane.margin>
+                                <Insets left="15.0" top="-5.0" />
+                            </BorderPane.margin>
+                        </Label>
+                    </bottom>
+                </BorderPane>
+            </children>
+        </HBox>
+    </top>
+    <bottom>
+        <ProgressBar fx:id="pb" prefWidth="400.0" progress="0.46" BorderPane.alignment="CENTER" />
+    </bottom>
+</BorderPane>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.ComboBox?>
+<ScrollPane xmlns="http://javafx.com/javafx" fitToWidth="true" fitToHeight="true"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.opethic.genivis.controller.GSTR2.GSTR2CreditDebitUnregisterController"
+            prefHeight="400.0" prefWidth="600.0">
+    <content>
+       <BorderPane>
+           <top>
+               <VBox>
+                   <HBox maxWidth="1920" minWidth="1280" prefHeight="35.0" prefWidth="1920" alignment="TOP_LEFT" style="-fx-background-color:#d9f0fb">
+
+                       <Text style="-fx-text-position:center;" text="GSTR-2 | Voucher Register">
+                           <font>
+                               <Font size="20.0" />
+                           </font></Text>
+                   </HBox>
+                   <HBox maxWidth="1920" minWidth="1280" prefHeight="50" prefWidth="1920" style="-fx-background-color:#d9f0fb">
+                       <children>
+                           <Label text="From Date" minWidth="40.0" maxWidth="70.0" prefWidth="70.0">
+                               <HBox.margin>
+                                   <Insets  left="20.0" right="10.0" top="10.0" />
+                               </HBox.margin>
+                           </Label>
+                           <TextField fx:id="tfGSTR2CrDrUnregFromDate" minWidth="90" maxWidth="110" prefWidth="110.0" promptText="DD/MM/YYYY">
+                               <HBox.margin>
+                                   <Insets right="10.0" top="10.0" />
+                               </HBox.margin>
+                           </TextField>
+                           <Label text="To Date" minWidth="50.0" maxWidth="70.0" prefWidth="60.0">
+                               <HBox.margin>
+                                   <Insets right="10.0" top="10.0" />
+                               </HBox.margin>
+                           </Label>
+                           <TextField fx:id="tfGSTR2CrDrUnregToDate" minWidth="90" maxWidth="110" prefWidth="110.0" promptText="DD/MM/YYYY">
+                               <HBox.margin>
+                                   <Insets right="10.0" top="10.0" />
+                               </HBox.margin>
+                           </TextField>
+                           <TextField fx:id="tfGSTR2CrDrUnregLedgerSearch" minWidth="120.0" maxWidth="310.0" prefHeight="30.0" prefWidth="300.0" promptText="Search">
+                               <HBox.margin>
+                                   <Insets  left="300.0" right="10.0" top="10.0" />
+                               </HBox.margin>
+                           </TextField>
+
+                       </children>
+
+                   </HBox>
+               </VBox>
+           </top>
+           <center>
+               <TableView fx:id="tblvGSTR2CrDrUnregList" prefWidth="1920.0" minWidth="1280.0" maxWidth="1920.0">
+                   <columns>
+                       <TableColumn fx:id="tblcGSTR2CrDrUnregSrNo"  text="Sr.No." />
+                       <TableColumn fx:id="tblcGSTR2CrDrUnregDate" text="Date"/>
+                       <TableColumn fx:id="tblcGSTR2CrDrUnregInvoiceNo" text="Invoice No"/>
+                       <TableColumn fx:id="tblcGSTR2CrDrUnregParticulars" text="Particulars"/>
+                       <TableColumn fx:id="tblcGSTR2CrDrUnregVoucherType" text="Voucher Type"/>
+                       <TableColumn fx:id="tblcGSTR2CrDrUnregTaxableAmt" text="Taxable Amt"/>
+                       <TableColumn fx:id="tblcGSTR2CrDrUnregIntegratedTaxAmt" text="Integrated Tax Amt	"/>
+                       <TableColumn fx:id="tblcGSTR2CrDrUnregCentralTaxAmt"  text="Centeral Tax Amt"/>
+                       <TableColumn fx:id="tblcGSTR2CrDrUnregStateTaxAmt" text="State Tax Amt"/>
+                       <TableColumn fx:id="tblcGSTR2CrDrUnregCessAmt" text="Cess Amt"/>
+                       <TableColumn fx:id="tblcGSTR2CrDrUnregTaxAmt" text="Tax Amt"/>
+                       <TableColumn fx:id="tblcGSTR2CrDrUnregInvoiceAmt" text="Invoice Amt"/>
+                   </columns>
+               </TableView>
+           </center>
+
+       </BorderPane>
+    </content>
+
+</ScrollPane>

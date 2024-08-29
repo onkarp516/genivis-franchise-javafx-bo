@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fx:id="spRootPane" fitToHeight="true" fitToWidth="true" style="-fx-background-color: #d9f0fb;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.opethic.genivis.controller.GSTR1.B2BScreen1Controller">
+    <content>
+        <BorderPane fx:id="root" style="-fx-background-color: #D9F0FB;">
+            <top>
+                <VBox alignment="TOP_CENTER" spacing="20.0" style="-fx-background-color: #D9F0FB;">
+                    <VBox>
+                        <padding>
+                            <Insets left="15.0" right="15.0" top="15.0" />
+                        </padding>
+                        <HBox alignment="CENTER_LEFT" maxHeight="50" minHeight="50" prefHeight="50" style="-fx-background-color: #D9F0FB;-fx-border-color:#D9F0FB">
+                            <padding>
+                                <Insets bottom="10" left="5" right="5" top="10" />
+                            </padding>
+                            <Label prefHeight="17.0" prefWidth="87.0" text="From Date">
+                                <font>
+                                    <Font size="15.0" />
+                                </font>
+                                <HBox.margin>
+                                    <Insets left="10.0" />
+                                </HBox.margin>
+                            </Label>
+                            <TextField id="from_datePIL" fx:id="tfGstr1B2b1FromDt" prefHeight="35.0" prefWidth="180.0" promptText="DD/MM/YYYY" AnchorPane.topAnchor="21.0">
+                        <HBox.margin>
+                           <Insets left="20.0" />
+                        </HBox.margin></TextField>
+                            <Label prefHeight="17.0" prefWidth="87.0" text="To Date">
+                                <font>
+                                    <Font size="15.0" />
+                                </font>
+                                <HBox.margin>
+                                    <Insets left="20.0" />
+                                </HBox.margin>
+                            </Label>
+                            <TextField id="to_datePIL" fx:id="tfGstr1B2b1ToDt" prefHeight="35.0" prefWidth="180.0" promptText="DD/MM/YYYY" AnchorPane.topAnchor="21.0" />
+                            <Region HBox.hgrow="ALWAYS" />
+                            <TextField fx:id="tfGstr1B2b1Search" prefHeight="31.0" prefWidth="293.0" promptText="Search" AnchorPane.topAnchor="21.0">
+                                <!--            /* onKeyPressed="#getSalesQuotationInvoiceList" */-->
+                                <font>
+                                    <Font size="15.0" />
+                                </font>
+                        <HBox.margin>
+                           <Insets left="200.0" />
+                        </HBox.margin>
+                            </TextField>
+<!--                     <Button mnemonicParsing="false" text="Export">-->
+                            <HBox minWidth="200.0" prefHeight="43.0" prefWidth="100.0">
+                                <children>
+                                    <Button fx:id="GSTR1B2B1BtnPdf" mnemonicParsing="false" prefHeight="12.0" prefWidth="43.0" style="-fx-background-color: transparent;">
+                                        <graphic>
+                                            <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                                <image>
+                                                    <Image url="@../assets/pdf.png" />
+                                                </image>
+                                            </ImageView>
+                                        </graphic>
+                                        <HBox.margin>
+                                            <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                        </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="GSTR1B2B1BtnExcel" mnemonicParsing="false" prefHeight="12.0" prefWidth="43.0" style="-fx-background-color: transparent;">
+                                        <graphic>
+                                            <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                                <image>
+                                                    <Image url="@../assets/excel.png" />
+                                                </image>
+                                            </ImageView>
+                                        </graphic>
+                                        <HBox.margin>
+                                            <Insets right="10.0" top="5.0" />
+                                        </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="GSTR1B2B1BtnCsv" mnemonicParsing="false" prefHeight="12.0" prefWidth="43.0" style="-fx-background-color: transparent;">
+                                        <graphic>
+                                            <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                                <image>
+                                                    <Image url="@../assets/csv.png" />
+                                                </image>
+                                            </ImageView>
+                                        </graphic>
+                                        <HBox.margin>
+                                            <Insets right="10.0" top="5.0" />
+                                        </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="GSTR1B2B1BtnPrint" mnemonicParsing="false" prefHeight="12.0" prefWidth="43.0" style="-fx-background-color: transparent;">
+                                        <graphic>
+                                            <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                                <image>
+                                                    <Image url="@../assets/print.png" />
+                                                </image>
+                                            </ImageView>
+                                        </graphic>
+                                        <HBox.margin>
+                                            <Insets top="5.0" />
+                                        </HBox.margin>
+                                    </Button>
+                                </children>
+                                <HBox.margin>
+                                    <Insets left="20.0" />
+                                </HBox.margin>
+                            </HBox>
+                        <HBox.margin>
+                           <Insets left="20.0" />
+                        </HBox.margin>
+<!--                     </Button>-->
+                        </HBox>
+                    </VBox>
+
+
+                    <VBox>
+
+
+                        <padding>
+                            <Insets bottom="0" top="-5" />
+                        </padding>
+                        <TableView fx:id="tblvB2bScreen1List" maxHeight="900.0" minHeight="785.0" prefWidth="1280.0" AnchorPane.topAnchor="100.0">
+                            <!--            layoutX="15.0" layoutY="73.0"-->
+                            <columns>
+                                <TableColumn fx:id="tblcGstr1B2b1SerialNo" text="Sr. No." />
+                                <TableColumn fx:id="tblcGstr1B2b1Particulars" text="Particulars" />
+                                <TableColumn fx:id="tblcGstr1B2b1Gstin" text="GSTIN/UIN" />
+                                <TableColumn fx:id="tblcGstr1B2b1VoucherCount" text="Voucher Count" />
+                                <TableColumn fx:id="tblcGstr1B2b1TaxableAmt" text="Taxable Amt" />
+                                <TableColumn fx:id="tblcGstr1B2b1IgstAmt" text="IGST Amt" />
+                                <TableColumn fx:id="tblcGstr1B2b1CgstAmt" text="CGST Amt" />
+                                <TableColumn fx:id="tblcGstr1B2b1SgstAmt" text="SGST Amt " />
+                                <TableColumn fx:id="tblcGstr1B2b1CessAmt" text="Cess Amt " />
+                                <TableColumn fx:id="tblcGstr1B2b1TaxAmt" text="Tax Amt " />
+                                <TableColumn fx:id="tblcGstr1B2b1InvoiceAmt" text="Invoice Amt" />
+                            </columns>
+                        </TableView>
+                    </VBox>
+
+                </VBox>
+            </top>
+         <bottom>
+<!--            <HBox fx:id="hbGstr1B2b1Footer" style="-fx-background-color: #FCF0D4;">-->
+<!--                <Label prefHeight="30.0" prefWidth="105.0" text="Total">-->
+<!--                    <font>-->
+<!--                        <Font size="14.0" />-->
+<!--                    </font>-->
+<!--                     <HBox.margin>-->
+<!--                        <Insets left="15.0" />-->
+<!--                     </HBox.margin>-->
+<!--                  </Label>-->
+<!--                   <Region HBox.hgrow="ALWAYS" />-->
+<!--                   <Region HBox.hgrow="ALWAYS" />-->
+<!--                   <Region HBox.hgrow="ALWAYS" />-->
+<!--                   <Region HBox.hgrow="ALWAYS" />-->
+<!--                   <Region HBox.hgrow="ALWAYS" />-->
+<!--                   <Region HBox.hgrow="ALWAYS" />-->
+<!--                   <Region HBox.hgrow="ALWAYS" />-->
+<!--                   <Region HBox.hgrow="ALWAYS" />-->
+<!--                   <Region HBox.hgrow="ALWAYS" />-->
+<!--                  <Label fx:id="lbGstr1B2B1VoucherCount" text="">-->
+<!--                      <font>-->
+<!--                          <Font size="14.0" />-->
+<!--                      </font>-->
+<!--                  </Label>-->
+<!--                  <Label fx:id="lbGstr1B2B1TaxableAmt" text="">-->
+<!--                      <font>-->
+<!--                          <Font size="14.0" />-->
+<!--                      </font>-->
+<!--                  </Label>-->
+<!--                  <Label fx:id="lbGstr1B2B1TotalIgst" text="">-->
+<!--                      <font>-->
+<!--                          <Font size="14.0" />-->
+<!--                      </font>-->
+<!--                  </Label>-->
+<!--                  <Label fx:id="lbGstr1B2B1TotalCgst" text="">-->
+<!--                      <font>-->
+<!--                          <Font size="14.0" />-->
+<!--                      </font>-->
+<!--                  </Label>-->
+<!--                  <Label fx:id="lbGstr1B2B1TotalSgst" text="">-->
+<!--                      <font>-->
+<!--                          <Font size="14.0" />-->
+<!--                      </font>-->
+<!--                  </Label>-->
+<!--                   <Region HBox.hgrow="ALWAYS" />-->
+<!--                   <Label fx:id="lbGstr1B2B1TotalTax" text="">-->
+<!--                       <font>-->
+<!--                           <Font size="14.0" />-->
+<!--                       </font>-->
+<!--                       <HBox.margin>-->
+<!--                           <Insets right="10.0"/>-->
+<!--                       </HBox.margin>-->
+<!--                   </Label>-->
+<!--                   <Label fx:id="lbGstr1B2B1TotalAmt" text="">-->
+<!--                       <HBox.margin>-->
+<!--                           <Insets right="10.0"/>-->
+<!--                       </HBox.margin>-->
+<!--                   </Label>-->
+
+<!--            </HBox>-->
+
+
+             <HBox>
+                 <Label prefHeight="20.0" prefWidth="105.0" style="-fx-font-weight: 700;" text="Total">
+                     <font>
+                         <Font size="14.0" />
+                     </font>
+                     <HBox.margin>
+                         <Insets left="15.0" />
+                     </HBox.margin>
+                 </Label>
+                 <Region HBox.hgrow="ALWAYS" />
+                 <Region HBox.hgrow="ALWAYS" />
+                 <Region HBox.hgrow="ALWAYS" />
+                 <Region HBox.hgrow="ALWAYS" />
+                 <Region HBox.hgrow="ALWAYS" />
+                 <Region HBox.hgrow="ALWAYS" />
+                 <Region HBox.hgrow="ALWAYS" /> <Region HBox.hgrow="ALWAYS" /> <Region HBox.hgrow="ALWAYS" />
+                 <Label prefWidth="105.0" fx:id="lbGstr1B2B1VoucherCount" style="-fx-font-weight: 700;" text="00.00">
+                     <font>
+                         <Font size="14.0" />
+                     </font>
+                 </Label>
+                 <Label text="   "/>
+                 <Label prefWidth="105.0" fx:id="lbGstr1B2B1TaxableAmt" style="-fx-font-weight: 700;" text="00.00">
+                     <font>
+                         <Font size="14.0" />
+                     </font>
+                     <HBox.margin>
+                         <Insets right="0.05" />
+                     </HBox.margin>
+                 </Label>
+                 <Label prefWidth="105.0" text="                     "/>
+                 <Label prefWidth="105.0" fx:id="lbGstr1B2B1TotalIgst" style="-fx-font-weight: 700;" text="00.00">
+                     <font>
+                         <Font size="14.0" />
+                     </font>
+                 </Label>
+                 <Label prefWidth="105.0" text="   "/>
+                 <Label prefWidth="105.0" fx:id="lbGstr1B2B1TotalCgst" style="-fx-font-weight: 700;" text="00.00">
+                     <font>
+                         <Font size="14.0" />
+                     </font>
+                     <HBox.margin>
+                         <Insets right="0.0" />
+                     </HBox.margin>
+                 </Label>
+                 <Label text="   "/>
+                 <Label prefWidth="105.0" fx:id="lbGstr1B2B1TotalSgst" style="-fx-font-weight: 700;" text="00.00">
+                     <font>
+                         <Font size="14.0" />
+                     </font>
+                     <HBox.margin>
+                         <Insets left="15.0" />
+                     </HBox.margin>
+                 </Label>
+                 <Region HBox.hgrow="ALWAYS" />
+                 <Label prefWidth="105.0" fx:id="lbGstr1B2B1TotalTax" style="-fx-font-weight: 700;" text="00.00">
+                     <font>
+                         <Font size="14.0" />
+                     </font>
+                 </Label>
+                 <Label text="   "/>
+                 <Label prefWidth="105.0" fx:id="lbGstr1B2B1TotalAmt" style="-fx-font-weight: 700;" text="00.00">
+                     <font>
+                         <Font size="14.0" />
+                     </font>
+                     <HBox.margin>
+                         <Insets right="15.0" />
+                     </HBox.margin>
+                 </Label>
+             </HBox>
+
+         </bottom>
+        </BorderPane>
+
+    </content>
+</ScrollPane>

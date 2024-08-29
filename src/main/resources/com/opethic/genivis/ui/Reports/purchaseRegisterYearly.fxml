@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.opethic.genivis.controller.Reports.PurchaseRegisterYearlyController"
+            prefHeight="400.0" prefWidth="600.0"
+            fx:id="bpPurRegYrRootpane">
+
+
+    <top>
+        <VBox>
+            <HBox alignment="CENTER" style="-fx-background-color: #b8e3fa;">
+                <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-font-weight: 700; -fx-font-size: 16;"
+                       text="Purchase Register Yearly">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+            </HBox>
+            <HBox style="-fx-background-color: #d9f0fb;">
+                <TextField fx:id="tfPurRegYrListSearch" prefHeight="30.0"
+                           promptText="Search Ledger">
+                    <HBox.margin>
+                        <Insets left="10.0" top="10.0"/>
+                    </HBox.margin>
+                </TextField>
+
+                <Label style="-fx-font-weight: 600;" text="Date :">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                    <HBox.margin>
+                        <Insets left="10.0" top="10.0"/>
+                    </HBox.margin>
+                </Label>
+                <TextField fx:id="tfPurRegYrListFromDate" prefHeight="30.0"
+                           promptText="__/__/____">
+                    <HBox.margin>
+                        <Insets left="10.0" top="10.0"/>
+                    </HBox.margin>
+                </TextField>
+                <TextField fx:id="tfPurRegYrListToDate" prefHeight="30.0"
+                           promptText="__/__/____">
+                    <HBox.margin>
+                        <Insets left="10.0" top="10.0"/>
+                    </HBox.margin>
+                </TextField>
+
+                <Label style="-fx-font-weight: 600;" text="Amount :">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                    <HBox.margin>
+                        <Insets left="20.0" top="15.0"/>
+                    </HBox.margin>
+                </Label>
+                <TextField fx:id="tfPurRegYrFromAmt" prefHeight="30.0"
+                           promptText="From">
+                    <HBox.margin>
+                        <Insets top="10.0"/>
+                    </HBox.margin>
+                </TextField>
+                <TextField fx:id="tfPurRegYrToAmt" prefHeight="30.0"
+                           promptText="To">
+                    <HBox.margin>
+                        <Insets left="10.0" top="10.0"/>
+                    </HBox.margin>
+                </TextField>
+                <Button fx:id="btPurRegYrReset" mnemonicParsing="false"
+                        prefHeight="30.0" id="submit-btn"
+                        text="Reset" textFill="WHITE">
+                    <HBox.margin>
+                        <Insets left="10.0" top="10.0"/>
+                    </HBox.margin>
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </Button>
+                <Region HBox.hgrow="ALWAYS"/>
+                <HBox>
+
+                    <Button mnemonicParsing="false" prefHeight="12.0"
+                            style="-fx-background-color: transparent;">
+                        <graphic>
+                            <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../assets/pdf.png"/>
+                                </image>
+                            </ImageView>
+                        </graphic>
+                        <HBox.margin>
+                            <Insets left="10.0" right="10.0" top="7.0"/>
+                        </HBox.margin>
+                    </Button>
+                    <Button mnemonicParsing="false" prefHeight="12.0"
+                            style="-fx-background-color: transparent;">
+                        <graphic>
+                            <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../assets/excel.png"/>
+                                </image>
+                            </ImageView>
+                        </graphic>
+                        <HBox.margin>
+                            <Insets right="10.0" top="7.0"/>
+                        </HBox.margin>
+                    </Button>
+                    <Button mnemonicParsing="false" prefHeight="12.0"
+                            style="-fx-background-color: transparent;">
+                        <graphic>
+                            <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../assets/csv.png"/>
+                                </image>
+                            </ImageView>
+                        </graphic>
+                        <HBox.margin>
+                            <Insets right="10.0" top="7.0"/>
+                        </HBox.margin>
+                    </Button>
+                    <Button mnemonicParsing="false" prefHeight="12.0"
+                            style="-fx-background-color: transparent;">
+                        <graphic>
+                            <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../assets/print.png"/>
+                                </image>
+                            </ImageView>
+                        </graphic>
+                        <HBox.margin>
+                            <Insets top="7.0"/>
+                        </HBox.margin>
+                    </Button>
+                </HBox>
+            </HBox>
+        </VBox>
+    </top>
+    <center>
+        <TableView fx:id="tblvPurRegYrList" editable="true" layoutX="4.0" layoutY="90.0"
+                   stylesheets="@../css/hsnStyle.css" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="tblcPurRegYrMonth" text="Month"/>
+                <TableColumn fx:id="tblcPurRegYrTransactions" text="Transactions">
+                    <columns>
+                        <TableColumn fx:id="tblcPurRegYrDebitAmt" prefWidth="75.0" text="Debit" />
+                        <TableColumn fx:id="tblcPurRegYrCreditAmt" prefWidth="75.0" text="Credit" />
+                    </columns>
+                </TableColumn>
+                <TableColumn fx:id="tblcPurRegYrClosingBalance" text="Closing Balance"/>
+                <TableColumn fx:id="tblcPurRegYrTypeCD" text="Type C/D"/>
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+            <BorderPane.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </BorderPane.margin>
+        </TableView>
+    </center>
+    <bottom>
+        <HBox>
+            <Label style="-fx-font-weight: 400" text="Grand Total">
+
+                <font>
+                    <Font size="14.0"/>
+                </font>
+                <padding>
+                    <Insets right="330.0"/>
+                </padding>
+            </Label>
+            <Label fx:id="lblPurRegYrTotalDebit" style="-fx-font-weight: 700" text="00.00">
+                <font>
+                    <Font size="14.0"/>
+                </font>
+                <padding>
+                    <Insets right="330.0"/>
+                </padding>
+            </Label>
+            <Label fx:id="lblPurRegYrTotalCredit" style="-fx-font-weight: 700" text="00.00">
+                <font>
+                    <Font size="14.0"/>
+                </font>
+                <padding>
+                    <Insets right="330.0"/>
+                </padding>
+
+            </Label>
+            <Label fx:id="lblPurRegYrTotalClosing" style="-fx-font-weight: 700" text="00.00">
+                <font>
+                    <Font size="14.0"/>
+                </font>
+            </Label>
+            <Region HBox.hgrow="ALWAYS"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

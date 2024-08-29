@@ -1,0 +1,301 @@
+.firstBox {
+	-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 1, 1);
+	-fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #F6F6F9, #F6F6F9), #FFF;
+	-fx-background-radius: 6;
+	-fx-border-radius: 6;
+}
+
+.imageView {
+	-fx-border-radius: 6px;
+	-fx-background-radius: 6px;
+}
+
+.prevBtnStyle {
+	-fx-border-radius: 50px;
+	-fx-background-radius: 50px;
+	-fx-background-color: rgba(0, 0, 0, 0.10);
+}
+
+.nextBtnStyle {
+	-fx-border-radius: 50px;
+	-fx-background-radius: 50px;
+	-fx-background-color: rgba(0, 0, 0, 0.10);
+}
+
+
+.topFrText {
+	-fx-text-fill: #000;
+	-fx-font-family: "Arial";
+	-fx-font-size: 18px;
+	-fx-font-style: normal;
+	-fx-font-weight: bold;
+}
+
+.viewAllStyle {}
+
+.viewAllStyle:hover {
+	-fx-border-width: 1px;
+	-fx-border-color: #dcdcdc;
+	-fx-background-color: #f3f3f3;
+	-fx-padding: 10px;
+	-fx-text-fill: #000;
+}
+
+.innerLabel {
+	-fx-text-fill: #5C5C5C;
+	-fx-font-family: "Arial";
+	-fx-font-size: 14px;
+	-fx-font-style: normal;
+	-fx-font-weight: bold;
+}
+
+.greenBtnStyle {
+	-fx-background-color: #21C78A;
+	-fx-background-radius: 6;
+	-fx-effect: dropshadow(gaussian, rgba(0, 222, 163, 0.06), 0, 6, 16, 0);
+	/*-fx-effect: dropshadow(gaussian, transparent, 0, 0, 7.5, 7.5);*/
+	-fx-font-family: "Arial";
+	-fx-text-fill: white;
+	-fx-font-size: 14px;
+	-fx-font-style: normal;
+	-fx-font-weight: 500;
+	-fx-letter-spacing: -0.26px;
+}
+
+.whiteBtnStyle {
+	-fx-border-radius: 6px;
+	-fx-border-width: 1px;
+	-fx-border-color: #D9D9D9;
+	-fx-background-radius: 6;
+	-fx-background-color: rgba(0, 0, 0, 0);
+	-fx-text-fill: #232927;
+	-fx-alignment: center;
+	-fx-font-family: "Arial";
+	-fx-font-size: 14px;
+	-fx-font-style: normal;
+	-fx-font-weight: 500;
+	-fx-line-spacing: 20px;
+	-fx-letter-spacing: -0.26px;
+}
+
+.middleCards {
+	-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 1, 1);
+	-fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #F6F6F9, #F6F6F9), #FFF;
+	-fx-background-radius: 6;
+	-fx-padding: 6;
+}
+
+.bottomCards {
+	-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 1, 1);
+	-fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #F6F6F9, #F6F6F9), #FFF;
+	-fx-background-radius: 6;
+	-fx-padding: 10, 30, 10, 30;
+}
+
+.bottomCardTitleStyle {
+	-fx-text-fill: #000;
+	/* JavaFX uses -fx-text-fill instead of color */
+	-fx-alignment: center;
+	-fx-font-family: "Arial";
+	-fx-font-size: 16px;
+	-fx-font-style: normal;
+	-fx-font-weight: 500;
+}
+
+.bottomCardSubTitleStyle {
+	-fx-text-fill: #000;
+	/* JavaFX uses -fx-text-fill instead of color */
+	-fx-alignment: center;
+	-fx-font-family: "Arial";
+	-fx-font-size: 14px;
+	-fx-font-style: normal;
+	-fx-font-weight: 500;
+	-fx-opacity: 0.5;
+}
+
+.bottomSingleCardStyle {
+	-fx-text-fill: #818A92;
+	/* JavaFX uses -fx-text-fill instead of color */
+	-fx-font-family: "Arial";
+	-fx-font-size: 13px;
+	-fx-font-style: normal;
+	-fx-font-weight: 400;
+}
+
+/*  */
+.combo-box {
+	-fx-background-color: #fff;
+	-fx-border-color: #ccc;
+	-fx-border-radius: 2px;
+	-fx-pref-height: 30px;
+	-fx-border-width: 1px;
+}
+
+.combo-box .text-input {
+	-fx-background-color: transparent;
+	-fx-border-radius: 0px;
+	-fx-border-color: transparent;
+}
+
+.combo-box:focused {
+	-fx-background-color: #fff9c4;
+	-fx-border-color: #00a0f5;
+	-fx-border-width: 2px;
+}
+
+.combo-box-popup {
+	-fx-background-color: #fff;
+	-fx-border-color: #ccc;
+	-fx-border-radius: 0px;
+	-fx-pref-height: 100px;
+	-fx-pref-width: 300px;
+}
+
+
+.combo-box-popup .list-cell {
+	-fx-text-fill: #333333;
+	-fx-font-size: 14px;
+	-fx-padding: 5px;
+}
+
+
+.combo-box-popup .list-cell:hover {
+	-fx-background-color: #b3e4ff;
+}
+
+.combo-box-popup .list-view .list-cell:selected {
+	-fx-background-color: #00a0f5;
+	-fx-text-fill: white;
+}
+
+.combo-box .arrow-button {
+	-fx-background-color: transparent;
+	-fx-min-width: 20px;
+	-fx-min-height: 20px;
+}
+
+/*  */
+
+
+/*  */
+.tab-pane {}
+
+.tab-pane .tab-header-background {
+	/*-fx-background-color: #e9f7fd;*/
+}
+
+.tab-pane .tab {
+	-fx-background-color: #e9f7fd !important;
+	/* Set the background color of non-selected tabs */
+	-fx-text-fill: black;
+	/* Set the text color of non-selected tabs */
+}
+
+.longTab {
+	-fx-pref-width: 200px;
+}
+
+.tab-pane .tab:selected {
+	-fx-background-color: #d9f0fb !important;
+	-fx-border-color: #c7dbe4;
+	-fx-border-radius: 4
+}
+
+.tab-pane .tab:hover {
+	-fx-background-color: #d9f0fb !important;
+}
+
+/*  */
+
+
+.normal-indicator {
+	-fx-background-color: #fff;
+	-fx-opacity: 0.5;
+}
+
+.selected-indicator {
+	-fx-background-color: #fff;
+	-fx-opacity: 1;
+}
+
+.btnPurStyle {
+	-fx-background-color: #21C78A;
+	-fx-background-radius: 6;
+	-fx-effect: dropshadow(gaussian, rgba(0, 222, 163, 0.06), 0, 6, 16, 0);
+	-fx-font-family: "Arial";
+	-fx-text-fill: #fff;
+	-fx-font-size: 13px;
+}
+
+.btnSaleStyle {
+	-fx-border-radius: 6px;
+	-fx-border-width: 1px;
+	-fx-border-color: #D9D9D9;
+	-fx-background-radius: 6;
+	-fx-background-color: #fff;
+	-fx-text-fill: #232927;
+	-fx-font-family: "Arial";
+	-fx-font-size: 13px;
+}
+
+/* Hide the TableView header */
+#frCommonTableDesign .column-header-background {
+	-fx-background-color: transparent;
+	/* Make the background transparent */
+	-fx-border-width: 0px;
+	/* Remove border */
+}
+
+#frCommonTableDesign .column-header {
+	-fx-background-color: transparent;
+	/* Make the background transparent */
+	-fx-border-width: 0px;
+	/* Remove border */
+}
+
+#frCommonTableDesign .filler {
+	-fx-background-color: transparent;
+	/* Make the background transparent */
+}
+
+/* Remove the border around the TableView */
+#frCommonTableDesign {
+	-fx-background-color: transparent;
+	/* Make the background transparent */
+	-fx-border-color: transparent;
+	/* Remove border color */
+	-fx-border-width: 0px;
+	/* Remove border width */
+}
+
+/* Hide the grid lines */
+/* #frCommonTableDesign .table-row-cell, #frCommonTableDesign .table-cell {
+    -fx-border-width: 0px; */
+/* Remove cell borders */
+/*
+}*/
+
+/* Optional: Adjust the border color and width */
+#frCommonTableDesign .table-row-cell,
+#frCommonTableDesign .table-cell {
+	-fx-border-color: transparent transparent transparent transparent;
+	/* Light gray bottom border */
+	-fx-border-width: 0 0 0 0;
+	/* 1 pixel bottom border */
+}
+
+/* Optional: Adjust the padding of the cells to fit the content more tightly */
+#frCommonTableDesign .table-cell {
+	-fx-padding: 5px;
+	/* Adjust the padding as needed */
+}
+
+
+#carousalsImagesStyle {
+	-fx-background-radius: 6;
+	/* Adjust the radius as needed */
+	-fx-border-radius: 6;
+	/* Adjust the radius as needed */
+	-fx-background-insets: 0;
+	/* Optional: Adjust insets if necessary */
+}

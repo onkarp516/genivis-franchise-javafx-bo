@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="mainBorderpane" stylesheets="@../css/reportsCommonStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.opethic.genivis.controller.GSTR3B.GSTR3BDashboardController">
+    <top>
+        <VBox BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER" style="-fx-background-color: #b8e3fa;">
+                    <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" styleClass="mainTitleStyle" text="GSTIN : GSTR-3B">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+                <HBox style="-fx-background-color: #d9f0fb;">
+                    <children>
+                  <HBox alignment="CENTER_LEFT" spacing="15.0">
+                     <children>
+                              <Label text="From Date">
+                                  <font>
+                                      <Font size="14.0" />
+                                  </font>
+                                  <HBox.margin>
+                                      <Insets />
+                                  </HBox.margin>
+                        </Label>
+                              <TextField fx:id="tfStartDt" promptText="DD/MM/YYYY">
+                                  <HBox.margin>
+                                      <Insets />
+                                  </HBox.margin>
+                        </TextField>
+                        <Label text="To Date">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                              <TextField fx:id="tfEndDt" promptText="DD/MM/YYYY">
+                                  <HBox.margin>
+                                      <Insets />
+                                  </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                        <HBox alignment="CENTER_RIGHT" spacing="10.0" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                    <graphic>
+                                        <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../assets/pdf.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                    <graphic>
+                                        <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../assets/excel.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                    <graphic>
+                                        <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../assets/csv.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                    <graphic>
+                                        <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../assets/print.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                </Button>
+                            </children>
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                        </HBox>
+                    </children>
+               <padding>
+                  <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+               </padding>
+                </HBox>
+            </children>
+        </VBox>
+    </top>
+   <center>
+      <TableView fx:id="tblvGSTR3BDashboardList" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="tblGSTR3BDashboardTable_no" text="Table No." />
+          <TableColumn fx:id="tblGSTR3BDashboardParticulars" text="Particulars" />
+            <TableColumn fx:id="tblGSTR3BDashboardTaxableAmt" text="Taxable Amt." />
+            <TableColumn fx:id="tblGSTR3BDashboardIGSTAmt" text="IGST Amt." />
+            <TableColumn fx:id="tblGSTR3BDashboardCGSTAmt" text="CGST Amt." />
+            <TableColumn fx:id="tblGSTR3BDashboardSGSTAmt" text="SGST Amt." />
+            <TableColumn fx:id="tblGSTR3BDashboardCessAmt" text="Cess Amt." />
+            <TableColumn fx:id="tblGSTR3BDashboardTaxAmt" text="Tax Amt." />
+        </columns>
+      </TableView>
+   </center>
+</BorderPane>

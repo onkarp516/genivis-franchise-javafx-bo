@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<!--<?import com.opethic.genivis.controller.commons.SwitchButton?>-->
+
+<BorderPane fx:id="mainBorderPane" stylesheets="@../css/commonStyles.css" xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.opethic.genivis.controller.Reports.AccountsLedgerReport1Controller">
+    <top>
+        <VBox>
+            <HBox alignment="CENTER" style="-fx-background-color: #b8e3fa;">
+                <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-font-weight: 700; -fx-font-size: 16;"
+                       text="List Of Ledger">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+            </HBox>
+            <HBox style="-fx-background-color: #d9f0fb;">
+                <TextField fx:id="tfAccountsLedgerReport1ListSearch" prefHeight="30.0"
+                           promptText="Search Ledger">
+                    <HBox.margin>
+                        <Insets left="10.0" top="10.0"/>
+                    </HBox.margin>
+                </TextField>
+
+
+                <CheckBox fx:id="cbWithBalance" mnemonicParsing="false"
+                          text="With Balance">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                    <HBox.margin>
+                        <Insets left="10.0" right="10.0" top="15.0"/>
+                    </HBox.margin>
+                </CheckBox>
+
+                <CheckBox fx:id="cbDebtors" mnemonicParsing="false"
+                          text="Debtors">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                    <HBox.margin>
+                        <Insets left="10.0" right="10.0" top="15.0"/>
+                    </HBox.margin>
+                </CheckBox>
+                <CheckBox fx:id="cbCreditors" mnemonicParsing="false"
+                          text="Creditors">
+                    <HBox.margin>
+                        <Insets left="10.0" right="10.0" top="15.0"/>
+                    </HBox.margin>
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </CheckBox>
+                <Label style="-fx-font-weight: 600;" text="Amount :">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                    <HBox.margin>
+                        <Insets left="20.0" top="15.0"/>
+                    </HBox.margin>
+                </Label>
+                <TextField fx:id="tfFromAmt" prefHeight="30.0"
+                           promptText="From">
+                    <HBox.margin>
+                        <Insets top="10.0"/>
+                    </HBox.margin>
+                </TextField>
+                <TextField fx:id="tfToAmt" prefHeight="30.0"
+                           promptText="To">
+                    <HBox.margin>
+                        <Insets left="10.0" top="10.0"/>
+                    </HBox.margin>
+                </TextField>
+                <Button fx:id="btReset" mnemonicParsing="false"
+                        onAction="#handleResetAction" prefHeight="30.0" styleClass="submit-btn"
+                        text="Reset" textFill="WHITE">
+                    <HBox.margin>
+                        <Insets left="10.0" top="10.0"/>
+                    </HBox.margin>
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </Button>
+                <Region HBox.hgrow="ALWAYS"/>
+                <HBox>
+
+                    <Button fx:id="btExportPdf" mnemonicParsing="false" prefHeight="12.0"
+                            style="-fx-background-color: transparent;">
+                        <graphic>
+                            <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../assets/pdf.png"/>
+                                </image>
+                            </ImageView>
+                        </graphic>
+                        <HBox.margin>
+                            <Insets left="10.0" right="10.0" top="7.0"/>
+                        </HBox.margin>
+                    </Button>
+                    <Button fx:id="btExportExcel" mnemonicParsing="false" prefHeight="12.0"
+                            style="-fx-background-color: transparent;">
+                        <graphic>
+                            <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../assets/excel.png"/>
+                                </image>
+                            </ImageView>
+                        </graphic>
+                        <HBox.margin>
+                            <Insets right="10.0" top="7.0"/>
+                        </HBox.margin>
+                    </Button>
+                    <Button fx:id="btExportCsv" mnemonicParsing="false" prefHeight="12.0"
+                            style="-fx-background-color: transparent;">
+                        <graphic>
+                            <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../assets/csv.png"/>
+                                </image>
+                            </ImageView>
+                        </graphic>
+                        <HBox.margin>
+                            <Insets right="10.0" top="7.0"/>
+                        </HBox.margin>
+                    </Button>
+                    <Button fx:id="btExportPrint" mnemonicParsing="false" prefHeight="12.0"
+                            style="-fx-background-color: transparent;">
+                        <graphic>
+                            <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../assets/print.png"/>
+                                </image>
+                            </ImageView>
+                        </graphic>
+                        <HBox.margin>
+                            <Insets top="7.0"/>
+                        </HBox.margin>
+                    </Button>
+                </HBox>
+            </HBox>
+        </VBox>
+    </top>
+    <center>
+        <TableView fx:id="tblLedgerReport1List" editable="true" layoutX="4.0" layoutY="90.0"
+                   stylesheets="@../css/hsnStyle.css" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="tblLedgerReport1Principle" text="Principle"/>
+                <TableColumn fx:id="tblLedgerReport1Name" text="Name"/>
+                <TableColumn fx:id="tblLedgerReport1Type" text="Type"/>
+                <TableColumn fx:id="tblLedgerReport1BalancingMethod"
+                             text="Balancing Method"/>
+                <TableColumn fx:id="tblLedgerReport1DebitAmt" text="Debit"/>
+                <TableColumn fx:id="tblLedgerReport1CreditAmt" text="Credit"/>
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+            <BorderPane.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </BorderPane.margin>
+        </TableView>
+    </center>
+    <bottom>
+        <HBox>
+            <Label style="-fx-font-weight: 700" text="Total">
+
+                <font>
+                    <Font size="14.0"/>
+                </font>
+            </Label>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="lblTotalDebit" style="-fx-font-weight: 700" text="00.00">
+                <font>
+                    <Font size="14.0"/>
+                </font>
+
+            </Label>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="lblTotalCredit" style="-fx-font-weight: 700" text="00.00">
+                <font>
+                    <Font size="14.0"/>
+                </font>
+
+            </Label>
+            <Region HBox.hgrow="ALWAYS"/>
+        </HBox>
+    </bottom>
+</BorderPane>

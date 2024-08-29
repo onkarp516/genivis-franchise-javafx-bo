@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="bpRootPane" stylesheets="@../css/dashboardStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.opethic.genivis.controller.dashboard.DashboardController">
+    <center>
+        <VBox prefHeight="394.0" prefWidth="811.0" style="-fx-background-color: #eceef1;" BorderPane.alignment="CENTER">
+            <children>
+                <HBox maxHeight="150.0" VBox.vgrow="ALWAYS">
+                    <children>
+                        <HBox style="-fx-background-color: #fff; -fx-background-radius: 6;" HBox.hgrow="ALWAYS">
+                            <children>
+                                <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <HBox>
+                                            <children>
+                                                <GridPane HBox.hgrow="ALWAYS">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="ALWAYS" />
+                                                        <ColumnConstraints />
+                                                        <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+                                                        <ColumnConstraints />
+                                                        <ColumnConstraints />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <Label styleClass="commonCardTitleStyle" stylesheets="@../css/dashboardStyle.css" text="Revenue" />
+                                                        <Label styleClass="commonCardTitleStyle" stylesheets="@../css/dashboardStyle.css" text="..." GridPane.columnIndex="4" />
+                                                        <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                                                            <image>
+                                                                <Image url="@../assets/dashboard/secondcard.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </children>
+                                                </GridPane>
+                                            </children>
+                                        </HBox>
+                                        <Label styleClass="textMuted" text="TOTAL REVENUE" />
+                                        <GridPane hgap="5.0" vgap="5.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints />
+                                                <ColumnConstraints hgrow="ALWAYS" />
+                                                <ColumnConstraints />
+                                                <ColumnConstraints hgrow="ALWAYS" />
+                                                <ColumnConstraints />
+                                                <ColumnConstraints hgrow="ALWAYS" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <ImageView fitHeight="34.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../assets/dashboard/Photo1.png" />
+                                                    </image>
+                                                </ImageView>
+                                                <VBox GridPane.columnIndex="1">
+                                                    <children>
+                                                        <Label styleClass="weeksStyle" text="Today" />
+                                          <HBox alignment="CENTER_LEFT" spacing="1.0">
+                                             <children>
+                                                              <Label styleClass="amountStyleText" text="₹" />
+                                                <Label fx:id="lblRevenueToday" styleClass="amountStyleText" text="0" />
+                                             </children>
+                                          </HBox>
+                                                    </children>
+                                                </VBox>
+                                                <VBox GridPane.columnIndex="3">
+                                                    <children>
+                                                        <Label styleClass="weeksStyle" text="This Week" />
+                                          <HBox alignment="CENTER_LEFT" spacing="1.0">
+                                             <children>
+                                                              <Label styleClass="amountStyleText" text="₹" />
+                                                <Label fx:id="lblRevenueThisWeek" styleClass="amountStyleText" text="0" />
+                                             </children>
+                                          </HBox>
+                                                    </children>
+                                                </VBox>
+                                                <VBox GridPane.columnIndex="5">
+                                                    <children>
+                                                        <Label styleClass="weeksStyle" text="This Month" />
+                                          <HBox alignment="CENTER_LEFT" spacing="1.0">
+                                             <children>
+                                                              <Label styleClass="amountStyleText" text="₹" />
+                                                <Label fx:id="lblRevenueThisMonth" styleClass="amountStyleText" text="0" />
+                                             </children>
+                                          </HBox>
+                                                    </children>
+                                                </VBox>
+                                                <ImageView fitHeight="37.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+                                                    <image>
+                                                        <Image url="@../assets/dashboard/Photo2.png" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="35.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4">
+                                                    <image>
+                                                        <Image url="@../assets/dashboard/Photo3.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                </VBox>
+                            </children>
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </HBox.margin>
+                            <padding>
+                                <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                            </padding>
+                        </HBox>
+                        <HBox style="-fx-background-color: #fff; -fx-background-radius: 6;" HBox.hgrow="ALWAYS">
+                            <children>
+                                <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <HBox>
+                                            <children>
+                                                <GridPane HBox.hgrow="ALWAYS">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="ALWAYS" />
+                                                        <ColumnConstraints />
+                                                        <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+                                                        <ColumnConstraints />
+                                                        <ColumnConstraints />
+                                                        <ColumnConstraints />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <Label styleClass="commonCardTitleStyle" text="Collection" />
+                                                        <Label styleClass="commonCardTitleStyle" text="..." GridPane.columnIndex="5" />
+                                                        <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                                                            <image>
+                                                                <Image url="@../assets/dashboard/firstcard.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </children>
+                                                </GridPane>
+                                            </children>
+                                        </HBox>
+                                        <Label styleClass="textMuted" text="TOTAL COLLECTION" />
+                                        <GridPane hgap="5.0" vgap="5.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints />
+                                                <ColumnConstraints hgrow="ALWAYS" />
+                                                <ColumnConstraints />
+                                                <ColumnConstraints hgrow="ALWAYS" />
+                                                <ColumnConstraints />
+                                                <ColumnConstraints hgrow="ALWAYS" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <ImageView fitHeight="34.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../assets/dashboard/Photo1.png" />
+                                                    </image>
+                                                </ImageView>
+                                                <VBox GridPane.columnIndex="1">
+                                                    <children>
+                                                        <Label styleClass="weeksStyle" text="Today" />
+                                          <HBox alignment="CENTER_LEFT" spacing="1.0">
+                                             <children>
+                                                <Label styleClass="amountStyleText" text="₹" />
+                                                <Label fx:id="lblCollectionToday" styleClass="amountStyleText" text="0" />
+                                             </children>
+                                          </HBox>
+                                                    </children>
+                                                </VBox>
+                                                <VBox GridPane.columnIndex="3">
+                                                    <children>
+                                                        <Label styleClass="weeksStyle" text="This Week" />
+                                          <HBox alignment="CENTER_LEFT" spacing="1.0">
+                                             <children>
+                                                <Label styleClass="amountStyleText" text="₹" />
+                                                <Label fx:id="lblCollectionThisWeek" styleClass="amountStyleText" text="0" />
+                                             </children>
+                                          </HBox>
+                                                    </children>
+                                                </VBox>
+                                                <VBox GridPane.columnIndex="5">
+                                                    <children>
+                                                        <Label styleClass="weeksStyle" text="This Month" />
+                                          <HBox alignment="CENTER_LEFT" spacing="1.0">
+                                             <children>
+                                                <Label styleClass="amountStyleText" text="₹" />
+                                                <Label fx:id="lblCollectionThisMonth" styleClass="amountStyleText" text="0" />
+                                             </children>
+                                          </HBox>
+                                                    </children>
+                                                </VBox>
+                                                <ImageView fitHeight="37.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+                                                    <image>
+                                                        <Image url="@../assets/dashboard/Photo2.png" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="35.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4">
+                                                    <image>
+                                                        <Image url="@../assets/dashboard/Photo3.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                </VBox>
+                            </children>
+                            <padding>
+                                <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                            </padding>
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </HBox.margin>
+                        </HBox>
+                        <HBox style="-fx-background-color: #fff; -fx-background-radius: 6;" HBox.hgrow="ALWAYS">
+                            <children>
+                                <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <HBox>
+                                            <children>
+                                                <GridPane HBox.hgrow="ALWAYS">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="ALWAYS" />
+                                                        <ColumnConstraints />
+                                                        <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+                                                        <ColumnConstraints />
+                                                        <ColumnConstraints />
+                                                        <ColumnConstraints />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <Label styleClass="commonCardTitleStyle" text="Receivable" />
+                                                        <Label styleClass="commonCardTitleStyle" text="..." GridPane.columnIndex="5" />
+                                                        <ImageView fitHeight="65.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                                                            <image>
+                                                                <Image url="@../assets/dashboard/thirdcard.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </children>
+                                                </GridPane>
+                                            </children>
+                                        </HBox>
+                                        <Label styleClass="textMuted" text="TOTAL RECEIVABLE" />
+                                        <GridPane hgap="5.0" vgap="5.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints />
+                                                <ColumnConstraints hgrow="ALWAYS" />
+                                                <ColumnConstraints />
+                                                <ColumnConstraints hgrow="ALWAYS" />
+                                                <ColumnConstraints />
+                                                <ColumnConstraints hgrow="ALWAYS" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <ImageView fitHeight="34.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../assets/dashboard/Photo1.png" />
+                                                    </image>
+                                                </ImageView>
+                                                <VBox GridPane.columnIndex="1">
+                                                    <children>
+                                                        <Label styleClass="weeksStyle" text="Today" />
+                                          <HBox alignment="CENTER_LEFT" spacing="1.0">
+                                             <children>
+                                                <Label styleClass="amountStyleText" text="₹" />
+                                                <Label fx:id="lblReceivableToday" styleClass="amountStyleText" text="0" />
+                                             </children>
+                                          </HBox>
+                                                    </children>
+                                                </VBox>
+                                                <VBox GridPane.columnIndex="3">
+                                                    <children>
+                                                        <Label styleClass="weeksStyle" text="This Week" />
+                                          <HBox alignment="CENTER_LEFT" spacing="1.0">
+                                             <children>
+                                                <Label styleClass="amountStyleText" text="₹" />
+                                                <Label fx:id="lblReceivableThisWeek" styleClass="amountStyleText" text="0" />
+                                             </children>
+                                          </HBox>
+                                                    </children>
+                                                </VBox>
+                                                <VBox GridPane.columnIndex="5">
+                                                    <children>
+                                                        <Label styleClass="weeksStyle" text="This Month" />
+                                          <HBox alignment="CENTER_LEFT" spacing="1.0">
+                                             <children>
+                                                <Label styleClass="amountStyleText" text="₹" />
+                                                <Label fx:id="lblReceivableThisMonth" styleClass="amountStyleText" text="0" />
+                                             </children>
+                                          </HBox>
+                                                    </children>
+                                                </VBox>
+                                                <ImageView fitHeight="37.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+                                                    <image>
+                                                        <Image url="@../assets/dashboard/Photo2.png" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="35.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4">
+                                                    <image>
+                                                        <Image url="@../assets/dashboard/Photo3.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                </VBox>
+                            </children>
+                            <padding>
+                                <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                            </padding>
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </HBox.margin>
+                        </HBox>
+                    </children>
+                    <padding>
+                        <Insets bottom="2.0" left="8.0" right="8.0" top="8.0" />
+                    </padding>
+                </HBox>
+                <HBox maxHeight="400.0" VBox.vgrow="ALWAYS">
+                    <children>
+                        <HBox style="-fx-background-color: #fff; -fx-background-radius: 6;" HBox.hgrow="ALWAYS">
+                            <children>
+                                <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <HBox VBox.vgrow="ALWAYS">
+                                            <children>
+                                                <GridPane HBox.hgrow="ALWAYS">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="ALWAYS" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <Label styleClass="commonCardTitleStyle" text="Product/Stock" />
+                                                        <Label styleClass="commonCardTitleStyle" text="..." GridPane.columnIndex="1" />
+                                                    </children>
+                                                </GridPane>
+                                            </children>
+                                        </HBox>
+                                        <TableView fx:id="tblvDashboardProductStock" VBox.vgrow="ALWAYS">
+                                            <columns>
+                                                <TableColumn fx:id="tblcDashboardProductName" prefWidth="75.0" text="Product Name" />
+                                                <TableColumn fx:id="tblcDashboardBrand" prefWidth="75.0" text="Brand" />
+                                                <TableColumn fx:id="tblcDashboardClosingStock" prefWidth="75.0" text="Closing Stock" />
+                                            </columns>
+                                        </TableView>
+                                    </children>
+                                </VBox>
+                            </children>
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </HBox.margin>
+                            <padding>
+                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                            </padding>
+                        </HBox>
+                        <HBox style="-fx-background-color: #fff; -fx-background-radius: 6;" HBox.hgrow="ALWAYS">
+                            <children>
+                                <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <HBox VBox.vgrow="ALWAYS">
+                                            <children>
+                                                <HBox HBox.hgrow="ALWAYS">
+                                                    <children>
+                                                        <VBox spacing="15.0" HBox.hgrow="ALWAYS">
+                                                            <children>
+                                                                <GridPane>
+                                                                    <columnConstraints>
+                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                    </columnConstraints>
+                                                                    <rowConstraints>
+                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                    </rowConstraints>
+                                                                    <children>
+                                                                        <Label styleClass="commonCardTitleStyle" text="Income" />
+                                                                    </children>
+                                                                </GridPane>
+                                                                <GridPane>
+                                                                    <columnConstraints>
+                                                                        <ColumnConstraints hgrow="ALWAYS" />
+                                                                        <ColumnConstraints />
+                                                                        <ColumnConstraints />
+                                                                    </columnConstraints>
+                                                                    <rowConstraints>
+                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                    </rowConstraints>
+                                                                    <children>
+                                                                        <HBox styleClass="rupeesIconStyle" GridPane.columnIndex="1">
+                                                                            <children>
+                                                                                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                                                                    <image>
+                                                                                        <Image url="@../assets/dashboard/Rupees.png" />
+                                                                                    </image>
+                                                                                </ImageView>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <VBox>
+                                                                            <children>
+                                                            <HBox alignment="CENTER_LEFT" spacing="1.0">
+                                                               <children>
+                                                                  <Label styleClass="commonCardTitleStyle" text="₹" />
+                                                                  <Label fx:id="lblIncomeThisMonth" styleClass="commonCardTitleStyle" text="0.0" />
+                                                               </children>
+                                                            </HBox>
+                                                                                <Label styleClass="textMuted" text="THIS MONTH" />
+                                                                            </children>
+                                                                        </VBox>
+                                                                    </children>
+                                                                </GridPane>
+                                                                <HBox alignment="CENTER_LEFT" spacing="8.0">
+                                                                    <children>
+                                                                        <HBox alignment="CENTER_LEFT">
+                                                                            <children>
+                                                                                <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                                                    <image>
+                                                                                        <Image url="@../assets/dashboard/chartbar.png" />
+                                                                                    </image>
+                                                                                </ImageView>
+                                                                                <Label styleClass="greenText" text="+21.0%" />
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <Label styleClass="bottomMutedText" text="₹ 2,28,650.00" />
+                                                                        <Label styleClass="bottomMutedText" text="Last Month" />
+                                                                    </children>
+                                                                </HBox>
+                                                            </children>
+                                                        </VBox>
+                                                    </children>
+                                                    <padding>
+                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                    </padding>
+                                                    <HBox.margin>
+                                                        <Insets />
+                                                    </HBox.margin>
+                                                </HBox>
+                                                <Separator orientation="VERTICAL" />
+                                                <HBox HBox.hgrow="ALWAYS">
+                                                    <children>
+                                                        <VBox spacing="15.0" HBox.hgrow="ALWAYS">
+                                                            <children>
+                                                                <GridPane>
+                                                                    <columnConstraints>
+                                                                        <ColumnConstraints hgrow="ALWAYS" />
+                                                                        <ColumnConstraints />
+                                                                    </columnConstraints>
+                                                                    <rowConstraints>
+                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                    </rowConstraints>
+                                                                    <children>
+                                                                        <Label styleClass="commonCardTitleStyle" text="Expenses" />
+                                                                        <Label styleClass="commonCardTitleStyle" text="..." GridPane.columnIndex="1" />
+                                                                    </children>
+                                                                </GridPane>
+                                                                <GridPane>
+                                                                    <columnConstraints>
+                                                                        <ColumnConstraints hgrow="ALWAYS" />
+                                                                        <ColumnConstraints />
+                                                                        <ColumnConstraints />
+                                                                    </columnConstraints>
+                                                                    <rowConstraints>
+                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                    </rowConstraints>
+                                                                    <children>
+                                                                        <VBox>
+                                                                            <children>
+                                                            <HBox alignment="CENTER_LEFT" spacing="1.0">
+                                                               <children>
+                                                                  <Label styleClass="commonCardTitleStyle" text="₹" />
+                                                                  <Label fx:id="lblExpensesThisMonth" styleClass="commonCardTitleStyle" text="0" />
+                                                               </children>
+                                                            </HBox>
+                                                                                <Label styleClass="textMuted" text="THIS MONTH" />
+                                                                            </children>
+                                                                        </VBox>
+                                                                        <HBox styleClass="rupeesIconStyle" GridPane.columnIndex="1">
+                                                                            <children>
+                                                                                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                                                                    <image>
+                                                                                        <Image url="@../assets/dashboard/Rupees.png" />
+                                                                                    </image>
+                                                                                </ImageView>
+                                                                            </children>
+                                                                        </HBox>
+                                                                    </children>
+                                                                </GridPane>
+                                                                <HBox alignment="CENTER_LEFT" spacing="8.0">
+                                                                    <children>
+                                                                        <HBox alignment="CENTER_LEFT">
+                                                                            <children>
+                                                                                <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                                                    <image>
+                                                                                        <Image url="@../assets/dashboard/chartbar2.png" />
+                                                                                    </image>
+                                                                                </ImageView>
+                                                                                <Label styleClass="redText" text="+17.0%" />
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <Label styleClass="bottomMutedText" text="₹ 2,28,650.00" />
+                                                                        <Label styleClass="bottomMutedText" text="Last Month" />
+                                                                    </children>
+                                                                </HBox>
+                                                            </children>
+                                                        </VBox>
+                                                    </children>
+                                                    <padding>
+                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                    </padding>
+                                                </HBox>
+                                            </children>
+                                        </HBox>
+                                        <Separator />
+                                        <HBox VBox.vgrow="ALWAYS">
+                                            <children>
+                                                <HBox HBox.hgrow="ALWAYS">
+                                                    <children>
+                                                        <VBox spacing="15.0" HBox.hgrow="ALWAYS">
+                                                            <children>
+                                                                <GridPane>
+                                                                    <columnConstraints>
+                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                    </columnConstraints>
+                                                                    <rowConstraints>
+                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                    </rowConstraints>
+                                                                    <children>
+                                                                        <Label styleClass="commonCardTitleStyle" text="Asset" />
+                                                                    </children>
+                                                                </GridPane>
+                                                                <GridPane>
+                                                                    <columnConstraints>
+                                                                        <ColumnConstraints hgrow="ALWAYS" />
+                                                                        <ColumnConstraints />
+                                                                        <ColumnConstraints />
+                                                                    </columnConstraints>
+                                                                    <rowConstraints>
+                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                    </rowConstraints>
+                                                                    <children>
+                                                                        <HBox styleClass="rupeesIconStyle" GridPane.columnIndex="1">
+                                                                            <children>
+                                                                                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                                                                    <image>
+                                                                                        <Image url="@../assets/dashboard/Rupees.png" />
+                                                                                    </image>
+                                                                                </ImageView>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <VBox>
+                                                                            <children>
+                                                            <HBox alignment="CENTER_LEFT" spacing="1.0">
+                                                               <children>
+                                                                  <Label styleClass="commonCardTitleStyle" text="₹" />
+                                                                  <Label fx:id="lblAssetTotalAsset" styleClass="commonCardTitleStyle" text="0" />
+                                                               </children>
+                                                            </HBox>
+                                                                                <Label styleClass="textMuted" text="TOTAL ASSET" />
+                                                                            </children>
+                                                                        </VBox>
+                                                                    </children>
+                                                                </GridPane>
+                                                                <HBox alignment="CENTER_LEFT" spacing="8.0">
+                                                                    <children>
+                                                                        <HBox alignment="CENTER_LEFT">
+                                                                            <children>
+                                                                                <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                                                    <image>
+                                                                                        <Image url="@../assets/dashboard/chartbar.png" />
+                                                                                    </image>
+                                                                                </ImageView>
+                                                                                <Label styleClass="greenText" text="+15.0%" />
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <Label styleClass="bottomMutedText" text="₹ 2,28,650.00" />
+                                                                        <Label styleClass="bottomMutedText" text="Last Month" />
+                                                                    </children>
+                                                                </HBox>
+                                                            </children>
+                                                        </VBox>
+                                                    </children>
+                                                    <padding>
+                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                    </padding>
+                                                </HBox>
+                                                <Separator orientation="VERTICAL" />
+                                                <HBox HBox.hgrow="ALWAYS">
+                                                    <children>
+                                                        <VBox spacing="15.0" HBox.hgrow="ALWAYS">
+                                                            <children>
+                                                                <GridPane>
+                                                                    <columnConstraints>
+                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                    </columnConstraints>
+                                                                    <rowConstraints>
+                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                    </rowConstraints>
+                                                                    <children>
+                                                                        <Label styleClass="commonCardTitleStyle" text="Liability" />
+                                                                    </children>
+                                                                </GridPane>
+                                                                <GridPane>
+                                                                    <columnConstraints>
+                                                                        <ColumnConstraints hgrow="ALWAYS" />
+                                                                        <ColumnConstraints />
+                                                                        <ColumnConstraints />
+                                                                    </columnConstraints>
+                                                                    <rowConstraints>
+                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                    </rowConstraints>
+                                                                    <children>
+                                                                        <HBox styleClass="rupeesIconStyle" GridPane.columnIndex="1">
+                                                                            <children>
+                                                                                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                                                                    <image>
+                                                                                        <Image url="@../assets/dashboard/Rupees.png" />
+                                                                                    </image>
+                                                                                </ImageView>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <VBox>
+                                                                            <children>
+                                                            <HBox alignment="CENTER_LEFT" spacing="1.0">
+                                                               <children>
+                                                                  <Label styleClass="commonCardTitleStyle" text="₹" />
+                                                                  <Label fx:id="lblLiabilityTotalLiability" styleClass="commonCardTitleStyle" text="0" />
+                                                               </children>
+                                                            </HBox>
+                                                                                <Label styleClass="textMuted" text="TOTAL LIABILITY" />
+                                                                            </children>
+                                                                        </VBox>
+                                                                    </children>
+                                                                </GridPane>
+                                                                <HBox alignment="CENTER_LEFT" spacing="8.0">
+                                                                    <children>
+                                                                        <HBox alignment="CENTER_LEFT">
+                                                                            <children>
+                                                                                <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                                                    <image>
+                                                                                        <Image url="@../assets/dashboard/chartbar.png" />
+                                                                                    </image>
+                                                                                </ImageView>
+                                                                                <Label styleClass="greenText" text="+12.0%" />
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <Label styleClass="bottomMutedText" text="₹ 2,28,650.00" />
+                                                                        <Label styleClass="bottomMutedText" text="Last Month" />
+                                                                    </children>
+                                                                </HBox>
+                                                            </children>
+                                                        </VBox>
+                                                    </children>
+                                                    <padding>
+                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                    </padding>
+                                                </HBox>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                            </children>
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </HBox.margin>
+                            <padding>
+                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                            </padding>
+                        </HBox>
+                    </children>
+                    <padding>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="2.0" />
+                    </padding>
+                </HBox>
+            </children>
+            <BorderPane.margin>
+                <Insets />
+            </BorderPane.margin>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+        </VBox>
+    </center>
+</BorderPane>

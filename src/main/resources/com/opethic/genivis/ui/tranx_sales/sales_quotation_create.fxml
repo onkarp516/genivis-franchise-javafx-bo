@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<!--        stylesheets="@../css/SalesQuotationCreate.css"-->
+
+<BorderPane fx:id="spSalesQuoatCreateRootPane" style="-fx-background-color: #D9F0FB;" stylesheets="@../css/TranxCommonCssStyles/tranxCommonCssStyle7.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.opethic.genivis.controller.tranx_sales.SalesQuotationCreateController">
+    <top>
+        <VBox id="topMainDiv" fx:id="vboxSalesQuotationCreateRoot" alignment="CENTER_LEFT" BorderPane.alignment="CENTER_LEFT">
+
+
+            <VBox id="topInnerDiv" alignment="CENTER_LEFT">
+                <HBox id="topInnerHbOne" fx:id="topInnerHbOne" alignment="CENTER_LEFT" spacing="20.0">
+
+                    <Label id="sqTranxDate" fx:id="lbSalesQuotationCreateTranxDate" text="Tranx Date" />
+                    <TextField fx:id="dpSalesQuotationCreateTranxDate" promptText="Tranx Date" />
+                    <!--                        <Label style=" -fx-font-size: 14px;" text="*" />-->
+                    <HBox id="sqlblClientName" alignment="CENTER_LEFT">
+                        <Label text="Client Name" />
+                        <Label style="-fx-text-fill: red;" text="*" />
+                    </HBox>
+                    <TextField fx:id="tfSalesQuotationCreateLedgerName" promptText="Client Name" HBox.hgrow="ALWAYS" />
+                    <Label text="Client GSTIN" />
+
+                    <ComboBox fx:id="cmbSalesQuotationCreateClientGST" promptText="Select" />
+
+                    <Label text="Sales A/C" />
+                    <ComboBox fx:id="cmbSalesQuotationCreateSalesAC" promptText="Select" />
+                </HBox>
+                <HBox id="topInnerHbTwo" fx:id="topInnerHbTwo" alignment="CENTER_LEFT" spacing="20.0">
+
+                    <Label text="Sales Serial" /> <!--prefHeight="27.0"-->
+                    <TextField fx:id="tfSalesQuotationCreateSalesSerial" promptText="Sales Serial" />
+                    <!--                        <Label text="Quotation No.*" />-->
+                    <HBox id="sqlblQutNo" alignment="CENTER_LEFT">
+                        <Label text="Quotation No." />
+                        <Label style="-fx-text-fill: red;" text="*" />
+                    </HBox>
+                    <TextField fx:id="tfSalesQuotationCreateQuotationNo" promptText="Quotation No." />
+                    <!--                        <Label text="Quotation Date*" />-->
+                    <HBox id="sqlblQutDate" alignment="CENTER_LEFT">
+                        <Label text="Quotation Date" />
+                        <Label style="-fx-text-fill: red;" text="*" />
+                    </HBox>
+
+                    <TextField fx:id="dpSalesQuotationCreateQuotationDate" promptText="Quotation Date" />
+                    <Label fx:id="lbSalesOrderQuot" maxWidth="200" minWidth="100" prefWidth="100" HBox.hgrow="ALWAYS" />
+                    <Button id="submit-btn" fx:id="addRowInCmpTRow" maxWidth="0" minWidth="0" prefWidth="0" style=" -fx-font-size: 14px;" text="" />
+                </HBox>
+            </VBox>
+
+        </VBox>
+    </top>
+    <center>
+        <TableView fx:id="tblvSalesQuotationCmptRow" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="tblcSalesQuotCreateSrNo" text="" />
+                <TableColumn fx:id="tblcSalesQuotCreateParticular" text="Particulars" />
+                <TableColumn fx:id="tblcSalesQuotCreatePackage" text="Package" />
+                <TableColumn fx:id="tcSalesQuotCreateCmpTRowLevelA" text="AAAA" />
+                <TableColumn fx:id="tcSalesQuotCreateCmpTRowLevelB" text="BBB" />
+                <TableColumn fx:id="tcSalesQuotCreateCmpTRowLevelC" text="CCCC" />
+                <TableColumn fx:id="tblcSalesQuotCreateUnit" text="Unit" />
+                <TableColumn fx:id="tblcSalesQuotCreateQty" text="Quantity" />
+                <TableColumn fx:id="tblcSalesQuotCreateFreeqty" text="Free" visible="false" />
+                <TableColumn fx:id="tblcSalesQuotCreateRate" text="Rate" />
+                <TableColumn fx:id="tblcSalesQuotCreateGrossAmt" text="Gross Amount" />
+                <TableColumn fx:id="tblcSalesQuotCreateDisPer" text="1-Dis.%" />
+                <TableColumn fx:id="tblcSalesQuotCreateDisRs" text="Dis.₹" />
+                <TableColumn fx:id="tblcSalesQuotCreateTax" text="Tax.%" />
+                <TableColumn fx:id="tblcSalesQuotCreateNetAmt" text="Net Amount" />
+                <TableColumn fx:id="tcSalesQuotCreateCmpTRowActions" text="" />
+                <!--                                tcSalesOrderCmpTRowActions-->
+            </columns>
+        </TableView>
+    </center>
+    <bottom>
+        <HBox fx:id="sqBottomMain" alignment="CENTER_LEFT" BorderPane.alignment="CENTER">
+            <VBox fx:id="sqBottomFirstV" alignment="TOP_LEFT" HBox.hgrow="ALWAYS">
+
+                <TabPane id="tabBackColor" fx:id="tpSalesQuotation" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+
+                        <Tab fx:id="tabSalesQuotaCreateLedger" text="Ledger">
+                            <content>
+                                <VBox id="tabMianDiv" alignment="CENTER_LEFT">
+                                    <children>
+                                        <VBox id="mainGridStyle" spacing="0">
+                                            <HBox id="tabInnerHb" alignment="CENTER_LEFT" spacing="10.0">
+                                                <children>
+                                                    <VBox id="rightBorder" spacing="5.0" HBox.hgrow="ALWAYS">
+                                                        <children>
+                                                            <HBox spacing="5.0">
+                                                                <children>
+                                                                    <Label id="gridCommonTextStyle" text="GST No:" textFill="#dd8913" />
+                                                                    <Label id="gridCommonTextStyleBlack" fx:id="lbSalesQuotationCreateledInfogstNo" textFill="#ce9645">
+
+                                                                    </Label>
+                                                                </children>
+                                                            </HBox>
+                                                            <HBox spacing="5.0">
+                                                                <children>
+                                                                    <Label id="gridCommonTextStyle" text="Area:" textFill="#ce9645" />
+                                                                    <Label id="gridCommonTextStyleBlack" fx:id="lbSalesQuotationCreateledInfoArea" textFill="#ce9645">
+
+                                                                    </Label>
+                                                                </children>
+                                                            </HBox>
+                                                            <HBox spacing="5.0">
+                                                                <children>
+                                                                    <Label id="gridCommonTextStyle" text="Bank:" textFill="#ce9645" />
+                                                                    <Label id="gridCommonTextStyleBlack" fx:id="lbSalesQuotationCreateledInfoBank" textFill="#ce9645">
+
+                                                                    </Label>
+                                                                </children>
+                                                            </HBox>
+                                                            <HBox spacing="5.0">
+                                                                <children>
+                                                                    <Label id="gridCommonTextStyle" textFill="#ce9645" />
+                                                                    <Label id="gridCommonTextStyleBlack" fx:id="lbSalesQuotationCreateledInfoBank1" textFill="#ce9645" />
+                                                                </children>
+                                                            </HBox>
+                                                        </children>
+                                                    </VBox>
+                                                    <VBox id="rightBorder" spacing="5.0" HBox.hgrow="ALWAYS">
+                                                        <children>
+                                                            <HBox spacing="5.0">
+                                                                <children>
+                                                                    <Label id="gridCommonTextStyle" text="Contact Person:" textFill="#ce9645" />
+                                                                    <Label id="gridCommonTextStyleBlack" fx:id="lbSalesQuotationCreateledInfoContPerson" textFill="#ce9645">
+
+                                                                    </Label>
+                                                                </children>
+                                                            </HBox>
+                                                            <HBox spacing="5.0">
+                                                                <children>
+                                                                    <Label id="gridCommonTextStyle" text="Transport:" textFill="#ce9645" />
+                                                                    <Label id="gridCommonTextStyleBlack" fx:id="lbSalesQuotationCreateledInfoMobNo" textFill="#ce9645">
+
+                                                                    </Label>
+                                                                </children>
+                                                            </HBox>
+                                                        </children>
+                                                    </VBox>
+                                                    <VBox id="rightBorder" spacing="5.0" HBox.hgrow="ALWAYS">
+                                                        <children>
+                                                            <HBox spacing="5.0">
+                                                                <children>
+                                                                    <Label id="gridCommonTextStyle" text="Credit Days:" textFill="#ce9645" />
+                                                                    <Label id="gridCommonTextStyleBlack" fx:id="lbSalesQuotationCreateledInfoCreditDays" textFill="#ce9645">
+
+                                                                    </Label>
+                                                                </children>
+                                                            </HBox>
+                                                            <HBox spacing="5.0">
+                                                                <children>
+                                                                    <Label id="gridCommonTextStyle" text="FSSAI:" textFill="#ce9645" />
+                                                                    <Label id="gridCommonTextStyleBlack" fx:id="lbSalesQuotationCreateledInfoFssai" textFill="#ce9645">
+
+                                                                    </Label>
+                                                                </children>
+                                                            </HBox>
+                                                        </children>
+                                                    </VBox>
+                                                    <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                                        <children>
+                                                            <HBox spacing="5.0">
+                                                                <children>
+                                                                    <Label id="gridCommonTextStyle" text="Lisence No:" textFill="#ce9645" />
+                                                                    <Label id="gridCommonTextStyleBlack" fx:id="lbSalesQuotationCreateledInfoLiceNo" textFill="#ce9645">
+
+                                                                    </Label>
+                                                                </children>
+                                                            </HBox>
+                                                            <HBox spacing="5.0">
+                                                                <children>
+                                                                    <Label id="gridCommonTextStyle" text="Route:" textFill="#ce9645" />
+                                                                    <Label id="gridCommonTextStyleBlack" fx:id="lbSalesQuotationCreateledInfoRoute" textFill="#ce9645">
+
+                                                                    </Label>
+                                                                </children>
+                                                            </HBox>
+                                                        </children>
+                                                    </VBox>
+                                                </children>
+                                            </HBox>
+                                        </VBox>
+                                    </children>
+                                </VBox>
+                            </content>
+                        </Tab>
+                        <Tab fx:id="tabSalesQuotaCreateProduct" text="Product">
+                            <content>
+                                <VBox id="tabMianDiv">
+                                    <children>
+                                        <VBox id="mainGridStyle">
+                                            <children>
+                                                <HBox id="tabInnerHb" spacing="10.0">
+                                                    <children>
+                                                        <VBox id="rightBorder" spacing="5.0" HBox.hgrow="ALWAYS">
+                                                            <children>
+                                                                <HBox spacing="5.0">
+                                                                    <children>
+                                                                        <Label id="gridCommonTextStyle" text="Brand:" textFill="#ce9645" />
+                                                                        <Label id="gridCommonTextStyleBlack" fx:id="lbSalesQuotationCreateProdInfoBrand" textFill="#ce9645">
+
+                                                                        </Label>
+                                                                    </children>
+                                                                </HBox>
+                                                                <HBox spacing="5.0">
+                                                                    <children>
+                                                                        <Label id="gridCommonTextStyle" text="Group:" textFill="#ce9645" />
+                                                                        <Label id="gridCommonTextStyleBlack" fx:id="lbSalesQuotationCreateProdInfoGroup" textFill="#ce9645">
+
+                                                                        </Label>
+                                                                    </children>
+                                                                </HBox>
+                                                                <HBox spacing="5.0">
+                                                                    <children>
+                                                                        <Label id="gridCommonTextStyle" text="Category:" textFill="#ce9645" />
+                                                                        <Label id="gridCommonTextStyleBlack" fx:id="lbSalesQuotationCreateProdInfoCategory" textFill="#ce9645">
+
+                                                                        </Label>
+                                                                    </children>
+                                                                </HBox>
+                                                                <HBox>
+                                                                    <children>
+                                                                        <Label id="gridCommonTextStyle" text="Client:" textFill="#ce9645" />
+                                                                        <Label id="gridCommonTextStyleBlack" fx:id="lbSalesQuotationCreateProdInfoSupplier" textFill="#ce9645">
+
+                                                                        </Label>
+                                                                    </children>
+                                                                </HBox>
+                                                            </children>
+                                                        </VBox>
+                                                        <VBox id="rightBorder" spacing="5.0" HBox.hgrow="ALWAYS">
+                                                            <children>
+                                                                <HBox spacing="5.0">
+                                                                    <children>
+                                                                        <Label id="gridCommonTextStyle" text="HSN:" textFill="#ce9645" />
+                                                                        <Label id="gridCommonTextStyleBlack" fx:id="lbSalesQuotationCreateProdInfoHSN" textFill="#ce9645">
+
+                                                                        </Label>
+                                                                    </children>
+                                                                </HBox>
+                                                                <HBox spacing="5.0">
+                                                                    <children>
+                                                                        <Label id="gridCommonTextStyle" text="Tax Type:" textFill="#ce9645" />
+                                                                        <Label id="gridCommonTextStyleBlack" fx:id="lbSalesQuotationCreateProdInfoTaxType" textFill="#ce9645">
+
+                                                                        </Label>
+                                                                    </children>
+                                                                </HBox>
+                                                                <HBox spacing="5.0">
+                                                                    <children>
+                                                                        <Label id="gridCommonTextStyle" text="Tax %:" textFill="#ce9645" />
+                                                                        <Label id="gridCommonTextStyleBlack" fx:id="lbSalesQuotationCreateProdInfoTax" textFill="#ce9645">
+
+                                                                        </Label>
+                                                                    </children>
+                                                                </HBox>
+                                                                <HBox spacing="5.0">
+                                                                    <children>
+                                                                        <Label id="gridCommonTextStyle" text="Margin:" textFill="#ce9645" />
+                                                                        <Label id="gridCommonTextStyleBlack" fx:id="lbSalesQuotationCreateProdInfoMargin" textFill="#ce9645">
+
+                                                                        </Label>
+                                                                    </children>
+                                                                </HBox>
+                                                            </children>
+                                                        </VBox>
+                                                        <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                                            <children>
+                                                                <HBox spacing="5.0">
+                                                                    <children>
+                                                                        <Label id="gridCommonTextStyle" text="Cost:" textFill="#ce9645" />
+                                                                        <Label id="gridCommonTextStyleBlack" fx:id="lbSalesQuotationCreateProdInfoCost" textFill="#ce9645">
+
+                                                                        </Label>
+                                                                    </children>
+                                                                </HBox>
+                                                                <HBox spacing="5.0">
+                                                                    <children>
+                                                                        <Label id="gridCommonTextStyle" text="Shelf ID:" textFill="#ce9645" />
+                                                                        <Label id="gridCommonTextStyleBlack" fx:id="lbSalesQuotationCreateProdInfoShelfId" textFill="#ce9645">
+
+                                                                        </Label>
+                                                                    </children>
+                                                                </HBox>
+                                                                <HBox spacing="5.0">
+                                                                    <children>
+                                                                        <Label id="gridCommonTextStyle" text="Min Stock:" textFill="#ce9645" />
+                                                                        <Label id="gridCommonTextStyleBlack" fx:id="lbSalesQuotationCreateProdInfoMinStock" textFill="#ce9645">
+
+                                                                        </Label>
+                                                                    </children>
+                                                                </HBox>
+                                                                <HBox spacing="5.0">
+                                                                    <children>
+                                                                        <Label id="gridCommonTextStyle" text="Max Stock:" textFill="#ce9645" />
+                                                                        <Label id="gridCommonTextStyleBlack" fx:id="lbSalesQuotationCreateProdInfoMaxStock" textFill="#ce9645">
+
+                                                                        </Label>
+                                                                    </children>
+                                                                </HBox>
+                                                            </children>
+                                                        </VBox>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </VBox>
+                            </content>
+                        </Tab>
+                    </tabs>
+                </TabPane>
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <Label text="Narrations" />
+                    <TextField fx:id="tfSalesQuotationCreateNarration" promptText="Narrations" HBox.hgrow="ALWAYS" />
+                    <padding>
+                        <Insets left="10.0" right="10.0" />
+                    </padding>
+                </HBox>
+                <VBox id="supplierTableMainDiv" VBox.vgrow="ALWAYS">
+                    <TableView fx:id="tvSalesQuotCreateprodInvoiceDetails">
+                        <columns>
+                            <TableColumn fx:id="tblcSalesQuotationCreateClienName" text="Supplier Name" />
+                            <TableColumn fx:id="tblcSalesQuotationCreateInvoiceNo" text="Inv No" />
+                            <TableColumn fx:id="tblcSalesQuotationCreateInvoiceDate" text="Inv Date" />
+                            <TableColumn fx:id="tblcSalesQuotationCreateBatch" text="Batch" />
+                            <TableColumn fx:id="tblcSalesQuotationCreateMrp" text="MRP" />
+                            <TableColumn fx:id="tblcSalesQuotationCreateQuantity" text="Qty" />
+                            <TableColumn fx:id="tblcSalesQuotationCreateRate" text="Rate" />
+                            <TableColumn fx:id="tblcSalesQuotationCreateCost" text="Cost" />
+                            <TableColumn fx:id="tblcSalesQuotationCreateDisPer" text="Dis.%" />
+                            <TableColumn fx:id="tblcSalesQuotationCreateDis" text="Dis.₹" />
+                        </columns>
+                    </TableView>
+                </VBox>
+
+            </VBox>
+            <VBox fx:id="sqBottomSecondV" style="-fx-border-color: #dcdcdc; -fx-border-width: 0 0 0 1;">
+                <VBox fx:id="totalmainDiv" spacing="20.0" style="-fx-background-color: #D2F7E9;">
+                    <children>
+                        <HBox id="sqtotalFirst" fx:id="hbSalesQuotCreateCalculations">
+                            <VBox fx:id="sqtotalInnervbox" alignment="CENTER_LEFT" spacing="20">
+                                <Label style="-fx-font-weight: bold;" text="Gross Total" />
+                                <Label style="-fx-font-weight: bold;" text="Discount" />
+                                <Label style="-fx-font-weight: bold;" text="Total" />
+                                <Label style="-fx-font-weight: bold;" text="Tax" />
+                            </VBox>
+                            <Region HBox.hgrow="ALWAYS" />
+                            <VBox fx:id="sqtotalInnervbox1" alignment="CENTER_RIGHT" spacing="20">
+                                <Label fx:id="lbSalesQuotCreateGrossTotal" style="-fx-font-weight: bold;" text="00.0">
+                                    <VBox.margin>
+                                        <Insets />
+                                    </VBox.margin>
+                                </Label>
+                                <Label fx:id="lbSalesQuotCreateDiscount" style="-fx-font-weight: bold;" text="00.0">
+                                    <VBox.margin>
+                                        <Insets />
+                                    </VBox.margin>
+                                </Label>
+                                <Label fx:id="lbSalesQuotCreateTotal" style="-fx-font-weight: bold;" text="00.0">
+                                    <VBox.margin>
+                                        <Insets />
+                                    </VBox.margin>
+                                </Label>
+                                <Label fx:id="lbSalesQuotCreateTax" style="-fx-font-weight: bold;" text="00.0">
+                                    <VBox.margin>
+                                        <Insets />
+                                    </VBox.margin>
+                                </Label>
+                                <HBox.margin>
+                                    <Insets />
+                                </HBox.margin>
+                            </VBox>
+                        </HBox>
+                        <HBox id="sqtotalsecond" fx:id="hbSalesQuotCreateBillAmount" style="-fx-background-color: #A0EFD2;">
+                            <children>
+                                <Label id="bigLabel" fx:id="lbSalesQuotCreateBillAmt" text="Bill Amount">
+
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                </Label>
+                                <Region HBox.hgrow="ALWAYS" />
+                                <Label id="bigLabel" fx:id="lbSalesQuotCreateBillAmount" text="0.00">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+
+                                </Label>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <Region VBox.vgrow="ALWAYS" />
+
+                <HBox id="sqbuttonsMainDiv" alignment="BOTTOM_RIGHT" spacing="10.0">
+                    <Button fx:id="btnSalesQuotationCreateEdit" onAction="#backToListModify" styleClass="submit-btn" text="Modify" />
+                    <Button fx:id="btnSalesQuotationCreateSubmit" styleClass="submit-btn" text="Submit" />
+                    <Button fx:id="btnSalesQuotationCreateCancle" styleClass="cancel-btn" text="Cancel" />
+                </HBox>
+            </VBox>
+        </HBox>
+    </bottom>
+
+</BorderPane>

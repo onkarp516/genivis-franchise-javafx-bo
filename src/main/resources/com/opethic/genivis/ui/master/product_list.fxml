@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.VBox?>
+
+
+<BorderPane stylesheets="@../css/contentPackageMaster.css" fx:id="bpProductListRoot"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.opethic.genivis.controller.master.ProductListController">
+
+    <top>
+        <AnchorPane fx:id="apPrdLstHeaderSect" prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <TextField fx:id="tfSearch" prefHeight="25.0" prefWidth="400.0" promptText="Search"
+                           AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0"/>
+                <Button  fx:id="btnProductCreate" layoutX="821.0" layoutY="13.0"  id="submit-btn"
+                         prefHeight="30.0" prefWidth="98.0" text="Create"
+                         AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0"/>
+            </children>
+            <opaqueInsets>
+                <Insets bottom="10.0"/>
+            </opaqueInsets>
+
+        </AnchorPane>
+    </top>
+    <center>
+        <StackPane>
+            <TableView fx:id="tvProductList">
+                <columns>
+                    <TableColumn fx:id="tcProductId" text="Id"/>
+                    <TableColumn fx:id="tcSearchCode" text="Code" minWidth="70" prefWidth="70" maxWidth="70"/>
+                    <TableColumn fx:id="tcProductName" text="Product Name" minWidth="200" prefWidth="300" maxWidth="300"/>
+                    <TableColumn fx:id="tcPacking" text="Packing"  minWidth="70" prefWidth="70" maxWidth="70"/>
+                    <TableColumn fx:id="tcBarcode" text="Barcode" minWidth="100" prefWidth="100" maxWidth="100"/>
+                    <TableColumn fx:id="tcBrand" text="Brand" minWidth="120" prefWidth="120" maxWidth="120"/>
+
+
+                    <TableColumn fx:id="tcUnit_1_Stock" text="Unit-1 Stock" minWidth="120" prefWidth="120" maxWidth="120"/>
+
+                    <TableColumn fx:id="tcUnit1" text="Unit-1" minWidth="120" prefWidth="120" maxWidth="120"/>
+
+                    <TableColumn fx:id="tcUnit_2_Stock" text="Unit-2 Stock" minWidth="120" prefWidth="120" maxWidth="120"/>
+
+                    <TableColumn fx:id="tcUnit2" text="Unit-2" minWidth="120" prefWidth="120" maxWidth="120"/>
+
+                    <TableColumn fx:id="tcUnit_3_Stock" text="Unit-3 Stock" minWidth="120" prefWidth="120" maxWidth="120"/>
+
+                    <TableColumn fx:id="tcUnit3" text="Unit-3" minWidth="120" prefWidth="120" maxWidth="120"/>
+
+                    <TableColumn fx:id="tcMrp" text="M.R.P" minWidth="0" prefWidth="0" maxWidth="0"/>
+                    <TableColumn fx:id="tcCurrentStock" text="Current Stock" minWidth="0" prefWidth="0" maxWidth="0"/>
+                    <TableColumn fx:id="tcUnit" text="Unit" minWidth="0" prefWidth="0" maxWidth="0"/>
+                    <TableColumn fx:id="tcSaleRate" text="Sale Rate" minWidth="0" prefWidth="0" maxWidth="0"/>
+                    <TableColumn text="Action" visible="false" minWidth="0" prefWidth="0" maxWidth="0"/>
+                </columns>
+                <BorderPane.margin>
+                    <Insets right="10.0"/>
+                </BorderPane.margin>
+
+            </TableView>
+
+            <Label fx:id="lblInfo" alignment="CENTER" prefHeight="114.0" text="No content in table"
+                   textAlignment="CENTER">
+                <font>
+                    <Font size="35.0"/>
+                </font>
+            </Label>
+        </StackPane>
+    </center>
+    <!--<ProgressBar fx:id="pbProductBar" prefWidth="200" prefHeight="20">
+
+    </ProgressBar>-->
+    <bottom>
+        <HBox prefHeight="280" maxHeight="280" minHeight="280" >
+            <VBox  style="-fx-background-color:  #d9f0fb; -fx-border-color: #c0cfd6; -fx-border-width: 0 0 0 1px;" HBox.hgrow="ALWAYS">
+                <TabPane fx:id="tabx" tabClosingPolicy="UNAVAILABLE" HBox.hgrow="ALWAYS">
+
+                    <Tab fx:id="tbProduct" text="Product">
+                        <VBox spacing="10">
+                            <VBox style="-fx-background-color:  #a4dbf4;"  prefHeight="1" maxHeight="1" minHeight="1" HBox.hgrow="ALWAYS"/>
+                            <VBox alignment="CENTER_LEFT"  HBox.hgrow="ALWAYS">
+                                <padding>
+                                    <Insets right="10" left="10"/>
+                                </padding>
+
+                                <HBox alignment="CENTER_LEFT" style="-fx-background-color:  #F8F0D2; -fx-border-color: #EAD8B1; -fx-border-width: 1.2; -fx-background-radius: 3; -fx-border-radius: 3;" prefHeight="220" maxHeight="220" minHeight="220">
+
+                                    <VBox alignment="CENTER_LEFT" spacing="8" style="-fx-background-color:  #F8F0D2; -fx-border-color: #EAD8B1;  -fx-border-width: 0 1.2 0 0;"  HBox.hgrow="ALWAYS" minWidth="160" prefHeight="200" maxHeight="200" minHeight="200">
+                                        <padding>
+                                            <Insets left="10"/>
+                                        </padding>
+
+                                        <HBox>
+                                            <Label text="Manufacturer : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label  fx:id="lblPrdLstMFG" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+                                        <HBox>
+                                            <Label  text="Category : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label fx:id="lblPrdLstCtg" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+                                        <HBox>
+                                            <Label text="Formulation : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label  fx:id="lblPrdLstFormulation" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+                                        <HBox>
+                                            <Label text="Tax Type : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label fx:id="lblPrdLstTaxType" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+                                        <HBox>
+                                            <Label text="Tax% : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label fx:id="lblPrdLstTaxPer" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+                                        <HBox>
+                                            <Label text="Margin% : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label fx:id="lblPrdLstMargPer" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+
+
+
+                                    </VBox>
+
+                                    <VBox alignment="CENTER_LEFT" spacing="8" style="-fx-background-color:  #F8F0D2; -fx-border-color: #EAD8B1;  -fx-border-width: 0 1.2 0 0;" HBox.hgrow="ALWAYS" minWidth="250" prefHeight="200" maxHeight="200" minHeight="200">
+
+                                        <padding>
+                                            <Insets left="10"/>
+                                        </padding>
+
+                                        <HBox>
+                                            <Label text="Cost : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label fx:id="lblPrdLstCost" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+                                        <HBox>
+                                            <Label text="Purchase Rate : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label  fx:id="lblPrdLstPurRate" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+
+                                        <HBox>
+                                            <Label text="HSN : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label fx:id="lblPrdLstHSN" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+                                        <HBox>
+                                            <Label text="Min Stock : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label fx:id="lblPrdLstMinStk" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+                                        <HBox>
+                                            <Label text="Max Stock : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label fx:id="lblPrdLstMaxStk" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+                                        <HBox>
+                                            <Label text="Shelf ID : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label fx:id="lblPrdLstShlfId" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+
+                                    </VBox>
+
+                                    <VBox alignment="CENTER_LEFT" spacing="8" style="-fx-background-color:  #F8F0D2; -fx-border-color: #EAD8B1;  -fx-border-width: 0 1.2 0 0;" HBox.hgrow="ALWAYS"  minWidth="250" prefHeight="200" maxHeight="200" minHeight="200">
+
+                                        <padding>
+                                            <Insets left="10"/>
+                                        </padding>
+
+                                        <HBox>
+                                            <Label text="Unit : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label fx:id="lbUnit1" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+                                        <HBox>
+                                            <Label text="Conv : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label  fx:id="lbConv1" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+
+                                        <HBox>
+                                            <Label text="MRP : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label fx:id="lbMrp1" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+                                        <HBox>
+                                            <Label text="PTRMH : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label fx:id="lbPTRMH1" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+                                        <HBox>
+                                            <Label text="PTRAI : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label fx:id="lbPTRAI1" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+                                        <HBox>
+                                            <Label text="CSRMH : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label fx:id="lbCSRMH1" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+                                        <HBox>
+                                            <Label text="CSRAI : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label fx:id="lbCSRAI1" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+
+                                    </VBox>
+
+                                    <VBox alignment="CENTER_LEFT" spacing="8" style="-fx-background-color:  #F8F0D2; -fx-border-color: #EAD8B1;  -fx-border-width: 0 1.2 0 0;" HBox.hgrow="ALWAYS"  minWidth="250" prefHeight="200" maxHeight="200" minHeight="200">
+
+                                        <padding>
+                                            <Insets left="10"/>
+                                        </padding>
+
+                                        <HBox>
+                                            <Label text="Unit : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label fx:id="lbUnit2" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+                                        <HBox>
+                                            <Label text="Conv : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label  fx:id="lbConv2" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+
+                                        <HBox>
+                                            <Label text="MRP : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label fx:id="lbMrp2" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+                                        <HBox>
+                                            <Label text="PTRMH : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label fx:id="lbPTRMH2" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+                                        <HBox>
+                                            <Label text="PTRAI : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label fx:id="lbPTRAI2" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+                                        <HBox>
+                                            <Label text="CSRMH : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label fx:id="lbCSRMH2" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+                                        <HBox>
+                                            <Label text="CSRAI : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label fx:id="lbCSRAI2" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+
+                                    </VBox>
+
+                                    <VBox alignment="CENTER_LEFT" spacing="8" style="-fx-background-color:  #F8F0D2; -fx-border-color: #EAD8B1;  -fx-border-width: 0 0 0 0;" HBox.hgrow="ALWAYS"  minWidth="250"  prefHeight="200" maxHeight="200" minHeight="200">
+
+                                        <padding>
+                                            <Insets left="10"/>
+                                        </padding>
+
+                                        <HBox>
+                                            <Label text="Unit : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label fx:id="lbUnit3" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+                                        <HBox>
+                                            <Label text="Conv : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label  fx:id="lbConv3" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+
+                                        <HBox>
+                                            <Label text="MRP : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label fx:id="lbMrp3" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+                                        <HBox>
+                                            <Label text="PTRMH : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label fx:id="lbPTRMH3" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+                                        <HBox>
+                                            <Label text="PTRAI : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label fx:id="lbPTRAI3" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+                                        <HBox>
+                                            <Label text="CSRMH : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label fx:id="lbCSRMH3" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+                                        <HBox>
+                                            <Label text="CSRAI : " style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            <Label fx:id="lbCSRAI3" style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                        </HBox>
+
+                                    </VBox>
+
+                                </HBox>
+
+                            </VBox>
+                        </VBox>
+                    </Tab>
+                    <Tab fx:id="tbBatch" text="Batch">
+                        <VBox spacing="10">
+                            <VBox style="-fx-background-color:  #a4dbf4;"  prefHeight="1" maxHeight="1" minHeight="1" HBox.hgrow="ALWAYS"/>
+                            <VBox alignment="CENTER_LEFT"  HBox.hgrow="ALWAYS">
+                                <padding>
+                                    <Insets right="10" left="10"/>
+                                </padding>
+                                <VBox HBox.hgrow="ALWAYS">
+                                    <padding>
+                                        <Insets top="10" right="10" left="10"/>
+                                    </padding>
+                                    <TableView fx:id="tvPrdLstBatchHistory" prefHeight="100" maxHeight="100" minHeight="100" stylesheets="@../css/invoice_product_history_table.css" HBox.hgrow="ALWAYS">
+                                        <columns>
+                                            <TableColumn fx:id="tcPrdLstBtachNo" text="Batch"/>
+                                            <TableColumn fx:id="tcPrdLstMFGDate" text="MFG Date"/>
+                                            <TableColumn fx:id="tcPrdLstExpDate" text="Expiry Date"/>
+                                            <TableColumn fx:id="tcPrdLstAvlStk" text="Avl. Stock"/>
+                                            <TableColumn fx:id="tcPrdLstMRP" text="MRP"/>
+                                            <TableColumn fx:id="tcPrdLstPurRate" text="Pur. Rate"/>
+                                            <TableColumn fx:id="tcPrdLstDisPer" text="Dis. %"/>
+                                            <TableColumn fx:id="tcPrdLstDisAmt" text="Dis. ₹"/>
+                                            <TableColumn fx:id="tcPrdLstCessPer" text="Cess. %"/>
+                                            <TableColumn fx:id="tcPrdLstCessAmt" text="Cess. ₹"/>
+                                            <TableColumn fx:id="tcPrdLstBarcode" text="Barcode"/>
+                                            <TableColumn fx:id="tcPrdLstMarginPer" text="Margin %"/>
+                                            <!--                                            <TableColumn fx:id="tcPrdLstTotalAmount" text="Total Amount"/>-->
+                                            <!--                                            <TableColumn fx:id="tcPrdLstFSR" text="PTR-MH"/>-->
+                                            <!--                                            <TableColumn fx:id="tcPrdLstFSRAI" text="PTR-AI"/>-->
+                                            <!--                                            <TableColumn fx:id="tcPrdLstCSR" text="CSR-MH"/>-->
+                                            <!--                                            <TableColumn fx:id="tcPrdLstCSRAI" text="CSR-AI"/>-->
+                                            <!--                                            <TableColumn fx:id="tcPrdLstSalesRate" text="Sales Rate"/>-->
+                                        </columns>
+                                    </TableView>
+                                </VBox>
+
+                            </VBox>
+                        </VBox>
+                    </Tab>
+
+                </TabPane>
+
+            </VBox>
+        </HBox>
+    </bottom>
+
+</BorderPane>

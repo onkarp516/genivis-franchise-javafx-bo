@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<!--<ScrollPane xmlns="http://javafx.com/javafx"-->
+<!--            xmlns:fx="http://javafx.com/fxml"-->
+<!--            fx:controller="com.opethic.genivis.controller.master.CatalogController">-->
+<!--</ScrollPane>-->
+
+<VBox fx:id="vbox" style="-fx-background-color: #f6f6f9;" stylesheets="@../css/catalog.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.opethic.genivis.controller.master.CatalogController">
+    <HBox prefHeight="50">
+        <padding>
+            <Insets left="40" top="10" />
+        </padding>
+        <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Catalogue" />
+    </HBox>
+
+    <HBox alignment="TOP_CENTER" spacing="15" style="-fx-background-color: #f6f6f9;">
+        <padding>
+            <Insets bottom="40" left="20" right="20" />
+        </padding>
+
+        <VBox fx:id="vboxBrand">
+            <VBox maxHeight="95" minHeight="95" prefHeight="95" prefWidth="297.0" spacing="5" style="-fx-background-color:#ebf0f4;  -fx-border-radius:3; -fx-border-color:#c4cbd2; -fx-border-width:1;">
+                <HBox prefHeight="3" prefWidth="300" style="-fx-background-color:#04a2f5; " />
+                <BorderPane prefHeight="40" prefWidth="300" style="-fx-background-color:#ebf0f4; ">
+
+                    <left>
+                        <HBox>
+                            <padding>
+                                <Insets left="5" right="5" top="10" />
+
+                            </padding>
+                            <Label style="-fx-font-weight: bold;" text="Brand" />
+                        </HBox>
+                    </left>
+                    <right>
+
+                        <HBox>
+                            <padding>
+                                <Insets left="5" right="5" top="5" />
+
+                            </padding>
+
+                            <HBox alignment="CENTER" maxHeight="30" minHeight="30" minWidth="30" prefHeight="30" prefWidth="30" style="-fx-background-color:#f6f6f9; -fx-border-radius:3; -fx-border-color:#b6b7b8; -fx-border-width:0.5;">
+                                <padding>
+                                    <Insets bottom="3" left="3" right="3" top="3" />
+                                </padding>
+                                <Label fx:id="lblBrandTotal" text="20" />
+                            </HBox>
+
+                        </HBox>
+                    </right>
+                </BorderPane>
+                <BorderPane prefHeight="40" prefWidth="300" style="-fx-background-color:#ebf0f4;">
+
+                    <left>
+                        <HBox>
+                            <padding>
+                                <Insets bottom="5" left="5" right="5" />
+
+                            </padding>
+                            <AnchorPane>
+                                <children>
+                                    <Button id="addButton" fx:id="btnCatlgBrndAdd" onAction="#onClickBrand" text="Add">
+
+                                    </Button>
+                                </children>
+                            </AnchorPane>
+                        </HBox>
+                    </left>
+                    <right>
+                        <HBox>
+                            <padding>
+                                <Insets bottom="5" left="5" right="5" />
+
+                            </padding>
+                            <AnchorPane>
+                                <children>
+                                    <Button id="removeButton" onAction="#deleteBrand">
+                                        <graphic>
+                                            <ImageView fx:id="btnCatlgBrndDel" fitHeight="20" fitWidth="18">
+                                                <image>
+                                                    <Image url="@../assets/remove2.png" />
+                                                </image>
+                                            </ImageView>
+                                        </graphic>
+                                    </Button>
+                                </children>
+                            </AnchorPane>
+                        </HBox>
+                    </right>
+                </BorderPane>
+            </VBox>
+            <TableView fx:id="brandTable" styleClass="no-header">
+                <columns>
+                    <TableColumn fx:id="brandAction" maxWidth="32" minWidth="32" prefWidth="32" text="A" />
+                    <TableColumn fx:id="brandColumn" styleClass="table-column-no-border" text="Row" />
+                </columns>
+            </TableView>
+        </VBox>
+
+        <VBox>
+            <VBox maxHeight="95" minHeight="95" prefHeight="95" prefWidth="297.0" spacing="5" style="-fx-background-color:#ebf0f4;  -fx-border-radius:3; -fx-border-color:#c4cbd2; -fx-border-width:1;">
+                <HBox prefHeight="3" prefWidth="300" style="-fx-background-color:#04a2f5; " />
+                <BorderPane prefHeight="40" prefWidth="300" style="-fx-background-color:#ebf0f4; ">
+
+                    <left>
+                        <HBox>
+                            <padding>
+                                <Insets left="5" right="5" top="10" />
+
+                            </padding>
+                            <Label style="-fx-font-weight: bold;" text="Manufacturer" />
+                        </HBox>
+                    </left>
+                    <right>
+
+                        <HBox>
+                            <padding>
+                                <Insets left="5" right="5" top="5" />
+
+                            </padding>
+
+                            <HBox alignment="CENTER" maxHeight="30" minHeight="30" minWidth="30" prefHeight="30" prefWidth="30" style="-fx-background-color:#f6f6f9; -fx-border-radius:3; -fx-border-color:#b6b7b8;                                   -fx-border-width:0.5;">
+                                <padding>
+                                    <Insets bottom="3" left="3" right="3" top="3" />
+                                </padding>
+                                <Label fx:id="lblMfgTotal" text="20" />
+                            </HBox>
+
+                        </HBox>
+                    </right>
+                </BorderPane>
+                <BorderPane prefHeight="40" prefWidth="300" style="-fx-background-color:#ebf0f4;">
+
+                    <left>
+                        <HBox>
+                            <padding>
+                                <Insets bottom="5" left="5" right="5" />
+
+                            </padding>
+                            <AnchorPane>
+                                <children>
+                                    <Button id="addButton" fx:id="btnCatlgMFGAdd" onAction="#onClickManufacturer" text="Add">
+                                        <!--                                        <graphic>-->
+                                        <!--                                            <ImageView fitHeight="10" fitWidth="10">-->
+                                        <!--                                                <image>-->
+                                        <!--                                                    <Image url="@../assets/plus2.png" />-->
+                                        <!--                                                </image>-->
+                                        <!--                                            </ImageView>-->
+                                        <!--                                        </graphic>-->
+                                    </Button>
+                                </children>
+                            </AnchorPane>
+                        </HBox>
+                    </left>
+                    <right>
+                        <HBox>
+                            <padding>
+                                <Insets bottom="5" left="5" right="5" />
+
+                            </padding>
+                            <AnchorPane>
+                                <children>
+                                    <Button id="removeButton" onAction="#deleteManufacturer">
+                                        <graphic>
+                                            <ImageView fx:id="btnCatlgMFGDel" fitHeight="20" fitWidth="18">
+                                                <image>
+                                                    <Image url="@../assets/remove2.png" />
+                                                </image>
+                                            </ImageView>
+                                        </graphic>
+                                    </Button>
+                                </children>
+                            </AnchorPane>
+                        </HBox>
+                    </right>
+                </BorderPane>
+            </VBox>
+            <TableView fx:id="manufacturerTable" styleClass="no-header">
+                <columns>
+                    <TableColumn fx:id="manufacturerAction" maxWidth="32" minWidth="32" prefWidth="32" text="A" />
+                    <TableColumn fx:id="manufacturerColumn" styleClass="table-column-no-border" text="Row" />
+                </columns>
+            </TableView>
+        </VBox>
+
+        <VBox>
+            <VBox maxHeight="95" minHeight="95" prefHeight="95" prefWidth="297.0" spacing="5" style="-fx-background-color:#ebf0f4;  -fx-border-radius:3; -fx-border-color:#c4cbd2; -fx-border-width:1;">
+                <HBox prefHeight="3" prefWidth="300" style="-fx-background-color:#04a2f5; " />
+                <BorderPane prefHeight="40" prefWidth="300" style="-fx-background-color:#ebf0f4; ">
+
+                    <left>
+                        <HBox>
+                            <padding>
+                                <Insets left="5" right="5" top="10" />
+
+                            </padding>
+                            <Label style="-fx-font-weight: bold;" text="Formulation" />
+                        </HBox>
+                    </left>
+                    <right>
+
+                        <HBox>
+                            <padding>
+                                <Insets left="5" right="5" top="5" />
+
+                            </padding>
+
+                            <HBox alignment="CENTER" maxHeight="30" minHeight="30" minWidth="30" prefHeight="30" prefWidth="30" style="-fx-background-color:#f6f6f9; -fx-border-radius:3; -fx-border-color:#b6b7b8; -fx-border-width:0.5;">
+                                <padding>
+                                    <Insets bottom="3" left="3" right="3" top="3" />
+                                </padding>
+                                <Label fx:id="lblFormulationTotal" text="20" />
+                            </HBox>
+
+                        </HBox>
+                    </right>
+                </BorderPane>
+                <BorderPane prefHeight="40" prefWidth="300" style="-fx-background-color:#ebf0f4;">
+
+                    <left>
+                        <HBox>
+                            <padding>
+                                <Insets bottom="5" left="5" right="5" />
+
+                            </padding>
+                            <AnchorPane>
+                                <children>
+                                    <Button id="addButton" fx:id="btnCatlgFormAdd" onAction="#onClickFormulation" text="Add">
+                                        <!--                                        <graphic>-->
+                                        <!--                                            <ImageView fitHeight="10" fitWidth="10">-->
+                                        <!--                                                <image>-->
+                                        <!--                                                    <Image url="@../assets/plus2.png" />-->
+                                        <!--                                                </image>-->
+                                        <!--                                            </ImageView>-->
+                                        <!--                                        </graphic>-->
+                                    </Button>
+                                </children>
+                            </AnchorPane>
+                        </HBox>
+                    </left>
+                    <right>
+                        <HBox>
+                            <padding>
+                                <Insets bottom="5" left="5" right="5" />
+
+                            </padding>
+                            <AnchorPane>
+                                <children>
+                                    <Button id="removeButton" onAction="#deleteFormulation">
+                                        <graphic>
+                                            <ImageView fx:id="btnCatlgFormDel" fitHeight="20" fitWidth="18">
+                                                <image>
+                                                    <Image url="@../assets/remove2.png" />
+                                                </image>
+                                            </ImageView>
+                                        </graphic>
+                                    </Button>
+                                </children>
+                            </AnchorPane>
+                        </HBox>
+                    </right>
+                </BorderPane>
+            </VBox>
+            <TableView fx:id="formulationTable" styleClass="no-header">
+                <columns>
+                    <TableColumn fx:id="formulationAction" maxWidth="32" minWidth="32" prefWidth="32" text="A" />
+                    <TableColumn fx:id="formulationColumn" styleClass="table-column-no-border" text="Row" />
+                </columns>
+            </TableView>
+        </VBox>
+
+        <VBox>
+            <VBox maxHeight="95" minHeight="95" prefHeight="95" prefWidth="297.0" spacing="5" style="-fx-background-color:#ebf0f4;  -fx-border-radius:3; -fx-border-color:#c4cbd2; -fx-border-width:1;">
+                <HBox prefHeight="3" prefWidth="300" style="-fx-background-color:#04a2f5; " />
+                <BorderPane prefHeight="40" prefWidth="300" style="-fx-background-color:#ebf0f4; ">
+
+                    <left>
+                        <HBox>
+                            <padding>
+                                <Insets left="5" right="5" top="10" />
+
+                            </padding>
+                            <Label style="-fx-font-weight: bold;" text="Category" />
+                        </HBox>
+                    </left>
+                    <right>
+
+                        <HBox>
+                            <padding>
+                                <Insets left="5" right="5" top="5" />
+
+                            </padding>
+
+                            <HBox alignment="CENTER" maxHeight="30" minHeight="30" minWidth="30" prefHeight="30" prefWidth="30" style="-fx-background-color:#f6f6f9; -fx-border-radius:3; -fx-border-color:#b6b7b8; -fx-border-width:0.5;">
+                                <padding>
+                                    <Insets bottom="3" left="3" right="3" top="3" />
+                                </padding>
+                                <Label fx:id="lblCategoryTotal" text="20" />
+                            </HBox>
+
+                        </HBox>
+                    </right>
+                </BorderPane>
+                <BorderPane prefHeight="40" prefWidth="300" style="-fx-background-color:#ebf0f4;">
+
+                    <left>
+                        <HBox>
+                            <padding>
+                                <Insets bottom="5" left="5" right="5" />
+
+                            </padding>
+                            <AnchorPane>
+                                <children>
+                                    <Button id="addButton" fx:id="btnCatlgCatgAdd" onAction="#onClickCategory" text="Add">
+                                        <!--                                        <graphic>-->
+                                        <!--                                            <ImageView fitHeight="10" fitWidth="10">-->
+                                        <!--                                                <image>-->
+                                        <!--                                                    <Image url="@../assets/plus2.png" />-->
+                                        <!--                                                </image>-->
+                                        <!--                                            </ImageView>-->
+                                        <!--                                        </graphic>-->
+                                    </Button>
+                                </children>
+                            </AnchorPane>
+                        </HBox>
+                    </left>
+                    <right>
+                        <HBox>
+                            <padding>
+                                <Insets bottom="5" left="5" right="5" />
+
+                            </padding>
+                            <AnchorPane>
+                                <children>
+                                    <Button id="removeButton" onAction="#deleteCategory">
+                                        <graphic>
+                                            <ImageView fx:id="btnCatlgCatgDel" fitHeight="20" fitWidth="18">
+                                                <image>
+                                                    <Image url="@../assets/remove2.png" />
+                                                </image>
+                                            </ImageView>
+                                        </graphic>
+                                    </Button>
+                                </children>
+                            </AnchorPane>
+                        </HBox>
+                    </right>
+                </BorderPane>
+            </VBox>
+            <TableView fx:id="categoryTable" styleClass="no-header">
+                <columns>
+                    <TableColumn fx:id="categoryAction" maxWidth="32" minWidth="32" prefWidth="32" text="A" />
+                    <TableColumn fx:id="categoryColumn" styleClass="table-column-no-border" text="Row" />
+                </columns>
+            </TableView>
+        </VBox>
+
+        <VBox>
+            <VBox maxHeight="95" minHeight="95" prefHeight="95" prefWidth="297.0" spacing="5" style="-fx-background-color:#ebf0f4;  -fx-border-radius:3; -fx-border-color:#c4cbd2; -fx-border-width:1;">
+                <HBox prefHeight="3" prefWidth="300" style="-fx-background-color:#04a2f5; " />
+                <BorderPane prefHeight="40" prefWidth="300" style="-fx-background-color:#ebf0f4; ">
+
+                    <left>
+                        <HBox>
+                            <padding>
+                                <Insets left="5" right="5" top="10" />
+
+                            </padding>
+                            <Label style="-fx-font-weight: bold;" text="Sub Category" />
+                        </HBox>
+                    </left>
+                    <right>
+
+                        <HBox>
+                            <padding>
+                                <Insets left="5" right="5" top="5" />
+
+                            </padding>
+
+                            <HBox alignment="CENTER" maxHeight="30" minHeight="30" minWidth="30" prefHeight="30" prefWidth="30" style="-fx-background-color:#f6f6f9; -fx-border-radius:3; -fx-border-color:#b6b7b8; -fx-border-width:0.5;">
+                                <padding>
+                                    <Insets bottom="3" left="3" right="3" top="3" />
+                                </padding>
+                                <Label fx:id="lblSubCatTotal" text="20" />
+                            </HBox>
+
+                        </HBox>
+                    </right>
+                </BorderPane>
+                <BorderPane prefHeight="40" prefWidth="300" style="-fx-background-color:#ebf0f4;">
+
+                    <left>
+                        <HBox>
+                            <padding>
+                                <Insets bottom="5" left="5" right="5" />
+
+                            </padding>
+                            <AnchorPane>
+                                <children>
+                                    <Button id="addButton" fx:id="btnCatlgSbCatgAdd" onAction="#onClickSubCategory" text="Add">
+                                        <!--                                        <graphic>-->
+                                        <!--                                            <ImageView fitHeight="10" fitWidth="10">-->
+                                        <!--                                                <image>-->
+                                        <!--                                                    <Image url="@../assets/plus2.png" />-->
+                                        <!--                                                </image>-->
+                                        <!--                                            </ImageView>-->
+                                        <!--                                        </graphic>-->
+                                    </Button>
+                                </children>
+                            </AnchorPane>
+                        </HBox>
+                    </left>
+                    <right>
+                        <HBox>
+                            <padding>
+                                <Insets bottom="5" left="5" right="5" />
+
+                            </padding>
+                            <AnchorPane>
+                                <children>
+                                    <Button id="removeButton" onAction="#deleteSubCategory">
+                                        <graphic>
+                                            <ImageView fx:id="btnCatlgSbCatgDel" fitHeight="20" fitWidth="18">
+                                                <image>
+                                                    <Image url="@../assets/remove2.png" />
+                                                </image>
+                                            </ImageView>
+                                        </graphic>
+                                    </Button>
+                                </children>
+                            </AnchorPane>
+                        </HBox>
+                    </right>
+                </BorderPane>
+            </VBox>
+            <TableView fx:id="subCategoryTable" styleClass="no-header">
+                <columns>
+                    <TableColumn fx:id="subCategoryAction" maxWidth="32" minWidth="32" prefWidth="32" text="A" />
+                    <TableColumn fx:id="subCategoryColumn" styleClass="table-column-no-border" text="Row" />
+                </columns>
+            </TableView>
+        </VBox>
+
+        <VBox>
+            <VBox maxHeight="95" minHeight="95" prefHeight="95" prefWidth="297.0" spacing="5" style="-fx-background-color:#ebf0f4;  -fx-border-radius:3; -fx-border-color:#c4cbd2; -fx-border-width:1;">
+                <HBox prefHeight="3" prefWidth="300" style="-fx-background-color:#04a2f5; " />
+                <BorderPane prefHeight="40" prefWidth="300" style="-fx-background-color:#ebf0f4; ">
+
+                    <left>
+                        <HBox>
+                            <padding>
+                                <Insets left="5" right="5" top="10" />
+
+                            </padding>
+                            <Label style="-fx-font-weight: bold;" text="Package" />
+                        </HBox>
+                    </left>
+                    <right>
+
+                        <HBox>
+                            <padding>
+                                <Insets left="5" right="5" top="5" />
+
+                            </padding>
+
+                            <HBox alignment="CENTER" maxHeight="30" minHeight="30" minWidth="30" prefHeight="30" prefWidth="30" style="-fx-background-color:#f6f6f9; -fx-border-radius:3; -fx-border-color:#b6b7b8; -fx-border-width:0.5;">
+                                <padding>
+                                    <Insets bottom="3" left="3" right="3" top="3" />
+                                </padding>
+                                <Label fx:id="lblPkgTotal" text="20" />
+                            </HBox>
+
+                        </HBox>
+                    </right>
+                </BorderPane>
+                <BorderPane prefHeight="40" prefWidth="300" style="-fx-background-color:#ebf0f4;">
+
+                    <left>
+                        <HBox>
+                            <padding>
+                                <Insets bottom="5" left="5" right="5" />
+
+                            </padding>
+                            <AnchorPane>
+                                <children>
+                                    <Button id="addButton" fx:id="btnCatlgPackAdd" onAction="#onClickPackage" text="Add">
+                                        <!--                                        <graphic>-->
+                                        <!--                                            <ImageView fitHeight="10" fitWidth="10">-->
+                                        <!--                                                <image>-->
+                                        <!--                                                    <Image url="@../assets/plus2.png" />-->
+                                        <!--                                                </image>-->
+                                        <!--                                            </ImageView>-->
+                                        <!--                                        </graphic>-->
+                                    </Button>
+                                </children>
+                            </AnchorPane>
+                        </HBox>
+                    </left>
+                    <right>
+                        <HBox>
+                            <padding>
+                                <Insets bottom="5" left="5" right="5" />
+
+                            </padding>
+                            <AnchorPane>
+                                <children>
+                                    <Button id="removeButton" onAction="#deletePackage">
+                                        <graphic>
+                                            <ImageView fx:id="btnCatlgPackDel" fitHeight="20" fitWidth="18">
+                                                <image>
+                                                    <Image url="@../assets/remove2.png" />
+                                                </image>
+                                            </ImageView>
+                                        </graphic>
+                                    </Button>
+                                </children>
+                            </AnchorPane>
+                        </HBox>
+                    </right>
+                </BorderPane>
+            </VBox>
+            <TableView fx:id="packageTable" styleClass="no-header">
+                <columns>
+                    <TableColumn fx:id="packageAction" maxWidth="32" minWidth="32" prefWidth="32" text="A" />
+                    <TableColumn fx:id="packageColumn" styleClass="table-column-no-border" text="Row" />
+                </columns>
+            </TableView>
+        </VBox>
+
+        <VBox>
+            <VBox maxHeight="95" minHeight="95" prefHeight="95" prefWidth="297.0" spacing="5" style="-fx-background-color:#ebf0f4;  -fx-border-radius:3; -fx-border-color:#c4cbd2; -fx-border-width:1;">
+                <HBox prefHeight="3" prefWidth="300" style="-fx-background-color:#04a2f5; " />
+                <BorderPane prefHeight="40" prefWidth="300" style="-fx-background-color:#ebf0f4; ">
+
+                    <left>
+                        <HBox>
+                            <padding>
+                                <Insets left="5" right="5" top="10" />
+
+                            </padding>
+                            <Label style="-fx-font-weight: bold;" text="Unit" />
+                        </HBox>
+                    </left>
+                    <right>
+
+                        <HBox>
+                            <padding>
+                                <Insets left="5" right="5" top="5" />
+
+                            </padding>
+
+                            <HBox alignment="CENTER" maxHeight="30" minHeight="30" minWidth="30" prefHeight="30" prefWidth="30" style="-fx-background-color:#f6f6f9; -fx-border-radius:3; -fx-border-color:#b6b7b8; -fx-border-width:0.5;">
+                                <padding>
+                                    <Insets bottom="3" left="3" right="3" top="3" />
+                                </padding>
+                                <Label fx:id="lblUnitTotal" text="20" />
+                            </HBox>
+
+                        </HBox>
+                    </right>
+                </BorderPane>
+                <BorderPane prefHeight="40" prefWidth="300" style="-fx-background-color:#ebf0f4;">
+
+                    <left>
+                        <HBox>
+                            <padding>
+                                <Insets bottom="5" left="5" right="5" />
+
+                            </padding>
+                            <AnchorPane>
+                                <children>
+                                    <Button id="addButton" fx:id="btnCatlgUnitAdd" onAction="#onCLickUnit" text="Add">
+                                        <!--                                        <graphic>-->
+                                        <!--                                            <ImageView fitHeight="10" fitWidth="10">-->
+                                        <!--                                                <image>-->
+                                        <!--                                                    <Image url="@../assets/plus2.png" />-->
+                                        <!--                                                </image>-->
+                                        <!--                                            </ImageView>-->
+                                        <!--                                        </graphic>-->
+                                    </Button>
+                                </children>
+                            </AnchorPane>
+                        </HBox>
+                    </left>
+                    <right>
+                        <HBox>
+                            <padding>
+                                <Insets bottom="5" left="5" right="5" />
+
+                            </padding>
+                            <AnchorPane>
+                                <children>
+                                    <Button id="removeButton" onAction="#deleteUnit">
+                                        <graphic>
+                                            <ImageView fx:id="btnCatlgUnitDel" fitHeight="20" fitWidth="18">
+                                                <image>
+                                                    <Image url="@../assets/remove2.png" />
+                                                </image>
+                                            </ImageView>
+                                        </graphic>
+                                    </Button>
+                                </children>
+                            </AnchorPane>
+                        </HBox>
+                    </right>
+                </BorderPane>
+            </VBox>
+            <TableView fx:id="unitTable" styleClass="no-header">
+                <columns>
+                    <TableColumn fx:id="unitAction" maxWidth="32" minWidth="32" prefWidth="32" text="A" />
+                    <TableColumn fx:id="unitColumn" styleClass="table-column-no-border" text="Row" />
+                </columns>
+            </TableView>
+        </VBox>
+
+    </HBox>
+</VBox>

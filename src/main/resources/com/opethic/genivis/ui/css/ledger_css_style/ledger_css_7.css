@@ -1,0 +1,696 @@
+/* Label Style Start */
+.label {
+	-fx-font-family: 'Arial';
+	-fx-font-size: 14px;
+	-fx-text-fill: #000000;
+}
+
+/* Label Style End */
+.check-box {
+	-fx-font-family: 'Arial';
+    -fx-font-size: 14px;
+    -fx-text-fill: #000000;
+
+}
+.radio-button {
+	-fx-font-family: 'Arial';
+    -fx-font-size: 14px;
+    -fx-text-fill: #000000;
+}
+
+
+/* Textfield Start */
+.text-field {
+	-fx-font-family: "Arial";
+	-fx-background-color: #fff;
+	-fx-border-color: #99a3ac;
+	-fx-border-width: 1px;
+	-fx-font-size: 14px;
+	-fx-pref-height: 34px;
+	-fx-pref-width: 200px;
+	-fx-border-radius: 4px;
+	/*-fx-padding: 5px;*/
+}
+
+.text-field:focused {
+	-fx-border-width: 2px !important;
+	-fx-background-color: #fff9c4 !important;
+	-fx-border-color: #00a0f5 !important;
+}
+
+/*.text-field:hover {
+  -fx-background-color: #fff9c4;
+  -fx-border-width: 1px;
+  -fx-border-color: #99a3ac;
+}*/
+/* Textfield End */
+
+/* Combobox Start */
+.combo-box {
+	-fx-background-color: #fff;
+	-fx-border-color: #99a3ac;
+	-fx-border-radius: 4px;
+	-fx-font-size: 14px;
+	-fx-pref-height: 34px;
+	-fx-pref-width: 200px;
+	-fx-border-width: 1px;
+}
+
+.combo-box .text-input {
+	-fx-background-color: transparent;
+	-fx-border-radius: 0px;
+	-fx-border-color: transparent;
+}
+
+.combo-box:focused {
+	-fx-background-color: #fff9c4 !important;
+	-fx-border-color: #00a0f5 !important;
+	-fx-border-width: 2px !important;
+}
+
+.combo-box:hover {
+	-fx-background-color: #fff9c4;
+}
+
+.combo-box-popup {
+	-fx-background-color: #fff;
+	-fx-border-color: #ccc;
+	-fx-border-radius: 0px;
+	-fx-pref-height: 100px;
+	-fx-pref-width: 300px;
+}
+
+.combo-box-popup .list-cell {
+	-fx-text-fill: #333333;
+	-fx-font-size: 14px;
+	-fx-padding: 5px;
+}
+
+.combo-box-popup .list-cell:hover {
+	-fx-background-color: #b3e4ff;
+}
+
+.combo-box-popup .list-view .list-cell:selected {
+	-fx-background-color: #00a0f5;
+	-fx-text-fill: white;
+}
+
+/* Combobox End */
+
+/* Submit Btn Start */
+.submit-btn {
+	-fx-font-family: "Arial";
+	-fx-pref-height: 34px;
+	-fx-font-size: 14px;
+	-fx-pref-width: 100px;
+	-fx-background-color: white;
+	-fx-text-fill: #4d4d4d;
+	-fx-border-color: #ccc;
+	-fx-border-width: 1px;
+	-fx-border-radius: 3px;
+	-fx-cursor: hand;
+	-fx-font-weight: bold;
+}
+
+.submit-btn:hover,
+.submit-btn:focused {
+	-fx-border-width: 2px;
+	-fx-background-color: #fff9c4;
+	-fx-border-color: #00a0f5;
+	-fx-cursor: hand;
+}
+
+/* Submit Btn End */
+
+/* Cancel Btn Start */
+.cancel-btn {
+	-fx-font-family: "Arial";
+	-fx-pref-height: 34px;
+	-fx-font-size: 14px;
+	-fx-pref-width: 100px;
+	-fx-background-color: white;
+	-fx-text-fill: #4d4d4d;
+	-fx-font-weight: bold;
+	-fx-border-color: #ccc;
+	-fx-border-width: 1px;
+	-fx-border-radius: 3px;
+	-fx-cursor: hand;
+}
+
+.cancel-btn:hover,
+.cancel-btn:focused {
+	-fx-border-width: 2px;
+	-fx-background-color: #fff9c4;
+	-fx-border-color: #00a0f5;
+	-fx-cursor: hand;
+}
+
+/* Cancel Btn End */
+
+/* Convert btn */
+.convert_btn_style {
+	-fx-font-family: "Arial";
+	-fx-pref-height: 34px;
+	-fx-pref-width: 100px;
+	-fx-font-size: 14px;
+	-fx-background-color: white;
+	-fx-text-fill: #4d4d4d;
+	-fx-font-weight: bold;
+	-fx-border-color: #ccc;
+	-fx-border-width: 1px;
+	-fx-border-radius: 3px;
+	-fx-cursor: hand;
+}
+
+.convert_btn_style:hover,
+.convert_btn_style:focused {
+	-fx-border-width: 2px;
+	-fx-background-color: #fff9c4;
+	-fx-border-color: #00a0f5;
+	-fx-cursor: hand;
+}
+
+/* Convert btn */
+
+#add_charges {
+	-fx-font-family: "Arial";
+	-fx-pref-height: 34px;
+	-fx-background-color: white;
+	-fx-text-fill: #4d4d4d;
+	-fx-font-weight: bold;
+	-fx-border-color: #ccc;
+	-fx-border-width: 1px;
+	-fx-background-radius: 3px;
+	-fx-border-radius: 3px;
+	-fx-cursor: hand;
+	-fx-font-size: 14px;
+}
+
+#add_charges:hover,
+#add_charges:focused {
+	-fx-border-color: #00a0f5;
+	-fx-background-color: #fff9c4;
+	-fx-border-width: 2px;
+	-fx-cursor: hand;
+}
+
+
+/* Tableview Start */
+.table-view .column-header,
+.table-view .column-header-background .filler {
+	-fx-font-family: "Arial";
+	-fx-font-size: 14px;
+	-fx-alignment: CENTER_LEFT;
+	-fx-pref-height: 35px;
+	-fx-padding: 0px;
+}
+
+.table-view .table-cell {
+	-fx-font-size: 14px;
+	-fx-alignment: CENTER_LEFT;
+	-fx-padding: 0 0 0 0;
+	-fx-cell-size: 30px;
+	/* Set cell height */
+}
+
+.table-view .cell {
+	-fx-cell-size: 30px;
+	/* Set cell height */
+}
+
+.table-row-cell:odd,
+.table-row-cell:even {
+	-fx-background-color: #f6f6f9;
+	-fx-border-color: transparent transparent #e0e0e1 transparent;
+	/* Adjust border color as needed */
+	-fx-border-width: 0 0 1 0;
+	/* Adjust border width as needed */
+}
+
+.table-column {
+	-fx-border-color: transparent #e0e0e1 transparent transparent;
+	/* Adjust border color as needed */
+	-fx-border-width: 0 1 0 0;
+	/* Adjust border width as needed */
+}
+
+.table-view:focused {
+	-fx-background-color: -fx-box-border, -fx-control-inner-background;
+	-fx-background-insets: 1, 1;
+}
+
+.table-view:hover {
+	-fx-cursor: hand;
+}
+
+/*
+#table_textfield {
+    -fx-background-color: yellow;
+    -fx-text-fill: blue;
+} */
+
+/* Tableview End */
+
+/* TabPane style Start */
+.tab-pane {
+-fx-background-color: #e9f7fd
+}
+
+.tab-pane .tab-header-background {
+	-fx-background-color: #e9f7fd;
+	/* Change to whatever color you prefer */
+}
+
+.tab-pane .tab {
+	-fx-background-color: #e9f7fd !important;
+	/* Set the background color of non-selected tabs */
+	-fx-text-fill: black;
+	-fx-font-size: 14px;
+    	-fx-font-weight: 700;
+    	-fx-border-width:0 0 1 0;
+    	-fx-border-color:#dcdcdc;
+	/* Set the text color of non-selected tabs */
+}
+
+.tab-pane .tab:selected {
+	-fx-background-color: #d9f0fb !important;
+	-fx-border-color: #c7dbe4;
+	-fx-border-radius: 4
+}
+
+.tab-pane .tab:hover {
+	-fx-background-color: #d9f0fb !important;
+}
+
+/*.tab-pane .tab:focused {
+    -fx-background-color: red !important;
+    -fx-text-fill: black;
+}*/
+/* TabPane style End*/
+
+/* ID Styles Start  */
+
+#tabInnerHb {}
+
+#rightBorder {
+	-fx-border-color: #EAD8B1;
+	-fx-border-width: 0 2 0 0;
+}
+
+#mainGridStyle {
+	-fx-background-color: #f8f0d2;
+	-fx-background-radius: 6;
+	-fx-padding: 10px;
+	-fx-border-radius: 6;
+	-fx-border-width: 2;
+	-fx-border-color: #EAD8B1;
+}
+
+#gridCommonTextStyle {
+	-fx-text-fill: #b8762b;
+	-fx-font-weight: bold;
+	-fx-opacity: 0.8;
+	-fx-font-size: 14px;
+}
+
+#gridCommonTextStyleBlack {
+	-fx-font-weight: bold;
+	-fx-opacity: 0.8;
+	-fx-font-size: 14px;
+}
+
+#supplierTableStyle {
+	-fx-background-color: #e9f7fd;
+}
+
+#bigLabel {
+	-fx-font-family: "Arial";
+	-fx-font-weight: bold;
+	-fx-font-size: 16px;
+	-fx-text-fill: #000000;
+}
+
+#topMainDiv {
+	-fx-padding: 15px;
+}
+#ledgerTopMainDiv {
+	-fx-padding: 15px;
+}
+
+#topInnerDiv {
+	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 5, 0, 0, 0);
+	-fx-background-color: #fff;
+	-fx-background-radius: 6;
+	-fx-padding: 10px
+}
+#topInnerDivAccountEntry {
+	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 5, 0, 0, 0);
+	-fx-background-color: #fff;
+	-fx-background-radius: 6;
+	-fx-padding: 15px
+}
+
+#topInnerHbOne {
+	-fx-padding: 8px
+}
+
+#topInnerHbTwo {
+	-fx-padding: 8px
+}
+
+#tabMianDiv {
+	-fx-padding: 10px
+}
+
+#supplierTableMainDiv {
+	-fx-padding: 10px;
+}
+
+#middleMainDiv {
+	-fx-padding: 10px;
+}
+
+
+/* ID Styles End  */
+
+
+// sales quotation
+#sqtotalFirst {
+	-fx-padding: 10px;
+}
+
+#sqtotalsecond {
+	-fx-padding: 10px;
+}
+
+#sqbuttonsMainDiv {
+	-fx-padding: 10px;
+}
+
+//top
+#sqTranxDate {
+	-fx-pref-width: 75px;
+}
+
+#sqlblClientName {
+	-fx-pref-width: 92px;
+}
+
+
+// sale quotation to order
+#sq2olblOrderNo {
+	-fx-pref-width: 92px;
+}
+
+
+// Sales Order
+#solblTranxDate {
+	-fx-pref-width: 75px;
+}
+
+#solblOrderNo {
+	-fx-pref-width: 85px;
+}
+
+// Sales ordre to challan
+#so2cChallanDate {
+	-fx-pref-width: 92px;
+}
+
+#so2cChallanNo {
+	-fx-pref-width: 85px;
+}
+
+#tfDisPer {
+	-fx-pref-width: 70px;
+}
+
+#tfDisAmt {
+	-fx-pref-width: 90px;
+}
+
+#tfCommonWidth {
+	-fx-pref-width: 100px;
+}
+
+
+// Sales order to invoice
+#so2iTranxDate {
+	-fx-pref-width: 77px;
+}
+
+#so2iInvoiceDate {
+	-fx-pref-width: 91px;
+}
+
+// sales challan
+
+#sclblChallanDate {
+	-fx-pref-width: 92px;
+}
+
+#sclblChallanNo {
+	-fx-pref-width: 84px;
+}
+
+// sales challan to invoice
+#sc2ilblTranxDate {
+	-fx-pref-width: 77px;
+}
+
+#sc2ilblInvoiceDate {
+	-fx-pref-width: 91px;
+}
+
+// Purchase Order
+#poOrderNo {
+	-fx-pref-width: 70px;
+}
+
+#poOrderDate {
+	-fx-pref-width: 90px;
+}
+
+// purchase order to challan
+#po2cTranxDate {
+	-fx-pref-width: 80px;
+}
+
+#po2cChallanDate {
+	-fx-pref-width: 92px;
+}
+
+// purchase order to invoice
+#po2ilblTranxDate {
+	-fx-pref-width: 77px;
+}
+
+#po2ilblInvoiceDate {
+	-fx-pref-width: 91px;
+}
+
+//Purchase Challan
+#pcTranxDate {
+	-fx-pref-width: 80px;
+}
+
+#pcChallanDate {
+	-fx-pref-width: 91px;
+}
+
+// Purchase Challan To Invoice
+#pc2iTranxDate {
+	-fx-pref-width: 77px;
+}
+
+#pc2iInvoiceDate {
+	-fx-pref-width: 91px;
+}
+
+// sale quotation to challan
+#sq2cChallanDate {
+	-fx-pref-width: 98px;
+}
+
+#sq2cChallanNo {
+	-fx-pref-width: 85px;
+}
+
+
+// tranx list pages
+#tfSearchField{
+-fx-pref-width:350px;
+}
+
+
+#tranxListTableViewStyle {
+	-fx-padding: 0px;
+	/* Adjust the padding as needed */
+}
+
+#tranxListTableViewStyle .column-header .label {
+	-fx-font-family: 'Arial';
+	-fx-text-fill: black;
+	-fx-alignment: CENTER-LEFT;
+}
+
+#tranxListTableViewStyle .column-header,
+#tranxListTableViewStyle .column-header .filler,
+#tranxListTableViewStyle .column-header-background .filler {
+	-fx-background-color: #ffedcc;
+	-fx-font-size: 14px;
+	-fx-alignment: CENTER;
+	-fx-font-weight: bold;
+	-fx-padding:2 2 2 10;
+}
+
+#tranxListTableViewStyle .table-cell {
+	-fx-font-family: 'Arial';
+	-fx-font-size: 14px;
+	-fx-alignment: CENTER_LEFT;
+}
+
+#tranxListTableViewStyle .cell {
+	-fx-cell-size: 35;
+}
+
+#tranxListTableViewStyle .column-header {
+	-fx-alignment: CENTER_LEFT;
+}
+
+#tranxListTableViewStyle .table-cell {
+	-fx-border-color: transparent;
+	-fx-padding: 2 2 2 10;
+}
+
+#tranxListTableViewStyle .table-row-cell:odd {
+	-fx-background-insets: 0, 0 0 1 0;
+	-fx-padding: 0.0em;
+}
+
+#tranxListTableViewStyle .table-row-cell:even {
+	-fx-background-insets: 0, 0 0 1 0;
+	-fx-padding: 0.0em;
+}
+
+#tranxListTableViewStyle .table-row-cell:odd,
+#tranxListTableViewStyle .table-row-cell:even {
+	-fx-background-color: white;
+	-fx-border-color: transparent transparent #e6e5e5 transparent;
+	/* Adjust border color as needed */
+	/*-fx-border-width: 0 0 1 0;*/
+	/* Adjust border width as needed */
+}
+
+#tranxListTableViewStyle .table-row-cell:selected {
+	-fx-background-color: #E1E0E0;
+	-fx-text-background-color: black;
+}
+
+#tranxListTableViewStyle:focused {
+	-fx-background-color: -fx-box-border, -fx-control-inner-background;
+	-fx-background-insets: 0, 1;
+}
+
+#tranxListTableViewStyle:hover {
+	-fx-cursor: hand;
+}
+
+// Ledger style start
+
+
+
+
+
+
+#ledgerCommonTblStyle {
+	-fx-padding: 0px;
+	-fx-pref-height:150px;
+	/* Adjust the padding as needed */
+}
+
+#ledgerCommonTblStyle .column-header .label {
+	-fx-font-family: 'Arial';
+	-fx-text-fill: black;
+	-fx-alignment: CENTER-LEFT;
+}
+
+#ledgerCommonTblStyle .column-header,
+#ledgerCommonTblStyle .column-header .filler,
+#ledgerCommonTblStyle .column-header-background .filler {
+	/*-fx-background-color: #ffedcc;*/
+	-fx-background-color:#e5eef4;
+	-fx-font-size: 14px;
+	-fx-alignment: CENTER;
+	-fx-font-weight: bold;
+	-fx-padding:2 2 2 10;
+}
+
+#ledgerCommonTblStyle .table-cell {
+	-fx-font-family: 'Arial';
+	-fx-font-size: 14px;
+	-fx-alignment: CENTER_LEFT;
+}
+
+#ledgerCommonTblStyle .cell {
+	-fx-cell-size: 35;
+}
+
+#ledgerCommonTblStyle .column-header {
+	-fx-alignment: CENTER_LEFT;
+}
+
+#ledgerCommonTblStyle .table-cell {
+	-fx-border-color: transparent;
+	-fx-padding: 2 2 2 10;
+}
+
+#ledgerCommonTblStyle .table-row-cell:odd {
+	-fx-background-insets: 0, 0 0 1 0;
+	-fx-padding: 0.0em;
+}
+
+#ledgerCommonTblStyle .table-row-cell:even {
+	-fx-background-insets: 0, 0 0 1 0;
+	-fx-padding: 0.0em;
+}
+
+#ledgerCommonTblStyle .table-row-cell:odd,
+#ledgerCommonTblStyle .table-row-cell:even {
+	-fx-background-color: white;
+	-fx-border-color: transparent transparent #e6e5e5 transparent;
+	/* Adjust border color as needed */
+	/*-fx-border-width: 0 0 1 0;*/
+	/* Adjust border width as needed */
+}
+
+#ledgerCommonTblStyle .table-row-cell:selected {
+	-fx-background-color: #E1E0E0;
+	-fx-text-background-color: black;
+}
+
+#ledgerCommonTblStyle:focused {
+	-fx-background-color: -fx-box-border, -fx-control-inner-background;
+	-fx-background-insets: 0, 1;
+}
+
+#ledgerCommonTblStyle:hover {
+	-fx-cursor: hand;
+}
+
+
+ #vboxSwitchMain{
+ -fx-pref-height: 22;
+ -fx-max-height: 22;
+ -fx-min-height: 22;
+ }
+
+ #crdrcombo{
+ -fx-pref-width:90px;
+ }
+
+ #innerDivSd {
+     -fx-background-color: #ebf0f4;
+     -fx-padding: 10px;
+     -fx-border-color:#ced2d5;
+ }

@@ -1,0 +1,8 @@
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #d5effb;
+    -fx-font-size: 12;
+}
+.tab-content {
+    -fx-pref-width: 35;
+
+}

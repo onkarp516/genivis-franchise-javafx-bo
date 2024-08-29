@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ProgressBar?>
+<BorderPane style="-fx-background-color: white;"
+            stylesheets="@../css/company_user.css" xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:id="bpRootProductImportPane"
+            fx:controller="com.opethic.genivis.controller.utilities.ProductImportController">
+         <top>
+             <VBox style="-fx-background-color: #D9F0FB;" prefHeight="100" spacing="10" alignment="CENTER_LEFT">
+                 <HBox>
+                     <Region prefWidth="50"/>
+                     <Button fx:id="btnChooseFile" text="Choose File"/>
+                     <TextField fx:id="tfSelectedFileName" prefWidth="300" promptText="No file is selected..." editable="false"/>
+                     <Region prefWidth="50"/>
+                     <Button fx:id="btnSubmit" text="Submit"/>
+                 </HBox>
+                 <HBox fx:id="hbProgress" >
+                     <Region fx:id="rSpace" prefWidth="50"/>
+                     <ProgressBar fx:id="pbProgressProductImport" visible="false"/>
+                 </HBox>
+             </VBox>
+
+
+         </top>
+         <center>
+
+         </center>
+
+</BorderPane>

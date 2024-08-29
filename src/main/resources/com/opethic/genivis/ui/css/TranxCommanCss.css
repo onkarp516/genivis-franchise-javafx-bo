@@ -1,0 +1,195 @@
+//*** CSS Style For Purchase Order Page ***//
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter-Regular.ttf');
+}
+
+/* COMBOBOX  */
+.combo-box {
+    -fx-background-color: #fff;
+    -fx-border-color: #99A3AC;
+    -fx-border-radius: 4px;
+    -fx-pref-height: 34px;
+    -fx-border-width: 1px;
+}
+
+.combo-box .text-input {
+    -fx-background-color: transparent;
+    -fx-border-radius: 0px;
+    -fx-border-color: transparent;
+}
+
+.combo-box:focused {
+    -fx-background-color: #fff9c4 !important;
+    -fx-border-color: #00a0f5 !important;
+    -fx-border-width: 2px !important;
+}
+
+.combo-box:hover {
+    -fx-background-color: #fff9c4;
+}
+
+.combo-box-popup {
+    -fx-background-color: #fff;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 0px;
+    -fx-pref-height: 100px;
+    -fx-pref-width: 300px;
+}
+
+
+.combo-box-popup .list-cell {
+    -fx-text-fill: #333333;
+    -fx-font-size: 14px;
+    -fx-padding: 5px;
+}
+
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: #b3e4ff;
+}
+
+.combo-box-popup .list-view .list-cell:selected {
+    -fx-background-color: #00a0f5;
+    -fx-text-fill: white;
+}
+
+/* COMBOBOX END */
+
+/* TEXTFIELD */
+
+.text-field {
+ -fx-font-family: "Inter", sans-serif;
+    -fx-background-color: #fff;
+    -fx-border-color: #99A3AC;
+    -fx-border-width: 1px;
+    -fx-pref-height: 34px;
+    -fx-border-radius: 4px;
+    /*-fx-padding: 5px;*/
+}
+.text-field:focused {
+    -fx-border-width: 2px !important;
+    -fx-background-color: #fff9c4 !important;
+    -fx-border-color: #00a0f5 !important;
+}
+.text-field:hover {
+    -fx-background-color: #fff9c4;
+    -fx-border-width:1px;
+    -fx-border-color:#99A3AC
+    }
+
+/* TEXTFIELD END */
+
+
+/* TabPane Style */
+.tab-pane {
+
+}
+.tab-pane .tab-header-background {
+    -fx-background-color: #e9f7fd; /* Change to whatever color you prefer */
+}
+.tab-pane .tab {
+    -fx-background-color: #e9f7fd !important; /* Set the background color of non-selected tabs */
+    -fx-text-fill: black; /* Set the text color of non-selected tabs */
+}
+.tab-pane .tab:selected {
+    -fx-background-color:  #d9f0fb !important;
+    -fx-border-color: #c7dbe4;
+    -fx-border-radius:4
+}
+.tab-pane .tab:hover{
+-fx-background-color:#d9f0fb !important;
+}
+/*.tab-pane .tab:focused {
+    -fx-background-color: red !important;
+    -fx-text-fill: black;
+}*/
+
+
+/* END */
+
+/* Submit Btn*/
+
+.submit-btn {
+    -fx-padding: 5px 14px;
+    -fx-font-family: "Inter";
+    -fx-pref-width: 100px;
+    -fx-font-weight:500;
+   /* -fx-pref-height: 34px;*/
+    -fx-border-radius: 6px;
+    -fx-margin-left: 10px;
+    -fx-font-size: 14px;
+    -fx-text-fill: #21c78a;
+    -fx-background-color: transparent;
+    -fx-border-width: 2px;
+    -fx-border-color: #22c55e;
+}
+
+.submit-btn:hover {
+    -fx-text-fill: white;
+    -fx-background-color: #22c55e;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+}
+.submit-btn:focused {
+    -fx-text-fill: white;
+    -fx-background-color: #22c55e;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+}
+
+/* END */
+
+
+
+/* Cancel Btn */
+
+.cancel-btn {
+    -fx-padding: 5px 14px;
+    -fx-font-family: "Inter";
+    -fx-pref-width: 100px;
+    /*-fx-pref-height: 25px;*/
+    -fx-border-radius: 6px;
+    -fx-margin-left: 10px;
+    -fx-font-size: 14px;
+    -fx-text-fill: #A0AAB4;
+    -fx-background-color: transparent;
+    -fx-border-width: 2px;
+    -fx-border-color: #A0AAB4;
+}
+
+.cancel-btn:hover{
+    -fx-text-fill: white;
+    -fx-background-color: #A0AAB4; /* Changed to green */
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+}
+.cancel-btn:focused {
+    -fx-text-fill: white;
+    -fx-background-color: #A0AAB4; /* Changed to green */
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+}
+
+
+
+
+/* END */
+
+.label{
+-fx-font-family:'Inter';
+-fx-font-weight:500;
+-fx-font-size:14px;
+-fx-text-fill:#000000;
+}
+
+/* Bold Text */
+.boldTextStyle{
+-fx-font-size:16px;
+-fx-font-weight:600;
+-fx-text-fill:#000000;
+
+}
+
+
+/* CSS Style For Purchase Order Page END */

@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import com.opethic.genivis.controller.commons.SwitchButton?>
+<ScrollPane fitToHeight="true" fitToWidth="true" style="-fx-background-color: #d9f0fb;"
+            stylesheets="@../css/product_create_style.css" xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.opethic.genivis.controller.master.ProductCreateController"
+            fx:id="spRootPane">
+    <content>
+
+        <BorderPane style="-fx-background-color: #d9f0fb;">
+            <top>
+                <VBox alignment="TOP_CENTER" spacing="15.0" style="-fx-background-color: #d9f0fb;">
+
+                    <VBox>
+                        <padding>
+                            <Insets left="10.0" right="10.0" top="10.0"/>
+                        </padding>
+
+
+                        <VBox style="-fx-background-color: #f6f6f9; -fx-background-radius: 5px;
+                        -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0); ">
+                            <padding>
+                                <Insets bottom="10" left="10" right="10" top="10"/>
+                            </padding>
+                            <HBox alignment="CENTER_LEFT" maxHeight="50" minHeight="50" prefHeight="50"
+                                  style="-fx-background-color: #f6f6f9;">
+
+                                <padding>
+                                    <Insets bottom="10" left="5" right="5" top="10"/>
+                                </padding>
+
+                                <Label fx:id="code" minWidth="34.0" style="-fx-font-weight: bold; -fx-font-size: 14px;"
+                                       text="Code"/>
+                                <Label minWidth="15.0" style="-fx-text-fill: red;" text=" * "/>
+
+                                <TextField minWidth="100" prefWidth="150" promptText="Code" HBox.hgrow="ALWAYS"
+                                           fx:id="tfCode"/>
+
+                                <Label fx:id="name" minWidth="47.0" style="-fx-font-weight: bold; -fx-font-size: 14px;"
+                                       text="  Name"/>
+                                <Label minWidth="15.0" style="-fx-text-fill: red; " text=" * "/>
+
+                                <TextField minWidth="200" prefWidth="400" promptText="Name" HBox.hgrow="ALWAYS"
+                                           fx:id="tfName"/>
+                                <Button maxWidth="27.0" minWidth="27.0" styleClass="plus-button"
+                                        fx:id="btnNamePlus" onAction="#btnNameClicked">
+                                    <graphic>
+                                        <ImageView fitHeight="15.0" fitWidth="15.0">
+                                            <image>
+                                                <Image url="@../assets/add3.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+
+
+                                <Label fx:id="packing" minWidth="60.0"
+                                       style="-fx-font-weight: bold; -fx-font-size: 14px;" text="  Packing"/>
+                                <Label minWidth="15.0" style="-fx-text-fill: red; " text=" *"/>
+
+                                <ComboBox minWidth="200" prefWidth="250" promptText="Select" HBox.hgrow="ALWAYS"
+                                          fx:id="cmbPack" onAction="#handleCmbPacking"/>
+                                <Button maxWidth="27.0" minWidth="27.0" styleClass="plus-button"
+                                        fx:id="btnPackingPlus" onAction="#btnPkgClicked">
+                                    <graphic>
+                                        <ImageView fitHeight="15.0" fitWidth="15.0">
+                                            <image>
+                                                <Image url="@../assets/add3.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+
+
+                                <Label fx:id="brand" minWidth="47.0" style="-fx-font-weight: bold; -fx-font-size: 14px;"
+                                       text="  Brand"/>
+                                <Label minWidth="15.0" style="-fx-text-fill: red;" text=" * "/>
+                                <ComboBox minWidth="200" prefWidth="400" promptText="Select" HBox.hgrow="ALWAYS"
+                                          fx:id="cmbBrand" onAction="#handleCmbBrand"/>
+                                <Button fx:id="btnBrandPlus" maxWidth="27.0" minWidth="27.0" styleClass="plus-button"
+                                         onAction="#btnBrandClicked">
+                                    <graphic>
+                                        <ImageView fitHeight="15.0" fitWidth="15.0">
+                                            <image>
+                                                <Image url="@../assets/add3.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+
+                            </HBox>
+
+                        <!--    <HBox alignment="CENTER_LEFT" maxHeight="50" minHeight="50" prefHeight="50"
+                                  style="-fx-background-color: #f6f6f9;">
+
+                                <padding>
+                                    <Insets bottom="10" left="5" right="5" top="10"/>
+                                </padding>
+
+                                <Label fx:id="tax_type" minWidth="60.0"
+                                       style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Type Tax"/>
+                                <Label minWidth="9.0" style="-fx-text-fill: red;" text="* "/>
+                                <ComboBox fx:id="cmbTaxType" minWidth="80" prefWidth="150" promptText="Select"
+                                          HBox.hgrow="ALWAYS" onAction="#handleCmbTaxType"/>
+                                <Label fx:id="tax" minWidth="44.0" style="-fx-font-weight: bold; -fx-font-size: 14px;"
+                                       text="  Tax%"/>
+                                <Label minWidth="9.0" style="-fx-text-fill: red;" text="* "/>
+
+                                <ComboBox fx:id="cmbTax" minWidth="70" prefWidth="70" promptText="0"
+                                          HBox.hgrow="ALWAYS" onAction="#handleCmbTax"/>
+
+                                <Label fx:id="applicable_from" minWidth="120.0"
+                                       style="-fx-font-weight: bold; -fx-font-size: 14px;" text="  Applicable From "/>
+                                <TextField minWidth="90" prefWidth="100" promptText="DD/MM/YYYY" HBox.hgrow="ALWAYS"
+                                           fx:id="tfApplicableFrom"/>
+                                <Label fx:id="hsn" minWidth="38.0" style="-fx-font-weight: bold; -fx-font-size: 14px;"
+                                       text="  HSN"/>
+                                <Label minWidth="9.0" style="-fx-text-fill: red;" text="* "/>
+
+                                <ComboBox minWidth="60" prefWidth="150" promptText="Select" fx:id="cmbHsn"
+                                          onAction="#handleCmbHsn"/>
+                                <Button maxWidth="27.0" minWidth="27.0" styleClass="plus-button"
+                                        fx:id="btnHsnPlus" onAction="#btnHsnClicked">
+                                    <graphic>
+                                        <ImageView fitHeight="15.0" fitWidth="15.0">
+                                            <image>
+                                                <Image url="@../assets/add3.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+
+                                <Label fx:id="disc" minWidth="51.0" style="-fx-font-weight: bold; -fx-font-size: 14px;"
+                                       text="  Disc% "/>
+                                <TextField minWidth="50" prefWidth="50" promptText="Disc%" HBox.hgrow="ALWAYS"
+                                           fx:id="tfDiscPer"/>
+
+
+                                <Label fx:id="margin" minWidth="72.0"
+                                       style="-fx-font-weight: bold; -fx-font-size: 14px; " text="  Margin% "/>
+
+
+                                <TextField minWidth="50" prefWidth="100" promptText="Margin" HBox.hgrow="ALWAYS"
+                                           fx:id="tfMargin"/>
+
+
+                                <Label fx:id="barcode" minWidth="66.0"
+                                       style="-fx-font-weight: bold; -fx-font-size: 14px;" text="  Barcode "/>
+
+
+                                <TextField minWidth="50" prefWidth="120" promptText="Barcode" HBox.hgrow="ALWAYS"
+                                           fx:id="tfBarcode"/>
+
+
+                                <Label fx:id="shelf_id" minWidth="64.0"
+                                       style="-fx-font-weight: bold; -fx-font-size: 14px; " text="  Shelf ID "/>
+
+                                <TextField minWidth="50" prefWidth="120" promptText="Shelf ID" HBox.hgrow="ALWAYS"
+                                           fx:id="tfShelfId"/>
+                            </HBox>
+
+                            <HBox alignment="CENTER_LEFT" maxHeight="50" minHeight="50" prefHeight="50" spacing="10"
+                                  style="-fx-background-color: #f6f6f9;">
+
+                                <padding>
+                                    <Insets bottom="10" left="5" right="5" top="10"/>
+                                </padding>
+
+                                <Label fx:id="mis" minWidth="30.0" style="-fx-font-weight: bold; -fx-font-size: 14px; "
+                                       text="MIS:"/>
+                                <VBox fx:id="vboxMis" prefHeight="23.0" maxHeight="23.0" minHeight="23.0" prefWidth="35.5" minWidth="35.5" maxWidth="35.5" style="-fx-background-color: #f8f4fc; -fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #f8f4fc; -fx-border-width: 2;">
+                                    <SwitchButton fx:id="switchMis" minWidth="32.0" maxWidth="32.0" prefWidth="32.0"/>
+                                </VBox>
+                                <TextField fx:id="tfManufacturer" minWidth="80" prefWidth="120"
+                                           promptText="Manufacturer" HBox.hgrow="ALWAYS"/>
+                                <TextField fx:id="tfFormulation" minWidth="70" prefWidth="120" promptText="Formulation"
+                                           HBox.hgrow="ALWAYS"/>
+                                <TextField fx:id="tfCategory" minWidth="70" prefWidth="120" promptText="Category"
+                                           HBox.hgrow="ALWAYS"/>
+                                <TextField fx:id="tfSubCategory" minWidth="85" prefWidth="120" promptText="Sub Category"
+                                           HBox.hgrow="ALWAYS"/>
+
+                                <VBox fx:id="vboxInventory" prefHeight="23.0" maxHeight="23.0" minHeight="23.0" prefWidth="35.5" minWidth="35.5" maxWidth="35.5" style="-fx-background-color: #f8f4fc; -fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #f8f4fc; -fx-border-width: 2;">
+                                <SwitchButton fx:id="switchIsInventory" minWidth="32.0" maxWidth="32.0"
+                                              prefWidth="32.0"/>
+                                </VBox>
+                                <Label fx:id="lbInventory" minWidth="72.0"
+                                       style="-fx-font-weight: bold; -fx-font-size: 14px; " text="Inventory:"/>
+
+                                <Label fx:id="lbMinStk" minWidth="51.0"
+                                       style="-fx-font-weight: bold; -fx-font-size: 14px; " text="Min Stk"/>
+                                <TextField fx:id="tfMinStk" minWidth="20" prefWidth="120" promptText="Min"
+                                           HBox.hgrow="ALWAYS"/>
+
+                                <Label fx:id="lbMaxStk" minWidth="58.0"
+                                       style="-fx-font-weight: bold; -fx-font-size: 14px; " text="Max Stk"/>
+                                <TextField fx:id="tfMaxStk" minWidth="20" prefWidth="120" promptText="Max"
+                                           HBox.hgrow="ALWAYS"/>
+                                <VBox fx:id="vboxBatch" prefHeight="23.0" maxHeight="23.0" minHeight="23.0" prefWidth="35.5" minWidth="35.5" maxWidth="35.5" style="-fx-background-color: #f8f4fc; -fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #f8f4fc; -fx-border-width: 2;">
+                                <SwitchButton fx:id="switchIsBatch" minWidth="32.0" maxWidth="32.0" prefWidth="32.0"/>
+                                </VBox>
+                                <Label fx:id="lbBatch" minWidth="41.0"
+                                       style="-fx-font-weight: bold; -fx-font-size: 14px; " text="Batch "/>
+                                <VBox fx:id="vboxSerialNo" prefHeight="23.0" maxHeight="23.0" minHeight="23.0" prefWidth="35.5" minWidth="35.5" maxWidth="35.5" style="-fx-background-color: #f8f4fc; -fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #f8f4fc; -fx-border-width: 2;">
+                                <SwitchButton fx:id="switchIsSerialNo" minWidth="32.0" maxWidth="32.0"
+                                              prefWidth="32.0"/>
+                                </VBox>
+                                <Label fx:id="lbSerialNo" minWidth="60"
+                                       style="-fx-font-weight: bold; -fx-font-size: 14px; " text="Serial No"/>
+                                <VBox fx:id="vboxWarranty" prefHeight="23.0" maxHeight="23.0" minHeight="23.0" prefWidth="35.5" minWidth="35.5" maxWidth="35.5" style="-fx-background-color: #f8f4fc; -fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #f8f4fc; -fx-border-width: 2;">
+                                <SwitchButton fx:id="switchIsWarranty" minWidth="32.0" maxWidth="32.0"
+                                              prefWidth="32.0"/>
+                                </VBox>
+                                <Label fx:id="lbWarrenty" minWidth="62.0"
+                                       style="-fx-font-weight: bold; -fx-font-size: 14px; " text="Warranty"/>
+                                <TextField fx:id="tfWarranty" minWidth="24" prefWidth="30" promptText="0"
+                                           HBox.hgrow="ALWAYS"/>
+                            </HBox>
+
+                            <HBox alignment="CENTER_LEFT" maxHeight="50" minHeight="50" prefHeight="50"
+                                  style="-fx-background-color: #f6f6f9;">
+                                <padding>
+                                    <Insets bottom="10" left="5" right="5" top="10"/>
+                                </padding>
+                                <VBox fx:id="vboxPrescription" prefHeight="23.0" maxHeight="23.0" minHeight="23.0" prefWidth="35.5" minWidth="35.5" maxWidth="35.5" style="-fx-background-color: #f8f4fc; -fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #f8f4fc; -fx-border-width: 2;">
+                                <SwitchButton fx:id="switchIsPrescription" minWidth="32.0" maxWidth="32.0"
+                                              prefWidth="32.0"/>
+                                </VBox>
+                                <Label fx:id="lbPrescription" minWidth="88.0"
+                                       style="-fx-font-weight: bold; -fx-font-size: 14px; " text="  Prescription"/>
+
+                                <Label fx:id="lbDrugType" minWidth="81.0"
+                                       style="-fx-font-weight: bold; -fx-font-size: 14px;" text="  Drug Type "/>
+                                <Label fx:id="lbDrugTypeDot" minWidth="9.0" style="-fx-text-fill: red;" text="* "/>
+
+                                <ComboBox fx:id="cmbDrugType" maxWidth="300" minWidth="70" prefWidth="300"
+                                          promptText="Drug Type" onAction="#handleCmbDrugType"/>
+                                <Button fx:id="btnDrugTypePlus" maxWidth="27.0" minWidth="27.0"
+                                        styleClass="plus-button" onAction="#btnDrugClicked">
+                                    <graphic>
+                                        <ImageView fitHeight="15.0" fitWidth="15.0">
+                                            <image>
+                                                <Image url="@../assets/add3.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+
+                                <Label fx:id="Contents" minWidth="71.0"
+                                       style="-fx-font-weight: bold; -fx-font-size: 14px;" text="  Contents "/>
+
+                                <TextField fx:id="tfContents" maxWidth="500" minWidth="250" prefWidth="500"
+                                           promptText="Contents"/>
+                                <Button fx:id="btnContents" maxWidth="27.0" minWidth="27.0" styleClass="plus-button">
+                                    <graphic>
+                                        <ImageView fitHeight="15.0" fitWidth="15.0">
+                                            <image>
+                                                <Image url="@../assets/add3.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+
+                                <Label minWidth="8.0" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="  "/>
+                                <VBox fx:id="vboxCommission" prefHeight="23.0" maxHeight="23.0" minHeight="23.0" prefWidth="35.5" minWidth="35.5" maxWidth="35.5" style="-fx-background-color: #f8f4fc; -fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #f8f4fc; -fx-border-width: 2;">
+
+                                <SwitchButton fx:id="switchIsCommission" minWidth="32.0" maxWidth="32.0"
+                                              prefWidth="32.0"/>
+                                </VBox>
+                                <Label fx:id="lbCommision" minWidth="88.0"
+                                       style="-fx-font-weight: bold; -fx-font-size: 14px; " text="  Commission"/>
+
+                                <Label minWidth="8.0" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="  "/>
+                                <VBox fx:id="vboxGvProduct" prefHeight="23.0" maxHeight="23.0" minHeight="23.0" prefWidth="35.5" minWidth="35.5" maxWidth="35.5" style="-fx-background-color: #f8f4fc; -fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #f8f4fc; -fx-border-width: 2;">
+
+                                <SwitchButton fx:id="switchIsGvProduct" minWidth="32.0" maxWidth="32.0"
+                                              prefWidth="32.0"/>
+                                </VBox>
+                                <Label fx:id="lbGV" minWidth="97.0" style="-fx-font-weight: bold; -fx-font-size: 14px; "
+                                       text="  GV Products  "/>
+
+                                <children>
+                                    <RadioButton fx:id="rbGvOwned" minWidth="70" text=" Owned  "
+                                                 onAction="#handleRadioButtonAction"/>
+                                    <RadioButton fx:id="rbTraded" minWidth="70" text=" Traded"
+                                                 onAction="#handleRadioButtonAction"/>
+                                </children>
+                            </HBox>
+
+                            <HBox alignment="CENTER_LEFT" maxHeight="50" minHeight="50" prefHeight="50" spacing="10"
+                                  style="-fx-background-color: #f6f6f9;">
+
+                                <padding>
+                                    <Insets bottom="10" left="5" right="5" top="10"/>
+                                </padding>
+
+                                <Label fx:id="ecomm" minWidth="30.0"
+                                       style="-fx-font-weight: bold; -fx-font-size: 14px; " text="E-Comm:"/>
+                                <VBox fx:id="vboxEcomm" prefHeight="23.0" maxHeight="23.0" minHeight="23.0" prefWidth="35.5" minWidth="35.5" maxWidth="35.5" style="-fx-background-color: #f8f4fc; -fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #f8f4fc; -fx-border-width: 2;">
+
+                                <SwitchButton fx:id="switchIsEcomm" minWidth="32.0" maxWidth="32.0" prefWidth="32.0"/>
+                                </VBox>
+                                <TextField fx:id="tfEcommType" maxWidth="120" minWidth="120" prefWidth="120"
+                                           promptText="Type" HBox.hgrow="ALWAYS"/>
+                                <TextField fx:id="tfEcommPrice" maxWidth="120" minWidth="70" prefWidth="120"
+                                           promptText="Selling Price" HBox.hgrow="ALWAYS"/>
+                                <TextField fx:id="tfEcommDisc" maxWidth="120" minWidth="70" prefWidth="120"
+                                           promptText="Discount %" HBox.hgrow="ALWAYS"/>
+                                <TextField fx:id="tfEcommAmt" maxWidth="120" minWidth="70" prefWidth="120"
+                                           promptText="Amount" HBox.hgrow="ALWAYS"/>
+                                <TextField fx:id="tfEcommLoyalty" maxWidth="120" minWidth="70" prefWidth="120"
+                                           promptText="Loyalty" HBox.hgrow="ALWAYS"/>
+                                <Label fx:id="photo" minWidth="30.0"
+                                       style="-fx-font-weight: bold; -fx-font-size: 14px; " text="Photos"/>
+
+                                <ImageView fx:id="imgUpload" fitHeight="30" fitWidth="30" preserveRatio="true">
+                                    &lt;!&ndash; Define the path to your image file &ndash;&gt;
+                                    <image>
+                                        <Image url="@../assets/img.png"/>
+                                    </image>
+                                </ImageView>
+
+                                <Label fx:id="upload" minWidth="30.0"
+                                       style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #00A0F5; -fx-underline: true;"
+                                       text="Upload"/>
+
+                                <Label fx:id="view" minWidth="30.0"
+                                       style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #00A0F5; -fx-underline: true;"
+                                       text="View"/>
+
+
+                            </HBox>-->
+                        </VBox>
+
+                    </VBox>
+
+                <!--    <VBox>
+
+                        <padding>
+                            <Insets bottom="10" />
+                        </padding>
+                        <TableView fx:id="tvProductRow" minHeight="520" maxHeight="730" minWidth="1255">
+                            <columns>
+                                <TableColumn prefWidth="165" maxWidth="210" minWidth="150" fx:id="tcLevelA" text="Level A" />
+                                <TableColumn prefWidth="165" maxWidth="210" minWidth="150" fx:id="tcLevelB" text="Level B" />
+                                <TableColumn prefWidth="165" maxWidth="210" minWidth="150" fx:id="tcLevelC" text="Level C" />
+                                <TableColumn prefWidth="165" maxWidth="200" minWidth="150" fx:id="tcUnit" text="Unit" />
+                                <TableColumn prefWidth="80" maxWidth="80" minWidth="50" fx:id="tcConv" text="Conv." />
+                                <TableColumn prefWidth="70"  minWidth="90" maxWidth="165" fx:id="tcMRP" text="MRP" />
+                                <TableColumn prefWidth="70"  minWidth="90" maxWidth="165" fx:id="tcPurRate" text="Pur Rate" />
+                                <TableColumn prefWidth="70"  minWidth="90" maxWidth="165"  fx:id="tcRate1" text="Rate1" />
+                                <TableColumn prefWidth="70" minWidth="90" maxWidth="165" fx:id="tcRate2" text="Rate2" />
+                                <TableColumn prefWidth="70"  minWidth="90" maxWidth="165"  fx:id="tcRate3" text="Rate3" />
+                                <TableColumn prefWidth="110"  minWidth="70" maxWidth="120"  fx:id="tcOpenStock" text="Opn. Stock" />
+                                <TableColumn prefWidth="60"  minWidth="60" maxWidth="80" fx:id="tcNegative" text="-Ve" />
+                            </columns>
+                        </TableView>
+                    </VBox>-->
+
+                </VBox>
+            </top>
+
+           <!-- <bottom>
+
+                <HBox alignment="CENTER_RIGHT" spacing="10" maxHeight="60" minHeight="60" prefHeight="60"
+                      style="-fx-background-color: #f6f6f9;">
+                    <padding>
+                        <Insets right="20"/>
+                    </padding>
+&lt;!&ndash;                    <Button id="submit-btn" fx:id="temp" text="Temp" onAction="#onTemp"/>&ndash;&gt;
+                    <Button id="submit-btn" fx:id="btnSubmit" text="Submit" onAction="#onSubmit"/>
+                    <Button id="cancel-btn" fx:id="btnCancel" text="Cancel" onAction="#onCancel"/>
+                </HBox>
+            </bottom>-->
+        </BorderPane>
+
+    </content>
+</ScrollPane>

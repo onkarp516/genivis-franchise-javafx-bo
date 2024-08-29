@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.control.MenuBar?>
+<BorderPane fx:id="bpCadminDashboard" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.opethic.genivis.controller.users.CadminController">
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="0"
+              style="-fx-background-color: #0D3657; -fx-border-color: #46586F; -fx-border-width: 2px 0px; -fx-min-height: 40px; -fx-pref-height: 40px;">
+            <children>
+                <ImageView fitHeight="55.0" fitWidth="55.0" onMouseClicked="#dashboardPageLoad" pickOnBounds="true"
+                           preserveRatio="true">
+                    <Image url="@../assets/newethicslogo.png"/>
+                </ImageView>
+                <!-- Rectangle -->
+                <Rectangle fill="#46586F" height="50" width="2"/>
+                <MenuBar style="-fx-background-color: #0D3657; -fx-padding: 0 -10px 0 0;">
+                    <Menu id="menus" text="_Master" fx:id="menus" style="-fx-text-fill:white">
+                        <graphic>
+                            <ImageView fitHeight="24.0" fitWidth="24.0">
+                                <Image url="@../assets/master.png"/>
+                            </ImageView>
+                        </graphic>
+                        <items>
+                            <!--<MenuItem fx:id="branchMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;" text="Branch" />
+                            <MenuItem fx:id="branchadminMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;" text="Branch Admin" />-->
+                            <MenuItem fx:id="companyUser" styleClass="custom-menu-button" style=" -fx-text-fill: #333333;" text="Company user" />
+                            <SeparatorMenuItem>
+                                <content>
+                                    <VBox>
+                                        <Separator style="-fx-padding: 0 0 0 25px; "/>
+                                    </VBox>
+                                </content>
+                            </SeparatorMenuItem>
+                            <MenuItem fx:id="ledgerGroupMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="Ledger Group"/>
+                            <MenuItem fx:id="ledgerMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="Ledger"/>
+                            <SeparatorMenuItem>
+                                <content>
+                                    <VBox>
+                                        <Separator style="-fx-padding: 0 0 0 25px; "/>
+                                    </VBox>
+                                </content>
+                            </SeparatorMenuItem>
+                            <MenuItem fx:id="catalogMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="Catalog"/>
+                            <MenuItem fx:id="hsnMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;" text="HSN"/>
+                            <MenuItem fx:id="taxmanagementMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="Tax Management"/>
+                            <MenuItem fx:id="miProduct" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="Product"/>
+                            <SeparatorMenuItem>
+                                <content>
+                                    <VBox>
+
+                                        <Separator style="-fx-padding: 0 0 0 25px; "/>
+                                    </VBox>
+                                </content>
+                            </SeparatorMenuItem>
+                            <MenuItem fx:id="areaMaster" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="Area Master"/>
+                            <MenuItem fx:id="salesmanMaster" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="Salesman Master"/>
+<!--                            <MenuItem fx:id="areaHeadMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"-->
+<!--                                      text="Area Head"/>-->
+                            <MenuItem fx:id="cntPkgMstMenuCreate" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="Content Package Master"/>
+                            <MenuItem fx:id="contentProductSrch" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="Content Product Search"/>
+                            <MenuItem fx:id="contentMasterMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="Content Master"/>
+<!--                            <MenuItem fx:id="createCommissionMst" mnemonicParsing="false" style=" -fx-text-fill: #333333;"-->
+<!--                                      text="Commission Master"/>-->
+<!--                            <MenuItem fx:id="franchiseMenu" mnemonicParsing="true" style=" -fx-text-fill: #333333;"-->
+<!--                                      text="_Franchise"/>-->
+<!--                            <MenuItem fx:id="courierServiceMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"-->
+<!--                                      text="Courier Service"/>-->
+                            <MenuItem fx:id="doctorMasterMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="Doctor Master"/>
+                            <MenuItem fx:id="patientMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="Patient Master"/>
+                            <MenuItem fx:id="paymentModeMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="Payment Modes"/>
+                            <!--<MenuItem fx:id="franchiseDashboardMenu" mnemonicParsing="false"
+                                      style=" -fx-text-fill: #333333;" text="Franchise Dashboard"/>-->
+                        </items>
+                    </Menu>
+                    <Menu id="menusSales" fx:id="menusSales" text="_Sales" style="-fx-text-fill: white;">
+                        <graphic>
+                            <ImageView fitHeight="24.0" fitWidth="24.0">
+                                <Image url="@../assets/sales.png"/>
+                            </ImageView>
+                        </graphic>
+                        <items>
+                            <MenuItem fx:id="salesinvoiceMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="Invoice"/>
+                            <MenuItem fx:id="salesquotationMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="Quotation"/>
+                            <MenuItem fx:id="salesOrderMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="Order"/>
+                            <MenuItem fx:id="saleschallanMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="Challan"/>
+                            <MenuItem fx:id="salesreturnMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="Sales Return"/>
+                            <MenuItem fx:id="couterSaleMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="Counter Sale"/>
+
+                        </items>
+                    </Menu>
+                    <Menu id="menusPurchase" fx:id="menusPurchase" text="_Purchase">
+                        <graphic>
+                            <ImageView fitHeight="24.0" fitWidth="24.0">
+                                <Image url="@../assets/purchase.png"/>
+                            </ImageView>
+                        </graphic>
+                        <items>
+                            <MenuItem fx:id="purInvoiceMenu" mnemonicParsing="true" style=" -fx-text-fill: #333333;"
+                                      text="_Invoice  "/>
+                            <MenuItem fx:id="orderMenu" mnemonicParsing="true" style=" -fx-text-fill: #333333;"
+                                      text="_Order"/>
+                            <MenuItem fx:id="challanMenu" mnemonicParsing="true" style=" -fx-text-fill: #333333;"
+                                      text="_Challan"/>
+                            <MenuItem fx:id="purReturnMenu" mnemonicParsing="true" style=" -fx-text-fill: #333333;"
+                                      text="_Purchase Return"/>
+                        </items>
+
+                    </Menu>
+                    <Menu id="menusAccountEntry" fx:id="menusAccountEntry" text="_Account Entry">
+                        <graphic>
+                            <ImageView fitHeight="24.0" fitWidth="24.0">
+                                <Image url="@../assets/accountentry.png"/>
+                            </ImageView>
+                        </graphic>
+                        <items>
+                            <MenuItem fx:id="receiptMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="Receipt"/>
+                            <MenuItem fx:id="paymentMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="Payment"/>
+                            <MenuItem fx:id="contraMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="Contra"/>
+                            <MenuItem fx:id="journalMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="Journal"/>
+                            <MenuItem fx:id="debitnoteMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="Debit Note"/>
+                            <MenuItem fx:id="creditnoteMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="Credit Note"/>
+<!--                            <MenuItem fx:id="partnerpaymentMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"-->
+<!--                                      text="Partner Payment"/>-->
+                        </items>
+
+                    </Menu>
+                    <Menu id="menusReports" fx:id="menusReports" text="_Reports" >
+                        <graphic>
+                            <ImageView fitHeight="24.0" fitWidth="24.0">
+                                <Image url="@../assets/reports.png"/>
+                            </ImageView>
+                        </graphic>
+
+                            <!--                        <MenuItem fx:id="accountsMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;" text="Accounts" />-->
+                            <Menu fx:id="accountsMenu" styleClass="custom-menu-button" style=" -fx-text-fill: #333333;"
+                                  text="Accounts">
+                                <MenuItem fx:id="dayBookReportMenu"  style=" -fx-text-fill: #333333;"
+                                          text="Day Book"/>
+                                <MenuItem fx:id="ledgerReportIMenu" style=" -fx-text-fill: #333333;"
+                                          text="Ledger"/>
+                                <MenuItem fx:id="cashBankBookReportMenu"
+                                          style=" -fx-text-fill: #333333;" text="Cash/Bank Book"/>
+                            </Menu>
+                            <!--                        <MenuItem fx:id="purchaseMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;" text="Purchase" />-->
+                            <Menu fx:id="purchaseMenu" styleClass="custom-menu-button" style=" -fx-text-fill: #333333;"
+                                  text="Purchase">
+                                <MenuItem fx:id="purchaseRegisterReportMenu" mnemonicParsing="false"
+                                          style=" -fx-text-fill: #333333;" text="Purchase Register"/>
+                                <MenuItem fx:id="purchaseOrderReportMenu" mnemonicParsing="false"
+                                          style=" -fx-text-fill: #333333;" text="Order"/>
+                                <MenuItem fx:id="purchaseChallanReportMenu" mnemonicParsing="false"
+                                          style=" -fx-text-fill: #333333;" text="Challan"/>
+                            </Menu>
+                            <!--                        <MenuItem fx:id="salesMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;" text="Sales" />-->
+                            <Menu fx:id="salesMenu" styleClass="custom-menu-button" style=" -fx-text-fill: #333333;" text="Sales">
+                                <MenuItem fx:id="salesRegisterReportMenu" mnemonicParsing="false"
+                                          style=" -fx-text-fill: #333333;" text="Sales Register"/>
+                                <MenuItem fx:id="salesOrderReportMenu" mnemonicParsing="false"
+                                          style=" -fx-text-fill: #333333;" text="Order"/>
+                                <MenuItem fx:id="salesChallanReportMenu" mnemonicParsing="false"
+                                          style=" -fx-text-fill: #333333;" text="Challan"/>
+                            </Menu>
+                            <!--                        <MenuItem fx:id="transactionMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;" text="Transactions" />-->
+                            <Menu fx:id="transactionMenu" styleClass="custom-menu-button" style=" -fx-text-fill: #333333;"
+                                  text="Transactions">
+                                <MenuItem fx:id="transactionReceivableReportMenu" mnemonicParsing="false"
+                                          style=" -fx-text-fill: #333333;" text="Receivable"/>
+                                <MenuItem fx:id="transactionPayableReportMenu" mnemonicParsing="false"
+                                          style=" -fx-text-fill: #333333;" text="Payable"/>
+                                <MenuItem fx:id="transactionPaymentReportMenu" mnemonicParsing="false"
+                                          style=" -fx-text-fill: #333333;" text="Payment"/>
+                                <MenuItem fx:id="transactionReceiptReportMenu" mnemonicParsing="false"
+                                          style=" -fx-text-fill: #333333;" text="Receipt"/>
+                                <MenuItem fx:id="transactionJournalReportMenu" mnemonicParsing="false"
+                                          style=" -fx-text-fill: #333333;" text="Journal"/>
+                                <MenuItem fx:id="transactionContraReportMenu" mnemonicParsing="false"
+                                          style=" -fx-text-fill: #333333;" text="Contra"/>
+                                <MenuItem fx:id="transactionDebitNoteReportMenu" mnemonicParsing="false"
+                                          style=" -fx-text-fill: #333333;" text="Debit Note"/>
+                                <MenuItem fx:id="transactionCreditNoteReportMenu" mnemonicParsing="false"
+                                          style=" -fx-text-fill: #333333;" text="Credit Note"/>
+                            </Menu>
+                            <Menu fx:id="stockMenu" styleClass="custom-menu-button" style=" -fx-text-fill: #333333;" text="Stock">
+                                <MenuItem fx:id="stockReportMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                          text="Stock Report"/>
+                                <MenuItem fx:id="stockValuationMenu" mnemonicParsing="false"
+                                          style=" -fx-text-fill: #333333;" text="Stock Valuation"/>
+                            </Menu>
+
+
+                            <Menu fx:id="financialMenu" styleClass="custom-menu-button" style=" -fx-text-fill: #333333;"
+                                  text="Financials">
+                                <MenuItem fx:id="profitlossMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                          text="Profit Loss"/>
+                                <MenuItem fx:id="balancesheetMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                          text="Balance Sheet"/>
+                                <MenuItem fx:id="trialBalanceMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                          text="Trial Balance"/>
+                            </Menu>
+                            <!--                        <MenuItem fx:id="financialsMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;" text="Financials" />-->
+
+
+                    </Menu>
+                    <Menu id="menusUtilities" fx:id="menusUtilities" text="_Utilities">
+                        <graphic>
+                            <ImageView fitHeight="24.0" fitWidth="24.0">
+                                <Image url="@../assets/utilities.png"/>
+                            </ImageView>
+                        </graphic>
+
+                            <MenuItem fx:id="importproductMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="Import Product"/>
+                            <MenuItem fx:id="importstockMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="Import Stock"/>
+                            <MenuItem fx:id="importledgerMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="Import Ledger"/>
+                            <Menu fx:id="barcodeMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="Barcode">
+                                <MenuItem fx:id="mibarcodeprint"  style=" -fx-text-fill: #333333;"
+                                          text="Barcode Print"/>
+                                <MenuItem fx:id="spfolderpath"  style=" -fx-text-fill: #333333;"
+                                          text="Set Path"/>
+                            </Menu>
+                            <MenuItem fx:id="dispatchmanagementMenu" mnemonicParsing="false"
+                                      style=" -fx-text-fill: #333333;" text="Dispatch Management"/>
+
+                    </Menu>
+                    <Menu id="menusControls" fx:id="menusControls" text="Controls">
+                        <graphic>
+                            <ImageView fitHeight="24.0" fitWidth="24.0">
+                                <Image url="@../assets/controls.png"/>
+                            </ImageView>
+                        </graphic>
+                        <items>
+                            <MenuItem fx:id="userControl" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="User Control"/>
+                        </items>
+                    </Menu>
+                    <Menu id="menusGSTR" fx:id="menusGSTR" text="_GSTR">
+                        <graphic>
+                            <ImageView fitHeight="24.0" fitWidth="24.0">
+                                <Image url="@../assets/gstr.png"/>
+                            </ImageView>
+                        </graphic>
+                        <items>
+                            <MenuItem fx:id="gstr1Menu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="GSTR-1"/>
+                            <MenuItem fx:id="gstr2Menu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="GSTR-2"/>
+                            <MenuItem fx:id="gstr3bMenu" mnemonicParsing="false" style=" -fx-text-fill: #333333;"
+                                      text="GSTR-3B"/>
+                        </items>
+
+                    </Menu>
+                </MenuBar>
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <ImageView fitHeight="18.0" fitWidth="16.0">
+                    <!-- Make sure the path is correct -->
+                    <Image url="@../assets/calendar.png"/>
+                </ImageView>
+                <Label text=" " textFill="WHITE">
+
+                </Label>
+                <Label text=" " textFill="WHITE">
+
+                </Label>
+                <Label text=" " textFill="WHITE">
+
+                </Label>
+
+                <Label fx:id="headerDateandTime" style="-fx-font-weight :700" textFill="WHITE">
+
+                </Label>
+                <Label text=" " textFill="WHITE">
+
+                </Label>
+                <Label text=" " textFill="WHITE">
+
+                </Label>
+                <Label text=" " textFill="WHITE">
+
+                </Label>
+                <Rectangle fill="#00A0F5" height="15" width="2"/>
+                <Label text=" " textFill="WHITE">
+
+                </Label>
+                <Label text=" " textFill="WHITE">
+
+                </Label>
+                <Label text=" " textFill="WHITE">
+
+                </Label>
+                <Label fx:id="lblUserName" style="-fx-font-weight :700" text="Sandip Nayar" textFill="WHITE">
+
+                </Label>
+                <MenuButton fx:id="userMenu" mnemonicParsing="false"
+                            style="-fx-background-color: #0D3657;  -fx-min-width: 60px; -fx-pref-width: 60px;"
+                            styleClass="custom-menu-button">
+                    <graphic>
+                        <!-- Use an HBox to hold both images -->
+                        <HBox spacing="8">
+                            <!-- User profile image -->
+                            <ImageView fitHeight="24.0" fitWidth="24.0">
+                                <Image url="@../assets/user_profile.png"/>
+                            </ImageView>
+
+                            <VBox style="-fx-padding: 8 0 0 0;">
+                                <ImageView fitHeight="8.0" fitWidth="10.0">
+                                    <Image url="@../assets/downarrow.png"/>
+                                </ImageView>
+                            </VBox>
+                        </HBox>
+                    </graphic>
+                    <items>
+                        <MenuItem fx:id="changePassword" mnemonicParsing="false" text="Change Password"/>
+                        <MenuItem fx:id="logout" mnemonicParsing="false" onAction="#handleLogout" text="Sign Out"/>
+                    </items>
+
+                </MenuButton>
+            </children>
+        </HBox>
+    </top>
+
+    <center>
+        <TabPane fx:id="cadminMenuTabPen" prefHeight="100.0" prefWidth="100.0" stylesheets="@../css/franchiseStyles.css"
+                 tabClosingPolicy="ALL_TABS" BorderPane.alignment="CENTER">
+            <!--                 style="-fx-border-color: #00A0F5; -fx-border-width: 0px 0px 2px 0px;"-->
+            <tabs>
+                <Tab fx:id="cadminMenuDashboardTab" closable="false" disable="false"
+                     style="-fx-border-color: #D9F0FB; -fx-border-width: 0px 0px 0px 0px;">
+                    <graphic>
+                        <ImageView fitHeight="14.0" fitWidth="14.0">
+                            <!-- Make sure the path is correct -->
+                            <Image url="@../assets/home.png"/>
+                        </ImageView>
+                    </graphic>
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"
+                                    style="-fx-border-color: #00A0F5; -fx-border-width: 3px 0px 0px 0px;"
+                                    styleClass="tab-content" stylesheets="@../css/style.css">
+                            <children>
+                                <Label alignment="TOP_CENTER" layoutX="558.0" layoutY="158.0"
+                                       style="-fx-label-padding: 200; -fx-font-weight: 600;" text="Welcome Cadmin!"
+                                       textAlignment="JUSTIFY">
+                                    <font>
+                                        <Font size="50.0"/>
+                                    </font>
+                                </Label>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+        <SplitPane fx:id="mainPane" BorderPane.alignment="CENTER"/>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER_LEFT" prefHeight="30" spacing="5"
+              style="-fx-background-color: #0D3657; -fx-border-color: #185ABD; -fx-border-width: 2px 0px;">
+            <children>
+                <Label text="" textFill="WHITE">
+
+                </Label>
+                <ImageView fitHeight="12.0" fitWidth="18.0">
+                    <!-- Make sure the path is correct -->
+                    <Image url="@../assets/keyboard.png"/>
+                </ImageView>
+                <Rectangle fill="#185ABD" height="30" width="2"/>
+
+                <Label text="New Entry" textFill="WHITE">
+
+                </Label>
+                <Label text="ctrl+N" textFill="#FAC90E">
+                    <font>
+                        <Font name="Arial" size="14.0"/>
+                    </font>
+                </Label>
+                <Label text="" textFill="WHITE">
+
+                </Label>
+                <Label text="" textFill="WHITE">
+
+                </Label>
+                <Rectangle fill="#185ABD" height="20" width="2"/>
+                <Label text="" textFill="WHITE">
+
+                </Label>
+                <Label text="" textFill="WHITE">
+
+                </Label>
+                <!-- Other labels -->
+                <Label text="Duplicate" textFill="WHITE">
+
+                </Label>
+                <Label text="ctrl+D" textFill="#FAC90E">
+
+                </Label>
+                <Label text="" textFill="WHITE">
+
+                </Label>
+                <Label text="" textFill="WHITE">
+
+                </Label>
+                <Rectangle fill="#185ABD" height="20" width="2"/>
+                <Label text="" textFill="WHITE">
+
+                </Label>
+                <Label text="" textFill="WHITE">
+
+                </Label>
+                <Label text="Close" textFill="WHITE">
+
+                </Label>
+                <Label text="esc" textFill="#FAC90E">
+
+                </Label>
+                <Label text="" textFill="WHITE">
+
+                </Label>
+                <Label text="" textFill="WHITE">
+
+                </Label>
+                <Rectangle fill="#185ABD" height="20" width="2"/>
+                <Label text="" textFill="WHITE">
+
+                </Label>
+                <Label text="" textFill="WHITE">
+
+                </Label>
+                <Label text="Save" textFill="WHITE">
+
+                </Label>
+                <Label text="f12" textFill="#FAC90E">
+
+                </Label>
+
+                <!-- Spacer region -->
+                <Region HBox.hgrow="ALWAYS"/>
+                <Rectangle fill="#185ABD" height="30" width="2"/>
+                <!-- Icon label on the right -->
+                <ImageView fitHeight="14.0" fitWidth="14.0">
+                    <Image url="@../assets/questionmark.png"/>
+                </ImageView>
+                <Label text="" textFill="WHITE">
+
+                </Label>
+            </children>
+        </HBox>
+    </bottom>
+
+</BorderPane>

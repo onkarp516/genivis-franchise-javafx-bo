@@ -1,0 +1,113 @@
+.mainTitleStyle{
+-fx-font-family:'Inter';
+-fx-font-size:18px !important;
+-fx-text-fill:#000;
+-fx-font-weight:bold;
+}
+.label{
+-fx-font-family:'Inter';
+-fx-text-fill:#000000;
+-fx-font-size:14px;
+-fx-font-weight:bold;
+}
+
+.text-field {
+ -fx-font-family: "Inter", sans-serif;
+    -fx-background-color: #fff;
+    -fx-border-color: #ccc;
+    -fx-border-width: 1px;
+    /*-fx-pref-height: 30px;*/
+    -fx-border-radius: 3px;
+    -fx-padding: 5px;
+}
+
+.text-field:focused,
+.button:focused {
+-fx-border-width: 2px;
+    -fx-background-color: #fff9c4;
+    -fx-border-color: #00a0f5;
+}
+
+.text-field:hover,
+.button:hover {
+    -fx-background-color: #fff9c4;
+    }
+.text-input, .text-input:focused {
+    -fx-prompt-text-fill: derive(-fx-control-inner-background, -50%);
+    -fx-font-size: 14px;
+}
+
+.table-view {
+    -fx-padding: 0px; /* Adjust the padding as needed */
+}
+.table-view .column-header .label{
+    -fx-font-family: "Inter", sans-serif;
+    -fx-text-fill: black;
+    -fx-alignment:CENTER-LEFT;
+}
+
+.table-view .column-header,
+.table-view .column-header .filler,
+.table-view .column-header-background .filler {
+    -fx-background-color: #ffedcc;
+     -fx-font-size: 12pt;
+    -fx-alignment: CENTER_LEFT;
+}
+.table-view .table-cell {
+    -fx-font-size: 14px;
+     -fx-alignment: CENTER_LEFT;
+}
+
+.table-view .cell{
+	 -fx-cell-size: 40;
+
+}
+.table-view .column-header {
+    -fx-alignment: CENTER_LEFT;
+}
+
+
+.table-view .table-cell{
+    -fx-border-color: transparent;
+    -fx-padding: 2 0 2 10px;
+}
+
+/*
+.table-row-cell: hover {
+    -fx-background-color: #bfe5f2;
+}
+*/
+.table-row-cell: odd{
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+.table-row-cell: even{
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+
+.table-row-cell:odd,
+.table-row-cell:even {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #e6e5e5 transparent; /* Adjust border color as needed */
+    -fx-border-width: 0 0 1 0; /* Adjust border width as needed */
+}
+
+/*
+.table-row-cell:filled:selected:hover {
+    -fx-background-color: #153051;
+}
+*/
+.table-row-cell:selected {
+    -fx-background-color: #E1E0E0;
+     -fx-text-background-color: black;
+}
+
+.table-view:focused {
+    -fx-background-color: -fx-box-border, -fx-control-inner-background;
+    -fx-background-insets: 0, 1;
+}
+
+.table-view:hover {
+    -fx-cursor: hand;
+}

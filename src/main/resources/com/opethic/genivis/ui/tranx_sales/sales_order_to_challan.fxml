@@ -1,0 +1,916 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="rootAnchorPaneSoToSc" style="-fx-background-color: #D9F0FB;"
+            stylesheets="@../css/TranxCommonCssStyles/tranxCommonCssStyle7.css" xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.opethic.genivis.controller.tranx_sales.SaleOrderToChallanController">
+    <top>
+        <VBox id="topMainDiv" alignment="CENTER_LEFT">
+
+            <VBox id="topInnerDiv">
+                <HBox id="topInnerHbOne" fx:id="so2ctopInnerHbOne" alignment="CENTER_LEFT" spacing="20.0">
+
+                    <!--                     <Label style=" -fx-font-size: 14px;" text="Challan Date" />-->
+                    <HBox id="so2cChallanDate" alignment="CENTER_LEFT">
+                        <Label text="Challan Date"/>
+                        <Label style="-fx-text-fill: red;" text="*"/>
+                    </HBox>
+                    <TextField fx:id="dpSCConvTranxDate" promptText="dd/mm/yyyy"/>
+
+                    <!--                     <Label style=" -fx-font-size: 14px;" text="Client Name" />-->
+                    <HBox alignment="CENTER_LEFT">
+                        <Label text="Client Name"/>
+                        <Label style="-fx-text-fill: red;" text="*"/>
+                    </HBox>
+                    <TextField fx:id="tfSCConvLedgNameEdit" editable="false" promptText="Client Name"
+                               HBox.hgrow="ALWAYS"/>
+
+                    <Label text="Client GSTIN"/>
+                    <ComboBox fx:id="cmbSCConvSupplierGST" editable="false" promptText="Select" HBox.hgrow="ALWAYS"/>
+
+                    <Label text="Sales A/C"/>
+                    <ComboBox fx:id="cmbSCConvSalesAC" HBox.hgrow="ALWAYS"/>
+
+                </HBox>
+                <HBox id="topInnerHbTwo" fx:id="so2ctopInnerHbTwo" alignment="CENTER_LEFT" spacing="20.0">
+                    <Label text="Challan Sr.No."/>
+                    <TextField fx:id="tfSCConvChallanSerial" editable="false" promptText="Challan Sr.No."/>
+
+                    <!--                     <Label style=" -fx-font-size: 14px;" text="Challan No." HBox.hgrow="ALWAYS" />-->
+                    <HBox id="so2cChallanNo" alignment="CENTER_LEFT">
+                        <Label text="Challan No."/>
+                        <Label style="-fx-text-fill: red;" text="*"/>
+                    </HBox>
+                    <TextField fx:id="tfSCConvInvNo" promptText="ChallanNo"/>
+                    <!--for invoice date-->
+                    <Label text="Salesman"/>
+                    <ComboBox fx:id="dpSCConvSalesman" HBox.hgrow="ALWAYS"/>
+
+                </HBox>
+            </VBox>
+
+        </VBox>
+    </top>
+    <center>
+        <TableView fx:id="tvSCConvEditCMPTRow" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="tblcSCConvEditCmptSrNo" text="Sr. No" sortable="false" reorderable="false"
+                             resizable="false"/> <!--0-->
+                <TableColumn fx:id="tblcSCConvEditCmptParticular" text="Particulars" sortable="false"
+                             reorderable="false" resizable="false"/> <!--1-->
+                <TableColumn fx:id="tblcSCConvEditCmptPackage" text="Package" sortable="false" reorderable="false"
+                             resizable="false"/> <!--2-->
+                <TableColumn fx:id="tblcSCConvEditCmptLevelA" text="level A" sortable="false" reorderable="false"
+                             resizable="false"/> <!--3-->
+                <TableColumn fx:id="tblcSCConvEditCmptLevelB" text="levelB" sortable="false" reorderable="false"
+                             resizable="false"/> <!--4-->
+                <TableColumn fx:id="tblcSCConvEditCmptLevelC" text="levelC" sortable="false" reorderable="false"
+                             resizable="false"/> <!--5-->
+                <TableColumn fx:id="tblcSCConvEditCmptBatch" text="Batch" sortable="false" reorderable="false"
+                             resizable="false"/> <!--6-->
+                <TableColumn fx:id="tblcSCConvEditCmptUnit" text="Unit" sortable="false" reorderable="false"
+                             resizable="false"/> <!--7-->
+                <TableColumn fx:id="tblcSCConvEditCmptQuantity" text="Qty" sortable="false" reorderable="false"
+                             resizable="false"/> <!--8-->
+                <TableColumn fx:id="tblcSCConvEditCmptFreeQuantity" text="Free Qty" sortable="false" reorderable="false"
+                             resizable="false"/> <!--9-->
+                <TableColumn fx:id="tblcSCConvEditCmptRate" text="Rate" sortable="false" reorderable="false"
+                             resizable="false"/> <!--10-->
+                <TableColumn fx:id="tblcSCConvEditCmptGrossAmt" text="Gross Amount" sortable="false" reorderable="false"
+                             resizable="false"/> <!--11-->
+                <TableColumn fx:id="tblcSCConvEditCmptDiscPerc" text="1-Dis.%" sortable="false" reorderable="false"
+                             resizable="false"/> <!--12-->
+                <TableColumn fx:id="tblcSCConvEditCmptDiscAmt" text="Dis.₹" sortable="false" reorderable="false"
+                             resizable="false"/><!--13-->
+                <TableColumn fx:id="tblcSCConvEditCmptTaxPerc" text="Tax.%" sortable="false" reorderable="false"
+                             resizable="false"/><!--14-->
+                <TableColumn fx:id="tblcSCConvEditCmptNetAmt" text="Net Amount" sortable="false" reorderable="false"
+                             resizable="false"/><!--15-->
+                <TableColumn fx:id="tblcSCConvEditCmptActions" text="Action" sortable="false" reorderable="false"
+                             resizable="false"/><!--16-->
+            </columns>
+        </TableView>
+    </center>
+    <bottom>
+        <HBox fx:id="so2cBottomMain" alignment="CENTER_LEFT" BorderPane.alignment="CENTER_LEFT">
+            <children>
+                <VBox fx:id="so2cBottomFirstV" alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                    <children>
+                        <TabPane fx:id="myTabPaneSCConv" tabClosingPolicy="UNAVAILABLE">
+                            <tabs>
+                                <Tab fx:id="tabSCConvLedgerInfoEdit" text="Ledger">
+                                    <content>
+                                        <VBox id="tabMianDiv">
+                                            <children>
+                                                <VBox id="mainGridStyle">
+                                                    <children>
+                                                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                                            <children>
+                                                                <VBox id="rightBorder" alignment="CENTER_LEFT"
+                                                                      spacing="5.0" HBox.hgrow="ALWAYS">
+                                                                    <children>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b" text="GST No. :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="lbSCConvGstNoEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b" text="Area :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="lbSCConvAreaEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b" text="Bank :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="lbSCConvBankEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+                                                                                <Text fill="darkgoldenrod"
+                                                                                      style="-fx-font-weight: bold;">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                            </children>
+                                                                        </HBox>
+                                                                    </children>
+                                                                </VBox>
+                                                                <VBox id="rightBorder" spacing="5.0"
+                                                                      HBox.hgrow="ALWAYS">
+                                                                    <children>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b"
+                                                                                      text="Contact Person :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="lbSCConvContactPersonEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b"
+                                                                                      text="Mobile No. :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="lbSCConvMobNoEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <HBox spacing="5.0"/>
+                                                                        <HBox spacing="5.0"/>
+                                                                    </children>
+                                                                </VBox>
+                                                                <VBox id="rightBorder" spacing="5.0"
+                                                                      HBox.hgrow="ALWAYS">
+                                                                    <children>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+
+
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b"
+                                                                                      text="Credit Days :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="lbSCConvCreditDaysEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b" text="FSSAI :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="lbSCConvFssaiEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <HBox spacing="5.0"/>
+                                                                        <HBox spacing="5.0"/>
+                                                                    </children>
+                                                                </VBox>
+                                                                <VBox spacing="5.0" styleClass="ledgerSingleInfo"
+                                                                      HBox.hgrow="ALWAYS">
+                                                                    <children>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b"
+                                                                                      text="License No :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="lbSCConvLisenceNoEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b" text="Route :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="lbSCConvRouteEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <HBox spacing="5.0"/>
+                                                                        <HBox spacing="5.0"/>
+                                                                    </children>
+                                                                </VBox>
+                                                            </children>
+                                                        </HBox>
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </VBox>
+                                    </content>
+                                </Tab>
+                                <Tab fx:id="tabSCConvProductInfoEdit" text="Product">
+                                    <content>
+                                        <VBox id="tabMianDiv">
+                                            <children>
+                                                <VBox id="mainGridStyle">
+                                                    <children>
+                                                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                                            <children>
+                                                                <VBox id="rightBorder" spacing="5.0"
+                                                                      HBox.hgrow="ALWAYS">
+                                                                    <children>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b" text="Brand :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="txtSCConvProductBrandEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b" text="Group :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="txtSCConvProductGroupEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b"
+                                                                                      text="Sub Group :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="txtSCConvProductSubGroupEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b"
+                                                                                      text="Category :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="txtSCConvProductCategoryEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                    </children>
+                                                                </VBox>
+                                                                <VBox id="rightBorder" spacing="5.0"
+                                                                      HBox.hgrow="ALWAYS">
+                                                                    <children>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b" text="HSN :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="txtSCConvProductHsnEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <HBox>
+                                                                            <children>
+
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b"
+                                                                                      text="Tax Type :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="txtSCConvProductTaxTypeEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b" text="Tax % :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="txtSCConvProductTaxPerEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b"
+                                                                                      text="Margin % :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="txtSCConvProductMarginPerEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                    </children>
+                                                                </VBox>
+                                                                <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                                                    <children>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+
+
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b" text="Cost :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="txtSCConvProductCostEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b"
+                                                                                      text="Shelf ID :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="txtSCConvProductShelfIdEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b"
+                                                                                      text="Min stock :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="txtSCConvProductMinStockEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b"
+                                                                                      text="Max Stock :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="txtSCConvProductMaxStockEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                    </children>
+                                                                </VBox>
+                                                            </children>
+                                                        </HBox>
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </VBox>
+                                    </content>
+                                </Tab>
+                                <Tab fx:id="tabSCConvBatchInfoEdit" text="Batch">
+                                    <content>
+                                        <VBox id="tabMianDiv">
+                                            <children>
+                                                <VBox id="mainGridStyle">
+                                                    <children>
+                                                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                                            <children>
+                                                                <VBox id="rightBorder" spacing="5.0"
+                                                                      HBox.hgrow="ALWAYS">
+                                                                    <children>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b" text="Batch :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="lbSCConvBatchBatchNoEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <HBox>
+                                                                            <children>
+
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b" text="MRP :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="lbSCConvBatchMrpEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <HBox>
+                                                                            <children>
+
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b" text="Cess% :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="lbSCConvBatchCessPerEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <HBox>
+                                                                            <children>
+
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b"
+                                                                                      text="Total Amt :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="lbSCConvBatchTotalAmtEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                    </children>
+                                                                </VBox>
+                                                                <VBox id="rightBorder" spacing="5.0"
+                                                                      HBox.hgrow="ALWAYS">
+                                                                    <children>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+                                                                                <!--End of First column-->
+                                                                                <!--Start of second column-->
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b"
+                                                                                      text="MFG Date :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="lbSCConvBatchMfgDateEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b"
+                                                                                      text="Pur Rate :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="lbSCConvBatchPurRateEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b" text="Cess Rs :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="lbSCConvBatchCessAmtEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b" text="FSR :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="lbSCConvBatchFsrEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                    </children>
+                                                                </VBox>
+                                                                <VBox id="rightBorder" spacing="5.0"
+                                                                      HBox.hgrow="ALWAYS">
+                                                                    <children>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+                                                                                <!--End of second column-->
+                                                                                <!--Start of third column-->
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b"
+                                                                                      text="Expiry Date :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="lbSCConvBatchExpDateEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b" text="Dis% :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="lbSCConvBatchDisPerEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <HBox>
+                                                                            <children>
+
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b" text="Barcode :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="lbSCConvBatchBarcodeEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b" text="CSR :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="lbSCConvBatchCsrEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                    </children>
+                                                                </VBox>
+                                                                <VBox spacing="5.0" styleClass="ledgerSingleInfo"
+                                                                      HBox.hgrow="ALWAYS">
+                                                                    <children>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+                                                                                <!--End of third column-->
+                                                                                <!--Start of fourth column-->
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b"
+                                                                                      text="Available Stk :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="lbSCConvBatchAvailStockEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b" text="Disc.Rs :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="lbSCConvBatchDisAmtEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b" text="Margin% :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="lbSCConvBatchMarginPerEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <HBox spacing="5.0">
+                                                                            <children>
+
+                                                                                <Text id="gridCommonTextStyle"
+                                                                                      fill="#b8762b"
+                                                                                      text="Sales Rate :  ">
+                                                                                    <font>
+                                                                                        <Font size="14.0"/>
+                                                                                    </font>
+                                                                                </Text>
+                                                                                <Text id="gridCommonTextStyleBlack"
+                                                                                      fx:id="lbSCConvBatchSaleRateEdit"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                    </children>
+                                                                </VBox>
+                                                            </children>
+                                                        </HBox>
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </VBox>
+                                    </content>
+                                </Tab>
+                            </tabs>
+                        </TabPane>
+                        <!--                            End of Purchase order copy code-->
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Narrations"/>
+                            <TextField fx:id="tfSCConvEditNarrations" promptText="Narrations" HBox.hgrow="ALWAYS"/>
+                            <padding>
+                                <Insets left="10.0" right="10.0"/>
+                            </padding>
+                        </HBox>
+                        <VBox id="supplierTableMainDiv">
+                            <children>
+                                <TableView fx:id="tvSCConvSupplierDetails">
+                                    <columns>
+                                        <TableColumn fx:id="tcSCConvEditSupplierName" minWidth="120"
+                                                     text="Supplier Name"/>
+                                        <TableColumn fx:id="tcSCConvEditSupplierInvNo" minWidth="60.0" text="Inv No"/>
+                                        <TableColumn fx:id="tcSCConvEditSupplierInvDate" minWidth="50.0"
+                                                     text="Inv Date"/>
+                                        <TableColumn fx:id="tcSCConvEditSupplierBatch" minWidth="66" text="Batch"/>
+                                        <TableColumn fx:id="tcSCConvEditSupplierMrp" minWidth="68.0" text="MRP"/>
+                                        <TableColumn fx:id="tcSCConvEditSupplierQty" minWidth="36.0" text="Qty"/>
+                                        <TableColumn fx:id="tcSCConvEditSupplierRate" minWidth="52.0" text="Rate"/>
+                                        <TableColumn fx:id="tcSCConvEditSupplierCost" minWidth="62.0" text="Cost"/>
+                                        <TableColumn fx:id="tcSCConvEditSupplierDisper" minWidth="35.0" text="Dis.%"/>
+                                        <TableColumn fx:id="tcSCConvEditSupplierDisRs" minWidth="50.0" text="Dis.₹"/>
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </VBox>
+                    </children>
+                </VBox>
+                <!--   VBox for gst and discount     -->
+                <VBox id="middleMainDiv" fx:id="so2cBottomSecondV" alignment="CENTER_LEFT" spacing="10.0"
+                      style="-fx-border-color: #dcdcdc; -fx-border-width: 0 0 0 1;">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label style="-fx-font-weight: bold;" text="Dis%"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <TextField id="tfDisPer" fx:id="tfSCConvAllRowDisPerEdit" onKeyTyped="#sales_disc_per"
+                                   promptText="Dis%" style="-fx-alignment: center-right;"/>
+                        <Label style="-fx-font-weight: bold;" text="Dis₹"/>
+                        <Region HBox.hgrow="SOMETIMES"/>
+                        <TextField id="tfDisAmt" fx:id="tfSCConvAllRowDisAmtEdit" onKeyTyped="#sales_disc_amt"
+                                   promptText="0.00" style="-fx-alignment: center-right;"/>
+
+                    </HBox>
+                    <TableView fx:id="tblvSCConvGSTEdit" focusTraversable="false">
+                        <columns>
+                            <TableColumn fx:id="tcSCConvBottomGSTEdit" text="GST"/>
+                            <TableColumn fx:id="tcSCConvBottomCGSTEdit" text="CGST"/>
+                            <TableColumn fx:id="tcSCConvBottomSGSTEdit" text="SGST"/>
+                            <TableColumn fx:id="tcSCConvBottomIGSTEdit" text="IGST"/>
+                        </columns>
+                    </TableView>
+                    <HBox alignment="CENTER_LEFT">
+                        <Label id="lblTotal" style="-fx-font-weight: bold;" text="Total :">
+                            <font>
+                                <Font size="15.0"/>
+                            </font>
+                        </Label>
+                        <Label id="lblTotalFirst" fx:id="lblSCConvTotalCGSTEdit" style="-fx-font-weight: bold;"
+                               text="0.00">
+                            <font>
+                                <Font size="15.0"/>
+                            </font>
+                        </Label>
+                        <Label id="lblTotalSecond" fx:id="lblSCConvTotalSGSTEdit" style="-fx-font-weight: bold;"
+                               text="0.00">
+                            <font>
+                                <Font size="15.0"/>
+                            </font>
+                        </Label>
+                    </HBox>
+                    <Region VBox.vgrow="ALWAYS"/>
+                    <VBox spacing="5.0">
+                        <children>
+
+                            <HBox alignment="BOTTOM_LEFT" spacing="10.0">
+                                <Label style="-fx-font-weight: bold;" text="Total Qty:"/>
+                                <Label fx:id="lblSCConvTotalQtyEdit" style="-fx-font-weight: bold;" text="00"/>
+                            </HBox>
+                            <HBox alignment="BOTTOM_LEFT" spacing="10.0">
+                                <Label style="-fx-font-weight: bold;" text="Free Qty:"/>
+                                <Label fx:id="lblSCConvFreeQtyEdit" style="-fx-font-weight: bold;" text=""/>
+                            </HBox>
+                            <HBox alignment="BOTTOM_LEFT" spacing="10.0">
+                                <CheckBox fx:id="chbRoundOffEdit" style="-fx-font-weight: bold;" text="R.Off(+/-)"/>
+                                <Label fx:id="lblSCConvRoundOffEdit" style="-fx-font-weight: bold;"/>
+                            </HBox>
+                        </children>
+                    </VBox>
+                </VBox>
+                <VBox fx:id="so2cBottomThirdV" style="-fx-border-color: #dcdcdc; -fx-border-width: 0 0 0 1;">
+                    <children>
+                        <VBox fx:id="so2cTotalMainDiv" spacing="20.0" style="-fx-background-color: #d2f7e9;">
+                            <children>
+                                <VBox id="sqtotalFirst" fx:id="so2cTotalMainInnerDiv" spacing="10.0">
+                                    <children>
+                                        <HBox alignment="CENTER_LEFT">
+                                            <Button id="add_charges" fx:id="btnAdditionalCharges"
+                                                    mnemonicParsing="false" onAction="#openAdditionalCharges"
+                                                    text="Add Charges"/>
+                                            <Region HBox.hgrow="ALWAYS"/>
+                                            <TextField id="tfCommonWidth" fx:id="tfSCConvAddChrgTotalAmt"
+                                                       promptText="0.00" style="-fx-alignment: center-right;"/>
+                                            <!--  <Label  text="Discount" minWidth="100" prefWidth="150" maxWidth="175" style="-fx-font-weight: bold; -fx-font-size: 14px;" />-->
+                                            <!--  <Label  text="Total" minWidth="100" prefWidth="150" maxWidth="175" style="-fx-font-weight: bold; -fx-font-size: 14px;" />-->
+                                            <!--  <Label  text="Tax" minWidth="100" prefWidth="150" maxWidth="175" style="-fx-font-weight: bold; -fx-font-size: 14px;" />-->
+                                        </HBox>
+
+                                        <HBox alignment="CENTER_LEFT">
+                                            <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                                <RadioButton style="-fx-font-weight: bold;" text="TDS">
+                                                    <toggleGroup>
+                                                        <ToggleGroup fx:id="tdsTcs"/>
+                                                    </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton style="-fx-font-weight: bold;" text="TCS"
+                                                             toggleGroup="$tdsTcs">
+
+                                                </RadioButton>
+                                            </HBox>
+                                            <Region HBox.hgrow="ALWAYS">
+                                                <HBox.margin>
+                                                    <Insets/>
+                                                </HBox.margin>
+                                            </Region>
+                                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                                <TextField id="tfCommonWidth" promptText="0.00"
+                                                           style="-fx-alignment: center-right;"/>
+                                                <TextField id="tfCommonWidth" promptText="INR"
+                                                           style="-fx-alignment: center-right;"/>
+                                            </HBox>
+
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT">
+                                            <VBox fx:id="so2cTotalInnerFirstDiv" alignment="CENTER_LEFT" spacing="10">
+                                                <Label style="-fx-font-weight: bold;" text="Gross Total"/>
+                                                <Label style="-fx-font-weight: bold;" text="Discount"/>
+                                                <Label style="-fx-font-weight: bold;" text="Total"/>
+                                                <Label style="-fx-font-weight: bold;" text="Tax"/>
+                                            </VBox>
+                                            <Region HBox.hgrow="ALWAYS"/>
+                                            <VBox fx:id="so2cTotalInnerSecondDiv" alignment="CENTER_RIGHT" spacing="10">
+                                                <Label fx:id="lblSCConvGrossTotalEdit" style="-fx-font-weight: bold;"
+                                                       text="00.0"/>
+                                                <Label fx:id="lblSCConvTotalDiscountEdit" style="-fx-font-weight: bold;"
+                                                       text="00.0"/>
+                                                <Label fx:id="lblSCConvTotalTaxableAmountEdit"
+                                                       style="-fx-font-weight: bold;" text="00.0"/>
+                                                <Label fx:id="lblSCConvTotalTaxEdit" style="-fx-font-weight: bold;"
+                                                       text="00.0"/>
+                                            </VBox>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+
+
+                                <HBox id="sqtotalsecond" alignment="CENTER_LEFT" style="-fx-background-color: #A0EFD2;">
+                                    <Label id="bigLabel" text="Bill Amount"/>
+                                    <Region HBox.hgrow="ALWAYS"/>
+                                    <Label id="bigLabel" fx:id="lblSCConvBillAmountEdit" text="00.0"/>
+                                </HBox>
+                            </children>
+                        </VBox>
+                        <Region VBox.vgrow="ALWAYS"/>
+
+                        <HBox id="sqbuttonsMainDiv" alignment="BOTTOM_RIGHT" spacing="10.0">
+                            <Button fx:id="btnSCConvSubmitFinal" styleClass="submit-btn" text="Submit"/>
+                            <Button fx:id="btnSCConvCancelEdit" onAction="#cancelFunction" styleClass="cancel-btn"
+                                    text="Cancel"/>
+
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonType?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<DialogPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="135.0" prefWidth="1555.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.opethic.genivis.controller.dialogs.ProductDialogController">
+    <expandableContent>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+    </expandableContent>
+    <buttonTypes>
+        <ButtonType fx:constant="OK" />
+        <ButtonType fx:constant="CANCEL" />
+    </buttonTypes>
+    <content>
+        <GridPane prefHeight="63.0" prefWidth="1205.0" style="-fx-background-color: #E6F2F8;">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <HBox alignment="CENTER" prefHeight="35.0" prefWidth="1155.0">
+                    <children>
+                        <Label prefHeight="25.0" prefWidth="105.0" style="-fx-font-weight: bold;" text="Manufacturer">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <ComboBox fx:id="cmbManufacturer" onAction="#handleActionManufacturer" prefHeight="25.0" prefWidth="265.0" promptText="Manufacturer" />
+                        <Button fx:id="btnPlusManufacturer" mnemonicParsing="false" onAction="#openBtnPlus" prefHeight="25.0" prefWidth="25.0" text="+">
+                            <HBox.margin>
+                                <Insets right="20.0" />
+                            </HBox.margin>
+                        </Button>
+                        <Label layoutX="10.0" layoutY="10.0" prefHeight="25.90" prefWidth="105.0" style="-fx-font-weight: bold;" text="Formulation">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <ComboBox fx:id="cmbFormulation" layoutX="82.0" layoutY="10.0" onAction="#handleActionFormulation" prefHeight="25.0" prefWidth="265.0" promptText="Formulation" />
+                        <Button fx:id="btnPlusFormulation" layoutX="232.0" layoutY="10.0" mnemonicParsing="false" onAction="#openBtnPlus" text="+">
+                            <HBox.margin>
+                                <Insets right="20.0" />
+                            </HBox.margin>
+                        </Button>
+                        <Label layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="80.0" style="-fx-font-weight: bold;" text="Category">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <ComboBox fx:id="cmbCategory" layoutX="82.0" layoutY="10.0" onAction="#handleActionCatogory" prefHeight="25.0" prefWidth="225.0" promptText="Category" />
+                        <Button fx:id="btnPlusCategory" layoutX="232.0" layoutY="10.0" mnemonicParsing="false" onAction="#openBtnPlus" text="+">
+                            <HBox.margin>
+                                <Insets right="20.0" />
+                            </HBox.margin>
+                        </Button>
+                        <Label layoutX="294.0" layoutY="10.0" prefHeight="25.0" prefWidth="95.0" style="-fx-font-weight: bold;" text="SubCategory">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <ComboBox fx:id="cmbSubCategory" layoutX="358.0" layoutY="10.0" onAction="#handleActionSubCatogory" prefHeight="25.0" prefWidth="225.0" promptText="SubCategory" />
+                        <Button fx:id="btnPlusSubcategory" layoutX="508.0" layoutY="10.0" mnemonicParsing="false" onAction="#openBtnPlus" text="+" />
+                    </children>
+                    <GridPane.margin>
+                        <Insets />
+                    </GridPane.margin>
+                </HBox>
+            </children>
+        </GridPane>
+    </content>
+</DialogPane>

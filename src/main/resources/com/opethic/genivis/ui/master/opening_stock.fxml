@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import com.opethic.genivis.controller.commons.SwitchButton?>
+<?import javafx.geometry.Insets?>
+<?import com.opethic.genivis.utils.SearchField?>
+    <ScrollPane fitToHeight="true" fitToWidth="true" style="-fx-background-color: #d9f0fb;"
+                stylesheets="@../css/opening_stock.css" xmlns="http://javafx.com/javafx/17.0.2-ea"
+                xmlns:fx="http://javafx.com/fxml/1"
+                fx:controller="com.opethic.genivis.controller.master.OpeningStock"
+                fx:id="spRootPane">
+    <content>
+
+        <BorderPane style="-fx-background-color: #d9f0fb;">
+            <top>
+                <VBox alignment="TOP_CENTER" spacing="10.0" style="-fx-background-color: #d9f0fb;">
+                <VBox>
+                    <padding>
+                        <Insets left="10.0" right="10.0" top="10.0"/>
+                    </padding>
+
+
+                    <VBox style="-fx-background-color: #f6f6f9; -fx-background-radius: 5px;
+                            -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0); ">
+                        <padding>
+                            <Insets bottom="10" left="10" right="10" top="10"/>
+                        </padding>
+                        <HBox alignment="CENTER_LEFT" maxHeight="50" minHeight="50" prefHeight="50" spacing="10"
+                              style="-fx-background-color: #f6f6f9;">
+
+                            <padding>
+                                <Insets bottom="10" left="5" right="5" top="10"/>
+                            </padding>
+
+                            <Label fx:id="lbProduct" minWidth="34.0" style="-fx-font-weight: bold; -fx-font-size: 14px;"
+                                   text="Product"/>
+
+                            <TextField minWidth="100" prefWidth="130" promptText="Product" HBox.hgrow="ALWAYS"
+                                       fx:id="tfProduct"/>
+
+                            <Label fx:id="lbUnit" minWidth="34.0" style="-fx-font-weight: bold; -fx-font-size: 14px;"
+                                   text="Unit"/>
+
+
+                            <ComboBox minWidth="150" prefWidth="150" promptText="Select" maxWidth="150"
+                                      fx:id="cbUnit" onAction="#handleCbUnit"/>
+
+
+                            <Label fx:id="lbBatch" minWidth="34.0" style="-fx-font-weight: bold; -fx-font-size: 14px;"
+                                   text="Batch"/>
+
+                            <TextField minWidth="100" prefWidth="130" maxWidth="130" promptText="Batch" HBox.hgrow="ALWAYS"
+                                       fx:id="tfBatch"/>
+
+                            <Label fx:id="lbOpeningQty" minWidth="34.0" style="-fx-font-weight: bold; -fx-font-size: 14px;"
+                                   text="Opening Qty"/>
+
+                            <TextField minWidth="50" prefWidth="50" maxWidth="50" promptText="0" HBox.hgrow="ALWAYS"
+                                       fx:id="tfOpeningQty"/>
+
+                            <Label fx:id="lbFreeQty" minWidth="34.0" style="-fx-font-weight: bold; -fx-font-size: 14px;"
+                                   text="Free Qty"/>
+
+                            <TextField minWidth="50" prefWidth="50" maxWidth="50" promptText="0" HBox.hgrow="ALWAYS"
+                                       fx:id="tfFreeQty"/>
+
+                            <Label fx:id="lbMRP" minWidth="34.0" style="-fx-font-weight: bold; -fx-font-size: 14px;"
+                                   text="MRP"/>
+
+                            <TextField minWidth="100" prefWidth="130" maxWidth="130" promptText="0.0" HBox.hgrow="ALWAYS"
+                                       fx:id="tfMRP"/>
+
+                            <Label fx:id="lbPurRate" minWidth="34.0" style="-fx-font-weight: bold; -fx-font-size: 14px;"
+                                   text="Purchase Rate"/>
+
+                            <TextField minWidth="100" prefWidth="130" maxWidth="130" promptText="0.00" HBox.hgrow="ALWAYS"
+                                       fx:id="tfPurRate"/>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" maxHeight="50" minHeight="50" prefHeight="50" spacing="10"
+                              style="-fx-background-color: #f6f6f9;">
+
+                            <padding>
+                                <Insets bottom="10" left="5" right="5" top="10"/>
+                            </padding>
+
+                            <Label fx:id="lbCosting" minWidth="34.0" style="-fx-font-weight: bold; -fx-font-size: 14px;"
+                                   text="Costing"/>
+
+                            <TextField minWidth="100" prefWidth="130" maxWidth="130" promptText="0.00" HBox.hgrow="ALWAYS"
+                                       fx:id="tfCosting"/>
+
+                            <Label fx:id="lbSaleRate" minWidth="34.0" style="-fx-font-weight: bold; -fx-font-size: 14px;"
+                                   text="Sale Rate"/>
+
+                            <TextField minWidth="100" prefWidth="130" maxWidth="130" promptText="0.00" HBox.hgrow="ALWAYS"
+                                       fx:id="tfSaleRate"/>
+
+
+                            <Label fx:id="lbMfgDate" minWidth="34.0" style="-fx-font-weight: bold; -fx-font-size: 14px;"
+                                   text="MFG Date"/>
+
+                            <TextField minWidth="115" prefWidth="115" maxWidth="115" promptText="DD/MM/YYYY" HBox.hgrow="ALWAYS"
+                                       fx:id="tfMfgDate"/>
+
+                            <Label fx:id="lbExpDate" minWidth="34.0" style="-fx-font-weight: bold; -fx-font-size: 14px;"
+                                   text="Expire Date"/>
+
+                            <TextField minWidth="115" prefWidth="115" maxWidth="115" promptText="DD/MM/YYYY" HBox.hgrow="ALWAYS"
+                                       fx:id="tfExpDate"/>
+
+
+                            <Button fx:id="btnSubmit" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="Add" styleClass="sub" onAction="#onClickSubmit"/>
+                            <Button fx:id="btnCancel" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="Clear" styleClass="can" onAction="#onClickCancel"/>
+                        </HBox>
+                    </VBox>
+                </VBox>
+                <VBox>
+
+                    <TableView fx:id="tbOpeningStock" maxHeight="742" minWidth="400" prefHeight="742">
+                        <columns>
+                            <TableColumn minWidth="110" fx:id="tcUnit" text="Unit" />
+
+                            <TableColumn   minWidth="150" fx:id="tcBatch" text="Batch" />
+
+                            <TableColumn  minWidth="50" fx:id="tcOpeningQty" text="Opn Qty" />
+
+                            <TableColumn   minWidth="50" fx:id="tcFreeQty" text="Free Qty" />
+
+                            <TableColumn  minWidth="100" fx:id="tcMRP" text="MRP" />
+
+                            <TableColumn   minWidth="100" fx:id="tcPurRate" text="Pur Rate" />
+
+                            <TableColumn   minWidth="100"  fx:id="tcCosting" text="Costing" />
+
+                            <TableColumn  minWidth="100"  fx:id="tcSaleRate" text="Sale Rate" />
+
+                            <TableColumn   minWidth="100"  fx:id="tcMfgDate" text="MFG Date" />
+
+                            <TableColumn   minWidth="100" fx:id="tcExpireDate" text="Expire Date" />
+
+                        </columns>
+                    </TableView>
+                </VBox>
+                </VBox>
+            </top>
+        </BorderPane>
+    </content>
+    </ScrollPane>

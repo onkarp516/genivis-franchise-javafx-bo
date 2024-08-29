@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.ComboBox?>
+<BorderPane fx:id="bpJournalReportScreen2" style="-fx-background-color: #CEF4FC;"
+            stylesheets="@../../css/gstr1_nil_rated.css"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.opethic.genivis.controller.Reports.Transactions.JournalReportScreen2Controller">
+    <top>
+        <VBox alignment="TOP_CENTER" spacing="20.0" style="-fx-background-color: white;">
+            <VBox>
+                <HBox alignment="CENTER" maxHeight="35" minHeight="35" prefHeight="35"
+                      style="-fx-background-color:  #9EE9F9;">
+
+                    <padding>
+                        <Insets bottom="5" left="20" right="5" top="5"/>
+                    </padding>
+                    <Label style="-fx-font-weight: bold; -fx-font-size: 17px;-fx-text-fill: #040404; "
+                           text="Company : " HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="labelJournalReportScreen2CompanyName" style="-fx-font-weight: bold; -fx-font-size: 17px;-fx-text-fill: #040404; "
+                           text=""/>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" maxHeight="50" minHeight="50" prefHeight="50"
+                      style="-fx-background-color: #CEF4FC;">
+
+                    <padding>
+                        <Insets bottom="20" left="10" right="5" top="20"/>
+                    </padding>
+                    <TextField fx:id="tfJournalReportScreen2LedgerSearch" minWidth="150" prefWidth="180" maxWidth="250"
+                               prefHeight="30.0" promptText="Search" HBox.hgrow="ALWAYS">
+                    </TextField>
+
+                    <Label maxWidth="60" minWidth="60" prefWidth="60"
+                           style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Date" HBox.hgrow="ALWAYS">
+                        <padding>
+                            <Insets left="5" right="5"/>
+                        </padding>
+                    </Label>
+                    <TextField fx:id="dpJournalReportScreen2FromDate" minWidth="150" prefWidth="150" maxWidth="150"
+                               promptText="DD/MM/YYYY" HBox.hgrow="ALWAYS">
+
+                        <padding>
+                            <Insets left="15" right="15"/>
+                        </padding>
+                    </TextField>
+                    <TextField fx:id="dpJournalReportScreen2ToDate" minWidth="150" prefWidth="150" maxWidth="150"
+                               promptText="DD/MM/YYYY" HBox.hgrow="ALWAYS">
+                        <HBox.margin>
+                            <Insets left="5" right="5"/>
+                        </HBox.margin>
+                    </TextField>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <HBox spacing="5">
+                        <Button fx:id="btnJournalReportScreen2pdf" minWidth="20" prefWidth="30" maxWidth="30"
+                                style="-fx-background-color: transparent; -fx-border-color: transparent;"
+                        >
+                            <graphic>
+                                <ImageView fitHeight="25" fitWidth="25">
+                                    <Image url="@../../assets/pdf.png"/>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="btnJournalReportScreen2excel" minWidth="20" prefWidth="30" maxWidth="30"
+                                style="-fx-background-color: transparent; -fx-border-color: transparent;"
+                        >
+                            <graphic>
+                                <ImageView fitHeight="25" fitWidth="25">
+                                    <Image url="@../../assets/excel.png"/>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="btnJournalReportScreen2csv" minWidth="20" prefWidth="30" maxWidth="30"
+                                style="-fx-background-color: transparent; -fx-border-color: transparent;"
+                        >
+                            <graphic>
+                                <ImageView fitHeight="25" fitWidth="25">
+                                    <Image url="@../../assets/csv.png"/>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="btnJournalReportScreen2print" minWidth="20" prefWidth="30" maxWidth="30"
+                                style="-fx-background-color: transparent; -fx-border-color: transparent;"
+                        >
+                            <graphic>
+                                <ImageView fitHeight="25" fitWidth="25">
+                                    <Image url="@../../assets/print.png"/>
+                                </ImageView>
+                            </graphic>
+
+                        </Button>
+                    </HBox>
+                </HBox>
+            </VBox>
+        </VBox>
+    </top>
+    <center>
+        <VBox BorderPane.alignment="CENTER">
+            <children>
+                <TableView fx:id="tvJournalReportScreen2" editable="true" prefHeight="800.0" prefWidth="1900.0">
+                    <columns>
+                        <TableColumn fx:id="tcJournalScreen2Particulars" prefWidth="600.0" text="Particulars" />
+                        <TableColumn fx:id="tcJournalScreen2Transactions" minWidth="0.0" prefWidth="457.0" text="Transactions">
+                            <columns>
+                                <TableColumn fx:id="tcJournalScreen2NoOfVouchers" minWidth="140.0" prefWidth="75.0" text="No. Of Vouchers" />
+                                <TableColumn fx:id="tcJournalScreen2PaymentAmt" minWidth="140.0" prefWidth="75.0" text="Cancelled" />
+                            </columns>
+                        </TableColumn>
+
+                    </columns>
+                </TableView>
+                <HBox style="-fx-background-color: #F8F0D2;">
+                    <padding>
+                        <Insets bottom="0.0" left="6.0" right="6.0" top="0.0"/>
+                    </padding>
+                    <children>
+                        <HBox alignment="CENTER_LEFT" spacing="5" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label style="-fx-font-weight: 600; -fx-font-size: 14px;"
+                                       text="Total"/>
+                                <!--                    <Rectangle fill="#C7CFE0" height="30" width="1" />-->
+                            </children>
+                        </HBox>
+
+                        <HBox alignment="CENTER" minWidth="140.0" spacing="5">
+                            <children>
+                                <!--                    <Rectangle fill="#C7CFE0" height="30" width="1" />-->
+                                <Label fx:id="labelJournalReportScreen2NoOfVoucher"
+                                       style="-fx-font-weight: 600; -fx-font-size: 14px;"
+                                       text="0.00"/>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" minWidth="150.0" spacing="5">
+                            <children>
+                                <!--                    <Rectangle fill="#C7CFE0" height="30" width="1" />-->
+                                <Label fx:id="labelJournalReportScreen2PaymentAmt"
+                                       style="-fx-font-weight: 600; -fx-font-size: 14px;"
+                                       text="0.00"/>
+                            </children>
+                        </HBox>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>
+
+

@@ -1,0 +1,521 @@
+.root {
+    -fx-background-color: #F5F5F5;
+}
+#menubar {
+    -fx-background-color: #0A223F;
+    -fx-font-family: "Roboto";
+}
+.menu-item .label {
+    -fx-font-family: "Roboto";
+    -fx-font-size: 14px;
+}
+
+.menu-button .label .text{
+    -fx-font-family: "Roboto";
+    -fx-font-size: 14px;
+}
+
+.menu-button .arrow {
+    -fx-background-color: transparent;
+}
+
+.tab-header-background {
+    -fx-background-color: #0A223F;
+}
+
+.tab-content {
+    -fx-background-color:  #FFFFFF;
+     -fx-pref-height: 35
+
+}
+
+.tab-pane {
+ selected-tab-color: #D9F0FB;
+-fx-background-color: #D9F0FB;
+ -fx-font-size: 14;
+}
+
+.tab:selected {
+    -fx-background-color: selected-tab-color ;
+        -fx-border-width: 0 0 1 0; /* top right bottom left */
+        -fx-border-color: transparent transparent #D9F0FB transparent;
+}
+
+/*Common CSS for components=================================================================================================================================*/
+
+/*TABLEVIEW==================================================================================================================================*/
+/*
+.table-view {
+    -fx-padding: 0px; /* Adjust the padding as needed
+}
+.table-view .column-header .label{
+    -fx-font-family: "Inter", sans-serif;
+    -fx-text-fill: black;
+    -fx-alignment:CENTER-LEFT;
+}
+
+.table-view .column-header,
+.table-view .column-header .filler,
+.table-view .column-header-background .filler {
+    -fx-background-color: #ffedcc;
+     -fx-font-size: 12pt;
+    -fx-alignment: CENTER_LEFT;
+}
+.table-view .table-cell {
+    -fx-font-size: 14px;
+     -fx-alignment: CENTER_LEFT;
+}
+
+.table-view .cell{
+	 -fx-cell-size: 40;
+
+}
+.table-view .column-header {
+    -fx-alignment: CENTER_LEFT;
+}
+
+
+.table-view .table-cell{
+    -fx-border-color: transparent;
+    -fx-padding: 2 0 2 10px;
+}
+
+/*
+.table-row-cell: hover {
+    -fx-background-color: #bfe5f2;
+}
+
+.table-row-cell: odd{
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+.table-row-cell: even{
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+
+.table-row-cell:odd,
+.table-row-cell:even {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #e6e5e5 transparent; /* Adjust border color as needed */
+   /* -fx-border-width: 0 0 1 0; /* Adjust border width as needed */
+}
+
+/*
+.table-row-cell:filled:selected:hover {
+    -fx-background-color: #153051;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #E1E0E0;
+     -fx-text-background-color: black;
+}
+
+.table-view:focused {
+    -fx-background-color: -fx-box-border, -fx-control-inner-background;
+    -fx-background-insets: 0, 1;
+}
+
+.table-view:hover {
+    -fx-cursor: hand;
+}  */
+/*==========================================================================================================================================*/
+
+/*SUBMIT========================================================================================================================================*/
+#submit-btn {
+    -fx-padding: 5px 14px;
+    -fx-font-family: "Inter", sans-serif;
+    -fx-pref-width: 90px;
+    -fx-pref-height: 34px;
+    -fx-border-radius: 6px;
+    -fx-margin-left: 10px;
+    -fx-font-size: 14px;
+    -fx-text-fill: #21c78a;
+    -fx-background-color: transparent;
+    -fx-border-width: 2px;
+    -fx-border-color: #22c55e;
+    -fx-font-weight: bold;
+}
+
+#submit-btn:hover, #submit-btn:focused {
+    -fx-padding: 5px 14px;
+    -fx-font-family: "Inter", sans-serif;
+    -fx-pref-width: 90px;
+    -fx-pref-height: 34px;
+    -fx-border-radius: 4px;
+    -fx-text-fill: white;
+    -fx-margin-left: 10px;
+    -fx-font-size: 14px;
+    -fx-background-color: #22c55e;
+    -fx-border-width: 2px;
+    -fx-border-color: #22c55e;
+    -fx-background-radius: 6px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+/*==========================================================================================================================================*/
+
+/*CANCEL====================================================================================================================================*/
+#cancel-btn {
+    -fx-padding: 5px 14px;
+    -fx-font-family: "Inter", sans-serif;
+    -fx-pref-width: 90px;
+    -fx-pref-height: 25px;
+    -fx-border-radius: 6px;
+    -fx-margin-left: 10px;
+    -fx-font-size: 14px;
+    -fx-text-fill: #A0AAB4;
+    -fx-background-color: transparent;
+    -fx-border-width: 2px;
+    -fx-border-color: #A0AAB4;
+    -fx-font-weight: bold;
+}
+
+#cancel-btn:hover, #cancel-btn:focused {
+    -fx-padding: 5px 14px;
+    -fx-font-family: "Inter", sans-serif;
+    -fx-pref-width: 90px;
+    -fx-pref-height: 25px;
+    -fx-text-fill: white;
+    -fx-border-radius: 4px;
+    -fx-margin-left: 10px;
+    -fx-font-size: 14px;
+    -fx-background-color: #A0AAB4; /* Changed to green */
+    -fx-border-width: 2px;
+    -fx-border-color: #A0AAB4;
+    -fx-background-radius: 6px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+/*==========================================================================================================================================*/
+
+/*toggle button Switch On and Off*/
+/*
+.toggle-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 15;
+    -fx-padding: 5px;
+}
+
+.toggle-button:selected {
+    -fx-background-color: #00FF00;
+}
+*/
+/*COMBOBOX ==================================================================================================================================*/
+/*.combo-box {
+    -fx-background-color: #fff;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 2px;
+    -fx-pref-height: 34px;
+    -fx-pref-width: 300px;
+    -fx-border-width: 1px;
+}*/
+
+.combo-box .text-input {
+    -fx-background-color: transparent;
+    -fx-border-radius: 0px;
+    -fx-border-color: transparent;
+}
+
+.combo-box:focused {
+    -fx-background-color: #f0f0f0;
+    -fx-border-color: #00a0f5;
+    -fx-border-width: 2px;
+}
+
+.combo-box-popup {
+    -fx-background-color: #fff;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 0px;
+    -fx-pref-height: 100px;
+    -fx-pref-width: 300px;
+}
+
+
+.combo-box-popup .list-cell {
+    -fx-text-fill: #333333;
+    -fx-font-size: 14px;
+    -fx-padding: 5px;
+}
+
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: #b3e4ff;
+}
+
+.combo-box-popup .list-view .list-cell:selected {
+    -fx-background-color: #00a0f5;
+    -fx-text-fill: white;
+}
+/*==========================================================================================================================================*/
+
+/*TEXTFIELD===========================================================================================================================*/
+/*
+.text-field {
+ -fx-font-family: "Inter", sans-serif;
+    -fx-background-color: #fff;
+    -fx-border-color: #ccc;
+    -fx-border-width: 1px;
+    -fx-pref-height: 32px;
+    -fx-pref-width: 350px;
+    -fx-border-radius: 3px;
+    -fx-padding: 5px;
+}
+
+.text-field:focused,
+.button:focused {
+-fx-border-width: 2px;
+    -fx-background-color: #f0f0f0;
+    -fx-border-color: #00a0f5;
+}
+*/
+.text-input, .text-input:focused {
+    -fx-prompt-text-fill: derive(-fx-control-inner-background, -30%);
+    -fx-font-size: 14px;
+}
+/*==========================================================================================================================================*/
+/*===========================================Right Side Sign out Menu Button Arrow Hide=====================================================*/
+.custom-menu-button .arrow {
+    -fx-background-color: transparent;
+}
+/*===========================================Right Side Sign out Menu Button Arrow Hide====================================================*/
+
+/*change the color of the menu on Hover in MenuItems*/
+.menu-button .label:hover {
+    -fx-background-color: transparent; /* 10% opacity */
+    -fx-background-radius: 8; /* Set corner radius */
+}
+
+/* Apply focus styling to MenuButton label */
+.menu-button .label:focused {
+    -fx-background-color: rgba(50, 176, 243, 0.2); /* 10% opacity */
+    -fx-background-radius: 8; /* Set corner radius */
+}
+
+/* Apply focus styling to entire MenuButton */
+.menu-button:focused {
+    -fx-background-color: rgba(50, 176, 243, 0.2); /* 10% opacity */
+    -fx-background-radius: 8; /* Set corner radius */
+}
+
+
+/*==========================================================================================================================================*/
+/* Change the color of the menu item on hover */
+.menu-item:hover {
+    -fx-background-color: #FFF9C4;
+}
+
+/* Remove the default focus color */
+.menu-item:focused {
+    -fx-background-color: #FBE947;
+}
+
+/* Remove focus indicator */
+.menu-item:focused .focus-indicator {
+    -fx-background-color: transparent;
+}
+
+/*set the Menus in the MenuItems of equal space from top bottom left right of the inside context box */
+.menu-item {
+    -fx-padding: 8px 25px; /* Adjust the padding values as needed */
+}
+/* this is to increase the width of the Menubutton-menuitems context box width
+.menu-item .label {
+    -fx-pref-width: 200px;
+}
+*/
+/*==========================================================================================================================================*/
+/*All Menus */
+#mbSadmin {
+    -fx-background-color: #0D3B5D;
+}
+
+#mbSadmin .label {
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-family: "Inter";
+    -fx-font-weight: 800;
+}
+
+
+#mbSadmin .menu-item .label {
+    -fx-text-fill: black;
+}
+#menus {
+    -fx-background-color: #0D3B5D;
+}
+
+#menus .label {
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-family: "Inter";
+    -fx-font-weight: 800;
+}
+
+
+#menus .menu-item .label {
+    -fx-text-fill: black;
+}
+
+#menusSales {
+    -fx-background-color: #0D3B5D;
+}
+
+#menusSales .label {
+    -fx-text-fill: white; /* Set text color */
+    -fx-font-size: 15px; /* Set text size */
+    -fx-font-family: "Inter"; /* Set font family */
+    -fx-font-weight: 800; /* Set font weight */
+}
+
+
+#menusSales .menu-item .label {
+    -fx-text-fill: black;
+}
+
+#menusPurchase {
+    -fx-background-color: #0D3B5D;
+}
+
+#menusPurchase .label {
+    -fx-text-fill: white; /* Set text color */
+    -fx-font-size: 15px; /* Set text size */
+    -fx-font-family: "Inter"; /* Set font family */
+    -fx-font-weight: 800; /* Set font weight */
+}
+
+
+#menusPurchase .menu-item .label {
+    -fx-text-fill: black;
+}
+
+#menusAccountEntry {
+    -fx-background-color: #0D3B5D;
+}
+
+#menusAccountEntry .label {
+    -fx-text-fill: white; /* Set text color */
+    -fx-font-size: 15px; /* Set text size */
+    -fx-font-family: "Inter"; /* Set font family */
+    -fx-font-weight: 800; /* Set font weight */
+}
+
+
+#menusAccountEntry .menu-item .label {
+    -fx-text-fill: black;
+}
+
+#menusReports {
+    -fx-background-color: #0D3B5D;
+}
+
+#menusReports .label {
+    -fx-text-fill: white; /* Set text color */
+    -fx-font-size: 15px; /* Set text size */
+    -fx-font-family: "Inter"; /* Set font family */
+    -fx-font-weight: 800; /* Set font weight */
+}
+
+
+#menusReports .menu-item .label {
+    -fx-text-fill: black;
+}
+
+#menusUtilities {
+    -fx-background-color: #0D3B5D;
+}
+
+#menusUtilities .label {
+    -fx-text-fill: white; /* Set text color */
+    -fx-font-size: 15px; /* Set text size */
+    -fx-font-family: "Inter"; /* Set font family */
+    -fx-font-weight: 800; /* Set font weight */
+}
+
+
+#menusUtilities .menu-item .label {
+    -fx-text-fill: black;
+}
+
+#menusControls {
+    -fx-background-color: #0D3B5D;
+}
+
+#menusControls .label {
+    -fx-text-fill: white; /* Set text color */
+    -fx-font-size: 15px; /* Set text size */
+    -fx-font-family: "Inter"; /* Set font family */
+    -fx-font-weight: 800; /* Set font weight */
+}
+
+
+#menusControls .menu-item .label {
+    -fx-text-fill: black;
+}
+
+#menusBillFormat {
+    -fx-background-color: #0D3B5D;
+}
+
+#menusBillFormat .label {
+    -fx-text-fill: white; /* Set text color */
+    -fx-font-size: 15px; /* Set text size */
+    -fx-font-family: "Inter"; /* Set font family */
+    -fx-font-weight: 800; /* Set font weight */
+}
+
+
+#menusBillFormat .menu-item .label {
+    -fx-text-fill: black;
+}
+
+#menusGSTR {
+    -fx-background-color: #0D3B5D;
+}
+
+#menusGSTR .label {
+    -fx-text-fill: white; /* Set text color */
+    -fx-font-size: 15px; /* Set text size */
+    -fx-font-family: "Inter"; /* Set font family */
+    -fx-font-weight: 800; /* Set font weight */
+}
+
+
+#menusGSTR .menu-item .label {
+    -fx-text-fill: black;
+}
+
+#userMenu {
+    -fx-background-color: #0D3B5D;
+}
+
+#userMenu .label {
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-family: "Inter";
+    -fx-font-weight: 800;
+}
+
+
+#userMenu .menu-item .label {
+    -fx-text-fill: black;
+}
+
+/*==========================================================================================================================================*/
+
+/*this is to set the Menus Items Box Border color for Top only*/
+.context-menu {
+    -fx-border-color: #04A4F5 transparent transparent transparent;
+    -fx-border-width: 2px; /* top right bottom left */
+}
+
+/* Change the color of the first letter "M" when MenuButton is focused */
+.menu-button:focused .text {
+    -fx-text-fill: white; /* Change the text color to white */
+}
+
+/* Ensure that the underline color matches the text color */
+.menu-button:focused .mnemonic-underline {
+    -fx-stroke: white; /* Change the underline color to white */
+}
+

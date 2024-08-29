@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="purScrollPane" style="-fx-background-color: #d9f0fb;"
+            stylesheets="@../css/TranxCommonCssStyles/tranxCommonCssStyle7.css" xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.opethic.genivis.controller.tranx_purchase.PurchaseOrderToInvoiceController">
+    <top>
+        <VBox id="topMainDiv">
+
+
+            <VBox id="topInnerDiv">
+
+                <HBox id="topInnerHbOne" fx:id="po2iFirstRow" alignment="CENTER_LEFT" spacing="20.0">
+                    <Label id="po2ilblTranxDate" text="Tranx Date"/>
+                    <TextField fx:id="tfTranxDate" promptText="DD/MM/YYYY"/>
+                    <!--                     <Label text="Ledger Name" />-->
+                    <HBox alignment="CENTER_LEFT">
+                        <Label text="Ledger Name"/>
+                        <Label style="-fx-text-fill: red;" text="*"/>
+                    </HBox>
+                    <TextField fx:id="tfLedgerName" promptText="Ledger Name" HBox.hgrow="ALWAYS"/>
+                    <Label text="Supplier GSTIN"/>
+                    <ComboBox fx:id="cbSupplierGSTIN" onAction="#setCbSupplierGSTN" promptText="Select"/>
+                    <Label text="Purchase Serial"/>
+                    <TextField fx:id="tfPurchaseSerial"/>
+                </HBox>
+
+                <HBox id="topInnerHbTwo" fx:id="po2iSecondRow" alignment="CENTER_LEFT" spacing="20.0">
+                    <!--                     <Label text="Invoice No." />-->
+                    <HBox id="po2ilblInvoiceNo" alignment="CENTER_LEFT">
+                        <Label text="Invoice No."/>
+                        <Label style="-fx-text-fill: red;" text="*"/>
+                    </HBox>
+                    <TextField fx:id="tfInvoiceNo" promptText="Invoice No."/>
+                    <!--                     <Label text="Invoice Date" />-->
+                    <HBox id="po2ilblInvoiceDate" alignment="CENTER_LEFT">
+                        <Label text="Invoice Date"/>
+                        <Label style="-fx-text-fill: red;" text="*"/>
+                    </HBox>
+                    <TextField fx:id="tfInvoiceDate" promptText="DD/MM/YYYY"/>
+                    <Label fx:id="label" text="Purchase A/C"/>
+                    <ComboBox fx:id="cbPurchaseAc" onAction="#setCbPurchaseAc" promptText="Select"/>
+                    <Label text="Payment Mode"/>
+                    <!--                                <RadioButton fx:id="rbCredit" onAction="#handlePayAction" minWidth="70" text="Credit"/>-->
+                    <!--                                <RadioButton fx:id="rbCash" onAction="#handlePayAction" minWidth="70" text="Cash"/>-->
+                    <ComboBox fx:id="cmbPaymentMode" onAction="#handleCmbPaymentMode" promptText="Select"
+                              HBox.hgrow="ALWAYS"/>
+                    <Label text="Purc.Orders:"/>
+                    <Label fx:id="purc_orders" text=" "/>
+                    <Label text="Purc.Challan:"/>
+                    <Label fx:id="purc_challan" text=" "/>
+
+                </HBox>
+
+            </VBox>
+
+        </VBox>
+    </top>
+    <center>
+
+        <TableView fx:id="tvPurchaseInvoiceTable" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="tcSrNo" minWidth="35"/>
+                <TableColumn fx:id="tcParticulars" text="Particulars"/>
+                <TableColumn fx:id="tcPackage" text="Package"/>
+                <TableColumn fx:id="tcLevelA" maxWidth="0.0" minWidth="0.0" prefWidth="0.0" text="Level A"/>
+                <TableColumn fx:id="tcLevelB" maxWidth="0.0" minWidth="0.0" prefWidth="0.0" text="Level B"/>
+                <TableColumn fx:id="tcLevelC" maxWidth="0.0" minWidth="0.0" prefWidth="0.0" text="Level C"/>
+                <TableColumn fx:id="tcUnit" text="Unit"/>
+                <TableColumn fx:id="tcBatch" text="Batch"/>
+                <TableColumn fx:id="tcQuantity" text="Qty"/>
+                <TableColumn fx:id="tcFreeQty" text="Free Qty"/>
+                <TableColumn fx:id="tcRate" text="Rate"/>
+                <TableColumn fx:id="tcGrossAmount" text="Amount"/>
+                <TableColumn fx:id="tcDisPer" text="Dis.%"/>
+                <TableColumn fx:id="tcDisAmt" text="Disc.₹"/>
+                <TableColumn fx:id="tcTax" text="Tax%"/>
+                <TableColumn fx:id="tcNetAmount" text="Net Amt"/>
+                <TableColumn fx:id="tcAction" text="Action"/>
+            </columns>
+        </TableView>
+    </center>
+    <bottom>
+        <HBox fx:id="po2iBottomMain" alignment="CENTER_LEFT" BorderPane.alignment="CENTER_LEFT">
+            <VBox fx:id="po2iBottomFirstV" style="-fx-border-color: #c0cfd6; -fx-border-width: 0 0 0 1px;"
+                  HBox.hgrow="ALWAYS">
+                <TabPane fx:id="tpPurOrderToInvoice" tabClosingPolicy="UNAVAILABLE">
+
+                    <Tab fx:id="tabPurOrderToInvoiceLedger" text="Ledger">
+                        <VBox id="tabMianDiv">
+                            <VBox id="mainGridStyle" alignment="CENTER">
+
+                                <HBox alignment="CENTER_LEFT" spacing="10.0">
+
+                                    <VBox id="rightBorder" spacing="5.0" HBox.hgrow="ALWAYS">
+
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="GST No : "/>
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lbPurOrderToInvoiceLedgerGstNo"
+                                                   text="27ASDFG6789A1Z5"/>
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="FSSAI : "/>
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lbPurOrderToInvoiceLedgerFssai"
+                                                   text="123456789012345"/>
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="License No : "/>
+                                            <Label id="gridCommonTextStyleBlack"
+                                                   fx:id="lbPurOrderToInvoiceLedgerLicense" text="MK478a4dsa516 "/>
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <children>
+                                                <Label style=" -fx-text-fill: #B6762B;-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                                <Label fx:id="lbPurOrderToInvoiceLedgerLicense1"
+                                                       style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                            </children>
+                                        </HBox>
+
+                                    </VBox>
+
+                                    <VBox id="rightBorder" spacing="5.0" HBox.hgrow="ALWAYS">
+                                        <HBox>
+                                            <Label id="gridCommonTextStyle" text="Area : "/>
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lbPurOrderToInvoiceLedgerArea"
+                                                   text="Solapur, Maharashtra"/>
+                                        </HBox>
+                                        <HBox>
+                                            <Label id="gridCommonTextStyle" text="Bank : "/>
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lbPurOrderToInvoiceLedgerBank"
+                                                   text="Bank of Maharashtra"/>
+                                        </HBox>
+                                        <HBox>
+                                            <Label id="gridCommonTextStyle" text="Route : "/>
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lbPurOrderToInvoiceLedgerRoute"
+                                                   text="Hyderabad"/>
+                                        </HBox>
+
+                                    </VBox>
+
+                                    <VBox spacing="5.0" styleClass="ledgerSingleInfo" HBox.hgrow="ALWAYS">
+                                        <HBox>
+                                            <Label id="gridCommonTextStyle" text="Contact Person : "/>
+                                            <Label id="gridCommonTextStyleBlack"
+                                                   fx:id="lbPurOrderToInvoiceLedgerContactPerson" text="9057481351"/>
+                                        </HBox>
+                                        <HBox>
+                                            <Label id="gridCommonTextStyle" text="Transport : "/>
+                                            <Label id="gridCommonTextStyleBlack"
+                                                   fx:id="lbPurOrderToInvoiceLedgerTransport" text="BLueDart"/>
+                                        </HBox>
+                                        <HBox>
+                                            <Label id="gridCommonTextStyle" text="Credit Days : "/>
+                                            <Label id="gridCommonTextStyleBlack"
+                                                   fx:id="lbPurOrderToInvoiceLedgerCreditDays" text="55"/>
+                                        </HBox>
+
+                                    </VBox>
+
+                                </HBox>
+
+                            </VBox>
+                        </VBox>
+                    </Tab>
+                    <Tab fx:id="tabPurOrderToInvoiceProduct" text="Product">
+                        <VBox id="tabMianDiv">
+                            <VBox id="mainGridStyle" alignment="CENTER">
+                                <HBox alignment="CENTER" spacing="10.0">
+
+                                    <VBox id="rightBorder" spacing="5.0" HBox.hgrow="ALWAYS">
+
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Brand : "/>
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lbPurOrderToInvoiceProductBrand"
+                                                   text="Harman Kardon"/>
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Group : "/>
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lbPurOrderToInvoiceProductGroup"
+                                                   text="Crown C210"/>
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Sub-Group : "/>
+                                            <Label id="gridCommonTextStyleBlack"
+                                                   fx:id="lbPurOrderToInvoiceProductSubGroup" text="JBL SUB "/>
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Category : "/>
+                                            <Label id="gridCommonTextStyleBlack"
+                                                   fx:id="lbPurOrderToInvoiceProductCategory" text="DUAL 18'"/>
+                                        </HBox>
+
+                                    </VBox>
+
+                                    <VBox id="rightBorder" spacing="5.0" HBox.hgrow="ALWAYS">
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="HSN : "/>
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lbPurOrderToInvoiceProductHsn"
+                                                   text="255"/>
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Tax Type : "/>
+                                            <Label id="gridCommonTextStyleBlack"
+                                                   fx:id="lbPurOrderToInvoiceProductTaxType" text="Taxable"/>
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Tax% : "/>
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lbPurOrderToInvoiceProductTax"
+                                                   text="28%"/>
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Margin% : "/>
+                                            <Label id="gridCommonTextStyleBlack"
+                                                   fx:id="lbPurOrderToInvoiceProductMargin" text="10% "/>
+                                        </HBox>
+
+                                    </VBox>
+
+                                    <VBox spacing="5.0" styleClass="ledgerSingleInfo" HBox.hgrow="ALWAYS">
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Cost : "/>
+                                            <Label id="gridCommonTextStyleBlack" fx:id="lbPurOrderToInvoiceProductCost"
+                                                   text="10,1000"/>
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Shelf ID : "/>
+                                            <Label id="gridCommonTextStyleBlack"
+                                                   fx:id="lbPurOrderToInvoiceProductShelfId" text="J84BL"/>
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Min Stock : "/>
+                                            <Label id="gridCommonTextStyleBlack"
+                                                   fx:id="lbPurOrderToInvoiceProductMinStock" text="500"/>
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Max Stock : "/>
+                                            <Label id="gridCommonTextStyleBlack"
+                                                   fx:id="lbPurOrderToInvoiceProductMaxStock" text="10000 "/>
+                                        </HBox>
+
+                                    </VBox>
+
+                                </HBox>
+                            </VBox>
+                        </VBox>
+                    </Tab>
+                    <Tab fx:id="tabPurOrderToInvoiceBatch" text="Batch">
+                        <VBox id="tabMianDiv">
+                            <VBox id="mainGridStyle" alignment="CENTER">
+
+                                <HBox alignment="CENTER" spacing="10.0">
+
+                                    <VBox id="rightBorder" spacing="5.0" HBox.hgrow="ALWAYS">
+
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Batch : "/>
+                                            <Label id="gridCommonTextStyleBlack" text="101"/>
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="MRP : "/>
+                                            <Label id="gridCommonTextStyleBlack" text="900"/>
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Cess% : "/>
+                                            <Label id="gridCommonTextStyleBlack" text="10% "/>
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Total Amount : "/>
+                                            <Label id="gridCommonTextStyleBlack" text="90,000 "/>
+                                        </HBox>
+
+                                    </VBox>
+
+                                    <VBox id="rightBorder" spacing="5.0" HBox.hgrow="ALWAYS">
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="MFG Date : "/>
+                                            <Label id="gridCommonTextStyleBlack" text="10/10/2023"/>
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Purchase Rate : "/>
+                                            <Label id="gridCommonTextStyleBlack" text="750"/>
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Cess₹ : "/>
+                                            <Label id="gridCommonTextStyleBlack" text="412"/>
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="FSR : "/>
+                                            <Label id="gridCommonTextStyleBlack" text="650"/>
+                                        </HBox>
+
+                                    </VBox>
+
+                                    <VBox spacing="5.0" styleClass="ledgerSingleInfo" HBox.hgrow="ALWAYS">
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Available Stock : "/>
+                                            <Label id="gridCommonTextStyleBlack" text="90"/>
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Disc.₹ : "/>
+                                            <Label id="gridCommonTextStyleBlack" text="100"/>
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Margin% : "/>
+                                            <Label id="gridCommonTextStyleBlack" text="10%"/>
+                                        </HBox>
+                                        <HBox spacing="5.0">
+                                            <Label id="gridCommonTextStyle" text="Sales Rate : "/>
+                                            <Label id="gridCommonTextStyleBlack" text="550"/>
+                                        </HBox>
+
+                                    </VBox>
+
+                                </HBox>
+                            </VBox>
+                        </VBox>
+                    </Tab>
+                </TabPane>
+                <HBox alignment="CENTER_LEFT">
+                    <Label style=" -fx-text-fill: #4d4d4d; -fx-font-weight: bold; -fx-font-size: 14px;"
+                           text="Narrations"/>
+                    <TextField fx:id="tfNarration" promptText="Enter Narration" HBox.hgrow="ALWAYS"/>
+                    <padding>
+                        <Insets left="10.0" right="10.0"/>
+                    </padding>
+                </HBox>
+                <VBox id="supplierTableMainDiv">
+                    <TableView fx:id="tvInvoiceProductHistory" stylesheets="@../css/invoice_product_history_table.css">
+                        <columns>
+                            <TableColumn fx:id="PurOrderToInvoiceProHisSupplierName" text="Supplier Name"/>
+                            <TableColumn fx:id="PurOrderToInvoiceProHisInvNo" text="Inv No"/>
+                            <TableColumn fx:id="PurOrderToInvoiceProHisInvDate" text="Inv Date"/>
+                            <TableColumn fx:id="PurOrderToInvoiceProHisBatch" text="Batch"/>
+                            <TableColumn fx:id="PurOrderToInvoiceProHisMRP" text="MRP"/>
+                            <TableColumn fx:id="PurOrderToInvoiceProHisQty" prefWidth="80" text="Qty"/>
+                            <TableColumn fx:id="PurOrderToInvoiceProHisRate" text="Rate"/>
+                            <TableColumn fx:id="PurOrderToInvoiceProHisCost" text="Cost"/>
+                            <TableColumn fx:id="PurOrderToInvoiceProHisDisPer" text="Dis. %"/>
+                            <TableColumn fx:id="PurOrderToInvoiceProHisDisAmt" text="Dis. ₹"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </VBox>
+            <VBox id="middleMainDiv" fx:id="po2iBottomSecondV" spacing="5.0"
+                  style="-fx-background-color: #d9f0fb; -fx-border-color: #d1dce1; -fx-border-width: 0 0 0 1px;">
+                <HBox alignment="CENTER" spacing="10">
+                    <Label id="sclbldisper" style="-fx-font-weight: bold; -fx-text-fill: #362f37;" text="Dis.%"/>
+                    <TextField id="tfDisPer" fx:id="purchase_discount" onKeyTyped="#purc_disc_per" promptText="0"
+                               style="-fx-alignment: center-right;"/>
+                    <Label id="sclbldisamt" style="-fx-font-weight: bold; -fx-text-fill: #362f37;" text="Dis.₹"/>
+                    <TextField id="tfDisAmt" fx:id="purchase_discount_amt" onKeyTyped="#purc_disc_amt" promptText="0.00"
+                               style="-fx-alignment: center-right;"/>
+                </HBox>
+
+                <TableView fx:id="tvGST_Table" stylesheets="@../css/gst_table.css">
+                    <columns>
+                        <TableColumn fx:id="tc_gst" text="GST"/>
+                        <TableColumn fx:id="tc_cgst" text="CGST"/>
+                        <TableColumn fx:id="tc_sgst" text="SGST"/>
+                        <TableColumn fx:id="tc_igst" text="IGST"/>
+                    </columns>
+                </TableView>
+                <HBox>
+                    <children>
+                        <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label style="-fx-font-weight: bold;" text="Total"/>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label style="-fx-font-weight: bold;" text="0.00"/>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label style="-fx-font-weight: bold;" text="0.00"/>
+                            </children>
+                        </HBox>
+                    </children>
+                </HBox>
+                <Region VBox.vgrow="ALWAYS"/>
+                <VBox spacing="5">
+                    <HBox spacing="10.0">
+                        <Label style="-fx-text-fill: #B67868; -fx-font-weight: bold;" text="Total Qty : "/>
+                        <Label fx:id="lblPoToPiTotalQtyEdit" style="-fx-text-fill: #4d4d4d; -fx-font-weight: bold;"
+                               text="00"/>
+                    </HBox>
+                    <HBox spacing="10.0">
+                        <Label style="-fx-text-fill: #B67868; -fx-font-weight: bold;" text="Free Qty : "/>
+                        <Label fx:id="lblPoToPiFreeQtyEdit" style="-fx-text-fill: #4d4d4d; -fx-font-weight: bold;"
+                               text="0"/>
+                    </HBox>
+                    <HBox spacing="5.0">
+                        <CheckBox fx:id="chbRounfOff" style="-fx-font-size: 12.5;"/>
+                        <Label style="-fx-text-fill: #B67868; -fx-font-weight: bold;" text="  R.Off(+/-) : "/>
+                        <Label fx:id="lblPoToPiRoundOffEdit" style="-fx-text-fill: #4d4d4d; -fx-font-weight: bold;"/>
+                    </HBox>
+                </VBox>
+            </VBox>
+            <VBox fx:id="po2iBottomThirdV" style="-fx-border-color: #c0cfd6; -fx-border-width: 0 0 0 1;">
+                <VBox fx:id="po2iTotalMainDiv" spacing="20.0" style="-fx-background-color: #d2f7e9;">
+                    <children>
+                        <VBox id="sqtotalFirst" fx:id="po2iTotalMainInnerDiv" alignment="TOP_CENTER" spacing="10.0"
+                              style="-fx-background-color: #d2f7e9;">
+                            <HBox alignment="CENTER_LEFT" spacing="15.0">
+                                <children>
+                                    <Button id="add_charges" fx:id="add_charges" onAction="#onClickAdditionalCharges"
+                                            text="Add Charges"/>
+                                    <Region HBox.hgrow="ALWAYS"/>
+                                    <TextField id="tfCommonWidth" fx:id="tfAddCharges" promptText="0.00"
+                                               style="-fx-alignment: center-right;"/>
+                                </children>
+                            </HBox>
+
+                            <HBox alignment="CENTER_LEFT">
+                                <Label style="-fx-font-weight: bold; -fx-text-fill: #362f37;" text="Gross Total"/>
+                                <Region HBox.hgrow="ALWAYS"/>
+                                <Label fx:id="lbGrossTotal" style="-fx-font-weight: bold; -fx-text-fill: #362f37;"
+                                       text="0.00"/>
+                            </HBox>
+
+                            <HBox alignment="CENTER_LEFT">
+                                <Label style="-fx-font-weight: bold; -fx-text-fill: #362f37;" text="Discount"/>
+                                <Region HBox.hgrow="ALWAYS"/>
+                                <Label fx:id="lbDiscount" style="-fx-font-weight: bold; -fx-text-fill: #362f37;"
+                                       text="0.00"/>
+                            </HBox>
+
+                            <HBox alignment="CENTER_LEFT">
+                                <Label style="-fx-font-weight: bold; -fx-text-fill: #362f37;" text="Total"/>
+                                <Region HBox.hgrow="ALWAYS"/>
+                                <Label fx:id="lbTotal" style="-fx-font-weight: bold; -fx-text-fill: #362f37;"
+                                       text="0.00"/>
+                            </HBox>
+
+                            <HBox alignment="CENTER_LEFT">
+                                <Label style="-fx-font-weight: bold; -fx-text-fill: #362f37;" text="Tax"/>
+                                <Region HBox.hgrow="ALWAYS"/>
+                                <Label fx:id="lbTax" style="-fx-font-weight: bold; -fx-text-fill: #362f37;"
+                                       text="0.00"/>
+                            </HBox>
+                        </VBox>
+                        <HBox id="sqtotalsecond" alignment="CENTER_LEFT" style="-fx-background-color: #a0efd2;">
+                            <Label id="bigLabel" text="Bill Amount"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Label id="bigLabel" fx:id="lbBillAmount" text="0.00"/>
+                        </HBox>
+                    </children>
+                </VBox>
+                <Region VBox.vgrow="ALWAYS"/>
+                <HBox id="sqbuttonsMainDiv" alignment="CENTER_RIGHT" spacing="10.0">
+                    <Button fx:id="btnSubmit" onAction="#onClickSubmit" styleClass="submit-btn" text="Submit"/>
+                    <Button fx:id="btnCancel" onAction="#onClickCancel" styleClass="cancel-btn" text="Cancel"/>
+                </HBox>
+            </VBox>
+        </HBox>
+    </bottom>
+
+</BorderPane>

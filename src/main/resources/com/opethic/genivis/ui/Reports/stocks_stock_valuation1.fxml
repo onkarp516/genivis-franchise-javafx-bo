@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="mainBorderPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.opethic.genivis.controller.Reports.StocksStockValuation1Controller">
+    <top>
+        <VBox BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER" style="-fx-background-color: #b8e3fa;">
+                    <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-font-weight: 700; -fx-font-size: 16"
+                           text="Stock Valuation">
+                        <font>
+                            <Font size="18.0"/>
+                        </font>
+                    </Label>
+                </HBox>
+                <HBox style="-fx-background-color: #d9f0fb;">
+                    <VBox.margin>
+                        <Insets bottom="10.0"/>
+                    </VBox.margin>
+                    <ComboBox fx:id="cbFilter" maxWidth="140.0" minWidth="140.0" prefHeight="30.0" prefWidth="140.0" onKeyTyped="#fetchStockValuation1ListByFilterSearch"
+                              promptText="Filter Search" HBox.hgrow="ALWAYS">
+                        <HBox.margin>
+                            <Insets left="10.0" top="10.0"/>
+                        </HBox.margin>
+                    </ComboBox>
+                    <TextField fx:id="tfStockValuation1ListSearch" maxWidth="300" minWidth="300.0" prefHeight="30.0"
+                               prefWidth="300.0" promptText="Search" HBox.hgrow="ALWAYS">
+                        <HBox.margin>
+                            <Insets right="10.0" top="10.0"/>
+                        </HBox.margin>
+                    </TextField>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <HBox alignment="CENTER_RIGHT" spacing="10.0" HBox.hgrow="ALWAYS">
+                        <children>
+                            <Button fx:id="btExportPdf" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../assets/pdf.png"/>
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                                <HBox.margin>
+                                    <Insets />
+                                </HBox.margin>
+                            </Button>
+                            <Button fx:id="btExportExcel" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../assets/excel.png"/>
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                                <HBox.margin>
+                                    <Insets />
+                                </HBox.margin>
+                            </Button>
+                            <Button fx:id="btExportCsv" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../assets/csv.png"/>
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                                <HBox.margin>
+                                    <Insets />
+                                </HBox.margin>
+                            </Button>
+                            <Button fx:id="btExportPrint" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../assets/print.png"/>
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                                <HBox.margin>
+                                    <Insets />
+                                </HBox.margin>
+                            </Button>
+                        </children>
+                    </HBox>
+                </HBox>
+            </children>
+        </VBox>
+    </top>
+    <center>
+        <VBox>
+            <TableView fx:id="tblvStockValuation1List" editable="true" layoutX="4.0" layoutY="90.0" prefHeight="800.0" prefWidth="1900.0" BorderPane.alignment="CENTER">
+                <columns>
+                    <TableColumn fx:id="tblStockValuation1ProductName" prefWidth="400.0" text="Product Name" />
+                    <TableColumn fx:id="tblStockValuation1Packing" minWidth="0.0" prefWidth="85.0" text="Packing" />
+                    <TableColumn fx:id="tblStockValuation1Batch" minWidth="0.0" prefWidth="90.0" text="Batch" />
+                    <TableColumn fx:id="tblStockValuation1Unit" minWidth="0.0" prefWidth="140.0" text="Unit" />
+                    <TableColumn fx:id="tblStockValuation1Qty" prefWidth="85.0" text="Qty" />
+                    <TableColumn fx:id="tblStockValuation1PurchaseRate" prefWidth="120.0" text="Purchase Rate" />
+                    <TableColumn fx:id="tblStockValuation1ValuationPR" prefWidth="120.0" text="Valuation" />
+                    <TableColumn fx:id="tblStockValuation1CostWithTax" prefWidth="100.0" text="Cost With Tax" />
+                    <TableColumn fx:id="tblStockValuation1ValuationCWT" prefWidth="110.0" text="Valuation" />
+                    <TableColumn fx:id="tblStockValuation1CostWithoutTax" prefWidth="120.0" text="Cost Without Tax" />
+                    <TableColumn fx:id="tblStockValuation1ValuationCT" prefWidth="100.0" text="Valuation" />
+                    <TableColumn fx:id="tblStockValuation1MRP" prefWidth="100.0" text="MRP" />
+                    <TableColumn fx:id="tblStockValuation1ValuationMRP" prefWidth="100.0" text="Valuation" />
+                    <TableColumn fx:id="tblStockValuation1SalesRate" prefWidth="100.0" text="Sales Rate" />
+                    <TableColumn fx:id="tblStockValuation1ValuationSR" prefWidth="100.0" text="Valuation" />
+                </columns>
+                <BorderPane.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </BorderPane.margin>
+            </TableView>
+            <TableView fx:id="tblvStockValuation1List1" editable="true" layoutX="4.0" layoutY="90.0" prefHeight="800.0" prefWidth="1900.0" BorderPane.alignment="CENTER">
+                <columns>
+                    <TableColumn fx:id="tblStockValuation1ProductName1" prefWidth="400.0" text="Product Name" />
+                    <TableColumn fx:id="tblStockValuation1Packing1" minWidth="0.0" prefWidth="85.0" text="Packing" />
+                    <TableColumn fx:id="tblStockValuation1Batch1" minWidth="0.0" prefWidth="90.0" text="Batch" />
+                    <TableColumn fx:id="tblStockValuation1Unit1" minWidth="0.0" prefWidth="140.0" text="Unit" />
+                    <TableColumn fx:id="tblStockValuation1Qty1" prefWidth="85.0" text="Qty" />
+                    <TableColumn fx:id="tblStockValuation1PurchaseRate1" prefWidth="120.0" text="Purchase Rate" />
+                    <TableColumn fx:id="tblStockValuation1ValuationPR1" prefWidth="120.0" text="Valuation" />
+                    <TableColumn fx:id="tblStockValuation1CostWithTax1" prefWidth="100.0" text="Cost With Tax" />
+                    <TableColumn fx:id="tblStockValuation1ValuationCWT1" prefWidth="110.0" text="Valuation" />
+                    <TableColumn fx:id="tblStockValuation1CostWithoutTax1" prefWidth="120.0" text="Cost Without Tax" />
+                    <TableColumn fx:id="tblStockValuation1ValuationCT1" prefWidth="100.0" text="Valuation" />
+                    <TableColumn fx:id="tblStockValuation1MRP1" prefWidth="100.0" text="MRP" />
+                    <TableColumn fx:id="tblStockValuation1ValuationMRP1" prefWidth="100.0" text="Valuation" />
+                    <TableColumn fx:id="tblStockValuation1SalesRate1" prefWidth="100.0" text="Sales Rate" />
+                    <TableColumn fx:id="tblStockValuation1ValuationSR1" prefWidth="100.0" text="Valuation" />
+                </columns>
+                <BorderPane.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </BorderPane.margin>
+            </TableView>
+        </VBox>
+        <!--        stylesheets="@../css/hsnStyle.css"-->
+
+    </center>
+</BorderPane>

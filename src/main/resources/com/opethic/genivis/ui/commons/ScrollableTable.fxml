@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.opethic.genivis.controller.commons.ScrollableTableController"
+            fx:id="apRoot">
+    <padding>
+        <Insets topRightBottomLeft="100"/>
+    </padding>
+<center>
+    <VBox fx:id="vBox"/>
+    <!--<TableView fx:id="tvData" editable="true">
+        <columns>
+            <TableColumn text="Col 1"/>
+            <TableColumn text="Col 2"/>
+            <TableColumn text="Col 3"/>
+            <TableColumn text="Col 4"/>
+        </columns>
+        <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS" />
+        </columnResizePolicy>
+    </TableView>-->
+</center>
+</BorderPane>
